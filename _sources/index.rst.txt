@@ -14,12 +14,17 @@ What's New?
 Welcome to the new web site! I have decided to move away from blog format to a more documentation-based approach. The plan is to write 
 more detailed technical articles and talk links, and try and keep them up-to-date. 
 
+	*September, 2021*
+
+    + Presenting "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_
+      Slides online at https://geographika.github.io/mapserver-state-2021/
+	
     *August, 2019*
 
     + Presenting "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_
-      Slides online at http://www.geographika.net/presentations/mapserver-state-2019/index.html
+      Slides online at https://geographika.github.io/mapserver-state-2019/
     + Presenting "State of GeoExt" at `FOSS4G 2019 <https://2019.foss4g.org>`_
-      Slides online at http://www.geographika.net/presentations/geoext-state-2019/index.html
+      Slides online at https://geographika.github.io/geoext-state-2019/
 
     *April, 2019*
 

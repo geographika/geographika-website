@@ -1,0 +1,132 @@
+Using ArcObjects and .NET in Python
+###################################
+:date: 2011-04-17 13:59
+:author: admin
+:category: arcobjects, programming, python
+:slug: using-arcobjects-and-net-in-python
+:status: published
+
+|image|
+
+This question was posed on the `GIS Stack
+Exchange <http://gis.stackexchange.com/questions/80/how-do-i-access-arcobjects-from-python>`__,
+and the replies include a number of interesting approaches. Below is
+another one.
+
+Why not just use .NET?
+~~~~~~~~~~~~~~~~~~~~~~
+
+I have several years worth of DLLs built using VB.NET and ArcObjects.
+Recently I’ve been using more and more open-source libraries, the
+majority of which can be manipulated using Python.
+
+A major advantage of using a interpreted language (rather than one that
+needs to compile) like Python is that you can easily change paths and
+variables in a script.
+
+You can deliver a folder of .NET ArcObjects DLLs, a sample Python script
+and an end user can automate their workflow themselves. This negates the
+requirement to build a UI on top of your code as a (Python familiar)
+user can script it themselves.
+
+DLLs still have their place as ArcObjects includes many functions not
+available in the ESRI Python libraries. It is also easier to write and
+test ArcObjects code in Visual Studio with all the advantages of error
+checking and auto-completion.
+
+Options
+~~~~~~~
+
+Python is a programming language, but it can and has been implemented
+many times using different underlying technologies. The “default”
+version of Python is implemented in C (and therefore named
+`CPython <http://en.wikipedia.org/wiki/CPython>`__). Jython is
+implemented in Java, and IronPython is implemented in C#.
+
+IronPython therefore seems perfect to use if the majority of your code
+|image|\ is based around the `.NET
+framework <http://www.microsoft.com/net/>`__, however as it is separate
+from standard Python many third-party libraries are incompatible.
+
+*This may no longer be true thanks to the `CPython
+extensions <http://www.voidspace.org.uk/ironpython/cpython_extensions.shtml>`__
+to IronPython, which embeds a CPython interpreter into IronPython �" it
+sounds crazy but apparently works.*
+
+Embedding CPython into IronPython relies upon a library called `Python
+for .NET <http://pythonnet.sourceforge.net/readme.html>`__, which also
+allows .NET libraries to be used in standard CPython. The library can be
+used deparately from IronPython, so the solution I ended up using was
+CPython and the Python for .NET library.
+
+Installation
+~~~~~~~~~~~~
+
+#. 
+
+   .. raw:: html
+
+      <div>
+
+   Go the download page for the Python for .Net project at
+   http://sourceforge.net/projects/pythonnet/files/, and download the
+   appropriate zip file for your existing Python installation (2.5, 2.6
+   or 2.7).
+
+   .. raw:: html
+
+      </div>
+
+#. 
+
+   .. raw:: html
+
+      <div>
+
+   Unzip the file to a folder of your choice. Ideally this should be
+   somewhere on the Python path, but in the sample code below you can
+   add a reference to this folder by changing the path to the
+   pythonnet-2.0-alpha2-clr2.0\_131\_py27\_UCS2 folder.
+
+   .. raw:: html
+
+      </div>
+
+#. 
+
+   .. raw:: html
+
+      <div>
+
+   That’s all you need to do!
+
+   .. raw:: html
+
+      </div>
+
+The sample script below shows how to add references to your own DLLs and
+to the ESRI ArcObject DLLs, open ArcMap, and create classes.
+
+.. raw:: html
+
+   <p>
+   <script src="https://gist.github.com/923954.js"> </script>
+   </p>
+
+As this approach is not ArcObjects specific you can use classes in any
+of your other .NET DLLs, and even classes in .NET .exes.
+
+I can now script all the classes in my .NET DLLs through Python �"
+instantly removing the need for hastily put together user interfaces,
+and fully automating previously manual tasks. It also allows easy
+passing of data between the ESRI and open source stacks. I’ve only
+scripted a few processes so far, but I’ve had no issues yet, and at the
+moment it feels like one of the rare programming occasions where getting
+things to work together was actually easier than expected.
+
+.. |image| image:: images/2011/04/image_thumb1.png
+   :target: images/2011/04/image.png
+.. |image| image:: images/2011/04/image_thumb2.png
+   :target: images/2011/04/image1.png
+
+.. include:: comments/using-arcobjects-and-net-in-python.rst

@@ -1,0 +1,36 @@
+Some ArcToolbox Commands
+########################
+:date: 2007-03-06 19:59
+:author: admin
+:category: arcobjects, esri, programming
+:slug: some-arctoolbox-commands
+:status: published
+
+A few sample ArcToolbox commands I've been using recently. These can be
+run from the command line available in ArcCatalog (in the menu select
+Window >> Command Line).
+
+*workspace C:\\MyPath\\MyGeoDatabase.mdb
+ Intersect (featureClass1'';'featureDataset1\\featureClass2' '')
+my\_output\_featureClass ALL # INPUT*
+
+This automates the Intersect tool, found in ArcToolbox under "Analysis
+Tools >> Overlay >> Intersect" and is useful if this is a process that
+has to be run several times, and can be part of a batch process. The
+first line sets the workspace to a geodatabase containing the two input
+classes, and the second line runs the intersect, outputting all fields
+to *my\_output\_featureClass*.
+
+*workspace C:\\MyPath\\MyGeoDatabase.mdb
+ delete myFeatureClass*
+
+This command deletes a feature class in the geodatabase.
+
+More samples can be found in the ArcGIS Desktop Help under the
+"Geoprocessing tool reference" section.
+
+|commandline|
+
+.. |commandline| image:: wp-content/uploads/2007/03/commandline.png
+
+.. include:: comments/some-arctoolbox-commands.rst

@@ -1,0 +1,116 @@
+Masquerades, Geocaching, and Easter Eggs
+########################################
+:date: 2010-04-02 12:10
+:author: admin
+:category: general, opinion
+:tags: easter eggs, garcia, geocaching, jerry, kitt williams, treasure
+:slug: masquerades-geocaching-and-easter-eggs
+:status: published
+
+|Masquerade|\ Thirty years ago `Kitt
+Williams <http://en.wikipedia.org/wiki/Kit_Williams>`__ wrote, or rather
+painted, the children’s book 
+`Masquerade <http://www.amazon.com/gp/product/080523747X?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=080523747X>`__.
+Each page had a picture that contained hidden clues pointing to the
+location of an 18-carat gold, `jewel-encrusted
+hare <http://www.guardian.co.uk/artanddesign/2009/aug/20/kit-williams-golden-hare-masquerade>`__
+buried somewhere in Britain. It sparked a National treasure hunt and
+sold 2 million copies.
+
+I remember being fascinated with the pictures and the theories and
+solutions bandied about by those older and wiser than I. The majority of
+programmers seem to have a fondness for puzzles and riddles, and the
+beauty and success of the book was that it involved transposing clues to
+maps and real-world locations.
+
+Geocaching
+~~~~~~~~~~
+
+Geocaching could be seen as a successor to Williams’s book.  As someone
+working in technology and geography it should seemingly be an ideal
+pastime. However the fact geocaching is a `trademarked
+word <http://tess2.uspto.gov/bin/showfield?f=doc&state=4010:sfj3s6.2.1>`__
+owned by a company named `Groundspeak <http://www.groundspeak.com/>`__
+kills a little of the mystique. Secondly it appears to me to be the
+equivalent of driving around in the middle of nowhere with a bad in-car
+GPS trying to find an address that’s missing from the database.
+
+I wouldn’t go as far as police Inspector Tyrus Cameron who `mistook a
+geocache for a
+bomb <http://www.canada.com/ottawacitizen/news/story.html?id=c7628126-a0f6-4a9e-a396-a40fa1948eab>`__
+and was quoted as saying:
+
+    *“They can have their fun, but we can’t be responding in this
+    nature, or it’s a huge issue for the citizens of the city.”*
+
+But it does seems to be a mechanical process with little puzzle-solving
+involved. As I’ve never tried it my opinion clearly counts for little,
+and I’m open to persuasion.
+
+Easter Eggs
+~~~~~~~~~~~
+
+In keeping with the theme of buried secrets and Easter, I’m wondering if
+the programmer tradition of inserting `Easter
+Eggs <http://en.wikipedia.org/wiki/Easter_egg_%28media%29>`__ into
+software is now extinct. Microsoft have hidden many `eggs over the
+years <http://content.techrepublic.com.com/2346-10877_11-161976.html>`__,
+but now officially ban the practice to calm corporate security concerns.
+And where Microsoft lead, desktop GIS will undoubtedly follow.
+
+Previously typing `Jerry in
+ArcMap <http://www.eggheaven.com/eggs/software/1257-arcmap>`__ version
+8.x would pop up an image of `the man
+himself <http://en.wikipedia.org/wiki/Jerry_Garcia>`__. This has been
+“fixed” from version 9.1 on as it seemingly caused `issues for several
+users <http://forums.esri.com/Thread.asp?c=93&f=982&t=62574>`__ while
+editing.
+
+Google Maps has `a few Easter
+Eggs <http://www.eeggs.com/tree/11263.html>`__, and this year the
+`Australian site <http://maps.google.com.au/>`__ gave directions and
+toll information in Aussie dialect for `April Fool’s
+Day <http://en.wikipedia.org/wiki/April_Fools%27_Day>`__ - “\ *Ya might
+have to cough up some cash along here.*\ ” Due to the nature of web
+applications, and Google’s now familiar quirky approach, they aren’t as
+as much of a thrill to find as a mode staid GIS application.
+`FME <http://www.safe.com/>`__ have the `odd
+one-liner <http://geographika.co.uk/baking-donuts>`__ in their
+geo-processing output, and hopefully there are still a few treasures to
+be found, and a few treasures to place.
+
+Riddle Me This
+~~~~~~~~~~~~~~
+
+.. raw:: html
+
+   <div class="mceTemp mceIEcenter" style="text-align: justify;">
+
+|The hare dreamt of parallax scrolling..|
+    Even in 1984 this game only got 3/10
+
+.. raw:: html
+
+   </div>
+
+On my trip down memory lane I found a
+`riddle <http://www.bunnyears.net/kitwilliams/faq.html>`__. A copy of
+`Hareraiser <http://www.bunnyears.net/kitwilliams/Hareraiser_All_Spectrum.zip>`__
+(and `Spectrum
+emulator <http://www.worldofspectrum.org/emulators.html>`__) for the
+answer.
+
+    *There came four men from out the wood
+     Their way was straight and their strength was good
+     Then over a bridge the four men ran
+     To come together as one man
+     There came a horse without a bone
+     That made the four men whine and moan
+     Wood and men and bridge are all but one
+     Put them together and you'll find my riddle is undone.*
+
+.. |Masquerade| image:: images/2010/04/image.png
+   :target: http://en.wikipedia.org/wiki/Masquerade_%28book%29
+.. |The hare dreamt of parallax scrolling..| image:: images/2010/04/image1.png
+
+.. include:: comments/masquerades-geocaching-and-easter-eggs.rst

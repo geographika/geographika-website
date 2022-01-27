@@ -1,0 +1,47 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1904:
+
+.. image:: http://www.gravatar.com/avatar/8815aa8e5b47ca9c65c7ebdf51a6f9f1?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1904>` **David**
+**
+
+I am using SIS to automate stuff here in Japan. My company, or rather my
+division, nearly lives entirely off programming for the SIS API.
+
+I only just started and find it a bit of a nightmare because the API is
+really unintuitive and the documentation is minimal to say the least (I
+rely on the online documentation though...). And the thing with having
+to work with named lists is a big pain in the backside as you say!
+
+One thing about the FindOverlayByName() function you posted above. I
+have been using this method too, primarily because it was in the code I
+inherited. I just realised today that this function will break if any
+one of your overlays has an index greater than the number of indices...
+Can you think of any way to overcome this?
+
+
+.. raw:: html
+
+    <a href="mailto:web+developing-with-cadcorp#1@geographika.co.uk?Subject=developing-with-cadcorp" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+does-sql-azure-have-allure@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Add Comment</a>

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reboot to Refresh Environment Variables &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running Python through Apache" href="running-python-through-apache.html" />
+    <link rel="prev" title="Quantum GIS and MapServer" href="quantum-gis-and-mapserver.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Reboot to Refresh Environment Variables</a><ul>
+<li><a class="reference internal" href="#other-options">Other Options</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="quantum-gis-and-mapserver.html" title="Previous Chapter: Quantum GIS and MapServer"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Quantum GIS a...</span>
+    </a>
+  </li>
+  <li>
+    <a href="running-python-through-apache.html" title="Next Chapter: Running Python through Apache"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Running Pytho... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="reboot-to-refresh-environment-variables">
+<h1>Reboot to Refresh Environment Variables<a class="headerlink" href="#reboot-to-refresh-environment-variables" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-04-06 10:00</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>python, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>environment variables, idle, iis, python</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>reboot-to-refresh-environment-variables</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>I wasn’t aware that if you change Windows environment variables that are
+used by IIS then <strong>you need to reboot the machine</strong> for the changes to
+take effect. As described by <a class="reference external" href="http://w3-4u.blogspot.com/2006/12/qa-iis-and-environment-variable-updates.html">David
+Wong</a></p>
+<blockquote>
+<div><p><em>This is because NT services like IIS inherit their environment from
+services.exe, which does not get updated when you change system
+environment until you reboot.</em></p>
+</div></blockquote>
+<p>This knowledge may save a couple of hours of frustration if you are
+running Python scripts on IIS through
+<a class="reference external" href="http://geographika.co.uk/setting-up-python-on-iis7">PyISAPIe</a>.</p>
+<p><img alt="image" src="../_images/image27.png" /></p>
+<p>If you add paths to your PYTHONPATH or PATH system variables to use a
+Python package (such as MapScript or GDAL), then the same script may run
+without problems in IDLE, but continue to produce errors when run
+through the web server.</p>
+<p>If you are running a script in
+<a class="reference external" href="http://en.wikipedia.org/wiki/IDLE_%28Python%29">IDLE</a> then you need
+to restart IDLE itself to refresh the environment variables.</p>
+<section id="other-options">
+<h2>Other Options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h2>
+<p>I’ve not tried this method myself but <a class="reference external" href="http://www.teachout.com/Blog/tabid/165/EntryId/246/Windows-Environment-Variables-Overrides-for-IIS6.aspx">R.
+Teachout</a>
+suggests a registry hack that allows you to override the Windows
+environment variables in IIS 6.</p>
+<p>You can also override the environment variables in the Python scripts
+themselves. For example to change the GDAL_DRIVER_PATH variable use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>os.environ[“GDAL_DRIVER_PATH”] = “C:\ms4w\gdalplugins”
+</pre></div>
+</div>
+<p>To print out current environment variables (assuming you are testing in
+IDLE):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>print os.getenv(“GDAL_DRIVER_PATH”)
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/feedaefbf39e7c87892041e50db4afa9?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-244" src="http://www.gravatar.com/avatar/feedaefbf39e7c87892041e50db4afa9?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-244"><span class="std std-ref">1.</span></a> <strong>Thomas Wood</strong>
+**</p>
+<p>The royal mail have not relaxed their copyright over the PAF, it was the
+Ordnance Survey that released their copy of the postcode centroids as
+part of their Opendata scheme.</p>
+<a href="mailto:web+politics-it-spending-and-gis#1@geographika.co.uk?Subject=politics-it-spending-and-gis" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-245" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-245"><span class="std std-ref">2.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-244">&#64;Thomas Wood</a></div>
+<div class="line-block">
+<div class="line">Thanks for the clarification - I’ve updated the post with an</div>
+</div>
+</div>
+<p>additional link.</p>
+<a href="mailto:web+politics-it-spending-and-gis#2@geographika.co.uk?Subject=politics-it-spending-and-gis" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+reboot-to-refresh-environment-variables@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

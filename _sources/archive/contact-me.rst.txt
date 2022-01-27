@@ -1,0 +1,12 @@
+Contact Me
+##########
+:date: 2009-09-27 11:20
+:author: admin
+:slug: contact-me
+:status: published
+
+Please use the form below to send me a message:
+
+[contact-form 1 "Contact form 1"]
+
+.. include:: comments/contact-me.rst

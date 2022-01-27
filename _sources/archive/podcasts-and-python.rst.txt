@@ -1,0 +1,37 @@
+Podcasts and Python
+###################
+:date: 2007-08-13 17:45
+:author: geographika
+:category: programming, python
+:slug: podcasts-and-python
+:status: published
+
+I've been listening recently to ".NET Rocks!" twice weekly .NET
+development podcasts. It is very easy to listen to, mainly due to the
+personalities of the presenters, and it gives a good overview of .NET
+develpment and related technologies. Software development as a whole is
+often discussed - test driven development, agile programming,
+management, spaghetti code...
+
+A full `archive <http://www.dotnetrocks.com/archives.aspx>`__\ of
+previous episodes is available for download (for free), and I found an
+epsiode that gives a good introduction to Python - it can be downloaded
+`here <http://www.dotnetrocks.com/default.aspx?showNum=203>`__. I'm
+still not convinced of the use of Python and ArcObjects as explaining
+how to run scripts with parameters to GIS users, or creating custom
+toolboxes, takes as much time as creating a nice UI in Visual Studio. In
+the show one of the presenters asks "*but don't you miss the Visual
+Studio environment and intellisense*?", which I couldn't agree more
+with. However there is also mention of IronPython, which I knew had
+something to do with .NET, but it can also apparently be used within the
+Visual Studio environment which could make life a whole lot easier.
+
+I'm off to download
+`IronPython  <http://www.codeplex.com/Wiki/View.aspx?ProjectName=IronPython>`__\ now...
+
+|Python|
+
+.. |Python| image:: images/2007/08/pyopengllogo.jpg
+   :target: images/2007/08/pyopengllogo.jpg
+
+.. include:: comments/podcasts-and-python.rst

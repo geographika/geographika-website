@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Logging OpenLayers with Firebug &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lorem Ipsum" href="lorem-ipsum.html" />
+    <link rel="prev" title="Linear Referencing in SQL Server 2008" href="linear-referencing-in-sql-server-2008.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Logging OpenLayers with Firebug</a><ul>
+<li><a class="reference internal" href="#console-log">Console.log</a></li>
+<li><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="linear-referencing-in-sql-server-2008.html" title="Previous Chapter: Linear Referencing in SQL Server 2008"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Linear Refere...</span>
+    </a>
+  </li>
+  <li>
+    <a href="lorem-ipsum.html" title="Next Chapter: Lorem Ipsum"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Lorem Ipsum &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="logging-openlayers-with-firebug">
+<h1>Logging OpenLayers with Firebug<a class="headerlink" href="#logging-openlayers-with-firebug" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-04-13 20:07</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>bugs, documentation, javascript, programming, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>debugging, firebug, firefox, javascript, logging, openlayers</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>logging-openlayers-with-firebug</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><img alt="image" src="../_images/image62.png" />I take it as given that anyone developing with Firefox and
+<a class="reference external" href="http://openlayers.org/">OpenLayers</a> has
+<a class="reference external" href="http://getfirebug.com/">Firebug</a> installed. Firebug has a number of
+powerful tools that can make the previous nightmare of JavaScript
+debugging tolerable.</p>
+<p>One feature I recently “discovered” are the logging options. It’s
+definitely a timesaver over my previous method of putting temporary
+alert(vals); throughout my code. As well as debugging the logging is
+very useful for <a class="reference external" href="../category/documentation">automatically
+documenting</a> formulae in JavaScript with
+worked examples that can then be pasted straight into the documentation.</p>
+<p>An example of the logging capabilities can be seen on my sample
+<a class="reference external" href="http://geographika.co.uk/samples/ol_debug.html">OpenLayers page</a>. If
+you already have Firebug installed you should be able to see the output
+similar to that below when the page loads.</p>
+<p><img alt="image" src="../_images/image62.png" /></p>
+<section id="console-log">
+<h2>Console.log<a class="headerlink" href="#console-log" title="Permalink to this headline">¶</a></h2>
+<p>The full range of options for logging can be seen in the Firebug
+<a class="reference external" href="http://getfirebug.com/wiki/index.php/Console_API">Console API wiki
+page</a>. The <a class="reference external" href="http://geographika.co.uk/samples/ol_debug.html">sample
+page</a> has a few
+different logging options briefly explained below.</p>
+<p>To list all properties and functions for the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Layer-js.html">layer
+object</a>
+simply add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">console</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="n">layer</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>To list only an objects properties (without all its associated
+functions), use a construct similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span><span class="n">an</span> <span class="n">alternative</span> <span class="n">to</span> <span class="n">just</span> <span class="nb">list</span> <span class="n">properties</span>
+<span class="n">var</span> <span class="n">prop</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">prop</span> <span class="ow">in</span> <span class="n">layer</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">typeof</span> <span class="n">layer</span><span class="p">[</span><span class="n">prop</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">&#39;function&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> : </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">prop</span><span class="p">,</span> <span class="n">layer</span><span class="p">[</span><span class="n">prop</span><span class="p">]);</span> <span class="o">//</span><span class="n">log</span> <span class="n">values</span> <span class="n">to</span> <span class="n">Firebug</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This example below prints details about the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Map-js.html">map
+object</a>.
+Handily Firebug adds a hyperlink in the output to the line where
+console.info is called. String substitutions can be used (e.g. replace
+%s with a string, or %i with an integer) for easier formatting.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">write</span> <span class="n">out</span> <span class="n">some</span> <span class="n">info</span>
+<span class="n">console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;The map projection is </span><span class="si">%s</span><span class="s2"> and has </span><span class="si">%i</span><span class="s2"> layers&quot;</span><span class="p">,</span> <span class="nb">map</span><span class="o">.</span><span class="n">projection</span><span class="p">,</span> <span class="nb">map</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">length</span><span class="p">);</span>
+<span class="n">console</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Layer Name: </span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Assertions can be placed in code as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">make</span> <span class="n">an</span> <span class="n">assertion</span>
+<span class="n">console</span><span class="o">.</span><span class="k">assert</span><span class="p">(</span><span class="nb">map</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>I was taught to use the <a class="reference external" href="http://en.wikipedia.org/wiki/Assertion_%28computing%29">assert
+statement</a> as
+often as possible in code. Its amazing (and disconcerting) how many
+times “impossible” situations can occur. Whilst assertions are normally
+removed from production code for desktop applications, a JavaScript
+error message may prove invaluable when trying to debug a user’s problem
+remotely. As with everything in programming its a personal choice
+whether or not to use assertions ?” some people clearly <a class="reference external" href="http://stackoverflow.com/questions/1854302/is-assert-evil">assertions are
+evil</a>.</p>
+<p>The console API also supports timers, and writing out the call stack at
+points in your application for when things start getting more
+complicated.</p>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://code.google.com/p/fbug/source/browse/branches/firebug1.6/lite/firebugx.js">This
+function</a>
+makes sure that no JavaScript errors are thrown for browsers without
+Firebug installed. It is included in the sample.</p></li>
+<li><p>Sometimes you may have to restart your browser, or make sure there is
+only one instance of Firefox is running for the logging messages to
+appear.</p></li>
+<li><p>Internet Explorer 8 has similar development tools that can be
+downloaded from the <a class="reference external" href="http://msdn.microsoft.com/en-us/library/dd565628%28VS.85%29.aspx">Microsoft
+site</a>.
+It appears to support similar <a class="reference external" href="http://msdn.microsoft.com/en-us/library/dd565625%28v=VS.85%29.aspx">logging
+functions</a>
+as Firebug, but I’ve not gone into these in any depth.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1039" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1039"><span class="std std-ref">1.</span></a> <strong>SQL Server 2008 Spatial and Oracle Spatial comparison and cheat sheet &amp;laquo; Mapoholic</strong>
+**</p>
+<p>[…] SQL Server does not support any true Linear referencing functions.
+SQL Server Spatial Tools however, provides some rudimentary linear
+referencing functions such as LocateAlongGeog and LocateAlongGeom which
+will return the point at a given instance along a linear object.
+UPDATED: Geographica provides an updated version of SQLSpatialTools
+which includes a new function to display a linear event as well (a
+“LocateLineAlongGeom” function but called CreateLinearReferenceFeature.
+More details can be found at this address:
+<a class="reference external" href="http://geographika.co.uk/linear-referencing-in-sql-server-2008">http://geographika.co.uk/linear-referencing-in-sql-server-2008</a> […]</p>
+<a href="mailto:web+linear-referencing-in-sql-server-2008#1@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/06fb2d00d04e6494b9d77d261c70e135?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1901" src="http://www.gravatar.com/avatar/06fb2d00d04e6494b9d77d261c70e135?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1901"><span class="std std-ref">2.</span></a> <strong>Marco Giana</strong>
+**</p>
+<p>Hi ya,</p>
+<p>how do I down load the code. I went to
+<a class="reference external" href="https://bitbucket.org/geographika/sql-server-spatial-tools">https://bitbucket.org/geographika/sql-server-spatial-tools</a> but I cannot
+figure out how to down load the code as there is nothing in the download
+link.</p>
+<p>Your assistance would be much appreciated.</p>
+<p>Cheers</p>
+<p>Marco</p>
+<a href="mailto:web+linear-referencing-in-sql-server-2008#2@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/06fb2d00d04e6494b9d77d261c70e135?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1902" src="http://www.gravatar.com/avatar/06fb2d00d04e6494b9d77d261c70e135?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1902"><span class="std std-ref">3.</span></a> <strong>Marco Giana</strong>
+**</p>
+<p>Not to worry I figured it out. :)</p>
+<a href="mailto:web+linear-referencing-in-sql-server-2008#3@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/b6a7128fcc31d0f84d3e400d6cdd5fc0?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1923" src="http://www.gravatar.com/avatar/b6a7128fcc31d0f84d3e400d6cdd5fc0?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1923"><span class="std std-ref">4.</span></a> <strong>Cristian Andres Galindo</strong>
+**</p>
+<p>Hello,</p>
+<p>does this function use the M parameter in the line object? or use the
+geographic length of the line?</p>
+<p>thanks</p>
+<a href="mailto:web+linear-referencing-in-sql-server-2008#4@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+logging-openlayers-with-firebug@geographika.co.uk?Subject=logging-openlayers-with-firebug" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+Geomedia WebMap v5.2
+####################
+:date: 2009-02-20 21:05
+:author: admin
+:category: geomedia, opinion, programming
+:slug: geomedia-webmap-v52
+:status: published
+
+I've recently been working again with Intergraph's Geomedia WebMap 5.2.
+Development can be done in .NET, which seemed very advanced a few years
+ago when ESRI's flagship product was ArcIMS..
+
+However it seems that line features can only be rendered as solid lines
+(no dots or dashes)..a very strange oversight, especially when it
+appears the outlines of polygons *can* have linear styling!
+
+I'm going to be installing version 6 soon to see if it has been
+resolved, and see if there are any new features.
+
+.. include:: comments/geomedia-webmap-v52.rst

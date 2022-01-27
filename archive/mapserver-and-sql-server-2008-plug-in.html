@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MapServer and SQL Server 2008 Plug-in &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MapServer, OpenLayers and the WFS Maze" href="mapserver-openlayers-and-the-wfs-maze.html" />
+    <link rel="prev" title="MapInfo and SQL Server 2008" href="mapinfo-and-sql-server-2008.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">MapServer and SQL Server 2008 Plug-in</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="mapinfo-and-sql-server-2008.html" title="Previous Chapter: MapInfo and SQL Server 2008"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; MapInfo and S...</span>
+    </a>
+  </li>
+  <li>
+    <a href="mapserver-openlayers-and-the-wfs-maze.html" title="Next Chapter: MapServer, OpenLayers and the WFS Maze"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">MapServer, Op... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="mapserver-and-sql-server-2008-plug-in">
+<h1>MapServer and SQL Server 2008 Plug-in<a class="headerlink" href="#mapserver-and-sql-server-2008-plug-in" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-12-18 11:52</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>geodatabases, mapserver, sql server 2008</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>mapserver-and-sql-server-2008-plug-in</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p>The <a class="reference external" href="http://mapserver.org/development/rfc/ms-rfc-38.html#usage-details">SQL Server 2008 plugin for
+MapServer</a>is
+a <em>“native driver modeled on the PostGIS driver to</em>
+<a class="reference external" href="images/2009/12/mapserver.png"><img alt="mapserver" src="../_images/mapserver.png" /></a><em>support SQL Server</em> <em>2008’s newly added spatial
+capabilities.”</em> It works fine for displaying data as WMS layers in
+<a class="reference external" href="http://openlayers.org/">OpenLayer</a><a class="reference external" href="http://openlayers.org/">s</a>
+however I ran into all sorts of problems when trying to use the
+GetFeatureInfo WMS query.</p>
+<p>With MapServer 5.2.1  (installed using MapServer for Windows - <a class="reference external" href="http://maptools.org/ms4w/index.phtml?page=downloads.html">MS4W
+v2.3.1</a>) no
+error message was returned, however neither was any data . I initially
+thought this was due to the <a class="reference external" href="http://trac.osgeo.org/mapserver/ticket/3082">following
+bug</a> in the plugin,
+which was <a class="reference external" href="http://n2.nabble.com/ms-sql-2008-spatial-still-problems-td1973412.html">reported to have been fixed for MapServer
+5.4</a>.</p>
+<p>So I tried downloading MS4W v3.0 Beta 7, which included MapServer 5.4,
+and upgraded my installation. The WMS queries still failed but at least
+this time I got an error message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msMSSQL2008LayerGetShape</span><span class="p">():</span> <span class="n">Query</span> <span class="n">error</span><span class="o">.</span> <span class="n">Error</span> <span class="n">executing</span> <span class="n">MSSQL2008</span> <span class="n">SQL</span> <span class="n">statement</span><span class="p">:</span>
+<span class="n">SELECT</span> <span class="n">convert</span><span class="p">(</span><span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">FID</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">SEI_MyTable</span> <span class="n">WHERE</span>
+<span class="n">GEOM</span><span class="o">.</span><span class="n">STIntersects</span><span class="p">(</span><span class="n">Geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;POLYGON((343410.447904052 262585.540545139,</span>
+<span class="mf">343410.447904052</span> <span class="mf">262585.540545139</span><span class="p">,</span><span class="mf">343410.447904052</span> <span class="mf">262585.540545139</span><span class="p">,</span><span class="mf">343410.447904052</span>
+<span class="mf">262585.540545139</span><span class="p">,</span><span class="mf">343410.447904052</span> <span class="mf">262585.540545139</span><span class="p">))</span><span class="o">&amp;</span><span class="c1">#39;,0)) = 1</span>
+
+<span class="o">-</span><span class="p">[</span><span class="n">Microsoft</span><span class="p">][</span><span class="n">ODBC</span> <span class="n">SQL</span> <span class="n">Server</span> <span class="n">Driver</span><span class="p">][</span><span class="n">SQL</span> <span class="n">Server</span><span class="p">]</span><span class="n">A</span> <span class="o">.</span><span class="n">NET</span> <span class="n">Framework</span> <span class="n">error</span> <span class="n">occurred</span> <span class="n">during</span> <span class="n">execution</span> <span class="n">of</span> <span class="n">user</span><span class="o">-</span><span class="n">defined</span> <span class="n">routine</span> <span class="ow">or</span> <span class="n">aggregate</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">geometry</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;:</span>
+<span class="n">System</span><span class="o">.</span><span class="n">FormatException</span><span class="p">:</span> <span class="mi">24305</span><span class="p">:</span> <span class="n">The</span> <span class="n">Polygon</span> <span class="nb">input</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">valid</span> <span class="n">because</span> <span class="n">the</span> <span class="n">ring</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">enough</span> <span class="n">distinct</span> <span class="n">points</span><span class="o">.</span> <span class="n">Each</span> <span class="n">ring</span> <span class="n">of</span> <span class="n">a</span> <span class="n">polygon</span> <span class="n">must</span> <span class="n">contain</span> <span class="n">at</span> <span class="n">least</span> <span class="n">three</span> <span class="n">distinct</span> <span class="n">points</span><span class="o">.</span>
+<span class="n">System</span><span class="o">.</span><span class="n">FormatException</span><span class="p">:</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">Validator</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">Transition</span> <span class="n">transition</span><span class="p">)</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">ForwardingGeoDataSink</span><span class="o">.</span><span class="n">EndFigure</span><span class="p">()</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">OpenGisWktReader</span><span class="o">.</span><span class="n">ParseLineStringText</span><span class="p">()</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">OpenGisWktReader</span><span class="o">.</span><span class="n">ParsePolygonText</span><span class="p">()</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">OpenGisWktReader</span><span class="o">.</span><span class="n">ParseTaggedText</span><span class="p">(</span><span class="n">OpenGisType</span> <span class="nb">type</span><span class="p">)</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">OpenGisWktReader</span><span class="o">.</span><span class="n">Read</span><span class="p">(</span><span class="n">OpenGisType</span> <span class="nb">type</span><span class="p">,</span> <span class="n">Int32</span> <span class="n">srid</span><span class="p">)</span>
+ <span class="n">at</span> <span class="n">Microsoft</span><span class="o">.</span><span class="n">SqlServer</span><span class="o">.</span><span class="n">Types</span><span class="o">.</span><span class="n">SqlGeometry</span><span class="o">.</span><span class="n">GeometryFromText</span><span class="p">(</span><span class="n">OpenGisType</span> <span class="nb">type</span><span class="p">,</span> <span class="n">SqlChars</span> <span class="n">text</span><span class="p">,</span> <span class="n">Int32</span> <span class="n">srid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It appears that no matter what values I passed into my bounding box
+parameter, a spatial query was made using a bounding box / polygon
+consisting of 4 identical points, hence the error from SQL Server. I
+tried a bounding box set to the full extent of my data but still no luck
+- the bbox values made no different at all.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/sei/test.map&amp;service=WMS&amp;
+version=1.1.1&amp;request=GetFeatureInfo&amp;layers=test&amp;query_layers=test&amp;styles=,
+&amp;bbox=0,0,500000,500000&amp;srs=EPSG%3A29902&amp;feature_count=10&amp;x=710&amp;y=132&amp;height=253&amp;
+width=991&amp;info_format=text%2Fhtml
+</pre></div>
+</div>
+<p><a class="reference external" href="http://vbkto.dyndns.org:1280/sdk/Default.aspx">This useful site</a>
+automatically compiles the most recent MapServer versions into binaries
+available or download, however the most recent versions of the plug-in
+still fail.</p>
+<p>I found <a class="reference external" href="http://www.mail-archive.com/mapserver-users&#64;lists.osgeo.org/msg09024.html">a post that had a similar
+issue</a>
+using CGI scripts rather than WMS calls. <a class="reference external" href="http://www.mail-archive.com/mapserver-users&#64;lists.osgeo.org/msg08395.html">A
+suggestion</a>
+was to use the
+<a class="reference external" href="http://mapserver.org/mapfile/layer.html#tolerance">TOLERANCE</a>
+parameter for a layer, to increase the bounding box size, however this
+makes no difference to a WMS GetFeatureInfo query.</p>
+<p>The MapServer 5.4 sourcecode for the plugin can be <a class="reference external" href="http://trac.osgeo.org/mapserver/browser/branches/branch-5-4/mapserver/mapmssql2008.c?rev=9245">seen
+here</a>,
+however it is in C..and I can’t seem to find where the rectangle object
+is passed in or created. It appears Tamas Szekeres has taken over
+updates to this plugin so I’ll try and contact him to make him aware of
+this issue. I’m not sure how many people actually use SQL Server 2008
+and MapServer, but there is <a class="reference external" href="http://www.mail-archive.com/mapserver-users&#64;lists.osgeo.org/msg04552.html">at least one other
+person</a>!</p>
+<p><strong>Update (March 2010):</strong> It appears this issue has now been fixed
+for<a class="reference external" href="http://szekerest.blogspot.com/2010/03/changes-in-mapserver-mssql2008-driver.html">version 5.6 by Tamas
+Szekeres</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Changed the query shape to POINT instead of POLYGON when the area</p></li>
+</ul>
+<p>of the query shape is zero (causing a failure at the server).</p>
+</div></blockquote>
+<p>More details on the issue can be found in the <a class="reference external" href="http://n2.nabble.com/Getfeatureinfo-and-MSsql-2008-server-td4631781.html">MapServer-dev mailing
+list</a>.</p>
+<blockquote>
+<div><p style="text-align: justify;"></div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/01870cfa02e0d16d993a4ab6270e8646?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-180" src="http://www.gravatar.com/avatar/01870cfa02e0d16d993a4ab6270e8646?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-180"><span class="std std-ref">1.</span></a> <strong>Noureddine Farah</strong>
+**</p>
+<p>Hi,</p>
+<p>Glad that you were able to get the fixes for the issues encountered. One
+quick comment about the error and it fixe in MI Pro 10.0.1 maintenance
+release. In the release notes, while one can argue that the description
+might not be very explicit on the error and its message, here is the
+reference to the issue (in the release notes):</p>
+<div class="line-block">
+<div class="line">“</div>
+<div class="line-block">
+<div class="line">C15797 When ArcGIS® 9.2 or 9.3 is installed on the machine MapInfo</div>
+</div>
+</div>
+<p>Professional closes unexpectedly when
+|  opening a Universal Data File.
+|  Resolution: Issue is resolved.
+|  “</p>
+<a href="mailto:web+mapinfo-and-sql-server-2008#1@geographika.co.uk?Subject=mapinfo-and-sql-server-2008" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-181" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-181"><span class="std std-ref">2.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-180">&#64;Noureddine Farah</a></div>
+<div class="line-block">
+<div class="line">Thanks for taking the time to read the post and reply. Just looked</div>
+</div>
+</div>
+<p>through the release notes, and the issue is right at the top of the
+list.
+|  There’s nothing on Google about the error (until this post!), so it
+was hard to narrow down the issue.
+|  The SQL Server data seems to be working perfectly so far (including
+editing), and its nice to see MapInfo take an interest in their users.</p>
+<a href="mailto:web+mapinfo-and-sql-server-2008#2@geographika.co.uk?Subject=mapinfo-and-sql-server-2008" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+mapserver-and-sql-server-2008-plug-in@geographika.co.uk?Subject=mapserver-and-sql-server-2008-plug-in" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

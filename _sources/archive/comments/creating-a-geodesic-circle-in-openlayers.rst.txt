@@ -1,0 +1,38 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-15:
+
+.. image:: http://www.gravatar.com/avatar/e7f2c8dfbae7e8b9bb848809d86192ed?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-15>` **farvish**
+**
+
+Nice article. This error may come due to corruption in database. In this
+situation you can use compact and repair option or `access
+repair <http://www.repair-access-file.com>`__ utility which can fix the
+error and repair database
+
+
+.. raw:: html
+
+    <a href="mailto:web+could-not-use-file-already-in-use#1@geographika.co.uk?Subject=could-not-use-file-already-in-use" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+creating-a-geodesic-circle-in-openlayers@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Add Comment</a>

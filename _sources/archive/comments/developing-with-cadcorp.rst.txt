@@ -1,0 +1,160 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1413:
+
+.. image:: http://www.gravatar.com/avatar/cda1cba19c245f95c9237aa2153155b4?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1413>` **Sebastian**
+**
+
+Great! Thank you for this solution. I have been looking for this for a
+long time.
+
+
+.. raw:: html
+
+    <a href="mailto:web+creating-a-geodesic-circle-in-openlayers#1@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1647:
+
+.. image:: http://www.gravatar.com/avatar/5c2a4d528eff7e17a8fdfca5f9d0c1f2?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1647>` **Hector**
+**
+
+| Hi,
+|  Whaou, this is great ! I was also looking for this.
+
+| I got a question. Does the polyline draw should have a "buffer zone".
+I ask this because, i don't get one.
+|  I need to do a buffer around a polygon. Do you have any idea ? I
+should maybe think about getting the center of my polygon and calculate
+a circle like you did...
+
+| Thanks in advance for any answer.
+|  Great job again.
+
+Hector
+
+
+.. raw:: html
+
+    <a href="mailto:web+creating-a-geodesic-circle-in-openlayers#2@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1702:
+
+.. image:: http://www.gravatar.com/avatar/074874552e440b07bf1c25e4e0f4f001?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1702>` **captdragon**
+**
+
+Awesome! Please submit this to openlayers code and do everyone a favor!
+
+
+.. raw:: html
+
+    <a href="mailto:web+creating-a-geodesic-circle-in-openlayers#3@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1917:
+
+.. image:: http://www.gravatar.com/avatar/745a893b441b157f042e6b7b514da5b0?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-1917>` **Immobilien**
+**
+
+Saved my day! Thanks!
+
+
+.. raw:: html
+
+    <a href="mailto:web+creating-a-geodesic-circle-in-openlayers#4@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1981:
+
+.. image:: http://www.gravatar.com/avatar/d3b9f6b305e834b538e099e731666cfc?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-1981>` **Ralph Dell**
+**
+
+The OpenLayers function was very helpful. It will be in production soon.
+Thank you.
+
+
+.. raw:: html
+
+    <a href="mailto:web+creating-a-geodesic-circle-in-openlayers#5@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-2003:
+
+.. image:: http://www.gravatar.com/avatar/5a4f71bad04f8286a016cf1034c8e65a?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-2003>` **mimina**
+**
+
+Hello !!! it's a Great tutorial by the way !! ^^
+
+| I wanted to integrate the circles in my map (openStreetMap
+(openlayer)), but it doesn't work for me
+|  Should I just call the function createGeodesicPolygon to draw my
+circle or something else
+|  thanks !! ^^
+
+
+.. raw:: html
+
+    <a href="mailto:web+creating-a-geodesic-circle-in-openlayers#6@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+developing-with-cadcorp@geographika.co.uk?Subject=developing-with-cadcorp" target="_top">Add Comment</a>

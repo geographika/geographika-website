@@ -1,0 +1,153 @@
+Visualising GeoJSON in 15 Minutes
+#################################
+:date: 2010-05-24 17:10
+:author: admin
+:category: python, web development
+:tags: cloudmade, descartes, geojson, mapplotlib
+:slug: visualising-geojson-in-15-minutes
+:status: published
+
+The objective of this post is to save a GeoJSON feature collected from
+the web to an image file, and was inspired by the `Shapely
+manual <http://gispython.org/shapely/docs/1.2/manual.html>`__. This will
+be done using Windows, Python 2.5 (although 2.6 should be almost exactly
+the same steps), and some additional Python packages. This example uses
+GeoJSON data from a `CloudMade geocoding
+service <http://geographika.co.uk/?p=517>`__.
+
+|image|
+
+The greatest difficulty when trying to do things in Python is getting
+the right packages to match your Python version, and making sure all the
+package dependencies are in place.
+
+Set Up Steps
+~~~~~~~~~~~~
+
+**1. Download Numpy** from
+http://sourceforge.net/projects/numpy/files/NumPy/. Numpy is *“a package
+that defines a multi-dimensional array object and associated fast math
+functions that operate on it.”*
+
+Check that you download the version that matches your Python
+installation.  In my case I needed
+numpy-1.4.1-win32-superpack-python2.5.exe.
+
+|image|
+
+**2. Download MatPlotLib** from
+http://sourceforge.net/projects/matplotlib/files/. I downloaded
+`matplotlib-0.99.1.win32-py2.5.exe <http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-0.99.1/matplotlib-0.99.1.win32-py2.5.exe/download>`__.
+Again there are many different versions that can be downloaded �" expand
+the arrows to see the options.
+
+There’s even a 64-bit version for Windows. However there doesn’t appear
+to be a 64 bit version of Numpy for Windows, and as Numpy is required by
+MapPlotLib to run I’m not sure how it could ever be of use. This is
+where the whole Python packages and 3rd party libraries gets exceedingly
+confusing..
+
+**3. Install the Python setuptools** from
+http://pypi.python.org/pypi/setuptools. These tools include
+easy\_install which “\ *lets you automatically download, build, install,
+and manage Python packages.*\ ” Again get the relevant Python package in
+my case
+`setuptools-0.6c11.win32-py2.5.exe <http://pypi.python.org/packages/2.5/s/setuptools/setuptools-0.6c11.win32-py2.5.exe#md5=cb0cd7b844bed5106aeb0d4583848b1f>`__.
+
+If you have only installed Python during your log in session then
+`reboot to refresh your environment
+variables. <http://geographika.co.uk/reboot-to-refresh-environment-variables>`__
+This should allow you to use the easy\_install program directly from the
+Windows Command Prompt (by typing easy\_install rather than the full
+path).
+
+**4. We can now install
+`descartes <http://pypi.python.org/pypi/descartes/1.0>`__** using the
+easy\_install program. Descartes is uses *"geometric objects as
+matplotlib paths and patches."* Type the command below (the full path
+may not be required) into a Windows Command Prompt:
+
+::
+
+    C:\Python25\Scripts\easy_install.exe descartes
+
+This command should return output similar to below:
+
+|image|
+
+If you already have IDLE (the Python editor open) then quit it and
+restart. If not you are likely to get “ImportError: No module named X”
+errors, even though the modules have been installed.
+
+**5. You should now be able to run the Python script** below to generate
+a PNG image file of England.
+
+| [python]
+|  from matplotlib import pyplot
+|  from descartes import PolygonPatch
+|  import math
+|  import urllib2
+|  import simplejson
+
+| def getData():
+|  #create the cloudmade query url
+|  root = 'http://geocoding.cloudmade.com'
+|  apikey = '85453debd0fc4ad18c5855c3d8eef780'
+|  query = 'england'
+|  url =
+'%s/%s/geocoding/v2/find.geojs?query=%s&amp;return\_geometry=true' \\
+|  % (root,apikey,query)
+
+| #open the url to get the geojson
+|  return urllib2.urlopen(url).read()
+
+| def configurePlot():
+|  #set up the mapplotlib
+|  fig = pyplot.figure(1, figsize=(10, 4), dpi=180)
+|  ax = fig.add\_subplot(121)
+|  return ax
+
+| def setPlotExtent(ax,data):
+|  #get feature extents (a property of the cloudmade geojson)
+|  #note this was previously bbox
+|  minx = data['bounds'][0][0]
+|  maxx = data['bounds'][1][0]
+|  miny = data['bounds'][0][1]
+|  maxy = data['bounds'][1][1]
+
+| #set the graph axes to the feature extents
+|  ax.set\_xlim(minx,maxx)
+|  ax.set\_ylim(miny,maxy)
+
+| def plotFeature(coordlist, myplot):
+|  #create a polygon geojson-like feature
+|  poly = {"type": "Polygon", "coordinates": coordlist}
+|  patch = PolygonPatch(poly, fc='#6699cc', ec='#6699cc', alpha=0.5,
+zorder=2)
+|  #plot it on the graph
+|  myplot.add\_patch(patch)
+
+| #turn the geojson into a python object
+|  pydata = simplejson.loads(getData())
+|  print pydata
+
+| myplot = configurePlot()
+|  setPlotExtent(myplot,pydata)
+
+| #loop through each polygon in the MULTIPOLYGON collection
+|  for coordlist in pydata['features'][0]['geometry']['coordinates']:
+|  plotFeature(coordlist, myplot)
+
+| #save the plot as an image
+|  pyplot.savefig('myplot.png')
+|  [/python]
+
+I now have a way of easily visualising GeoJSON I have a way of checking
+spatial operations on spatial data manipulated directly from the cloud.
+More to follow.
+
+.. |image| image:: images/2010/05/image3.png
+.. |image| image:: images/2010/05/image4.png
+.. |image| image:: images/2010/05/image5.png
+
+.. include:: comments/visualising-geojson-in-15-minutes.rst

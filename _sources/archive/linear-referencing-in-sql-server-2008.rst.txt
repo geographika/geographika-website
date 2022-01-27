@@ -1,0 +1,97 @@
+Linear Referencing in SQL Server 2008
+#####################################
+:date: 2011-01-22 23:17
+:author: admin
+:category: geodatabases, sql server 2008
+:tags: .net, c++, linear referencing, network
+:slug: linear-referencing-in-sql-server-2008
+:status: published
+
+`|image|\ Linear
+referencing <http://en.wikipedia.org/wiki/Linear_Reference_System>`__ is
+used to define features in relation to existing line features. These new
+features can either be points or lines. For example a water monitoring
+station can be defined as 300m along a section of river, or a stretch of
+road can be defined as requiring repairs, from 220m along to 270m along.
+Most GISs implement this functionality - for details look at the
+`ESRI <http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=An_overview_of_linear_referencing>`__
+and
+`GRASS <http://grass.osgeo.org/grass64/manuals/html64_user/lrs.html>`__
+help pages.
+
+In terms of storing linear referenced point features, you only need
+three fields �" an ID of the original line feature, an ID of the  feature
+to reference along the line, and a M value �" the measurement along the
+original feature. Line features require two measurement fields, a
+starting distance, and an end distance.
+
+Dynamic Segmentation
+~~~~~~~~~~~~~~~~~~~~
+
+Linear referenced features can be stored in a standard table structure.
+What is more complicated however is displaying these features again �" a
+process (termed, at least by ESRI) as dynamic segmentation �" the process
+of dynamically splitting, or segmenting, an existing feature. It’s a
+step up from a standard table join, but essentially has the same purpose
+of relating two records in a database.
+
+`SQL Spatial Tools <http://sqlspatialtools.codeplex.com/>`__ is an open
+source collection of functions to manipulate spatial data within SQL
+Server 2008. It contains a  LocateAlongGeom function that “\ *takes a
+geometry linestring and finds the point a given distance along it.”* So
+that takes care of displaying linear referenced points. What it lacks at
+the moment (and can be found in other spatial databases such as
+`PostGIS <http://postgis.refractions.net/documentation/manual-svn/reference.html#Linear_Referencing>`__
+and
+`Oracle <http://www.oracle.com/technology/sample_code/products/spatial/htdocs/lrs_sample/lrs_example_readme.htm>`__),
+is a way to dynamically create line features using a distance from and a
+distance to. Fortunately the SQL datatypes and existing spatial tool
+functions make this easy to add in.
+
+The Code
+~~~~~~~~
+
+The CreateLinearReferenceFeature code can be seen in the `Function.cs
+file <https://bitbucket.org/geographika/sql-server-spatial-tools/src/tip/Functions.cs>`__.
+The full project is available for download and modifications in
+BitBucket at https://bitbucket.org/geographika/sql-server-spatial-tools.
+As I’m never sure if CodePlex accepts patches or not, I decided to
+create my own fork of the code. I have uploaded the `key files to
+CodePlex <http://sqlspatialtools.codeplex.com/SourceControl/list/patches>`__
+where they will await evaluation. I’d imagine however that there will be
+a new release of the tools by Microsoft for the new `Denali
+release <http://www.microsoft.com/sqlserver/en/us/product-info/future-editions.aspx>`__
+of SQL Server 2008, so this funciton may have to be merged into a new
+release in the future.
+
+The SQL Spatial Tools compile to a DLL, and the assembly needs to be
+registered with the database along with all the associated functions. I
+modified the `original SQL
+script <http://sqlspatialtools.codeplex.com/SourceControl/changeset/view/61525#255008>`__
+to include the `new
+functions <https://bitbucket.org/geographika/sql-server-spatial-tools/src/tip/SQL%20Scripts/Register.sql>`__. 
+There is also an 
+`unregister.sql <https://bitbucket.org/geographika/sql-server-spatial-tools/src/9fa85d45d386/SQL%20Scripts/Unregister.sql>`__
+script to remove the assembly and functions. A few caveats on the linear
+refence function:
+
+-  the code has not been tested on the new `SQL Server 2008 curve
+   type <http://www.sqlskills.com/BLOGS/BOBB/post/New-curve-types-in-SQL-Server-Denali-are-now-in-OGC-spec.aspx>`__
+-  the project is written in C# and compiled with Visual Studio 2010
+-  if you give the function a MeasureTo value greater than the length of
+   the feature you will receive the following System.ArgumentException:
+   “\ *MeasureTo value must be less than the length of the feature.* ”
+
+To test out the functionality you can use the SQL script below. Feedback
+and comments appreciated!And no need to store hundreds of little line
+geometries in the same database as your nice clean line networks.
+
+.. raw:: html
+
+   <p style="text-align: justify;">
+   <script src="https://gist.github.com/791340.js?file=LinearReferencingExample.sql"></script>
+   </p>
+
+.. |image| image:: images/2011/01/image_thumb1.png
+
+.. include:: comments/linear-referencing-in-sql-server-2008.rst

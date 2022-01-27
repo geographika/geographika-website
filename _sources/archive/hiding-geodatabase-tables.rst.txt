@@ -1,0 +1,48 @@
+Hiding Geodatabase Tables
+#########################
+:date: 2008-04-03 10:27
+:author: geographika
+:category: arcobjects
+:slug: hiding-geodatabase-tables
+:status: published
+
+The following VBA function hides all on the geodatabase tables added by
+ESRI into an Access database. Useful if you spatially enable your users
+database, and they wonder what all those GDB\_ tables are for..
+
+.. raw:: html
+
+   <div style="text-align:center;">
+
+|GDB Tables|
+
+.. raw:: html
+
+   </div>
+
+| To unhide just change the Trues to False in the code snippet below, or
+add a parameter to the sub.
+| 
+|  ``Public Sub HideGeoDatabaseTables() ``
+
+``Dim strTableName As String For i = 0 To CurrentDb.TableDefs.Count - 1 If CurrentDb.TableDefs(i).Name Like "GDB_*" Then strTableName = CurrentDb.TableDefs(i).Name Access.SetHiddenAttribute acTable, strTableName, True End If NextAccess.SetHiddenAttribute acTable, "SelectedObjects", True Access.SetHiddenAttribute acTable, "Selections", True``
+
+``End Sub``
+
+To view hidden objects in Microsoft Access, go to Options and check the
+"Hidden Objects" box.
+
+.. raw:: html
+
+   <div style="text-align:center;">
+
+|Access Options|
+
+.. raw:: html
+
+   </div>
+
+.. |GDB Tables| image:: images/2008/04/gdb_tables.png
+.. |Access Options| image:: images/2008/04/access_options.png
+
+.. include:: comments/hiding-geodatabase-tables.rst

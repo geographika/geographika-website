@@ -1,0 +1,81 @@
+Automated WMS Testing with Python
+#################################
+:date: 2012-06-23 17:53
+:author: admin
+:category: mapserver, python, wms
+:tags: automation, ogc, PIL, python, wms
+:slug: automated-wms-testing-with-python
+:status: published
+
+.. raw:: html
+
+   <div id="automated-wms-testing-with-python" class="document">
+
+`
+
+|image0| <http://geographika.co.uk/wp-content/uploads/wms_testing/snake.jpg>`__\ This
+post and associated script details how to automate testing WMS (Web
+Mapping Service) layers. When you've set up several MapServer or
+GeoServer instances with 100s of layers, its nice to be able to make
+sure everything continues to run smoothly.
+
+.. raw:: html
+
+   </p>
+
+The automation makes maintenance proactive, rather than reacting to
+client's emails wondering where their data has gone, and it beats
+pasting long obfuscated URLS into a browser and repeatedly pressing F5..
+
+This script combines three of my current favourite Python libraries.
+
+-  `OWSLib <http://www.python.org>`__ a Python OGC Web Service utility
+   library
+-  `PIL <http://www.pythonware.com/products/pil/>`__ - The Python
+   Imaging Library (PIL) used for image processing
+-  `Requests <http://docs.python-requests.org/en/latest/>`__ - a Python
+   library to make web requests - *"HTTP for Humans"*
+
+The PIL site handily contains Windows installers for nearly every
+version of Python. OWSLib and Requests can be added to your Python
+installation with easy\_install, or PIP. I'm currently sticking with
+Python 2.6 as many scripts and packages I'm writing need to work with
+ArcGIS, which requires this version, and also on Windows, which puts me
+very much in the minority in the Python world outside of ESRI users.
+
+In summary the script does the following:
+
+#. Connects to the WMS Server to retrieve a list of all the WMS layers.
+#. For each layer it finds the maximum extent of the layer and its
+   projection code.
+#. A GetMap request is made to the WMS server for the layer at the
+   maximum extent.
+#. Any errors getting the image can be reported. If an image is returned
+   it is analysed to check if it is empty or blank.
+
+.. raw:: html
+
+   <p>
+
+.. raw:: html
+
+   <script src="https://gist.github.com/2978595.js"></script>
+
+.. raw:: html
+
+   </p>
+
+I then adapted the sample script to work with Python's
+`unittest <http://docs.python.org/library/unittest.html>`__ module so I
+could get a nice list of passes and fails for each map layer, and for a
+variety of issues such as HTTP failures or removed layers. It is then a
+simple step to set up a Windows Task Schedule to do a daily check that
+all WMS servers are up and running and returning data.
+
+.. raw:: html
+
+   </div>
+
+.. |image0| image:: images/wms_testing/snake.jpg
+
+.. include:: comments/automated-wms-testing-with-python.rst

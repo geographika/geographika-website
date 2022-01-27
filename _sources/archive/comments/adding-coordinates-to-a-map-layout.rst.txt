@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+adding-coordinates-to-a-map-layout@geographika.co.uk?Subject=adding-coordinates-to-a-map-layout" target="_top">Add Comment</a>

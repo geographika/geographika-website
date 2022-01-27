@@ -1,0 +1,59 @@
+GIS and Licensing for Developers
+################################
+:date: 2009-10-06 19:10
+:author: admin
+:category: general, programming
+:slug: gis-and-licensing-for-developers
+:status: published
+
+.. raw:: html
+
+   <dl id="attachment_119" class="wp-caption alignright" style="width: 150px;">
+   <dt class="wp-caption-dt">
+
+|EDN|
+
+.. raw:: html
+
+   </dt>
+   </dl>
+
+GIS consultants and organisations that use GIS have different needs.
+Consultants tend to use lots of different software, for short amounts of
+time, whereas organisations make daily use of software from a single
+vendor. ESRI have followed Microsoft's approach of a `Developers'
+Network <http://msdn.microsoft.com/en-gb/subscriptions/dd364988.aspx>`__
+(MSDN). This allows the whole ESRI stack to be used for "*development,
+testing, and demonstration*\ " at a reduced price. $1500 dollars gets
+you an `ESRI Developer Network
+subscription <http://www.esri.com/software/arcgis/edn/what-you-get.html>`__,
+rising to $2000 if you also want the desktop applications (ArcMap,
+ArcCatalog etc.).
+
+Getting as many GIS consultants trained in developing for ESRI products
+will result in more ESRI products being used by the consultant's
+clients. However as ESRI also provide `consultancy
+services <http://www.esri.com/services/index.html>`__ independent
+consultants are often direct competitors. This can mean getting a EDN
+license may not be as simple as signing up on the website.
+
+Smaller players in the GIS market may see a consultancy as a chance to
+sell a few licenses, especially if the consultants have to develop for
+top-end products such as web servers. While the client often pays for
+this license during development, once the system is deployed there is no
+easy way to provide maintenance on it without continuing to pay for a
+separate license. I see this as very short-sighted in the long term -
+the barriers to trying out new software for developers should be
+removed, rather than added.
+
+All this is against a backdrop of web mapping (`aka the
+geoweb <http://www.spatiallyadjusted.com/2009/04/12/licensing-on-the-geoweb/>`__)
+APIs from Google and Microsoft which are provided for free, along with
+fast, free, background mapping. The introduction of spatial functions
+into SQL Server 2008 Express has meant that consultants with MSDN
+development can be carried out at no cost.
+
+.. |EDN| image:: images/2009/10/ednglobetrans.gif
+   :target: http://edn.esri.com/
+
+.. include:: comments/gis-and-licensing-for-developers.rst

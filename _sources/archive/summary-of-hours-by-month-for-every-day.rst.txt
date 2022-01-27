@@ -1,0 +1,146 @@
+Summary of Hours by Month (for every day)
+#########################################
+:date: 2010-06-02 11:01
+:author: admin
+:category: general
+:tags: dates, invoice, month, recursion, sql
+:slug: summary-of-hours-by-month-for-every-day
+:status: published
+
+I recently read Mark Forsterâ€™s time management book `Do It
+Tomorrow <http://www.amazon.com/gp/redirect.html?ie=UTF8&location=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fyourstore%3Fie%3DUTF8%26ref_%3Dpd%5Firl%5Fgw%26signIn%3D1&tag=geographika-20&linkCode=ur2&camp=1789&creative=390957>`__.
+In summary it suggests creating a task list on a daily basis, and not
+doing anything other than from items in that list. Only *real*
+emergencies should be dealt with.
+
+If emails arrive that have to be dealt with then add them to tomorrowâ€™s
+list â€" that way you have a chance of completing your tasks for a day,
+and can switch off the computer feeling that youâ€™re finished for the
+day.
+
+There is also a chapter at the end of the book that says anytime
+invested in improving systems and processes is time gained. This fits in
+with the ethos of many programming books â€" to automate things as much as
+possible.
+
+As I work on a number of different client projects I use a time tracking
+database to enter hours worked on a daily basis. It is fairly trivial to
+get a summary of hours for a month, but what I needed to provide (for
+invoicing) was a full list of days in a month and hours worked â€" whether
+there were values or not.
+
+Solution
+~~~~~~~~
+
+To test the solution you can create a temporary table to mock the hours
+worked for a project. Running the following SQL should produce a table
+similar to below:
+
+| [sql]CREATE TABLE #WorkingHours (
+|  [Date] datetime,
+|  [Duration] decimal(18,2),
+|  [ProjectId] int)
+|  GO
+
+| INSERT INTO #WorkingHours ([Date],[Duration],[ProjectId])
+|  VALUES(CONVERT(datetime, '20100503'),8.5,18)
+|  GO
+|  INSERT INTO #WorkingHours ([Date],[Duration],[ProjectId])
+|  VALUES(CONVERT(datetime, '20100504'),8,18)
+|  GO
+|  INSERT INTO #WorkingHours ([Date],[Duration],[ProjectId])
+|  VALUES(CONVERT(datetime, '20100507'),7.5,18)
+|  GO
+|  INSERT INTO #WorkingHours ([Date],[Duration],[ProjectId])
+|  VALUES(CONVERT(datetime, '20100508'),7,18)
+|  GO
+|  INSERT INTO #WorkingHours ([Date],[Duration],[ProjectId])
+|  VALUES(CONVERT(datetime, '20100511'),8.5,18)
+|  GO
+
+| SELECT \* FROM #WorkingHours
+|  GO[/sql]
+
+|image|
+
+Now to create a list of dates for the previous month use the following
+SQL:
+
+| [sql]WITH LastMonthsDates
+|  AS
+|  (
+|  --first day of last month
+|  SELECT DATEADD(m,-1,DATEADD(dd,-(DAY(GETDATE())-1),GETDATE()))
+|  AS [calendardate]
+|  UNION ALL
+|  SELECT DATEADD(dd, 1, [calendardate])
+|  FROM LastMonthsDates
+|  --less than or equal to last day of month
+|  WHERE DATEADD(dd, 1, [calendardate]) <=
+|  DATEADD(s,-1,DATEADD(mm, DATEDIFF(m,0,GETDATE()),0))
+|  )
+
+| SELECT CONVERT(VARCHAR(10), [calendardate], 103) AS [Day]
+|  ,CASE WHEN SUM(WH.Duration) IS NULL THEN 0 ELSE SUM(WH.Duration) END
+AS Hours
+|  FROM LastMonthsDates
+|  LEFT OUTER JOIN #WorkingHours WH ON
+|  DATEDIFF(d, [calendardate], [Date]) = 0 AND WH.ProjectId = 18
+|  GROUP BY [calendardate]
+|  ORDER BY [calendardate] ASC[/sql]
+
+This should produce a record for each day similar to the output below
+(using the UK date format):
+
+|image|
+
+This SQL was built up from a variety of source. To get the last day of
+the previous month I used the code from
+`here <http://blog.sqlauthority.com/2007/05/13/sql-server-query-to-find-first-and-last-day-of-current-month/>`__.
+The code for creating a range of dates is based on the ideas `in this
+blog
+post <http://www.kodyaz.com/articles/sql-server-dates-table-using-tsql-cte-calendar-table.aspx>`__.
+
+However the use of recursion to create the calendar table is not
+recommended for large date ranges due the performance issues `discussed
+here <http://ask.sqlservercentral.com/questions/4099/what-are-the-pros-and-cons-of-using-a-temporary-dates-table-instead-of-a-permanen>`__.
+In cases where yearly reports need to be generated it is suggested
+creating a full table of dates in your database and joining to this
+rather than creating it dynamically.
+
+Finally it took me a while to realise that to limit records in the
+WorkingHours table (for example by ProjectId, or a UserId) the WHERE
+clause should be added to part of the join, otherwise records are
+excluded. So rather than:
+
+| [sql]SELECT \* FROM LastMonthsDates
+|  LEFT OUTER JOIN #WorkingHours WH ON
+|  DATEDIFF(d, [calendardate], [Date]) = 0
+|  WHERE WH.ProjectId = 18
+|  [/sql]
+
+I needed to use:
+
+.. raw:: html
+
+   <p>
+
+| [sql]SELECT \* FROM LastMonthsDates
+|  LEFT OUTER JOIN #WorkingHours WH ON
+|  DATEDIFF(d, [calendardate], [Date]) = 0
+|  AND WH.ProjectId = 18
+|  [/sql]
+
+.. raw:: html
+
+   </pre>
+
+Thanks to this `forum
+post <http://forums.devshed.com/oracle-development-96/combination-of-left-outer-join-and-where-clause-383248.html>`__
+for pointing out that the WHERE conditions should be moved to the ON
+clause.
+
+.. |image| image:: images/2010/06/image.png
+.. |image| image:: images/2010/06/image1.png
+
+.. include:: comments/summary-of-hours-by-month-for-every-day.rst

@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Building MapServer &amp; MapScript on Windows &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Compiling a 64 bit Version of PyISAPIe" href="compiling-a-64-bit-version-of-pyisapie.html" />
+    <link rel="prev" title="Baking Donuts…" href="baking-donuts.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Building MapServer &amp; MapScript on Windows</a><ul>
+<li><a class="reference internal" href="#rebuilding-mapscript">Rebuilding MapScript</a></li>
+<li><a class="reference internal" href="#here-be-errors">Here be Errors</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="baking-donuts.html" title="Previous Chapter: Baking Donuts…"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Baking Donuts…</span>
+    </a>
+  </li>
+  <li>
+    <a href="compiling-a-64-bit-version-of-pyisapie.html" title="Next Chapter: Compiling a 64 bit Version of PyISAPIe"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Compiling a 6... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="building-mapserver-mapscript-on-windows">
+<h1>Building MapServer &amp; MapScript on Windows<a class="headerlink" href="#building-mapserver-mapscript-on-windows" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2011-07-24 22:40</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, programming, python</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>build, gdal, mapscript</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>building-mapserver-mapscript-on-windows</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a>There are already <a class="reference external" href="http://www.gisinternals.com/sdk/">Windows
+packages</a> available for MapServer
+ready for deployment. However if you need to make a modification to the
+source files, apply a patch, or just want to see how MapServer is made
+then you can build MapServer from its C source files. Thanks to the
+<a class="reference external" href="http://www.gisinternals.com/sdk/">ready made build kits</a> this
+process should only take 10-15 minutes from start to finish.</p>
+<p><em>Prerequisites: Microsoft Visual Studio with C++</em></p>
+<p>1. Download the MapServer SDK (Software Development Kit) from
+<a class="reference external" href="http://www.gisinternals.com/sdk/">http://www.gisinternals.com/sdk/</a>. I’m using Visual Studio 2010, and
+building on a 32-bit Windows machine (still using XP..), so I’m using
+<a class="reference external" href="http://www.gisinternals.com/sdk/PackageList.aspx?file=release-1600-dev.zip">release-1600-dev</a></p>
+<p>These build kits, provided by one of MapServer’s developers <a class="reference external" href="http://szekerest.blogspot.com/">Tamas
+Szekeres</a>,  contain everything you
+need to compile both MapServer and <a class="reference external" href="http://www.gdal.org/">GDAL</a>.
+Checking out all the files from the <a class="reference external" href="http://trac.osgeo.org/mapserver/browser">MapServer SVN
+repository</a> is not enough,
+as this does not contain the GDAL or RegEx dependencies (DLLs that
+MapServer depends on), or SWIG ?” a tool used to create MapScript files
+for each of the different scripting languages available in MapServer
+such as Python, Ruby, PHP, Perl etc.</p>
+<div align="justify"></div><p>2. Unzip the MapServer SDK on your hard-drive. Make a cup of tea as this
+takes awhile. In this example I’ve extracted the files to D:\MapServer.
+You should see a folder structure similar to below.</p>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a></p>
+<p>3. Open up a WIndows command prompt. Navigate to the folder you
+extracted the files. Now run the following command:</p>
+<p>“C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat”</p>
+<p>This is a Windows batch file that sets up environment variables so you
+can use the MS Visual Studio tools in your current command session.</p>
+<p>If this file is not present then make sure you have Microsoft Visual
+Studio C++ 2010 installed. You can check this in Add/Remove programs, or
+through the About menu in Visual Studio. It is not installed by default
+so you may have to go and find your installation disks or ISO.</p>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a> <a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a></p>
+<p>4. The
+<a class="reference external" href="http://msdn.microsoft.com/en-us/library/dd9y37ha%28v=VS.100%29.aspx">nmake</a>
+tool is a Microsoft program that builds projects based on the contents
+of a <a class="reference external" href="http://en.wikipedia.org/wiki/Make_%28software%29">Makefile</a>.
+It’s the command line equivalent of pressing F5 in Visual Studio. You
+can look at the contents of the Makefile in a text editor ?” this is
+where all the hard work is done. Run the following command:</p>
+<p>nmake ms</p>
+<p>Sit back and watch the compilation! If you want to record what happened
+to a log file you can use the command:</p>
+<p>nmake ms &gt;&gt; my_log.txt</p>
+<p>After this build there should be a new folder
+D:\MapServer\release-1600\ containing all the files you need to
+deploy MapServer. When unzipped this folder already contained a build,
+but the timestamps for the DLLS should now be from a few minutes ago.</p>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a></p>
+<section id="rebuilding-mapscript">
+<h2>Rebuilding MapScript<a class="headerlink" href="#rebuilding-mapscript" title="Permalink to this headline">¶</a></h2>
+<p>The Makefile D:\MapServer\Makefile contains details on how to build
+MapScript. The Makefile commands are great to follow if you want to just
+rebuild Python MapScript rather than the whole of MapServer. Just search
+for “ms-python” and you’ll see all the DOS commands you need to rebuild
+Python. You can then run these “by-hand” as shown below.</p>
+<p>My original build produced MapScript for Python 2.6, but I also wanted
+to create a build for 2.7. To create a Python 2.7 compatible MapScript
+follow these steps:</p>
+<p>1. Open the D:\MapServer\mapserver-6-0\mapscript\python\setup.py
+file in a Python editor such as IDLE. Change the library_dirs to read:</p>
+<p>library_dirs = [‘../../’,’../../../release-1600/lib/’]</p>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a>It should be possible to set these paths outside the setup.py
+on the command line, but I was not able to get this to work. This change
+adds in the folder containing all the .lib files that were created when
+we built MapServer. Check these files are present!</p>
+<p>2. Navigate to the D:\MapServer\mapserver-6-0\mapscript\python
+directory.</p>
+<ol class="arabic simple" start="3">
+<li><p>Run the following commands (taken from the Makefile):</p></li>
+</ol>
+<dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">**</span></a>SET DISTUTILS_USE_SDK=1</dt><dd><p>SET MSSdk=1
+SET LIB=%LIB%;$D:\MapServer\release-1600\lib**</p>
+</dd>
+</dl>
+<ol class="arabic simple" start="4">
+<li><p>Run the following command:</p></li>
+</ol>
+<p>python.exe setup.py build</p>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a> You should now have two new files ?” mapscript.py and
+_mapscript.pyd (a .pyd file is a DLL <a class="reference external" href="http://docs.python.org/faq/windows.html#is-a-pyd-file-the-same-as-a-dll">with a couple of
+differences</a>).</p>
+<p><a class="reference external" href="images/2011/07/image7.png"><img alt="image" src="../_images/image_thumb7.png" /></a></p>
+</section>
+<section id="here-be-errors">
+<h2>Here be Errors<a class="headerlink" href="#here-be-errors" title="Permalink to this headline">¶</a></h2>
+<p>I took out all the twists, turns, and errors I encountered along the way
+to make the process appear simple, and me to appear to be an
+expert..however I ran into a myriad of problems, the error messages of
+which I’ve included below, along with how to fix them.</p>
+<p><em>‘nmake’ is not recognized as an internal or external command, operable
+program or batch file.</em></p>
+<ul class="simple">
+<li><p>Make sure you have run the “C:\Program Files\Microsoft Visual Studio</p></li>
+</ul>
+<p>10.0\VC\bin\vcvars32.bat” file in your current Windows command
+session.</p>
+<dl class="simple">
+<dt><a href="#id3"><span class="problematic" id="id4">*</span></a>LINK<span class="classifier">fatal error LNK1181: cannot open input file ‘gd.lib’</span></dt><dd><p>error: command ‘link.exe’ failed with exit status 1181*</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>You need to edit the setup.py file to include the folder with the .lib</p></li>
+</ul>
+<p>files ?” see “Rebuilding MapScript step 2.” Also make sure you have built
+MapServer and the gd.lib file is in your
+D:\MapServer\release-1600\lib folder.</p>
+<dl class="simple">
+<dt><a href="#id5"><span class="problematic" id="id6">*</span></a>building ‘_mapscript’ extension</dt><dd><p>error: Unable to find vcvarsall.bat*</p>
+</dd>
+</dl>
+<ul class="simple">
+<li><p>When building MapScript you need to set the correct environment</p></li>
+</ul>
+<p>variables ?” see “Rebuilding MapScript step 3”</p>
+<p><em>_mapscript.pyd.manifest : general error c1010070: Failed to load and
+parse the manifest. The system cannot</em> <em>find the file specified. error:
+command ‘mt.exe’ failed with exit status 31</em></p>
+<ul class="simple">
+<li><p>Try cleaning the Python MapScript build folders with the following</p></li>
+</ul>
+<p>command:</p>
+<p><strong>D:\MapServer\mapserver-6-0\mapscript\python&gt;python.exe setup.py
+clean</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-224" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/building-mapserver-mapscript-on-windows.html#comment-224"><span class="std std-ref">1.</span></a> <strong>geographika &amp;raquo; Masquerades, Geocaching, and Easter Eggs</strong>
+**</p>
+<p>[…] they aren’t as as much of a thrill to find as a mode staid GIS
+application. FME have the odd one-liner in their geo-processing output,
+and hopefully there are still a few treasures to be found, and a […]</p>
+<a href="mailto:web+baking-donuts#1@geographika.co.uk?Subject=baking-donuts" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+building-mapserver-mapscript-on-windows@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+MapServer on Linux
+==================
+
+Azure
+-----
+
++ New VM
++ Ubuntu Server 16.04 LTS Canonical
++ Deployment model: Resource Manager
++ Basics:
+
+    + Name: mapview
+    + VM disk type: SSD
+    + User name: compassinfo
+    + Authentication type: password
+    + Resource group: Create new - mapview
+    + Location: UK South
+
++ Size: DS1_V2 Standard (1 Core, 3.5 GB, 7 GB SSD)
++ Storage: Managed disks: No
++ Public IP: mapview-ip (static) - 51.140.43.114
+
++ Network Interfaces > Network security group (mapview-nsg)
+
+  + Inbound - TCP, port 80
+  + Outbound - TCP, port 80
+
+http://mapserver.org/installation/unix.html#installation
+https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+https://askubuntu.com/questions/16521/where-in-the-filesystem-should-i-store-shared-data
+
+Compass VM
+----------
+
+13.74.161.63
+mapview
+compassinfo/DemoGlobePolygon5
+
+TLDR
+----
+
+Complete script
+
+http://mapserver.org/installation/unix.html#installation
+
+Breakdown
+---------
+
+sudo apt-get -y install apache2 libapache2-mod-fastcgi              https://help.ubuntu.com/lts/serverguide/httpd.html  should now be able to check the Apache site 51.140.43.114
+sudo add-apt-repository -y ppa:ubuntugis/ppa
+sudo apt-get update
+sudo apt-get -y install cgi-mapserver
+sudo apt-get -y install libapache2-mod-mapcache
+sudo apt-get -y install mapcache-tools
+
+Apache
+------
+
+# following not needed as installed via above - can search and see this file in here
+#sudo ln -s /usr/local/bin/mapserv /usr/lib/cgi-bin/mapserv           # You'll want to setup a symlink to that executable from your cgi-bin directory
+#                                                                     # link command https://www.computerhope.com/unix/uln.htm
+#                                                                     # sudo find / -name mapserv
+# sudo chmod o+x /usr/lib/cgi-bin/mapserv                                    http://mapserver.org/installation/unix.html#file-permissions
+
+sudo a2enmod actions cgi fastcgi alias                   See http://manpages.ubuntu.com/manpages/trusty/man8/a2enmod.8.html - enable a module https://httpd.apache.org/docs/2.4/mod/mod_actions.html Execute CGI scripts
+sudo chmod 755 /usr/lib/cgi-bin                 	rwxr-xr-x
+sudo service apache2 restart
+
+http://51.140.125.27/cgi-bin/mapserv
+
+
+Storing Data
+------------
+
+sudo mkdir /srv/mapview
+sudo chmod u=rwx,g=r,o=rwx /srv/mapview/                 see http://www.computerhope.com/unix/uchmod.htm - for folders x means view contents
+
+                                                         ls /srv/mapview 
+
+Copy data from: C:\Code\osviewer
+
+http://51.140.43.114/cgi-bin/mapserv?MAP=/srv/mapview/viewer.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=land&STYLES=&CRS=EPSG%3A4326&EXCEPTIONS=INIMAGE&WIDTH=2417&HEIGHT=1209&BBOX=-106.259765625%2C-212.3876953125%2C106.259765625%2C212.3876953125
+http://13.74.161.63/cgi-bin/mapserv?MAP=/srv/mapview/viewer.map&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=land&STYLES=&CRS=EPSG%3A4326&EXCEPTIONS=INIMAGE&WIDTH=2417&HEIGHT=1209&BBOX=-106.259765625%2C-212.3876953125%2C106.259765625%2C212.3876953125
+
+
+MapCache
+--------
+
+http://www.mapserver.org/mapcache/install.html#apache-module-specific-instructions
+
+Module already loaded with install
+
+Add following line to: /etc/apache2/sites-available/000-default.conf 
+
+sudo chmod u=rw,g=r,o=rw /etc/apache2/sites-available/000-default.conf 
+ 
+
+Place inside <VirtualHost>
+
+  <IfModule mapcache_module>
+   <Directory /path/to/directory>
+      Require all granted
+   </Directory>
+   MapCacheAlias /mapcache "/srv/mapview/mapcache.xml"
+  </IfModule>
+
+Then
+
+sudo chmod u=rw,g=r,o=r /etc/apache2/sites-available/000-default.conf 
+sudo service apache2 restart
+
+..
+    Copy following file to /srv/osviewer/ - https://github.com/mapserver/mapcache/blob/master/mapcache.xml
+    http://51.140.43.114/mapcache/demo
+
+
+With custom mapcache.xml
+
+http://51.140.43.114/mapcache/?LAYERS=land&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&FORMAT=image%2Fpng&SRS=EPSG%3A4326&BBOX=-180,0,-90,90&WIDTH=256&HEIGHT=256
+
+Check for errors in 
+
+/var/log/apache2/error.log
+
+
+
+
+Optional
+--------
+
+GDAL
+++++
+
+sudo apt-get install gdal-bin
+
+
+Reproject Data
+++++++++++++++
+
+C:\MapServer\SDKShell.bat
+cd C:\Code\osviewer
+ogr2ogr.exe -s_srs EPSG:4326 -t_srs EPSG:3857 -f "ESRI Shapefile" land3857.shp ne_110m_land.shp -skipfailures

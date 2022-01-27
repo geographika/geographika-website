@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Watch out for OpenLayer Distances &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="We Know Where Your Browser Lives" href="we-know-where-your-browser-lives.html" />
+    <link rel="prev" title="Visualising GeoJSON in 15 Minutes" href="visualising-geojson-in-15-minutes.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Watch out for OpenLayer Distances</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="visualising-geojson-in-15-minutes.html" title="Previous Chapter: Visualising GeoJSON in 15 Minutes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Visualising G...</span>
+    </a>
+  </li>
+  <li>
+    <a href="we-know-where-your-browser-lives.html" title="Next Chapter: We Know Where Your Browser Lives"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">We Know Where... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="watch-out-for-openlayer-distances">
+<h1>Watch out for OpenLayer Distances<a class="headerlink" href="#watch-out-for-openlayer-distances" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-04-29 22:54</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>javascript, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>bing, errors, geodesic, measurements, openlayers</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>watch-out-for-openlayer-distances</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2010/04/image27.png"><img alt="image" src="../_images/image_thumb27.png" /></a>I had the fortune on my most recent project, a
+<a class="reference external" href="http://mapfish.org/">MapFish</a> mapping system, of having someone else
+do some thorough testing. One thing that had escaped me, was both the
+measure tool and area tool were returning incorrect results.</p>
+<p>The distance as-the-crow flies between Dublin and Cork is 219 kilometres
+(136.08 miles in old money) wheras my tool was returning 357km. Having
+never driven this route it didn’t set off any alarm bells. Its also not
+the sort of function I’d unit test, - one as its in JavaScript, and two
+as the sample code seemed to work “out-of the box.”</p>
+<p>It turns out measurements are planar by default, as briefly referred to
+in the <a class="reference external" href="http://dev.openlayers.org/apidocs/files/OpenLayers/Control/ScaleLine-js.html#OpenLayers.Control.ScaleLine.geodesic">OpenLayers API
+docs</a>
+(although not on the actual measure tools pages..), and there is a
+geodesic parameter. By default this is set to false, so in a Mercator
+projected map (so anything using Google, Bing, or
+<a class="reference external" href="http://www.openstreetmap.org/">OpenStreetMap</a> background mapping)
+measurement tools will be wrong. Maybe something to check if you’ve
+created a system - I’ve been 6 months working with OpenLayers and
+somehow managed to miss this one. <a class="reference external" href="mailto:Isaac&#37;&#52;&#48;MSDN">Isaac<span>&#64;</span>MSDN</a> describes Geodesic as
+follows:<a class="reference external" href="images/2010/04/image27.png"><img alt="image" src="../_images/image_thumb27.png" /></a></p>
+<p><em>“Geodesic is a fancy (and concise) way of saying a locally
+path-minimizing curve.  This, in turn, is just a fancy (and
+mathematical) way of saying that a taught string on a surface between
+two points will fall into such a path.”</em></p>
+<p><a class="reference external" href="images/2010/04/image27.png"><img alt="image" src="../_images/image_thumb27.png" /></a> In fairness the <a class="reference external" href="http://openlayers.org/dev/examples/measure.html">OpenLayers Measurement
+demo</a> makes this
+clear:</p>
+<p><em>Note that the geometries drawn are planar geometries and the metrics
+returned by the measure control are planar measures by default.</em></p>
+<p><em>If your map is in a geographic projection or you have the appropriate
+projection definitions to transform your geometries into geographic
+coordinates, you can set the “geodesic” property of the control to true
+to calculate geodesic measures instead of planar measures.</em></p>
+<p>To set the geodesic option use code similar to the example and pass in
+the geodesic parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">measureControls</span> <span class="o">=</span> <span class="p">{</span><span class="n">line</span><span class="p">:</span> <span class="n">new</span> <span class="n">OpenLayers</span><span class="o">.</span><span class="n">Control</span><span class="o">.</span><span class="n">Measure</span><span class="p">(</span><span class="n">OpenLayers</span><span class="o">.</span><span class="n">Handler</span><span class="o">.</span><span class="n">Path</span><span class="p">,</span>
+<span class="p">{</span><span class="n">persist</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span> <span class="n">geodesic</span><span class="p">:</span> <span class="n">true</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>OpenLayers is not alone in this. From the <a class="reference external" href="http://code.google.com/apis/maps/documentation/overlays.html#Great_Circles">Google Maps API
+docs</a>:</p>
+<p><em>Polylines represented on the map are straight lines conforming to the
+current projection. That is, they appear straight on the map, but may in
+fact not properly account for the curvature of the earth.</em></p>
+<p><em>If you instead wish to draw a geodesic (a segment of a “great circle”
+representing the shortest distance between two points on the surface of
+the earth), you will need to pass ``geodesic:true`` in the
+``GPolylineOptions`` argument of the ``GPolyline``.</em></p>
+<p>Again code can be found in the docs, and a geodesic parameter must be
+set to true:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">polyOptions</span> <span class="o">=</span> <span class="p">{</span><span class="n">geodesic</span><span class="p">:</span><span class="n">true</span><span class="p">};</span>
+<span class="n">var</span> <span class="n">polyline</span> <span class="o">=</span> <span class="n">new</span> <span class="n">GPolyline</span><span class="p">([</span>
+  <span class="n">new</span> <span class="n">GLatLng</span><span class="p">(</span><span class="mf">40.65642</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.7883</span><span class="p">),</span>
+  <span class="n">new</span> <span class="n">GLatLng</span><span class="p">(</span><span class="mf">61.1699849</span><span class="p">,</span> <span class="o">-</span><span class="mf">149.944496</span><span class="p">)</span>
+  <span class="p">],</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">polyOptions</span><span class="p">);</span>
+  <span class="nb">map</span><span class="o">.</span><span class="n">addOverlay</span><span class="p">(</span><span class="n">polyline</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>I’m not sure if Bing Maps has geodesic properties. <a class="reference external" href="http://www.beginningspatial.com/plotting_geography_linestrings_google_maps_and_virtual_earth">This
+post</a>
+from Beginning Spatial has a solution for drawing geodesic lines in
+Bing’s forerunner Virtual Earth. There are also discussions on geodesic
+measurements on <a class="reference external" href="http://social.msdn.microsoft.com/Forums/en-US/vemapcontroldev/thread/e275f3ee-f83e-4b92-980a-6d18b20acb9a">this MSDN
+messageboard</a>.</p>
+<p>Finally in OpenLayers, if you are using the
+<a class="reference external" href="http://trac.openlayers.org/wiki/Addins/ScaleBar">ScaleBar</a> and
+Spherical Mercator maps then check these recent changes from <a class="reference external" href="http://trac.openlayers.org/changeset/10110">March
+2010</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-381" src="http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-381"><span class="std std-ref">1.</span></a> <strong>Sean Gillies</strong>
+**</p>
+<p>I looked at one of the API example links and find.geojs seems to return
+[lon, lat] coordinates:
+<a class="reference external" href="http://geocoding.cloudmade.com/BC9A493B41014CAABB98F0471D759707/geocoding/v2/find.geojs?around=city:london;country:uk&amp;object_type=park">http://geocoding.cloudmade.com/BC9A493B41014CAABB98F0471D759707/geocoding/v2/find.geojs?around=city:london;country:uk&amp;object_type=park</a></p>
+<a href="mailto:web+visualising-geojson-in-15-minutes#1@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-383" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-383"><span class="std std-ref">2.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-381">&#64;Sean Gillies</a></div>
+<div class="line-block">
+<div class="line">Thanks for the link Sean. I realised after reading further there is a</div>
+</div>
+</div>
+<p>find.js page to return JSON - which can also return coordinates in the
+[lat, lon] order, and a find.geojs which return geojson in a [lon,lat]
+order.
+|  Once I updated the code to use the find.geojs all worked fine.</p>
+<a href="mailto:web+visualising-geojson-in-15-minutes#2@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-390" src="http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-390"><span class="std std-ref">3.</span></a> <strong>Sean Gillies</strong>
+**</p>
+<p>Calling ax.set_aspect(1) will square up that plot. Thank you for
+blogging this. I’m pleased to see that this mostly works out of the box
+with win32.</p>
+<a href="mailto:web+visualising-geojson-in-15-minutes#3@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+watch-out-for-openlayer-distances@geographika.co.uk?Subject=watch-out-for-openlayer-distances" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+The Seven Bridges of Königsberg
+###############################
+:date: 2010-03-29 16:07
+:author: admin
+:category: general, opinion, programming
+:tags: graph, math, maths, network, programming, typology
+:slug: the-seven-bridges
+:status: published
+
+..or do geodevelopers require mathematics?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|MyCircle.Area seems simpler..| Alan Skorkin has a great post on “\ `you
+don’t need math skills to be a good developer but you do need them to be
+a great
+one <http://www.skorks.com/2010/03/you-dont-need-math-skills-to-be-a-good-developer-but-you-do-need-them-to-be-a-great-one/>`__.”
+Geo-technology developers have similar requirements, and the majority of
+GISs revolve around
+`CRUD <http://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__
+operations. However due to the nature of spatial data we occasionally
+get to meddle in the world’s
+of \ `projections <http://en.wikipedia.org/wiki/Map_projection>`__,
+geometry,
+`typology <http://webhelp.esri.com/arcgisdesktop/9.3/index.cfm?TopicName=Topology_basics>`__,
+and `set theory <http://en.wikipedia.org/wiki/Set_theory>`__ more than
+our counterparts in other sectors.
+
+The Ancient Mysteries
+~~~~~~~~~~~~~~~~~~~~~
+
+|There are now five bridges in Königsberg..|\ Whilst concentrating on
+algorithms and
+`recursion <http://en.wikipedia.org/wiki/Tower_of_Hanoi>`__ is a
+definite benefit to all developers, us *spatial* developers need a few
+more specific tricks. 
+`Euler's <http://en.wikipedia.org/wiki/Leonhard_Euler>`__ 1736 paper on
+`Seven Bridges of
+Königsberg <http://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg>`__
+is one of the first academic writings on modern topology. The titles of
+these mathematics puzzles create an aura of mysteriousness and arcane
+knowledge that definitely sweetens the somewhat dour algebra underneath.
+
+The solution (or non-solution) to this problem underpins many of the
+more advanced techniques used by GIS packages today. The “\ `Travelling
+Salesman <http://gebweb.net/optimap/>`__\ ”, whilst conjuring up less
+interesting images, relies on similar principles of graph theory.
+
+[caption id="" align="aligncenter" width="202" caption="Traditional
+desktop GIS sales take a slump.."]\ |Traditional desktop GIS sales take
+a slump..|\ [/caption]
+
+`Graph Theory <http://en.wikipedia.org/wiki/Graph_theory>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The excellent ESRI online documentation provides details on all aspects
+of GIS, including `networks and
+graphs <http://resources.esri.com/help/9.3/arcgisengine/dotnet/e084da94-d4f7-4da7-86ed-7df684ff2144.htm>`__.
+
+[caption id="" align="alignleft" width="167" caption="What can happen if
+you don’t understand typology"]\ |Some M. C. Escher works illustrate
+topological concepts, such as Möbius strips and non-orientable
+spaces|\ [/caption]
+
+    *Graph theory is the foundation for understanding networks and
+    topology. A geographic information system (GIS) modeller should be
+    familiar with the concepts and terminology of graph theory because
+    it helps to classify and model connectivity and adjacency
+    relationships among geographic features.*
+
+The underlying graphs of a network allow us to solve problems such as
+finding a shortest route, or analysing connectivity between points on a
+river network. It could certainly help a `Chinese
+Postman <http://www.uclic.ucl.ac.uk/harold/cpp/>`__.
+
+Whilst being able to implement these algorithms from scratch is beyond
+the call of duty for most developers (except those who like to `reinvent
+the
+wheel <http://www.mostlymaths.net/2010/03/8-reasons-for-re-inventing-wheel-as.html>`__),
+an understanding of how they work, and being able to recognise the
+situations where they can be used, can save weeks of development time
+and lead to cleaner more elegant coding solutions.
+
+`Self-Learning <http://en.wikipedia.org/wiki/Autodidacticism>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once you out in the “real-world” it is highly unlikely you are ever
+going to get taught this maths, and it becomes a little daunting
+realising you are now responsible for `your own
+education <http://lifehacker.com/software/education/technophilia-get-a-free-college-education-online-201979.php>`__.
+Even if you’ve already studied maths to a reasonable level, as the adage
+says - `*use it or lose
+it* <http://www.sciencedaily.com/releases/2008/02/080207091859.htm>`__.
+This is brought home by my worriying belief that my mental arithmetic
+was superior as a child through constant use and learning tables by
+rote, than it is now after 10 years of programming.
+
+Every now and again its useful to buy a book that deals with areas
+`related to computer
+science <http://www.amazon.com/gp/product/0486247759?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0486247759>`__,
+rather than a “How to..” book of the latest programming language or
+framework, to try and attain a broader understanding of the maths behind
+the APIs.
+
+Graph-ics
+~~~~~~~~~
+
+To try and illustrate my point that only a basic understanding of a
+branch of mathematics is required to produce useful, and sometimes
+spectacular results I attempted to use a specialised open-source tool
+armed with only a basic glossary of the `terms
+used <http://primes.utm.edu/cgi-bin/caldwell/tutor/graph/glossary.html>`__
+in graph theory.
+
+`Gephi <http://gephi.org/>`__ is “an interactive visualization and
+exploration `platform <http://gephi.org/features/>`__ for all kinds of
+networks and complex systems, dynamic and hierarchical graphs.”
+
+Amongst the `sample
+datasets <http://wiki.gephi.org/index.php/Datasets>`__ there is an
+adjacency network of common adjectives and nouns in the `David
+Copperfield <http://en.wikipedia.org/wiki/David_Copperfield_%28novel%29>`__.
+I was able to import the data into the program and then export the SVG
+image shown below. Interestingly “happy” is seems to have as many
+connections to love as money, which is pleasant.
+
+|image|
+
+`Gephi <http://gephi.org/>`__ produces `beautiful
+data <http://www.amazon.com/gp/product/0596157118?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0596157118>`__
+and is definitely a project to keep an eye on - the `Road map for
+version 1.0 <http://wiki.gephi.org/index.php/Roadmap>`__ includes
+Geographic data (latitude/longitude) which will open up all sorts of
+possibilities.
+
+Do the Math(s)?
+~~~~~~~~~~~~~~~
+
+I’d categorise most people coding in the geospatial area (outside of
+those in academia or writing the internals of a GIS library), as
+developers, rather than `computer scientists or
+programmers <http://www.skorks.com/2010/03/the-difference-between-a-developer-a-programmer-and-a-computer-scientist/>`__.
+
+    ***(Developers) are consummate generalists without any truly deep
+    specializations**. They are expert at finding ways around problems
+    and plugging components together to fulfil a set of requirements.*
+
+A basic understanding of each of the branches of mathematics used by GIS
+is required to know what exactly you need to input, and to understand
+the output, of algorithms implemented by others. A grasp of terminology
+certainly helps navigate the user interfaces of specialised tools, or
+find help through search engines. At the very least it leads to an
+understanding of why `Manifold <http://www.manifold.net/index.shtml>`__
+is named `manifold <http://en.wikipedia.org/wiki/Manifold>`__, and can
+stop or start us going round in
+`circles <http://www.google.com/search?q=recursion>`__.
+
+.. |MyCircle.Area seems simpler..| image:: images/2010/03/image5.png
+.. |There are now five bridges in Königsberg..| image:: images/2010/03/image6.png
+.. |Traditional desktop GIS sales take a slump..| image:: images/2010/03/image7.png
+.. |Some M. C. Escher works illustrate topological concepts, such as Möbius strips and non-orientable spaces| image:: images/2010/03/image8.png
+.. |image| image:: images/2010/03/image9.png
+
+.. include:: comments/the-seven-bridges.rst

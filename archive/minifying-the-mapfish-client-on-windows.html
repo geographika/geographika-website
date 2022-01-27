@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Minifying the Mapfish Client on Windows &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MS Access and Application.ExportXML" href="ms-access-and-applicationexportxml.html" />
+    <link rel="prev" title="Migrating .NET Projects from ArcGIS 9.1 to 9.2" href="migrating-net-projects-from-arcgis-91-to-92.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Minifying the Mapfish Client on Windows</a><ul>
+<li><a class="reference internal" href="#this-page-has-72-external-javascript-scripts-try-combining-them-into-one">This page has 72 external Javascript scripts. Try combining them into one.</a></li>
+<li><a class="reference internal" href="#step-1-install-python-for-windows">Step 1 - Install Python for Windows</a></li>
+<li><a class="reference internal" href="#image1"></a></li>
+<li><a class="reference internal" href="#step-2-create-a-virtual-python-environment">Step 2 - Create a Virtual Python Environment</a></li>
+<li><a class="reference internal" href="#step-3-install-the-jstools">Step 3 - Install the JSTools</a></li>
+<li><a class="reference internal" href="#step-4-go-forth-and-minify">Step 4 - Go Forth and Minify</a></li>
+<li><a class="reference internal" href="#step-5-test-in-web-application">Step 5 - Test in Web Application</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="migrating-net-projects-from-arcgis-91-to-92.html" title="Previous Chapter: Migrating .NET Projects from ArcGIS 9.1 to 9.2"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Migrating .NE...</span>
+    </a>
+  </li>
+  <li>
+    <a href="ms-access-and-applicationexportxml.html" title="Next Chapter: MS Access and Application.ExportXML"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">MS Access and... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="minifying-the-mapfish-client-on-windows">
+<h1>Minifying the Mapfish Client on Windows<a class="headerlink" href="#minifying-the-mapfish-client-on-windows" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-28 08:00</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>javascript, mapfish, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>client-side, javascript, mapfish, minify, performance</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>minifying-the-mapfish-client-on-windows</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<section id="this-page-has-72-external-javascript-scripts-try-combining-them-into-one">
+<h2>This page has 72 external Javascript scripts. Try combining them into one.<a class="headerlink" href="#this-page-has-72-external-javascript-scripts-try-combining-them-into-one" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="images/2010/01/minify.jpg"><img alt="image0" src="archive/images/2010/01/minify-153x300.jpg" /></a>My <a class="reference external" href="http://developer.yahoo.com/yslow/">YSlow</a> Firefox
+plug-in was telling me that I had included too may JavaScript files, and
+that they should be combined into a single-file, and
+<a class="reference external" href="http://en.wikipedia.org/wiki/Minification_%28programming%29">minified</a>.
+The default setup of Mapfish has a single script include
+(mfbase\mapfish\MapFish.js), but this script  automatically loads
+around 40 further scripts.</p>
+<p>I tried a couple of unsuccessful attempts at copying and pasting various
+Mapfish JS files into an <a class="reference external" href="http://refresh-sf.com/yui/">online JavaScript
+compressor</a>. However when referencing the
+minified file I kept getting “undefined” errors from various Mapfish
+plugins and OpenLayer objects.</p>
+<p>Initially I was looking to download a ready-made “compiled” MapFish
+file, but was unable to find a version online. I have uploaded
+a<a class="reference external" href="../downloads/MapFish.zip">zipped version</a> so if you want the file
+without going through the steps below you can download a copy. Note that
+if you have made any modifications to the MapFish files then these will
+not be available, and there are no guarantees it will work.</p>
+<div class="line-block">
+<div class="line">There are instructions on creating a single-file Mapfish client build</div>
+</div>
+<p><a class="reference external" href="http://www.mapfish.org/trac/mapfish/browser/framework/client/branches/1.2/build/README.txt">on the Mapfish
+site</a>.
+This process uses
+<a class="reference external" href="http://projects.opengeo.org/jstools/wiki/jsbuild">JSBuild</a> which is
+part of <a class="reference external" href="http://github.com/whitmo/jstools">JSTools</a> - <em>“a collection
+of python scripts for packaging and efficiently serving javascript.”</em>
+|  Unfortunately these instructions require a Linux operating system,
+and I’m using Windows. I eventually managed to “translate” these into
+Windows commands, and have documented the steps below.</p>
+</section>
+<section id="step-1-install-python-for-windows">
+<h2>Step 1 - Install Python for Windows<a class="headerlink" href="#step-1-install-python-for-windows" title="Permalink to this headline">¶</a></h2>
+<p>First of all if Python is not installed on your system, then get the MSI
+installer from the <a class="reference external" href="http://www.python.org/download/">Python site</a>. I
+used <a class="reference external" href="http://www.python.org/download/releases/2.5.4/">version 2.5.4</a>,
+so I’m not sure if the steps below work with later versions. Once it has
+been installed all .py extensions should be associated with the python
+interpreter. To check this you can run the following commands in a
+Windows command line prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">assoc</span><span class="o">.</span><span class="n">py</span>
+<span class="n">ftype</span> <span class="n">Python</span><span class="o">.</span><span class="n">File</span>
+</pre></div>
+</div>
+</section>
+<section id="image1">
+<h2><a class="reference external" href="images/2010/01/py_file.png"><img alt="image1" src="archive/images/2010/01/py_file-300x110.png" /></a><a class="headerlink" href="#image1" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="step-2-create-a-virtual-python-environment">
+<h2>Step 2 - Create a Virtual Python Environment<a class="headerlink" href="#step-2-create-a-virtual-python-environment" title="Permalink to this headline">¶</a></h2>
+<p>This step creates an isolated Python environment for JSTools.  Using
+this “virtual” environment avoids using wrong script versions and
+references. The Mapfish instructions for Linux were as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ wget &#39;http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.3.2.tar.gz&#39;
+$ tar xvzf virtualenv-1.3.2.tar.gz
+$ python virtualenv-1.3.2/virtualenv.py env
+$ source env/bin/activate
+</pre></div>
+</div>
+<p>These rougly translate into Window’s speak as:</p>
+<ul>
+<li><p>Download the VirtualEnv installer
+from<a class="reference external" href="http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.3.2.tar.gz">http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.3.2.tar.gz</a>
+(wget is simply a Linux program that handles the downloading of
+files).</p></li>
+<li><p>Unzip the downloaded file (for example using
+<a class="reference external" href="http://www.7-zip.org/">7-zip</a> for Windows)</p></li>
+<li><p>Run the following command in the Windows command prompt. Change the
+first parameter to point to the location of virtualenv.py you just
+downloaded, and the second to a folder where you want to create your
+virtual Python environment.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">:</span>\<span class="n">Tools</span>\<span class="n">Mapfish</span>\<span class="n">virtualenv</span><span class="o">-</span><span class="mf">1.3.2</span>\<span class="n">virtualenv</span><span class="o">.</span><span class="n">py</span> <span class="n">D</span><span class="p">:</span>\<span class="n">Tools</span>\<span class="n">Mapfish</span>\<span class="n">VirtualPythonEnv</span>
+</pre></div>
+</div>
+</li>
+<li><p><a class="reference external" href="images/2010/01/py_file2.png"><img alt="image2" src="../_images/py_file2.png" /></a>Finally run the activate.bat file which should have been
+created by the above steps in
+D:\Tools\Mapfish\VirtualPythonEnv\Scripts\activate.bat</p></li>
+</ul>
+</section>
+<section id="step-3-install-the-jstools">
+<h2>Step 3 - Install the JSTools<a class="headerlink" href="#step-3-install-the-jstools" title="Permalink to this headline">¶</a></h2>
+<p>Again from the Windows command line, change your current directory to
+the newly created Scripts folder in your virtual environment setup.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">D</span><span class="p">:</span>\<span class="n">Tools</span>\<span class="n">Mapfish</span>\<span class="n">VirtualPythonEnv</span>\<span class="n">Scripts</span>\
+</pre></div>
+</div>
+<p>Next run the following command (again from the Windows command line):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">easy_install</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">i</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">dev</span><span class="o">.</span><span class="n">camptocamp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="n">mapfish</span><span class="o">/</span><span class="nb">all</span><span class="o">/</span><span class="n">index</span> <span class="n">JSTools</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="images/2010/01/install_easyscript.png"><img alt="image3" src="../_images/install_easyscript.png" /></a></p>
+<p>Trying to install the latest version of JSTools from
+<a class="reference external" href="http://github.com/whitmo/jstools/tarball/master">http://github.com/whitmo/jstools/tarball/master</a> caused errors (possibly
+due to Windows default download paths), but the rest of the steps worked
+fine with the JSTools available from the Mapfish (CamptoCamp) link used
+above.</p>
+</section>
+<section id="step-4-go-forth-and-minify">
+<h2>Step 4 - Go Forth and Minify<a class="headerlink" href="#step-4-go-forth-and-minify" title="Permalink to this headline">¶</a></h2>
+<p>The final step is to create the minified JavaScript itself. The Mapfish
+client download contains a configuration file to tell JSBuild which
+files to include in the single file script. It was at this stage I
+realised it may have been possible to manually combine these files in
+the correct order and run the online compressor, but now everything else
+was in place it was as well to use JSBuild.</p>
+<p>First of all I modified the first few lines of the
+mfbase\openlayers\build\full.cfg file to point to the JavaScript
+files on my system. This may not have been necessary depending on where
+JSTools was run from, but this way worked!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">MapFish</span><span class="o">.</span><span class="n">js</span><span class="p">]</span>
+<span class="n">root</span> <span class="o">=</span>
+ <span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">Tools</span><span class="o">/</span><span class="n">Mapfish</span><span class="o">/</span><span class="n">mapfish</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="mf">1.2</span><span class="o">/</span><span class="n">mfbase</span><span class="o">/</span><span class="n">openlayers</span><span class="o">/</span><span class="n">lib</span>
+ <span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">Tools</span><span class="o">/</span><span class="n">Mapfish</span><span class="o">/</span><span class="n">mapfish</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="mf">1.2</span><span class="o">/</span><span class="n">mfbase</span><span class="o">/</span><span class="n">mapfish</span>
+ <span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">Tools</span><span class="o">/</span><span class="n">Mapfish</span><span class="o">/</span><span class="n">mapfish</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="mf">1.2</span><span class="o">/</span><span class="n">mfbase</span><span class="o">/</span><span class="n">geoext</span><span class="o">/</span><span class="n">lib</span>
+<span class="n">first</span> <span class="o">=</span>
+ <span class="n">OpenLayers</span><span class="o">/</span><span class="n">SingleFile</span><span class="o">.</span><span class="n">js</span>
+ <span class="n">OpenLayers</span><span class="o">.</span><span class="n">js</span>
+ <span class="o">...</span><span class="n">rest</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span> <span class="n">remains</span> <span class="n">the</span> <span class="n">same</span>
+</pre></div>
+</div>
+<p>Next I ran the following command from Windows (making sure my current
+directory contained the jsbuild.exe). The -o parameter is the folder
+where you wish the single file to be created, and the second parameter
+points to the configuration file listing the JavaScript files.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jsbuild</span> <span class="o">-</span><span class="n">o</span> <span class="n">D</span><span class="p">:</span>\<span class="n">Tools</span>\<span class="n">Mapfish</span>\ <span class="n">D</span><span class="p">:</span>\<span class="n">Tools</span>\<span class="n">Mapfish</span>\<span class="n">mapfish</span><span class="o">-</span><span class="n">client</span><span class="o">-</span><span class="mf">1.2</span>\<span class="n">build</span>\<span class="n">full</span><span class="o">.</span><span class="n">cfg</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="images/2010/01/done.png"><img alt="image4" src="../_images/done.png" /></a></p>
+<p>A new MapFish.js was created!</p>
+<p>I was then able to modify the .cfg file further to add in and minify my
+own application JavaScript files.</p>
+</section>
+<section id="step-5-test-in-web-application">
+<h2>Step 5 - Test in Web Application<a class="headerlink" href="#step-5-test-in-web-application" title="Permalink to this headline">¶</a></h2>
+<p>The previous reference to Mapfish could now be pointed to the newly
+created MapFish.js file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;js/MapFish.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Although the file is now ~1MB it is smaller than the individual files
+combined, and it requires less server requests which improves page
+loading times. Most web servers (including IIS and Apache, but <a class="reference external" href="http://support.microsoft.com/kb/308168">not IIS
+running on Windows XP</a>) allow
+gzip compression which will reduce this file to around 250KB.</p>
+<p>If you encounter any problems or steps I’ve missed then please let me
+know!</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/f1e586869686b669436504615471f9f3?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1407" src="http://www.gravatar.com/avatar/f1e586869686b669436504615471f9f3?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1407"><span class="std std-ref">1.</span></a> <strong>Richie Chwieroth</strong>
+**</p>
+<p>Still can’t believe how much fun this is! If you haven’t gotten your
+family out for geocaching you are missing out on a wonderful chance to
+get the young ones outside and away from the video games.</p>
+<a href="mailto:web+masquerades-geocaching-and-easter-eggs#1@geographika.co.uk?Subject=masquerades-geocaching-and-easter-eggs" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+minifying-the-mapfish-client-on-windows@geographika.co.uk?Subject=minifying-the-mapfish-client-on-windows" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

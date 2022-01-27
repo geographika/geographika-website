@@ -1,0 +1,76 @@
+Another Visual Studio Macro
+###########################
+:date: 2007-04-04 14:35
+:author: admin
+:category: arcobjects, esri, programming
+:slug: another-visual-studio-macro
+:status: published
+
+My start up program when working with ArcObjects is nearly always set to
+ArcMap.exe As my ArcMap installation had recently moved from an F: drive
+to a C: drive I had to update this for over a dozen projects. There had
+to be an easier way (!) so I spent some time trying to find out how to
+accomplish this with a Visual Studio macro. This can easily be altered
+to set the start up program for a set of projects in a solution, or to
+another .exe.
+
+    1 Imports System
+
+    2 Imports EnvDTE
+
+    3 Imports VSLangProj
+
+    4 Imports VSLangProj2
+
+    5 Imports VSLangProj80
+
+    6 
+
+    7 Public Module ArcGISMacros
+
+    8 
+
+    9     Sub SetStartProgram()
+
+   10 
+
+   11         Dim proj As Project
+
+   12         Dim config As Configuration
+
+   13         Dim configProps As Properties
+
+   14         Dim prop As [Property]
+
+   15 
+
+   16         For Each proj In DTE.Solution.Projects
+
+   17             If TypeOf proj.Object Is VSLangProj.VSProject Then
+'loop through projects
+
+   18                 config =
+proj.ConfigurationManager.ActiveConfiguration
+
+   19                 configProps = config.Properties
+
+   20                 prop = configProps.Item("StartProgram")
+
+   21                 If prop.Value.ToString() Like "\*ArcMap\*" Then
+
+   22                     prop.Value = "C:\\Program
+Files\\ArcGIS\\Bin\\ArcMap.exe"
+
+   23                 End If
+
+   24             End If
+
+   25         Next
+
+   26     End Sub
+
+   27 End Module
+
+
+
+.. include:: comments/another-visual-studio-macro.rst

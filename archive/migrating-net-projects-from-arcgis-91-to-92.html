@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Migrating .NET Projects from ArcGIS 9.1 to 9.2 &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Minifying the Mapfish Client on Windows" href="minifying-the-mapfish-client-on-windows.html" />
+    <link rel="prev" title="Microsoft Access Queries" href="microsoft-access-queries.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Migrating .NET Projects from ArcGIS 9.1 to 9.2</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="microsoft-access-queries.html" title="Previous Chapter: Microsoft Access Queries"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Microsoft Acc...</span>
+    </a>
+  </li>
+  <li>
+    <a href="minifying-the-mapfish-client-on-windows.html" title="Next Chapter: Minifying the Mapfish Client on Windows"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Minifying the... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="migrating-net-projects-from-arcgis-9-1-to-9-2">
+<h1>Migrating .NET Projects from ArcGIS 9.1 to 9.2<a class="headerlink" href="#migrating-net-projects-from-arcgis-9-1-to-9-2" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2007-04-04 14:30</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>arcobjects, esri, programming</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>migrating-net-projects-from-arcgis-91-to-92</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p>My Windows XP recently decided to fall apart, so after a few days
+reinstalling everything I decided it would be a good time to switch from
+ArcGIS 9.1 to 9.2. The installation went smoothly enough, and after a
+few more hours I had Visual Studio 2005 up and running as well. With
+some trepidation I opened up my largest ArcGIS VB solution…1030
+errors, let alone warnings! The solution had been developed for ArcGIS
+9.1 so I had expected some issues..</p>
+<p>After some investigation it became apparent the cause of most errors
+were:</p>
+<p>1. None of the ESRI 9.1 DLLs that my projects referenced were present on
+my machine. These had all been updated to 9.2</p>
+<p>2. The ESRI.ArcGIS.Utility library has been deprecated, and its existing
+functionality moved to the ESRI.ArcGIS.ADF library.</p>
+<p>With regards to the first issue all the libraries still had the same
+name, but were different versions. Changing the “Specific Name” property
+of the reference allowed VS to find the library and removed the error. I
+must have several 100 of these references for several projects so I
+decided to try out the VS macros to automate this task. To edit and
+create macros manually go to Tools &gt;&gt; Macros &gt; Macros IDE in Visual
+Studio (2005). All the subs in this post were created in the same
+module, and require the following references listed below. Some of these
+had to be added manually to the “MyMacros” project via the References in
+the Macros IDE Project Explorer. The VSLangProj80 and VSLangProj2
+libraries are in C:\Program Files\Microsoft Visual Studio
+8\Common7\IDE\PublicAssemblies\</p>
+<p>    1 Option Strict On</p>
+<p>    2 Option Explicit On</p>
+<p>    3</p>
+<p>    4 ImportsEnvDTE</p>
+<p>    5 ImportsVSLangProj</p>
+<p>    6 Imports VSLangProj2</p>
+<p>    7 Imports VSLangProj80</p>
+<p>The following procedure loops through every project in the solution, and
+then through every reference in the project. If the reference starts
+with the text ESRI then the “Specific Version” property is set to false.</p>
+<p>    2</p>
+<p>    3
+‘<a class="reference external" href="http://msdn2.microsoft.com/en-us/library/vslangproj80.reference3.specificversion(VS.80).aspx">http://msdn2.microsoft.com/en-us/library/vslangproj80.reference3.specificversion(VS.80).aspx</a></p>
+<p>    4</p>
+<p>    5         DimprojectItem AsProjectItem</p>
+<p>    6         DimmyCodeProject AsVSLangProj.VSProject</p>
+<p>    7         Dimproj As Project</p>
+<p>    8         Dim ref As Reference3</p>
+<p>    9</p>
+<p>   10         For Eachproj InDTE.Solution.Projects</p>
+<p>   11             If  TypeOf proj.Object IsVSLangProj.VSProject  Then
+‘loop through projects</p>
+<p>   12                 myCodeProject = CType(proj.Object, VSProject)</p>
+<p>   13                 For Each ref InmyCodeProject.References</p>
+<p>   14                     If ref.Name Like “ESRI.*” Then</p>
+<p>   15                         ref.SpecificVersion = False</p>
+<p>   16                     End If</p>
+<p>   17                 Next</p>
+<p>   18             End If</p>
+<p>   19         Next</p>
+<p>   20</p>
+<p>   21     End Sub</p>
+<p>This greatly reduced the number of errors, and was so satisfying I
+continued playing around with macros and the macro recorder available in
+VS. OK it may have taken longer than doing all this manually..but where
+is the fun in that..</p>
+<p>The following macros work as follows:</p>
+<p>UpdateReferences - runs all the sub macros, passing parameters where
+appropriate.</p>
+<p>ReplaceReference - removes a reference tat is no longer needed, and
+automatically adds in the new reference. In this example I use it to
+replace all references (sic) to the deprecated ESRI.ArcGIS.Utility
+reference with the new ESRI.ArcGIS.ADF reference.</p>
+<p>ReplaceNameSpaces - this opens the find / replace dialog with parameters
+already filled. I commented out the automated execution of this
+replacement as I sometimes received dialogs while replacing that cause
+the macro to crash. In this example I replaced all Import declarations
+with the new ESRI.ArcGIS.ADF reference.</p>
+<p>   35     SubUpdateReferences()</p>
+<p>   36</p>
+<p>   37         ChangeSpecificVersions()</p>
+<p>   38         ReplaceNameSpaces(“ESRI.ArcGIS.Utility”,
+“ESRI.ArcGIS.ADF”)</p>
+<p>   39         ReplaceReference(“ESRI.ArcGIS.Utility”, “C:\Program
+Files\ArcGIS\DotNet\ESRI.ArcGIS.ADF.dll”)</p>
+<p>   40</p>
+<p>   41     End Sub</p>
+<p>   42     SubReplaceReference(ByValstrOrigRefName As String,
+ByValstrNewRefPath As String)</p>
+<p>   43</p>
+<p>   44</p>
+<p>   45         DimprojectItem AsProjectItem</p>
+<p>   46         DimmyCodeProject AsVSLangProj.VSProject</p>
+<p>   47         Dimproj As Project</p>
+<p>   48         Dim ref As Reference3</p>
+<p>   49</p>
+<p>   50         For Eachproj InDTE.Solution.Projects</p>
+<p>   51             If TypeOfproj.Object IsVSLangProj.VSProject Then ‘loop
+through projects</p>
+<p>   52                 myCodeProject = CType(proj.Object, VSProject)</p>
+<p>   53                 For Each ref InmyCodeProject.References</p>
+<p>   54                     Ifref.Name = strOrigRefName Then</p>
+<p>   55                         ref.Remove()</p>
+<p>   56
+myCodeProject.References.Add(strNewRefPath)</p>
+<p>   57                     End If</p>
+<p>   58                 Next</p>
+<p>   59             End If</p>
+<p>   60         Next</p>
+<p>   61</p>
+<p>   62     End Sub</p>
+<p>   63</p>
+<p>   64     SubReplaceNameSpaces(ByValstrOldNameSpace As String,
+ByValstrNewNameSpace As String)</p>
+<p>   65</p>
+<p>   66         DTE.ExecuteCommand(“Edit.Find”)</p>
+<p>   67         DTE.ExecuteCommand(“Edit.SwitchtoReplaceInFiles”)</p>
+<p>   68         DTE.Find.Target = vsFindTarget.vsFindTargetFiles</p>
+<p>   69         DTE.Find.FindWhat = strOldNameSpace</p>
+<p>   70         DTE.Find.ReplaceWith = strNewNameSpace</p>
+<p>   71         DTE.Find.MatchCase = False</p>
+<p>   72         DTE.Find.MatchWholeWord = True</p>
+<p>   73         DTE.Find.MatchInHiddenText = False</p>
+<p>   74         DTE.Find.PatternSyntax =
+vsFindPatternSyntax.vsFindPatternSyntaxLiteral</p>
+<p>   75         DTE.Find.SearchPath = “Entire Solution”</p>
+<p>   76         DTE.Find.SearchSubfolders = True</p>
+<p>   77         DTE.Find.KeepModifiedDocumentsOpen = False</p>
+<p>   78         DTE.Find.FilesOfType = “*.vb”</p>
+<p>   79         DTE.Find.ResultsLocation =
+vsFindResultsLocation.vsFindResults1</p>
+<p>   80         DTE.Find.Action = vsFindAction.vsFindActionReplaceAll</p>
+<p>   81         ‘If (DTE.Find.Execute() =
+vsFindResult.vsFindResultNotFound) Then</p>
+<p>   82         ‘Throw New System.Exception(“vsFindResultNotFound”)</p>
+<p>   83         ‘End If</p>
+<p>   84
+‘DTE.Windows.Item(“{CF2DDC32-8CAD-11D2-9302-005345000000}”).Close()</p>
+<p>   85</p>
+<p>   86     End Sub</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+migrating-net-projects-from-arcgis-91-to-92@geographika.co.uk?Subject=migrating-net-projects-from-arcgis-91-to-92" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-488:
+
+.. image:: http://www.gravatar.com/avatar/4b5e174eb12d025b30654ac32f0e21ec?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-488>` **Rob**
+**
+
+Seth -
+
+Thanks for this post - just what I needed this morning!
+
+ATB
+
+Rob
+
+
+.. raw:: html
+
+    <a href="mailto:web+fme-setting-a-raster-output-name-dynamically#1@geographika.co.uk?Subject=fme-setting-a-raster-output-name-dynamically" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+geojson-where-are-you@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Add Comment</a>

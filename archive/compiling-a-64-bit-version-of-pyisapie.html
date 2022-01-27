@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Compiling a 64 bit Version of PyISAPIe &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contact Me" href="contact-me.html" />
+    <link rel="prev" title="Building MapServer &amp; MapScript on Windows" href="building-mapserver-mapscript-on-windows.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Compiling a 64 bit Version of PyISAPIe</a><ul>
+<li><a class="reference internal" href="#get-64-bit-python">1. Get 64-bit Python</a></li>
+<li><a class="reference internal" href="#get-the-pyisapie-source">2. Get the PyISAPIe Source</a></li>
+<li><a class="reference internal" href="#configure-the-visual-studio-project">3. Configure the Visual Studio Project</a></li>
+<li><a class="reference internal" href="#making-the-pre-build-step">4. Making the Pre-build Step</a></li>
+<li><a class="reference internal" href="#compile">5. Compile!</a></li>
+<li><a class="reference internal" href="#image"></a></li>
+<li><a class="reference internal" href="#aftermath">Aftermath</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="building-mapserver-mapscript-on-windows.html" title="Previous Chapter: Building MapServer & MapScript on Windows"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Building MapS...</span>
+    </a>
+  </li>
+  <li>
+    <a href="contact-me.html" title="Next Chapter: Contact Me"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Contact Me &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="compiling-a-64-bit-version-of-pyisapie">
+<h1>Compiling a 64 bit Version of PyISAPIe<a class="headerlink" href="#compiling-a-64-bit-version-of-pyisapie" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-04-16 11:55</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>python, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit, iis, IIS7, msi, PyISAPIe, python</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>compiling-a-64-bit-version-of-pyisapie</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><img alt="image" src="../_images/image19.png" /> Welcome to a veritable novella. I’ll jump straight to the end ?”
+there is no happy outcome, as yet, to this post there is a happy
+outcome! I have compiled a 64 bit
+<a class="reference external" href="http://sourceforge.net/apps/trac/pyisapie">PyISAPIe</a> DLL (a program
+that runs Python at high speed under IIS), and it is up and running on
+Windows Server 2008 and IIS7. Many thanks to Phillip Stabon, the creator
+of PyISAPIe, for additional help, and for the latest version of PyISAPIe
+which makes compilation for different set ups much easier.</p>
+<p>Some background information - I’ve not done any C++ for 10 years (and
+even then my most advanced program was to finish off a code sample on a
+hotel register for pirates ?” of the traditional kind). Also I’ve never
+used Subversion. Hence there are lots of pictures, and every step is
+detailed. If there’s anything missing let me know.</p>
+<p>I’m not sure why I started doing this ?” the performance of Python using
+32-bit version is fine, and since I started working on this Phillip
+Stabon, has mentioned <a class="reference external" href="http://sourceforge.net/apps/trac/pyisapie">he will be making a 64 bit DLL
+himself</a>. However as there
+are many different versions of Python around, and different GIS tools
+rely on different versions it seemed a good idea to document how to do
+this from scratch.</p>
+<p>In this example I’m using Visual Studio 2008, and a number of other
+tools that are detailed as I go along. I’ve also got the <a class="reference external" href="http://geographika.co.uk/?p=457">64 bit
+compilation tools installed</a>. There
+are a few notes from Phillip on compiling it for Windows 64-bit in the
+<a class="reference external" href="http://groups.google.com/group/pyisapie/browse_thread/thread/b541331333bcfef8/54e82b58562b7268?hl=en&amp;lnk=gst&amp;q=64+bit#54e82b58562b7268">discussion
+lists</a>
+(see quoted text underneath the post). Since this post was first
+published there is a <a class="reference external" href="http://groups.google.com/group/pyisapie/browse_thread/thread/ca3dfbf8f1d5e349?hl=en">newer discussion in the
+forums</a>.</p>
+<p>Anyway “How to Compile PyISAPIe for a 64-bit Server in 5 Easy Steps!”…</p>
+<section id="get-64-bit-python">
+<h2>1. Get 64-bit Python<a class="headerlink" href="#get-64-bit-python" title="Permalink to this headline">¶</a></h2>
+<p>You’ll need a 64 bit version of Python. All my scripts were running and
+developed using Python 2.5.4 so I wanted to compile PyISAPIe to work
+with this.</p>
+<p>The Python downloads <a class="reference external" href="http://www.python.org/download/releases/2.5.4/">are
+here</a>. I initially
+thought that as my server has an Intel processor I should use the
+version for Win64-Itanium users. However it appears Itanium is only used
+on some very high spec servers, and I should actually use the
+<a class="reference external" href="http://www.python.org/ftp/python/2.5.4/python-2.5.4.amd64.msi">python-2.5.4.amd64.msi</a>
+file. To quote the <a class="reference external" href="http://www.python.org/download/">Python site</a>:</p>
+<p><em>The binaries for AMD64 will also work on processors that implement the
+Intel 64 architecture (formerly EM64T), i.e. the architecture that
+Microsoft calls x64, and AMD called x86-64 before calling it AMD64. They
+will not work on Intel Itanium Processors (formerly IA-64).</em></p>
+<p>If you are using the Itanium Python version on a x64 machine you’ll
+likely end up with the following error during compilation:</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>Error    10    fatal error LNK1112: module machine type ‘IA64’
+conflicts with target machine type ‘x64’    python25.lib
+*</p>
+<p>The Python files are downloaded in a MSI (Microsoft Installer) file, and
+as I’m developing on a 32-bit laptop (to install on a 64-bit server
+later) I couldn’t install Python to access the files.</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+<p>To workaround this I found a useful program called <a class="reference external" href="http://blogs.pingpoet.com/overflow/archive/2005/11/16/14995.aspx">Les
+MSIérables</a>.
+This extracts the files contained in an MSI without needing to install
+anything. I Had to click a few times around the interface before the
+extract button worked, but then I had a shiny new copy of the 64-bit
+Python files ready on my machine.</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+</section>
+<section id="get-the-pyisapie-source">
+<h2>2. Get the PyISAPIe Source<a class="headerlink" href="#get-the-pyisapie-source" title="Permalink to this headline">¶</a></h2>
+<p>I originally downloaded a zip of the latest PyISAPIe source code.
+However this is not the way to do things.. The build has an automated
+step which checks something in Subversion (or SVN - an online source
+control system), so the source code you compile needs to be a check-out.
+If you don’t do this you’ll get errors later on such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="mi">2</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">C1083</span><span class="p">:</span> <span class="n">Cannot</span> <span class="nb">open</span> <span class="n">include</span> <span class="n">file</span><span class="p">:</span> <span class="s1">&#39;Revision.h&#39;</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
+</pre></div>
+</div>
+<p>To connect to SubVersion I’d recommend downloading
+<a class="reference external" href="http://tortoisesvn.net/downloads">TortoiseSVN</a> (in fact as one of
+its .exe tools is used in a pre-build step later on ?” its a
+requirement). This adds a context menu to Windows Explorer that allows
+you to connect to SVN and get the latest code. Set up a new folder in
+Explorer, then right click and select SVN Checkout.<img alt="image" src="../_images/image19.png" /></p>
+<p>The URL of the repository for the latest PyISAPIe code is
+<a class="reference external" href="http://pyisapie.svn.sourceforge.net/svnroot/pyisapie/Trunk/">http://pyisapie.svn.sourceforge.net/svnroot/pyisapie/Trunk/</a>. Entering
+this URL and Clicking OK should start downloading the latest source
+files via the magic of the Internet.</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+</section>
+<section id="configure-the-visual-studio-project">
+<h2>3. Configure the Visual Studio Project<a class="headerlink" href="#configure-the-visual-studio-project" title="Permalink to this headline">¶</a></h2>
+<p>Once the source code has downloaded you should be able to open up the
+PyISAPIe.sln file which references the PyISAPIe.vcproj C++ project file.
+This is set up to compile the 32-bit version by default. You’ll want to
+change this using Build &gt;&gt; Configuration Manager &gt;&gt; x64. If this is the
+first time you are compiling a 64-bit DLL you’ll need to create a “New
+Solution Platform” as shown below:</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+<p>If you try to compile now you may get the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="mi">2</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">C1189</span><span class="p">:</span> <span class="c1">#error :  Please define PYI_PY_VERSION at the project level.</span>
+</pre></div>
+</div>
+<p>We need to tell the compiler the appropriate Python version to use. This
+can be set by going to Project &gt;&gt; Properties &gt;&gt;  Configuration
+Properties &gt;&gt; C/C++ &gt;&gt; Preprocessor. If these options seem to be missing
+then make sure the project itself is selected in the Solution Explorer
+when clicking on Properties.</p>
+<p>I’m using 2.5.4 so I set this value to be PY_25_4 (a list of valid
+codes can be seen in PyISAPIe.h from line 25 onwards). Also change the
+WIN32 variable to WIN64.</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+<p>Another compile, another error (again apparently fatal):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fatal</span> <span class="n">error</span> <span class="n">C1083</span><span class="p">:</span> <span class="n">Cannot</span> <span class="nb">open</span> <span class="n">include</span> <span class="n">file</span><span class="p">:</span> <span class="s1">&#39;Python25/include/Python.h&#39;</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span>
+</pre></div>
+</div>
+<p>Looking at line 84 in PyISAPIe.h you can see the header file wants to
+include the Python files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define PYI_PY_VERSION_MAJOR PY_25</span>
+<span class="c1">#include &lt;Python25/include/Python.h&gt;</span>
+<span class="c1">#include &lt;Python25/include/structmember.h&gt;</span>
+<span class="c1">#include &lt;Python25/include/frameobject.h&gt;</span>
+</pre></div>
+</div>
+<p>To allow these files to be correctly referenced I copied the entire
+Python25 folder (see step 1) into a new Python\x64 folder. The folder
+structure should now look something like this:</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+<p>The project is set up to look for the Python files in the Python\x64
+folder (for 64 bit release builds) by default. This setting can be seen
+in the “Additional Include Directories” shown below. The same project
+can be used with different versions of Python by adding folders such as
+Python\x64\Python26 and changing the project environment variables.</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+</section>
+<section id="making-the-pre-build-step">
+<h2>4. Making the Pre-build Step<a class="headerlink" href="#making-the-pre-build-step" title="Permalink to this headline">¶</a></h2>
+<p>In the original project file there is a pre-build step that checks
+something in SubVersion (its description is “Subversion Revision Scan”).
+It can be seen at Project &gt;&gt; Properties &gt;&gt; Configuration Properties &gt;&gt;
+Build Events &gt;&gt; Pre-Build Event:</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+<p>It runs the following command from the (Windows not Visual Studio)
+command line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subwcrev</span> <span class="o">.</span> <span class="n">PyISAPIe</span>\<span class="n">Revision</span><span class="o">.</span><span class="ow">in</span> <span class="n">PyISAPIe</span>\<span class="n">Revision</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>Fortunately the command line tool
+<a class="reference external" href="http://tortoisesvn.net/docs/release/TortoiseSVN_en/tsvn-subwcrev.html">SubWCRev</a>
+is downloaded as part of
+<a class="reference external" href="http://tortoisesvn.net/downloads">TortoiseSVN</a>. If you don’t have
+the prebuild step set up correctly then you may receive the following
+errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="n">PRJ0019</span><span class="p">:</span> <span class="n">A</span> <span class="n">tool</span> <span class="n">returned</span> <span class="n">an</span> <span class="n">error</span> <span class="n">code</span> <span class="kn">from</span> <span class="s2">&quot;Subversion Revision Scan&quot;</span>
+</pre></div>
+</div>
+<p>The syntax for this command is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SubWCRev</span> <span class="n">WorkingCopyPath</span> <span class="p">[</span><span class="n">SrcVersionFile</span> <span class="n">DstVersionFile</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">nmdfe</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">WorkingCopyPath</span></code> is the path to the working copy being checked.
+If you aren’t using a copy of the sourcecode from SVN then you will
+receive errors such as “<em>SubWCRev : ‘D:\PyISAPie’ is not a working
+copy.”</em> If you have only just installed TortoiseSVN then make sure you
+log off or restart Windows so that your <a class="reference external" href="http://geographika.co.uk/?p=428">environment variables are
+updated</a>.</p>
+<p><img alt="image" src="../_images/image19.png" /></p>
+<p>The prebuild step should work “out of the box”, however if you still get
+errors in Visual Studio then running the following commands (pointing to
+your project folders) from a Windows Shell may provide more useful
+debugging information.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">D</span><span class="p">:</span>\<span class="n">PyISAPIe</span>\<span class="n">PyISAPIe</span>
+<span class="n">subwcrev</span> \ <span class="n">Revision</span><span class="o">.</span><span class="ow">in</span> <span class="n">Revision</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>All that is actually required by this pre-build step is to generate a
+Revision.h file of 5 lines..</p>
+</section>
+<section id="compile">
+<h2>5. Compile!<a class="headerlink" href="#compile" title="Permalink to this headline">¶</a></h2>
+<p>Another attempt at compiling and I get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="mi">14</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">LNK1104</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="n">file</span> <span class="s1">&#39;python25_d.lib&#39;</span>
+</pre></div>
+</div>
+<p>From <a class="reference external" href="http://www.panda3d.org/phpbb2/viewtopic.php?t=4970">this post</a>
+I read <em>“python25_d.dll is the debug version. If you want to compile
+against python25.dll instead, you need to build a Release build of your
+application, not a Debug build. Or, you can go to python.org and
+download the debug python25_d.lib and python25_d.dll.”</em></p>
+<p>I changed my build to Release and on the next compile…it worked! And
+look I have proof..</p>
+</section>
+<section id="image">
+<h2><img alt="image" src="../_images/image19.png" /><a class="headerlink" href="#image" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="aftermath">
+<h2>Aftermath<a class="headerlink" href="#aftermath" title="Permalink to this headline">¶</a></h2>
+<p>I then set up the PyISAPIe.DLL on IIS7 (using the <a class="reference external" href="http://geographika.co.uk/setting-up-python-on-iis7">same process as I
+detailed here</a>),
+but using my newly compiled 64-bit, and using the DefaultAppPool which
+should run 64 bit applications. I also installed the Python 2.5.4 for
+64-bit AMD processors (the same MSI as detailed above).</p>
+<p>Unfortunately I currently get HTTP 404.4 errors, with nothing in the
+logs of use to help diagnose further. I suspect the references to WIN32
+may be the issue, but I’ve no idea what to change them to. I’m posting
+to the PyISAPIe forum with the hope of trying to get this working, and
+hope that this is not the final revision of this post.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/385b138bae67712d5d09ab526e71a46f?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1733" src="http://www.gravatar.com/avatar/385b138bae67712d5d09ab526e71a46f?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1733"><span class="std std-ref">1.</span></a> <strong>Tess</strong>
+**</p>
+<p>My MBA team and I have created a blog on GIS and its multiple business
+applications. We’ve become quite interested in the topic. We’d love for
+you to check out our blog and let us know what you think!</p>
+<p>Thanks!</p>
+<a href="mailto:web+building-mapserver-mapscript-on-windows#1@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/726f8fad8af1385e486d73334ba26adb?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1855" src="http://www.gravatar.com/avatar/726f8fad8af1385e486d73334ba26adb?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1855"><span class="std std-ref">2.</span></a> <strong>Mark Volz</strong>
+**</p>
+<p>When I was trying to build, using the following command, I kept getting
+errors that the files could not be found:</p>
+<div class="line-block">
+<div class="line">C:\Mapserver&gt;nmake ms &gt;&gt;mylog2.txt</div>
+<div class="line-block">
+<div class="line">…</div>
+<div class="line">Could Not Find</div>
+</div>
+</div>
+<p>C:\Mapserver\mapserver-6-0\mapscript\csharp\*.dll
+|  …</p>
+<p>All of the files are in the correct place. Any ideas on how to fix the
+problem?</p>
+<p>Thanks</p>
+<a href="mailto:web+building-mapserver-mapscript-on-windows#2@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/9f4c7d4f88dc57b990e6b664b9f64579?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1900" src="http://www.gravatar.com/avatar/9f4c7d4f88dc57b990e6b664b9f64579?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1900"><span class="std std-ref">3.</span></a> <strong>Sowmya</strong>
+**</p>
+<p>This is a nice blog. I could successfully compile mapserver using your
+article. Thank you very much. Could you please give me instructions how
+to compile csharp mapscript also.</p>
+<div class="line-block">
+<div class="line">Thanks ,</div>
+<div class="line-block">
+<div class="line">Sowmya.</div>
+</div>
+</div>
+<a href="mailto:web+building-mapserver-mapscript-on-windows#3@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+compiling-a-64-bit-version-of-pyisapie@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

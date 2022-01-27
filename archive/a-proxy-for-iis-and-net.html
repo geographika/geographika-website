@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>A Proxy for IIS and .NET &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About" href="about.html" />
+    <link rel="prev" title="A 10 Minute Intro on using BitBucket with Windows" href="a-10-minute-intro-on-using-bitbucket-with-windows.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">A Proxy for IIS and .NET</a><ul>
+<li><a class="reference internal" href="#compiling-the-proxy">Compiling the Proxy</a></li>
+<li><a class="reference internal" href="#configuring-the-proxy">Configuring the Proxy</a></li>
+<li><a class="reference internal" href="#in-xp-iis-5-1">In XP / IIS 5.1</a></li>
+<li><a class="reference internal" href="#in-windows-7-iis7">In Windows 7 / IIS7</a></li>
+<li><a class="reference internal" href="#debugging">Debugging</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="a-10-minute-intro-on-using-bitbucket-with-windows.html" title="Previous Chapter: A 10 Minute Intro on using BitBucket with Windows"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; A 10 Minute I...</span>
+    </a>
+  </li>
+  <li>
+    <a href="about.html" title="Next Chapter: About"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">About &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="a-proxy-for-iis-and-net">
+<h1>A Proxy for IIS and .NET<a class="headerlink" href="#a-proxy-for-iis-and-net" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-12-07 11:17</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>general, OpenLayers</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>.net, proxy</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>a-proxy-for-iis-and-net</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><img alt="Proxy Server" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Schematic_Proxy_Server.svg/350px-Schematic_Proxy_Server.svg.png" />Due to the <a class="reference external" href="http://en.wikipedia.org/wiki/Same_origin_policy">same origin
+policy</a> any data
+from a remote server cannot be (easily) added to a web application on
+your own server. This issue also applies to <a class="reference external" href="http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions#ProxyHost">WFS (Web Feature Services)
+and
+OpenLayers</a>.
+There is a <a class="reference external" href="http://trac.osgeo.org/openlayers/browser/trunk/openlayers/examples/proxy.cgi">Python
+script</a>
+that can be used to get round this issue, but I preferred to have a
+native .NET equivalent.</p>
+<p>On the OpenLayers Mailing List <a class="reference external" href="http://osgeo-org.1803224.n2.nabble.com/ProxyHost-as-c-httphandler-td5593858.html#a5593858">Diego Guidi pointed to an opensource
+.NET
+proxy</a>.
+A proxy makes a request to a remote URL, reads the response, and then
+sends it to the client so it appears all data comes from the same
+server.</p>
+<p>The .NET proxy is written by <a class="reference external" href="http://pajhome.org.uk/">Paul Johnston</a>,
+and can be found at <a class="reference external" href="http://code.google.com/p/iisproxy/">http://code.google.com/p/iisproxy/</a>. I made a few
+minor changes as follows:</p>
+<ul>
+<li><div><p>increased the byte size for reading responses to <a class="reference external" href="http://code.google.com/p/iisproxy/issues/detail?id=7">resolve this
+issue</a></p>
+</div></li>
+<li><div><p>added support for PUT requests</p>
+</div></li>
+<li><div><p>temporarily removed GZIP compression due to invalid responses and a
+possible
+<a class="reference external" href="http://stackoverflow.com/questions/4255521/compression-header-bug-in-net-httpwebrequest">bug</a>
+in .NET</p>
+</div></li>
+</ul>
+<p>The proxy can be used for any requests and is not limited to just
+OpenLayers. My source files can be found at
+<a class="reference external" href="http://bitbucket.org/geographika/openlayers/src/bfeab6a9971a/iisproxy/">http://bitbucket.org/geographika/openlayers/src/bfeab6a9971a/iisproxy/</a></p>
+<p>I’d recommend reading the original project’s
+<a class="reference external" href="http://code.google.com/p/iisproxy/source/browse/trunk/README.txt">README</a>
+file which goes through compilation and installation, but I’ve added my
+own notes below.</p>
+<section id="compiling-the-proxy">
+<h2>Compiling the Proxy<a class="headerlink" href="#compiling-the-proxy" title="Permalink to this headline">¶</a></h2>
+<p>To compile the proxy download the
+<a class="reference external" href="http://bitbucket.org/geographika/openlayers/src/bfeab6a9971a/iisproxy/">source</a>,
+open the Windows command prompt and run the following commands:</p>
+<ul>
+<li><div><p>cd C:\PathToIISProxyFolder</p>
+</div></li>
+<li><div><p>build.cmd</p>
+</div></li>
+</ul>
+<p>The build.cmd file is hardcoded to compile the code for .NET 2.0
+(located at C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\csc), but
+you should be able to compile it for higher versions of .NET.</p>
+</section>
+<section id="configuring-the-proxy">
+<h2>Configuring the Proxy<a class="headerlink" href="#configuring-the-proxy" title="Permalink to this headline">¶</a></h2>
+<p>The important thing to remember is that your folder structure on your
+local server <em>must match</em> the folder structure on your remote server. So
+if you wish to get requests back from <a class="reference external" href="http://mapserver.org/wfsservice/">http://mapserver.org/wfsservice/</a>
+you need to create a local application at
+<a class="reference external" href="http://geographika.azurewebsites.net/wfsservice">http://geographika.azurewebsites.net/wfsservice</a>.</p>
+</section>
+<section id="in-xp-iis-5-1">
+<h2>In XP / IIS 5.1<a class="headerlink" href="#in-xp-iis-5-1" title="Permalink to this headline">¶</a></h2>
+<p>Windows XP Professional comes with IIS 5.1. This is not installed by
+default so you may need to go to Control Panel &gt;&gt; Add or Remove Programs
+&gt;&gt; Add / Remove Windows Components.</p>
+<p>Once installed you can create a new folder in C:\Inetpub\wwwroot and
+name it wfsservice. Copy the IISProxy \bin folder and web.config into
+this folder.</p>
+<p><a class="reference external" href="images/2010/12/image3.png"><img alt="image" src="../_images/image_thumb3.png" /></a> Next open the IIS Manager (in Control Panel &gt;&gt; Administrative
+Tools), navigate to the wfsservice folder, right-click, and select
+properties. You need to click the Create button to turn this into a web
+application.</p>
+<p><a class="reference external" href="images/2010/12/image3.png"><img alt="image" src="../_images/image_thumb3.png" /></a></p>
+<p>Once the application is created, click the Configuration button.  On the
+Mappings tab select Add. This step ensures all web requests to your
+application are sent to the proxy DLL. As the DLL is written for ASP.NET
+it needs to be run by the aspnet_isapi.dll. Different versions of this
+DLL may be installed on your machine.</p>
+<p>I compiled the proxy for .NET 2 and the DLL I selected is located at
+C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll.</p>
+<p>There is a slight bug in the form which means you may have to click in
+and out of the Executable box before the OK button becomes active. The
+extension of .* indicates that any web request (.html, .aspx, .json)
+should all be handled by the proxy DLL.</p>
+<p><a class="reference external" href="images/2010/12/image3.png"><img alt="image" src="../_images/image_thumb3.png" /></a>I deselected the “Check that file exists” box as I want all
+requests to be handled remotely even if there is no remote file. I also
+want the proxy to handle all types of HTTP requests (GET, POST, PUT,
+DELETE) so selected the “All Verbs” option.</p>
+</section>
+<section id="in-windows-7-iis7">
+<h2>In Windows 7 / IIS7<a class="headerlink" href="#in-windows-7-iis7" title="Permalink to this headline">¶</a></h2>
+<p>In Windows 7 the installation process should be simpler when configured
+using the Integrated Pipeline mode. This <a class="reference external" href="http://learn.iis.net/page.aspx/508/wildcard-script-mapping-and-iis-7-integrated-pipeline/">article
+details</a>
+how using IIS7 Integrated Pipeline mode is more efficient than the
+wildcard method used above.</p>
+<p>Create a folder to match the name of the remote folder, and in IIS
+Manager convert it to an application. Copy the web.config and \bin
+folder as before. However the web.config is slightly different and
+should be similar to below (remember only the root name of the remote
+server should be used with no backslashes).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+        &lt;add key=&quot;proxyUrl&quot; value=&quot;http://mapserver.org&quot; /&gt;
+    &lt;/appSettings&gt;
+   &lt;system.webServer&gt;
+        &lt;handlers&gt;
+            &lt;add name=&quot;ReverseProxy&quot; verb=&quot;*&quot; path=&quot;*.*&quot; type=&quot;ReverseProxy.ReverseProxy, ReverseProxy&quot; /&gt;
+        &lt;/handlers&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</pre></div>
+</div>
+<p>There has also been an issue in IIS7 of the proxy returning security
+errors such as - “Request for the permission of type
+‘System.Web.AspNetHostingPermission, System..”</p>
+<p>The fix for this is to set LoadProfile to True for the application pool
+- <a class="reference external" href="http://dbvt.com/blog/post/AspNetHostingPermission-Security-Exception-Fix-with-Ajax-in-IIS7.aspx">via Dave
+Burke</a>.</p>
+</section>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
+<p>If you have issues with timeouts and hanging responses you can debug the
+proxy code on your own machine by attaching to the ASP.NET process in
+Visual Studio ?” Debug &gt;&gt; Attach to Process. Set a breakpoint in the code
+and then trigger a request either in your browser or using
+<a class="reference external" href="http://www.fiddler2.com/fiddler2/">Fiddler</a>.</p>
+<p><a class="reference external" href="images/2010/12/image3.png"><img alt="image" src="../_images/image_thumb3.png" /></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/24d560e9c03ad96566974d9bcaee5a82?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1052" src="http://www.gravatar.com/avatar/24d560e9c03ad96566974d9bcaee5a82?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-proxy-for-iis-and-net.html#comment-1052"><span class="std std-ref">1.</span></a> <strong>pencho</strong>
+**</p>
+<p>thats awesome .Thnx very much man . This rly helps</p>
+<a href="mailto:web+a-10-minute-intro-on-using-bitbucket-with-windows#1@geographika.co.uk?Subject=a-10-minute-intro-on-using-bitbucket-with-windows" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+a-proxy-for-iis-and-net@geographika.co.uk?Subject=a-proxy-for-iis-and-net" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

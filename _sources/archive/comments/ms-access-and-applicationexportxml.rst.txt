@@ -1,0 +1,36 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-141:
+
+.. image:: http://www.gravatar.com/avatar/050bc2468bc3202449439c4eede24f64?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-141>` **maning**
+**
+
+Thanks! I'm not exactly using mapfish but your post gave me insights on
+how to improve my openlayers js.
+
+
+.. raw:: html
+
+    <a href="mailto:web+minifying-the-mapfish-client-on-windows#1@geographika.co.uk?Subject=minifying-the-mapfish-client-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+ms-access-and-applicationexportxml@geographika.co.uk?Subject=ms-access-and-applicationexportxml" target="_top">Add Comment</a>

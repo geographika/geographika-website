@@ -1,0 +1,108 @@
+WMS GetCapabilities
+###################
+:date: 2010-01-16 15:38
+:author: admin
+:category: mapserver, web development, wms
+:tags: download, error, getcapabilities, headers, http, mapserver, wms
+:slug: wms-get-capabilities
+:status: published
+
+Yes, I'd like to see the map layers and capabilities available from my
+`MapServer <http://mapserver.org/>`__ MAP file, and no I don't want to
+download mapserv.exe..
+
+Messing with Headers
+~~~~~~~~~~~~~~~~~~~~
+
+I had the same problem with both Firefox and Internet Explorer 7 each
+time I issues a request such as:
+
+::
+
+    http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/my.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetCapabilities
+
+The browser tried to download mapserv.exe. The "exe" did actually
+contain the GetCapabilities XML, but it is very annoying to have to
+manually open it in another program each time.
+
+This is a `FAQ on the MapServer
+site <http://mapserver.org/faq.html#when-i-do-a-getcapabilities-why-does-my-browser-want-to-download-mapserv-exe-mapserv>`__
+which suggested that a program needs to be manually associated with the
+`MIME <http://en.wikipedia.org/wiki/MIME>`__ type returned by the
+requests - application/vnd.ogc.wms\_xml.
+
+In FireFox I went about associating an application with the MIME type
+application/vnd.ogc.wms\_xml, following the steps outlined
+`here <http://support.mozilla.com/en-US/kb/Options+window+-+Applications+panel?style_mode=inproduct>`__.
+After a restart of FireFox nothing had changed.
+
+|image0|
+
+I used `FireBug <http://getfirebug.com/>`__ to check that the request
+was returning the correct MIME type. As shown in the image below the
+server was correctly returning the correct Content-Type.
+
+|image1|
+
+I then checked the request parameters sent from my browser to the
+server. These included:
+
+::
+
+    Accept    text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Language    en-US,en;q=0.7...
+    Accept-Encoding    gzip,deflate
+
+I then thought the reason for trying to download the content was due to
+my browser not "accepting" the application/vnd.ogc.wms\_xml type. I used
+another\ `FireFox
+Add-In <https://addons.mozilla.org/en-US/firefox/addon/967>`__ to modify
+my request headers to accept the content type (and "chunked" encoding
+just for good measure..).
+
+|image2|
+
+The headers sent with my request now looked as follows:
+
+::
+
+    Accept    application/vnd.ogc.wms_xml,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+    Accept-Language    en-US,en;q=0.7,chrome://global/locale/intl.properties;q=0.3
+    Accept-Encoding    chunked,gzip,deflate
+
+A Hackish Solution
+~~~~~~~~~~~~~~~~~~
+
+All good "fun" but I was still met with the same dialog box to download
+the content. FireBug still reported the response data as *"The resource
+from this URL is not text."*
+
+ This
+`post <http://lists.osgeo.org/pipermail/mapserver-users/2007-April/023264.html>`__
+hints that the content type defined in the WMS specs was a mistake, and
+that for the new WMS specifications the content type will be set to
+text/html by default. It also suggested that adding a
+&EXECPTIONS=text/html parameter to the request string could override the
+content type, but this (I believe) is only where an exceptions actually
+occur s on the server.
+
+I stumbled across a solution by accident. While entering a request
+string I put an incorrect version number in the VERSION parameter:
+
+::
+
+    http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/my.map&SERVICE=WMS&VERSION=1.0.3&REQUEST=GetCapabilities
+
+The response came back in an ``text/xml`` format that was displayed in
+the browser! Whilst not very satisfactory, it was nicer than having to
+manually open up fake .exe files. If anyone can shed any light on why
+this is happening please let me know.
+
+.. |image0| image:: ../wp-content/uploads/2010/01/getcapabilites-300x148.png
+   :target: ../wp-content/uploads/2010/01/getcapabilites.png
+.. |image1| image:: ../wp-content/uploads/2010/01/getcapabilites_response-300x145.png
+   :target: ../wp-content/uploads/2010/01/getcapabilites_response.png
+.. |image2| image:: images/2010/01/mod_headers-300x57.png
+   :target: images/2010/01/mod_headers.png
+
+.. include:: comments/wms-get-capabilities.rst

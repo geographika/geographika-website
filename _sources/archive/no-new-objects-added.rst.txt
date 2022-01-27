@@ -1,0 +1,34 @@
+No New Objects Added...
+#######################
+:date: 2007-03-09 11:30
+:author: admin
+:category: arcobjects, bugs, esri
+:slug: no-new-objects-added
+:status: published
+
+If only Visual Studio would open in the same state that it was closed..
+
+Excluded DLLs in set up packages seem to re-include themselves, projects
+in solutions disappear, and today an ArcObects command seemed to have
+disappeared.
+
+All had previously been running without problems in debugging mode,
+opening ArcMap and then stopping at various breakpoints. However today
+no breakpoints were hit. Not even on the OnCreate or New functions of
+the BaseCommand. The button in ArcMap had disappeared. Adding it
+manually from the .tlb gave the "No New Objects Added" message.
+
+Some time later after much blood, sweat, (and possibly tears), I delved
+into the registry. I searched for the class ID in key values and names.
+The class ID can be found in the class code file of the tool:
+
+Public ConstClassId As String = "480d624c-3d4c-4210-ae11-0c775dddc35d"
+
+| Then I took the rather risky step of deleting all these keys. If
+anyone does the same I'd recommend making a backup of the registry first
+- not that I did myself..
+|  Anyway I think the class must have been registered twice, or there
+was an error in the registry, as the next time I started the project
+with debugging everything had started working again =)
+
+.. include:: comments/no-new-objects-added.rst

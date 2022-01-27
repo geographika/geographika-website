@@ -1,0 +1,98 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1733:
+
+.. image:: http://www.gravatar.com/avatar/385b138bae67712d5d09ab526e71a46f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1733>` **Tess**
+**
+
+My MBA team and I have created a blog on GIS and its multiple business
+applications. We’ve become quite interested in the topic. We’d love for
+you to check out our blog and let us know what you think!
+
+Thanks!
+
+
+.. raw:: html
+
+    <a href="mailto:web+building-mapserver-mapscript-on-windows#1@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1855:
+
+.. image:: http://www.gravatar.com/avatar/726f8fad8af1385e486d73334ba26adb?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1855>` **Mark Volz**
+**
+
+When I was trying to build, using the following command, I kept getting
+errors that the files could not be found:
+
+| C:\\Mapserver>nmake ms >>mylog2.txt
+|  ...
+|  Could Not Find
+C:\\Mapserver\\mapserver-6-0\\mapscript\\csharp\\\*.dll
+|  ...
+
+All of the files are in the correct place. Any ideas on how to fix the
+problem?
+
+Thanks
+
+
+.. raw:: html
+
+    <a href="mailto:web+building-mapserver-mapscript-on-windows#2@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1900:
+
+.. image:: http://www.gravatar.com/avatar/9f4c7d4f88dc57b990e6b664b9f64579?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1900>` **Sowmya**
+**
+
+This is a nice blog. I could successfully compile mapserver using your
+article. Thank you very much. Could you please give me instructions how
+to compile csharp mapscript also.
+
+| Thanks ,
+|  Sowmya.
+
+
+.. raw:: html
+
+    <a href="mailto:web+building-mapserver-mapscript-on-windows#3@geographika.co.uk?Subject=building-mapserver-mapscript-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+compiling-a-64-bit-version-of-pyisapie@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Add Comment</a>

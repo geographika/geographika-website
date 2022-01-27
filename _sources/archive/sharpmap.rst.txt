@@ -1,0 +1,34 @@
+SharpMap
+########
+:date: 2007-02-20 01:07
+:author: geographika
+:category: general
+:slug: sharpmap
+:status: published
+
+I have recently downloaded, and been playing around with an OpenSource
+map renderer for the .Net 2.0 framework - SharpMap.
+
+The development site can be found at http://www.codeplex.com/SharpMap.
+The development site is stored in CodePlex which is descriped in
+Wikipedia as a site website for OpenSource projects hosted by Microsoft
+providing "wiki pages, source control based on Team Foundation Server,
+discussion forums, issue tracking, project tagging, RSS support,
+statistics, and releases. " This is the first time I have heard of
+CodePlex, but it is an interesting and well designed concept in itself.
+
+SharpMap itself is very quick to install and comes with a set of demo
+pages that show some very fancy AJAX zooming, WMS capabilities, and
+symbology. The code classes themselves seem simple to use, and getting
+some of your own test data into a sample page was quick and easy. I hope
+to get a sample site together myself in the coming months, as it seems a
+very useful way to publish data without having to pay extortionate
+license fees in order to display geographic data - on a Windows server.
+In the meantime feast your eyes on this lavish screenshot...
+
+|SharpMap Rendering|
+
+.. |SharpMap Rendering| image:: images/2007/02/africa_overlay1.jpg
+   :target: http://geographika.wordpress.com/2007/02/20/sharpmap/sharpmap-rendering-2/
+
+.. include:: comments/sharpmap.rst

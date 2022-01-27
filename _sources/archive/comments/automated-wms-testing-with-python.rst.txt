@@ -1,0 +1,87 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-255:
+
+.. image:: http://www.gravatar.com/avatar/66a954812cb9b8e0277798daa43d325d?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-255>` **Antonio Santiago**
+**
+
+A write a similar post some time ago:
+http://acuriousanimal.orggeo.net/?q=node/16
+
+It is nice to see how "nice" online applications can help us documenting
+:)
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-diagrams-and-documentation#1@geographika.co.uk?Subject=automated-diagrams-and-documentation" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-256:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-256>` **geographika**
+**
+
+| `@Antonio Santiago <#comment-255>`__
+|  Anything to make documentation get read!
+|  Your `Balloon
+Project <http://acuriousanimal.orggeo.net/?q=content/balloon-project>`__
+looks interesting. Its easy to forget NASA Whirlwind when Google Earth
+gets all the publicity.
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-diagrams-and-documentation#2@geographika.co.uk?Subject=automated-diagrams-and-documentation" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-303:
+
+.. image:: http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-303>` **Sean Gillies**
+**
+
+You wouldn't believe the work I put into those ASCII class diagrams ;)
+It's definitely kitsch from a bygone age.
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-diagrams-and-documentation#3@geographika.co.uk?Subject=automated-diagrams-and-documentation" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+automated-wms-testing-with-python@geographika.co.uk?Subject=automated-wms-testing-with-python" target="_top">Add Comment</a>

@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Visualising GeoJSON in 15 Minutes &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Watch out for OpenLayer Distances" href="watch-out-for-openlayer-distances.html" />
+    <link rel="prev" title="Visio Data Modelling and VBA" href="visio-data-modelling-and-vba.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Visualising GeoJSON in 15 Minutes</a><ul>
+<li><a class="reference internal" href="#set-up-steps">Set Up Steps</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="visio-data-modelling-and-vba.html" title="Previous Chapter: Visio Data Modelling and VBA"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Visio Data Mo...</span>
+    </a>
+  </li>
+  <li>
+    <a href="watch-out-for-openlayer-distances.html" title="Next Chapter: Watch out for OpenLayer Distances"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Watch out for... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="visualising-geojson-in-15-minutes">
+<h1>Visualising GeoJSON in 15 Minutes<a class="headerlink" href="#visualising-geojson-in-15-minutes" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-05-24 17:10</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>python, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>cloudmade, descartes, geojson, mapplotlib</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>visualising-geojson-in-15-minutes</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>The objective of this post is to save a GeoJSON feature collected from
+the web to an image file, and was inspired by the <a class="reference external" href="http://gispython.org/shapely/docs/1.2/manual.html">Shapely
+manual</a>. This will
+be done using Windows, Python 2.5 (although 2.6 should be almost exactly
+the same steps), and some additional Python packages. This example uses
+GeoJSON data from a <a class="reference external" href="http://geographika.co.uk/?p=517">CloudMade geocoding
+service</a>.</p>
+<p><img alt="image" src="../_images/image55.png" /></p>
+<p>The greatest difficulty when trying to do things in Python is getting
+the right packages to match your Python version, and making sure all the
+package dependencies are in place.</p>
+<section id="set-up-steps">
+<h2>Set Up Steps<a class="headerlink" href="#set-up-steps" title="Permalink to this headline">¶</a></h2>
+<p><strong>1. Download Numpy</strong> from
+<a class="reference external" href="http://sourceforge.net/projects/numpy/files/NumPy/">http://sourceforge.net/projects/numpy/files/NumPy/</a>. Numpy is <em>“a package
+that defines a multi-dimensional array object and associated fast math
+functions that operate on it.”</em></p>
+<p>Check that you download the version that matches your Python
+installation.  In my case I needed
+numpy-1.4.1-win32-superpack-python2.5.exe.</p>
+<p><img alt="image" src="../_images/image55.png" /></p>
+<p><strong>2. Download MatPlotLib</strong> from
+<a class="reference external" href="http://sourceforge.net/projects/matplotlib/files/">http://sourceforge.net/projects/matplotlib/files/</a>. I downloaded
+<a class="reference external" href="http://sourceforge.net/projects/matplotlib/files/matplotlib/matplotlib-0.99.1/matplotlib-0.99.1.win32-py2.5.exe/download">matplotlib-0.99.1.win32-py2.5.exe</a>.
+Again there are many different versions that can be downloaded ?” expand
+the arrows to see the options.</p>
+<p>There’s even a 64-bit version for Windows. However there doesn’t appear
+to be a 64 bit version of Numpy for Windows, and as Numpy is required by
+MapPlotLib to run I’m not sure how it could ever be of use. This is
+where the whole Python packages and 3rd party libraries gets exceedingly
+confusing..</p>
+<p><strong>3. Install the Python setuptools</strong> from
+<a class="reference external" href="http://pypi.python.org/pypi/setuptools">http://pypi.python.org/pypi/setuptools</a>. These tools include
+easy_install which “<em>lets you automatically download, build, install,
+and manage Python packages.</em>” Again get the relevant Python package in
+my case
+<a class="reference external" href="http://pypi.python.org/packages/2.5/s/setuptools/setuptools-0.6c11.win32-py2.5.exe#md5=cb0cd7b844bed5106aeb0d4583848b1f">setuptools-0.6c11.win32-py2.5.exe</a>.</p>
+<p>If you have only installed Python during your log in session then
+<a class="reference external" href="http://geographika.co.uk/reboot-to-refresh-environment-variables">reboot to refresh your environment
+variables.</a>
+This should allow you to use the easy_install program directly from the
+Windows Command Prompt (by typing easy_install rather than the full
+path).</p>
+<p><strong>4. We can now install
+`descartes &lt;http://pypi.python.org/pypi/descartes/1.0&gt;`__</strong> using the
+easy_install program. Descartes is uses <em>“geometric objects as
+matplotlib paths and patches.”</em> Type the command below (the full path
+may not be required) into a Windows Command Prompt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Python25</span>\<span class="n">Scripts</span>\<span class="n">easy_install</span><span class="o">.</span><span class="n">exe</span> <span class="n">descartes</span>
+</pre></div>
+</div>
+<p>This command should return output similar to below:</p>
+<p><img alt="image" src="../_images/image55.png" /></p>
+<p>If you already have IDLE (the Python editor open) then quit it and
+restart. If not you are likely to get “ImportError: No module named X”
+errors, even though the modules have been installed.</p>
+<p><strong>5. You should now be able to run the Python script</strong> below to generate
+a PNG image file of England.</p>
+<div class="line-block">
+<div class="line">[python]</div>
+<div class="line-block">
+<div class="line">from matplotlib import pyplot</div>
+<div class="line">from descartes import PolygonPatch</div>
+<div class="line">import math</div>
+<div class="line">import urllib2</div>
+<div class="line">import simplejson</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">def getData():</div>
+<div class="line-block">
+<div class="line">#create the cloudmade query url</div>
+<div class="line">root = ‘<a class="reference external" href="http://geocoding.cloudmade.com">http://geocoding.cloudmade.com</a>’</div>
+<div class="line">apikey = ‘85453debd0fc4ad18c5855c3d8eef780’</div>
+<div class="line">query = ‘england’</div>
+<div class="line">url =</div>
+</div>
+</div>
+<p>‘%s/%s/geocoding/v2/find.geojs?query=%s&amp;amp;return_geometry=true’ \
+|  % (root,apikey,query)</p>
+<div class="line-block">
+<div class="line">#open the url to get the geojson</div>
+<div class="line-block">
+<div class="line">return urllib2.urlopen(url).read()</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">def configurePlot():</div>
+<div class="line-block">
+<div class="line">#set up the mapplotlib</div>
+<div class="line">fig = pyplot.figure(1, figsize=(10, 4), dpi=180)</div>
+<div class="line">ax = fig.add_subplot(121)</div>
+<div class="line">return ax</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">def setPlotExtent(ax,data):</div>
+<div class="line-block">
+<div class="line">#get feature extents (a property of the cloudmade geojson)</div>
+<div class="line">#note this was previously bbox</div>
+<div class="line">minx = data[‘bounds’][0][0]</div>
+<div class="line">maxx = data[‘bounds’][1][0]</div>
+<div class="line">miny = data[‘bounds’][0][1]</div>
+<div class="line">maxy = data[‘bounds’][1][1]</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">#set the graph axes to the feature extents</div>
+<div class="line-block">
+<div class="line">ax.set_xlim(minx,maxx)</div>
+<div class="line">ax.set_ylim(miny,maxy)</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">def plotFeature(coordlist, myplot):</div>
+<div class="line-block">
+<div class="line">#create a polygon geojson-like feature</div>
+<div class="line">poly = {“type”: “Polygon”, “coordinates”: coordlist}</div>
+<div class="line">patch = PolygonPatch(poly, fc=’#6699cc’, ec=’#6699cc’, alpha=0.5,</div>
+</div>
+</div>
+<p>zorder=2)
+|  #plot it on the graph
+|  myplot.add_patch(patch)</p>
+<div class="line-block">
+<div class="line">#turn the geojson into a python object</div>
+<div class="line-block">
+<div class="line">pydata = simplejson.loads(getData())</div>
+<div class="line">print pydata</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">myplot = configurePlot()</div>
+<div class="line-block">
+<div class="line">setPlotExtent(myplot,pydata)</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">#loop through each polygon in the MULTIPOLYGON collection</div>
+<div class="line-block">
+<div class="line">for coordlist in pydata[‘features’][0][‘geometry’][‘coordinates’]:</div>
+<div class="line">plotFeature(coordlist, myplot)</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">#save the plot as an image</div>
+<div class="line-block">
+<div class="line">pyplot.savefig(‘myplot.png’)</div>
+<div class="line">[/python]</div>
+</div>
+</div>
+<p>I now have a way of easily visualising GeoJSON I have a way of checking
+spatial operations on spatial data manipulated directly from the cloud.
+More to follow.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/6ba37c32155249f40516ebbbacc0ee49?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-2064" src="http://www.gravatar.com/avatar/6ba37c32155249f40516ebbbacc0ee49?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-2064"><span class="std std-ref">1.</span></a> <strong>Steve</strong>
+**</p>
+<p>thanks … cant help but wonder why this capability (report dbase
+schema) isnt supported in even the most basic fashion</p>
+<p>Cheers</p>
+<p>S</p>
+<a href="mailto:web+visio-data-modelling-and-vba#1@geographika.co.uk?Subject=visio-data-modelling-and-vba" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+visualising-geojson-in-15-minutes@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

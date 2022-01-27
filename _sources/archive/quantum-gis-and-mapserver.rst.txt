@@ -1,0 +1,71 @@
+Quantum GIS and MapServer
+#########################
+:date: 2009-10-12 15:02
+:author: admin
+:category: mapserver, programming
+:tags: desktop, gis, mapserver, opensource, qgis, quantum gis
+:slug: quantum-gis-and-mapserver
+:status: published
+
+One of the main barriers I had to using
+`MapServer <http://mapserver.org/>`__ as a web GIS server was that
+layers had to be symbolised i\ |qgis|\ n a text editor, using a MAPFILE.
+It was cumbersome to keep editing and refreshing a browser, there was no
+easy way to check for errors, and you have to learn the syntax and
+keywords.
+
+Whilst this is ok for smaller projects where I could make these myself,
+larger projects require non-programmers to gather data, symbolise it,
+and handle the map layouts and creation.
+
+I've just discovered that another of the
+`OSGeo <http://www.osgeo.org/>`__'s projects, `Quantum
+GIS <http://www.qgis.org/>`__ (often abbreviated to QGIS) has a tool
+that can take a map project created and symbolised in the desktop
+application, and export it to a MAPFILE which can be read by MapServer.
+This seems to be the missing link in a complete\ `Open Source GIS
+stack <http://kelsocartography.com/blog/?p=1098>`__.
+
+I had a few problems finding where this tool was installed. By default
+the Python files should be in the
+C:\\OSGeo4W\\apps\\qgis\\python\\plugins\\mapserver\_export directory,
+however this directory did not exist after running through a default
+installation without paying attention.
+
+OSGeo have a `custom installer <http://trac.osgeo.org/osgeo4w/>`__ that
+you can use to install all their software including MapServer,
+QuantumGIS, and `GRASS <http://www.osgeo.org/grass>`__. To install
+Quantum GIS follow the notes on this `wiki
+page <http://wiki.qgis.org/qgiswiki/OsGeo4wSetup>`__. Clearly you need
+to select QGIS, but the MapServer Export tool also requires
+**python-qgis**. I think I missed this the first time round, however you
+can always rerun the installer to add new packages and libraries.
+
+[caption id="attachment\_138" align="aligncenter" width="300"
+caption="The OSGeo Installer"]\ |The OSGeo Installer|\ [/caption]
+
+Once you have the Python for QGIS library installed open QGIS, and go to
+Plugins >> Fetch Python Plugins. The MapServer Export plug-in should be
+installed. Now go to Plug-Ins >> Manage Plugins and check the MapServer
+Export box as below.
+
+|osgeo4w2|
+
+You should now see a new MapServer Export menu item on the Plugins menu.
+
+Further Details
+~~~~~~~~~~~~~~~
+
+There is a good introduction to using QGIS at
+http://spatialhorizons.com/category/qgis/
+
+You can also install a standalone version of MapServer Export -
+http://spatialserver.net/qgis2ms/.
+
+.. |qgis| image:: images/2009/10/qgis.png
+.. |The OSGeo Installer| image:: images/2009/10/osgeo4w1-300x196.png
+   :target: images/2009/10/osgeo4w1.png
+.. |osgeo4w2| image:: images/2009/10/osgeo4w2-300x216.png
+   :target: images/2009/10/osgeo4w2.png
+
+.. include:: comments/quantum-gis-and-mapserver.rst

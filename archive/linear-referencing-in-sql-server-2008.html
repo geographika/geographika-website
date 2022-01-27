@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Linear Referencing in SQL Server 2008 &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging OpenLayers with Firebug" href="logging-openlayers-with-firebug.html" />
+    <link rel="prev" title="Installing Python Modules on Windows" href="installing-python-modules-on-windows.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Linear Referencing in SQL Server 2008</a><ul>
+<li><a class="reference internal" href="#dynamic-segmentation">Dynamic Segmentation</a></li>
+<li><a class="reference internal" href="#the-code">The Code</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="installing-python-modules-on-windows.html" title="Previous Chapter: Installing Python Modules on Windows"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Installing Py...</span>
+    </a>
+  </li>
+  <li>
+    <a href="logging-openlayers-with-firebug.html" title="Next Chapter: Logging OpenLayers with Firebug"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Logging OpenL... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="linear-referencing-in-sql-server-2008">
+<h1>Linear Referencing in SQL Server 2008<a class="headerlink" href="#linear-referencing-in-sql-server-2008" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2011-01-22 23:17</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>geodatabases, sql server 2008</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>.net, c++, linear referencing, network</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>linear-referencing-in-sql-server-2008</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Linear_Reference_System">|image|Linear
+referencing</a> is
+used to define features in relation to existing line features. These new
+features can either be points or lines. For example a water monitoring
+station can be defined as 300m along a section of river, or a stretch of
+road can be defined as requiring repairs, from 220m along to 270m along.
+Most GISs implement this functionality - for details look at the
+<a class="reference external" href="http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=An_overview_of_linear_referencing">ESRI</a>
+and
+<a class="reference external" href="http://grass.osgeo.org/grass64/manuals/html64_user/lrs.html">GRASS</a>
+help pages.</p>
+<p>In terms of storing linear referenced point features, you only need
+three fields ?” an ID of the original line feature, an ID of the  feature
+to reference along the line, and a M value ?” the measurement along the
+original feature. Line features require two measurement fields, a
+starting distance, and an end distance.</p>
+<section id="dynamic-segmentation">
+<h2>Dynamic Segmentation<a class="headerlink" href="#dynamic-segmentation" title="Permalink to this headline">¶</a></h2>
+<p>Linear referenced features can be stored in a standard table structure.
+What is more complicated however is displaying these features again ?” a
+process (termed, at least by ESRI) as dynamic segmentation ?” the process
+of dynamically splitting, or segmenting, an existing feature. It’s a
+step up from a standard table join, but essentially has the same purpose
+of relating two records in a database.</p>
+<p><a class="reference external" href="http://sqlspatialtools.codeplex.com/">SQL Spatial Tools</a> is an open
+source collection of functions to manipulate spatial data within SQL
+Server 2008. It contains a  LocateAlongGeom function that “<em>takes a
+geometry linestring and finds the point a given distance along it.”</em> So
+that takes care of displaying linear referenced points. What it lacks at
+the moment (and can be found in other spatial databases such as
+<a class="reference external" href="http://postgis.refractions.net/documentation/manual-svn/reference.html#Linear_Referencing">PostGIS</a>
+and
+<a class="reference external" href="http://www.oracle.com/technology/sample_code/products/spatial/htdocs/lrs_sample/lrs_example_readme.htm">Oracle</a>),
+is a way to dynamically create line features using a distance from and a
+distance to. Fortunately the SQL datatypes and existing spatial tool
+functions make this easy to add in.</p>
+</section>
+<section id="the-code">
+<h2>The Code<a class="headerlink" href="#the-code" title="Permalink to this headline">¶</a></h2>
+<p>The CreateLinearReferenceFeature code can be seen in the <a class="reference external" href="https://bitbucket.org/geographika/sql-server-spatial-tools/src/tip/Functions.cs">Function.cs
+file</a>.
+The full project is available for download and modifications in
+BitBucket at <a class="reference external" href="https://bitbucket.org/geographika/sql-server-spatial-tools">https://bitbucket.org/geographika/sql-server-spatial-tools</a>.
+As I’m never sure if CodePlex accepts patches or not, I decided to
+create my own fork of the code. I have uploaded the <a class="reference external" href="http://sqlspatialtools.codeplex.com/SourceControl/list/patches">key files to
+CodePlex</a>
+where they will await evaluation. I’d imagine however that there will be
+a new release of the tools by Microsoft for the new <a class="reference external" href="http://www.microsoft.com/sqlserver/en/us/product-info/future-editions.aspx">Denali
+release</a>
+of SQL Server 2008, so this funciton may have to be merged into a new
+release in the future.</p>
+<p>The SQL Spatial Tools compile to a DLL, and the assembly needs to be
+registered with the database along with all the associated functions. I
+modified the <a class="reference external" href="http://sqlspatialtools.codeplex.com/SourceControl/changeset/view/61525#255008">original SQL
+script</a>
+to include the <a class="reference external" href="https://bitbucket.org/geographika/sql-server-spatial-tools/src/tip/SQL%20Scripts/Register.sql">new
+functions</a>.
+There is also an
+<a class="reference external" href="https://bitbucket.org/geographika/sql-server-spatial-tools/src/9fa85d45d386/SQL%20Scripts/Unregister.sql">unregister.sql</a>
+script to remove the assembly and functions. A few caveats on the linear
+refence function:</p>
+<ul class="simple">
+<li><p>the code has not been tested on the new <a class="reference external" href="http://www.sqlskills.com/BLOGS/BOBB/post/New-curve-types-in-SQL-Server-Denali-are-now-in-OGC-spec.aspx">SQL Server 2008 curve
+type</a></p></li>
+<li><p>the project is written in C# and compiled with Visual Studio 2010</p></li>
+<li><p>if you give the function a MeasureTo value greater than the length of
+the feature you will receive the following System.ArgumentException:
+“<em>MeasureTo value must be less than the length of the feature.</em> ”</p></li>
+</ul>
+<p>To test out the functionality you can use the SQL script below. Feedback
+and comments appreciated!And no need to store hundreds of little line
+geometries in the same database as your nice clean line networks.</p>
+<p style="text-align: justify;">
+<script src="https://gist.github.com/791340.js?file=LinearReferencingExample.sql"></script>
+</p><dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/559f3dac36e8f6203bc05c22b415d6fc?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-16" src="http://www.gravatar.com/avatar/559f3dac36e8f6203bc05c22b415d6fc?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-16"><span class="std std-ref">1.</span></a> <strong>Richard Chase</strong>
+**</p>
+<p>Hey, hide GDB_ tales script is quite handy! So is the unblocker tool,
+thanks.</p>
+<a href="mailto:web+hiding-geodatabase-tables#1@geographika.co.uk?Subject=hiding-geodatabase-tables" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+linear-referencing-in-sql-server-2008@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

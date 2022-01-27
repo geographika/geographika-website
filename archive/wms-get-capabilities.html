@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>WMS GetCapabilities &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Windows Installer Woes" href="windows-installer-woes.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">WMS GetCapabilities</a><ul>
+<li><a class="reference internal" href="#messing-with-headers">Messing with Headers</a></li>
+<li><a class="reference internal" href="#a-hackish-solution">A Hackish Solution</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="windows-installer-woes.html" title="Previous Chapter: Windows Installer Woes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Windows Insta...</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="wms-getcapabilities">
+<h1>WMS GetCapabilities<a class="headerlink" href="#wms-getcapabilities" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-16 15:38</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, web development, wms</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>download, error, getcapabilities, headers, http, mapserver, wms</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>wms-get-capabilities</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>Yes, I’d like to see the map layers and capabilities available from my
+<a class="reference external" href="http://mapserver.org/">MapServer</a> MAP file, and no I don’t want to
+download mapserv.exe..</p>
+<section id="messing-with-headers">
+<h2>Messing with Headers<a class="headerlink" href="#messing-with-headers" title="Permalink to this headline">¶</a></h2>
+<p>I had the same problem with both Firefox and Internet Explorer 7 each
+time I issues a request such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/my.map&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities
+</pre></div>
+</div>
+<p>The browser tried to download mapserv.exe. The “exe” did actually
+contain the GetCapabilities XML, but it is very annoying to have to
+manually open it in another program each time.</p>
+<p>This is a <a class="reference external" href="http://mapserver.org/faq.html#when-i-do-a-getcapabilities-why-does-my-browser-want-to-download-mapserv-exe-mapserv">FAQ on the MapServer
+site</a>
+which suggested that a program needs to be manually associated with the
+<a class="reference external" href="http://en.wikipedia.org/wiki/MIME">MIME</a> type returned by the
+requests - application/vnd.ogc.wms_xml.</p>
+<p>In FireFox I went about associating an application with the MIME type
+application/vnd.ogc.wms_xml, following the steps outlined
+<a class="reference external" href="http://support.mozilla.com/en-US/kb/Options+window+-+Applications+panel?style_mode=inproduct">here</a>.
+After a restart of FireFox nothing had changed.</p>
+<p><a class="reference external" href="../wp-content/uploads/2010/01/getcapabilites.png"><img alt="image0" src="wp-content/uploads/2010/01/getcapabilites-300x148.png" /></a></p>
+<p>I used <a class="reference external" href="http://getfirebug.com/">FireBug</a> to check that the request
+was returning the correct MIME type. As shown in the image below the
+server was correctly returning the correct Content-Type.</p>
+<p><a class="reference external" href="../wp-content/uploads/2010/01/getcapabilites_response.png"><img alt="image1" src="wp-content/uploads/2010/01/getcapabilites_response-300x145.png" /></a></p>
+<p>I then checked the request parameters sent from my browser to the
+server. These included:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accept</span>    <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Language</span>    <span class="n">en</span><span class="o">-</span><span class="n">US</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="o">...</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span>    <span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+</pre></div>
+</div>
+<p>I then thought the reason for trying to download the content was due to
+my browser not “accepting” the application/vnd.ogc.wms_xml type. I used
+another<a class="reference external" href="https://addons.mozilla.org/en-US/firefox/addon/967">FireFox
+Add-In</a> to modify
+my request headers to accept the content type (and “chunked” encoding
+just for good measure..).</p>
+<p><a class="reference external" href="images/2010/01/mod_headers.png"><img alt="image2" src="archive/images/2010/01/mod_headers-300x57.png" /></a></p>
+<p>The headers sent with my request now looked as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accept</span>    <span class="n">application</span><span class="o">/</span><span class="n">vnd</span><span class="o">.</span><span class="n">ogc</span><span class="o">.</span><span class="n">wms_xml</span><span class="p">,</span><span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Language</span>    <span class="n">en</span><span class="o">-</span><span class="n">US</span><span class="p">,</span><span class="n">en</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">chrome</span><span class="p">:</span><span class="o">//</span><span class="k">global</span><span class="o">/</span><span class="n">locale</span><span class="o">/</span><span class="n">intl</span><span class="o">.</span><span class="n">properties</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span>    <span class="n">chunked</span><span class="p">,</span><span class="n">gzip</span><span class="p">,</span><span class="n">deflate</span>
+</pre></div>
+</div>
+</section>
+<section id="a-hackish-solution">
+<h2>A Hackish Solution<a class="headerlink" href="#a-hackish-solution" title="Permalink to this headline">¶</a></h2>
+<p>All good “fun” but I was still met with the same dialog box to download
+the content. FireBug still reported the response data as <em>“The resource
+from this URL is not text.”</em></p>
+<blockquote>
+<div><p>This</p>
+</div></blockquote>
+<p><a class="reference external" href="http://lists.osgeo.org/pipermail/mapserver-users/2007-April/023264.html">post</a>
+hints that the content type defined in the WMS specs was a mistake, and
+that for the new WMS specifications the content type will be set to
+text/html by default. It also suggested that adding a
+&amp;EXECPTIONS=text/html parameter to the request string could override the
+content type, but this (I believe) is only where an exceptions actually
+occur s on the server.</p>
+<p>I stumbled across a solution by accident. While entering a request
+string I put an incorrect version number in the VERSION parameter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/my.map&amp;SERVICE=WMS&amp;VERSION=1.0.3&amp;REQUEST=GetCapabilities
+</pre></div>
+</div>
+<p>The response came back in an <code class="docutils literal notranslate"><span class="pre">text/xml</span></code> format that was displayed in
+the browser! Whilst not very satisfactory, it was nicer than having to
+manually open up fake .exe files. If anyone can shed any light on why
+this is happening please let me know.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/6796d65709891adf2f6306a70440e1f8?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-5" src="http://www.gravatar.com/avatar/6796d65709891adf2f6306a70440e1f8?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-5"><span class="std std-ref">1.</span></a> <strong>matt</strong>
+**</p>
+<p>Thanks for the info–helped solve an install probelm I was having.</p>
+<a href="mailto:web+windows-installer-woes#1@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec3395718f217f871ecb6fd25abfe735?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-6" src="http://www.gravatar.com/avatar/ec3395718f217f871ecb6fd25abfe735?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-6"><span class="std std-ref">2.</span></a> <strong>2000MPH</strong>
+**</p>
+<p>Cheers very much for the detailed information about this issue The Log
+Viewer was useful as it lead me to the exact issue.</p>
+<p>MPH.</p>
+<a href="mailto:web+windows-installer-woes#2@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-7" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-7"><span class="std std-ref">3.</span></a> <strong>Visual Studio 2005 Windows Installer Issues &amp;laquo; Welcome to Matt&amp;#8217;s Blog, Please Keep to the Posted Speed Limit</strong>
+**</p>
+<p>[…]
+<a class="reference external" href="http://geographika.wordpress.com/2007/02/20/windows-installer-woes/">http://geographika.wordpress.com/2007/02/20/windows-installer-woes/</a>
+[…]</p>
+<a href="mailto:web+windows-installer-woes#3@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ca64e9f841faa538f18e94dd66341046?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-4" src="http://www.gravatar.com/avatar/ca64e9f841faa538f18e94dd66341046?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-4"><span class="std std-ref">4.</span></a> <strong>Hutch</strong>
+**</p>
+<p>Thanks for the help, good info here!</p>
+<a href="mailto:web+windows-installer-woes#4@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/bde16eec0d4956ff763041ea04d2af1f?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-3" src="http://www.gravatar.com/avatar/bde16eec0d4956ff763041ea04d2af1f?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-3"><span class="std std-ref">5.</span></a> <strong>iraklis</strong>
+**</p>
+<p>Thanks a lot for this! It’s been really helpful.</p>
+<a href="mailto:web+windows-installer-woes#5@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4f6ca7ddf6f324901bd98d888e0b97b2?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-8" src="http://www.gravatar.com/avatar/4f6ca7ddf6f324901bd98d888e0b97b2?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-8"><span class="std std-ref">6.</span></a> <strong>VBAHole22</strong>
+**</p>
+<p>Is there a way to trap for this issue in the installer and handle it a
+little more gracefully like with a message saying “you need this version
+of ArcGIS!”</p>
+<a href="mailto:web+windows-installer-woes#6@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+wms-get-capabilities@geographika.co.uk?Subject=wms-get-capabilities" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

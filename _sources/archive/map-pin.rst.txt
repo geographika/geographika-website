@@ -1,0 +1,20 @@
+Map Pins...
+###########
+:date: 2010-05-16 22:18
+:author: admin
+:category: general
+:tags: quote
+:slug: map-pin
+:status: published
+
+|image0|\ I wanna hang a map of the world in my house. Then I'm gonna
+put pins into all the locations that I've traveled to. But first, I'm
+gonna have to travel to the top two corners of the map so it won't fall
+down.
+
+http://en.wikipedia.org/wiki/Mitch_Hedberg
+
+.. |image0| image:: images/2010/05/pin.jpg
+   :target: images/2010/05/pin.jpg
+
+.. include:: comments/map-pin.rst

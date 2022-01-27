@@ -1,0 +1,42 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-78:
+
+.. image:: http://www.gravatar.com/avatar/d778223ec409766739f1811f0fd1c51f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-78>` **keith**
+**
+
+I recommend and use PyScripter, a light weight IDE, because it has
+intellisense and a debugger.
+
+What about Iron Python Studio?
+
+http://ironpythonstudio.codeplex.com/
+
+Keith
+
+
+.. raw:: html
+
+    <a href="mailto:web+starting-with-python#1@geographika.co.uk?Subject=starting-with-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+task-13-user-documentation@geographika.co.uk?Subject=task-13-user-documentation" target="_top">Add Comment</a>

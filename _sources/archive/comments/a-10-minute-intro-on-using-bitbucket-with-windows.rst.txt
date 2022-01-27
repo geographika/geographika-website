@@ -1,0 +1,382 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-17:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-17>` **James Fee GIS Blog &raquo; Blog Archive &raquo; In defense of VBA**
+**
+
+[...] to be a large percentage of ESRI developers that still rely on VBA
+to customize ArcGIS Desktop.  geoGraphika has even written a blog post
+outlining 7 reasons why ESRI shouldn’t drop [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#1@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-18:
+
+.. image:: http://www.gravatar.com/avatar/bbce61753336e2fbc667a231eeb04234?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-18>` **Kevin Dunlop**
+**
+
+How about an 8th:
+
+8. VBA apps can be run without requiring an install. Many organization
+limit what users can install on their computers yet rarely limit VBA.
+While a .NET may not be allowed, a VBA is.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#2@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-19:
+
+.. image:: http://www.gravatar.com/avatar/a48be129c20455d326dcb43923c74af0?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-19>` **Michalis Avraam**
+**
+
+Indeed, but VBA is no longer being licensed by Microsoft to 3rd parties
+(as of 2007), and all development has since stopped as well. There are
+many security holes and issues with it, and I think ESRi is doing well
+to phase it out. The 2+ years people have of warning about this should
+be plenty for people to migrate to something else (Python with the new
+functionality of 9.4?).
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#3@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-20:
+
+.. image:: http://www.gravatar.com/avatar/f37731f1a2aec8882c6477e8eb13be24?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-20>` **Nico**
+**
+
+Do not take me wrong but:
+
+| 1. You do not need to explicitly implement all the interface , there
+are tools to do this.
+|  2. A setup doesn't need to be "heavy" , in fact it is as lean as VBA.
+|  3. I agree, if you don't need anything different to what a sample
+provides it's ok to with it. As you stated it's easy for someone with no
+programming experience.
+|  4. I agree
+|  5. I agree
+|  6. I agree partially , if you were always to held the same position
+this can help, I'm not sure about people out there, but since I have
+moved a lot I do not rely on this knowledge to help/keep me a job.
+|  7. I don't really get the point, I'm no native English speaker,but I
+don't think anyone's recommending C# over Vb.Net,
+|  this is just about deprecating VBA.
+|  8. I don't know if that's possible
+|  9. Yes that would be great, not sure if possible
+
+| Just to let you now I started doing "Magik" (Smallworld)and afterward
+VB6 ,I moved to PL/SQL and SQL, then Java, then C#,
+|  then shell scripting (Solaris,Linux,AIX).This has always occurred
+within GIS environments, there are some more GIS offerings besides ESRI
+( though I currently work in an ESRI based project)
+
+Do not rely in one language to do your day to day work, this can easily
+change. Just get the roots and you'll be prepared for every language.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#4@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-25:
+
+.. image:: http://www.gravatar.com/avatar/1c2bd24889c8db6ffc43fb9b4ee7a93e?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-25>` **admin**
+**
+
+| `@Nico <#comment-20>`__
+|  Hi Nico,
+
+| Even with the tools to set up the interface, you still need to learn
+Visual Studio, how to add in the ESRI tools to this, and then be
+confronted with a whole load of pregenerated code which would look like
+nonsense to any non-developer.
+|  A set up could be very simple, but again it takes time and effort on
+the developer's part to create custom installer classes and set up
+packages.
+|  I agree that a developer should not fear the death of VBA from
+ArcGIS, but for advanced GIS users who are probably more numerous in
+various civil service jobs, it removes the chance of automating daily
+tasks themselves.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#5@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-31:
+
+.. image:: http://www.gravatar.com/avatar/4c7a12ae2a227696e2ed5c52e0486875?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-31>` **SeaJunk**
+**
+
+| Re: The field calculator
+|  VBScript will still be around so maybe we'll see a vbscript and
+python parser in the field calculator.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#6@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-32:
+
+.. image:: http://www.gravatar.com/avatar/4499184b4aacc97bcd4855e6ca6fd6ab?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`7. <comment-32>` **Dave Miller**
+**
+
+The dropping of support for VBA gives rise to a big question for what I
+would call the "non-programmer GIS community". That is those of us who
+have learned GIS and picked up a bit of VBA along the way (for
+customisation, labelling expressions, field calculator expressions etc.)
+without being fully-blown programmers.
+
+That question is what should we use now?. Clearly VBA is on the way out,
+and ESRI have given us a good head's up that support for it will be
+dropped if we hadn't already figured that out from Microsoft's decision
+not to continue development. Can Python do everything that VBA could do?
+If not, should we channel our efforts in other directions?
+
+Dave
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#7@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-50:
+
+.. image:: http://www.gravatar.com/avatar/2d86baa91082e76019786135274075ba?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`8. <comment-50>` **Tom Magdaleno**
+**
+
+| Dave, I completely agree. Can't we just go back to Avenue? :)
+Seriously though, I am not a programmer and frankly I do not want to be
+one. I get the feeling that the future of GIS will mean you have to know
+programming languages. All these languages have a nasty habit of
+becoming obsolete every few years.
+|  The attitude of most programmers is
+|  "Learn how to program and then programing for GIS will be easy."
+|  thats like saying "Learn calculus for a job that only requires adding
+fractions." I hope ESRI continues to be helpful in letting users share
+code to keep it simple.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#8@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-53:
+
+.. image:: http://www.gravatar.com/avatar/83a1d6cfe73cc236faa60431f88fa420?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`9. <comment-53>` **Bog**
+**
+
+I am bummed. Mostly because I am foggy on ESRI's direction after this.
+Looks like they are pretty tight with Microsoft now (Silverlight, etc),
+so whatever way MS goes, ESRI will follow no doubt. Python is pretty
+prevalent in ArcGIS, but as someone mentioned - not exactly hooked into
+the interface and all that ArcObjects have to offer. If they develop an
+API for Python that bridges the gap, then all is not lost. I have
+several MXD-based VBA apps that will have to be updated (many planned
+for .Net anyway), but the quick result macro functionality of VBA will
+be missed. Yes, Avenue was a good analogy in seeing code work or not
+work immediately without having to go into a compiling environment like
+Studio. Perhaps 9.4 will be the last version many use for a long time
+(even if on maintenance) like those still using Win 2K out there (as
+discovered in James Fee blog), Some on 8.X, and probably even those
+still using AV 3.2!
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#9@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-54:
+
+.. image:: http://www.gravatar.com/avatar/85b6867565aca483a02e6ffe197377dc?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`10. <comment-54>` **Duncan Hornby**
+**
+
+Hi all,
+
+I'm somewhat perturbed by the future of VBA. I've written some very
+large and successful projects entirely within the MXD and will be very
+concerned about the demise of VBA, mainly because some clients I have
+developed for have such a ridiculous IT policy that despite them asking
+for a tool their IT department won't allow the installation of DLLs
+which is what .Net creates. I cannot create an extension, a command
+buton, or a GP function tool because they are all DLLs that you have to
+install and don't get me on my soap box about administrative rights...
+
+None of this is an issue with VBA. So I agree with the blog that if they
+want VB .Net, fine but for God sake don't drop the ability to store code
+and customisation within an MXD.
+
+I really hope someone from ESRI is reading this...
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#10@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1918:
+
+.. image:: http://www.gravatar.com/avatar/8fc15e9ab65e202f9e089a66fded9925?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`11. <comment-1918>` **Rinke**
+**
+
+| There is a replacement available for VBA in MXD now that stores VB.Net
+in MXD.
+|  Made possible by the ARIS .Net Scripting Tool for ArcMap:
+|  http://www.aris.nl/dotnetscripting_arcmap
+
+| Use VB.Net for prototyping, no need to open Visual Studio.
+|  Store the VB.Net script in the MXD and build and run directly from
+ArcMap.
+|  No Visual Studio license required.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#11@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-2549:
+
+.. image:: http://www.gravatar.com/avatar/8b3809c1b9143b944ea3ba7ffafb8b4f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`12. <comment-2549>` **Andrew**
+**
+
+Why just don't continue to use older version of ArcGIS which support VBA
+and all stuff writen on it for old projects? Not only ESRI refuse from
+VBA, Autodesk, for example did the same thing. Microsoft stoped
+supporting VBA and others did the same. But this tool (I mean VBA) is
+very good to refuse from it. Understand that newer versions of softwsre
+have some advantages, but for most users they are not so important. For
+example our company stoped at AutoCAD 2007, MS Office 2003 and ArcGIS
+9.1 and uses them all with VBA.
+
+
+.. raw:: html
+
+    <a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#12@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+a-10-minute-intro-on-using-bitbucket-with-windows@geographika.co.uk?Subject=a-10-minute-intro-on-using-bitbucket-with-windows" target="_top">Add Comment</a>

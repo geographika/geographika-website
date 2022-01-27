@@ -1,0 +1,102 @@
+MapServer and SQL Server 2008 Plug-in
+#####################################
+:date: 2009-12-18 11:52
+:author: admin
+:category: geodatabases, mapserver, sql server 2008
+:slug: mapserver-and-sql-server-2008-plug-in
+:status: published
+
+The `SQL Server 2008 plugin for
+MapServer <http://mapserver.org/development/rfc/ms-rfc-38.html#usage-details>`__\ is
+a *"native driver modeled on the PostGIS driver to*
+|mapserver|\ *support SQL Server* *2008’s newly added spatial
+capabilities."* It works fine for displaying data as WMS layers in
+`OpenLayer <http://openlayers.org/>`__\ `s <http://openlayers.org/>`__
+however I ran into all sorts of problems when trying to use the
+GetFeatureInfo WMS query.
+
+With MapServer 5.2.1  (installed using MapServer for Windows - `MS4W
+v2.3.1 <http://maptools.org/ms4w/index.phtml?page=downloads.html>`__) no
+error message was returned, however neither was any data . I initially
+thought this was due to the `following
+bug <http://trac.osgeo.org/mapserver/ticket/3082>`__ in the plugin,
+which was `reported to have been fixed for MapServer
+5.4 <http://n2.nabble.com/ms-sql-2008-spatial-still-problems-td1973412.html>`__.
+
+So I tried downloading MS4W v3.0 Beta 7, which included MapServer 5.4,
+and upgraded my installation. The WMS queries still failed but at least
+this time I got an error message:
+
+::
+
+    msMSSQL2008LayerGetShape(): Query error. Error executing MSSQL2008 SQL statement:
+    SELECT convert(varchar(20), FID) from SEI_MyTable WHERE
+    GEOM.STIntersects(Geometry::STGeomFromText(&#39;POLYGON((343410.447904052 262585.540545139,
+    343410.447904052 262585.540545139,343410.447904052 262585.540545139,343410.447904052
+    262585.540545139,343410.447904052 262585.540545139))&#39;,0)) = 1
+
+    -[Microsoft][ODBC SQL Server Driver][SQL Server]A .NET Framework error occurred during execution of user-defined routine or aggregate &quot;geometry&quot;:
+    System.FormatException: 24305: The Polygon input is not valid because the ring does not have enough distinct points. Each ring of a polygon must contain at least three distinct points.
+    System.FormatException:
+     at Microsoft.SqlServer.Types.Validator.Execute(Transition transition)
+     at Microsoft.SqlServer.Types.ForwardingGeoDataSink.EndFigure()
+     at Microsoft.SqlServer.Types.OpenGisWktReader.ParseLineStringText()
+     at Microsoft.SqlServer.Types.OpenGisWktReader.ParsePolygonText()
+     at Microsoft.SqlServer.Types.OpenGisWktReader.ParseTaggedText(OpenGisType type)
+     at Microsoft.SqlServer.Types.OpenGisWktReader.Read(OpenGisType type, Int32 srid)
+     at Microsoft.SqlServer.Types.SqlGeometry.GeometryFromText(OpenGisType type, SqlChars text, Int32 srid)
+
+It appears that no matter what values I passed into my bounding box
+parameter, a spatial query was made using a bounding box / polygon
+consisting of 4 identical points, hence the error from SQL Server. I
+tried a bounding box set to the full extent of my data but still no luck
+- the bbox values made no different at all.
+
+::
+
+    http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/sei/test.map&service=WMS&
+    version=1.1.1&request=GetFeatureInfo&layers=test&query_layers=test&styles=,
+    &bbox=0,0,500000,500000&srs=EPSG%3A29902&feature_count=10&x=710&y=132&height=253&
+    width=991&info_format=text%2Fhtml
+
+`This useful site <http://vbkto.dyndns.org:1280/sdk/Default.aspx>`__
+automatically compiles the most recent MapServer versions into binaries
+available or download, however the most recent versions of the plug-in
+still fail.
+
+I found `a post that had a similar
+issue <http://www.mail-archive.com/mapserver-users@lists.osgeo.org/msg09024.html>`__
+using CGI scripts rather than WMS calls. `A
+suggestion <http://www.mail-archive.com/mapserver-users@lists.osgeo.org/msg08395.html>`__
+was to use the
+`TOLERANCE <http://mapserver.org/mapfile/layer.html#tolerance>`__
+parameter for a layer, to increase the bounding box size, however this
+makes no difference to a WMS GetFeatureInfo query.
+
+The MapServer 5.4 sourcecode for the plugin can be `seen
+here <http://trac.osgeo.org/mapserver/browser/branches/branch-5-4/mapserver/mapmssql2008.c?rev=9245>`__,
+however it is in C..and I can't seem to find where the rectangle object
+is passed in or created. It appears Tamas Szekeres has taken over
+updates to this plugin so I'll try and contact him to make him aware of
+this issue. I'm not sure how many people actually use SQL Server 2008
+and MapServer, but there is `at least one other
+person <http://www.mail-archive.com/mapserver-users@lists.osgeo.org/msg04552.html>`__!
+
+**Update (March 2010):** It appears this issue has now been fixed
+for\ `version 5.6 by Tamas
+Szekeres <http://szekerest.blogspot.com/2010/03/changes-in-mapserver-mssql2008-driver.html>`__.
+
+    - Changed the query shape to POINT instead of POLYGON when the area
+    of the query shape is zero (causing a failure at the server).
+
+More details on the issue can be found in the `MapServer-dev mailing
+list <http://n2.nabble.com/Getfeatureinfo-and-MSsql-2008-server-td4631781.html>`__.
+
+    .. raw:: html
+
+       <p style="text-align: justify;">
+
+.. |mapserver| image:: images/2009/12/mapserver.png
+   :target: images/2009/12/mapserver.png
+
+.. include:: comments/mapserver-and-sql-server-2008-plug-in.rst

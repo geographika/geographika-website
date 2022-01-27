@@ -1,0 +1,29 @@
+Guests Welcome!
+###############
+:date: 2010-11-10 15:05
+:author: admin
+:category: general
+:tags: wms
+:slug: guests-welcome
+:status: published
+
+|image|
+
+The next post will be written by `Adrià
+Mercader <http://amercader.net/>`__ who has been working on configuring
+the MapFish print server to be used on IIS. This fits in perfectly with
+the recent Window / open source hybrid web-mapping solutions I have been
+working on.
+
+Adrià is also the author of the `WMS
+Inspector <https://github.com/amercader/WMS-Inspector/wiki/>`__ a
+FireFox plug-in that allows you to view and analyse WMS requests for a
+web-page. This was recently presented at `FOSS4G in
+Barcelona <http://2010.foss4g.org/presentations_show.php?id=2999>`__,
+near Adrià’s hometown. He has recently moved to Newcastle in the UK,
+clearly for both better weather and football.
+
+.. |image| image:: images/2010/11/image_thumb4.png
+   :target: images/2010/11/image4.png
+
+.. include:: comments/guests-welcome.rst

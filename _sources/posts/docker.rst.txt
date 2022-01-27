@@ -1,0 +1,5 @@
+
+https://github.com/geo-data/mapserver-docker
+https://github.com/srounet/docker-mapserver
+
+Ubuntu Server

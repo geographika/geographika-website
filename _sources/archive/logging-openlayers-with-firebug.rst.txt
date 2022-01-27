@@ -1,0 +1,114 @@
+Logging OpenLayers with Firebug
+###############################
+:date: 2010-04-13 20:07
+:author: admin
+:category: bugs, documentation, javascript, programming, web development
+:tags: debugging, firebug, firefox, javascript, logging, openlayers
+:slug: logging-openlayers-with-firebug
+:status: published
+
+|image|\ I take it as given that anyone developing with Firefox and
+`OpenLayers <http://openlayers.org/>`__ has
+`Firebug <http://getfirebug.com/>`__ installed. Firebug has a number of
+powerful tools that can make the previous nightmare of JavaScript
+debugging tolerable.
+
+One feature I recently “discovered” are the logging options. It's
+definitely a timesaver over my previous method of putting temporary
+alert(vals); throughout my code. As well as debugging the logging is
+very useful for `automatically
+documenting <../category/documentation>`__ formulae in JavaScript with
+worked examples that can then be pasted straight into the documentation.
+
+An example of the logging capabilities can be seen on my sample
+`OpenLayers page <http://geographika.co.uk/samples/ol_debug.html>`__. If
+you already have Firebug installed you should be able to see the output
+similar to that below when the page loads.
+
+|image|
+
+Console.log
+~~~~~~~~~~~
+
+The full range of options for logging can be seen in the Firebug
+`Console API wiki
+page <http://getfirebug.com/wiki/index.php/Console_API>`__. The `sample
+page <http://geographika.co.uk/samples/ol_debug.html>`__ has a few
+different logging options briefly explained below.
+
+To list all properties and functions for the `layer
+object <http://dev.openlayers.org/apidocs/files/OpenLayers/Layer-js.html>`__
+simply add:
+
+::
+
+    console.dir(layer);
+
+To list only an objects properties (without all its associated
+functions), use a construct similar to:
+
+::
+
+    //an alternative to just list properties
+    var prop;
+    for (prop in layer) {
+        if (typeof layer[prop] !== 'function') {
+            console.log('%s : %s', prop, layer[prop]); //log values to Firebug
+        }
+    }
+
+This example below prints details about the `map
+object <http://dev.openlayers.org/apidocs/files/OpenLayers/Map-js.html>`__.
+Handily Firebug adds a hyperlink in the output to the line where
+console.info is called. String substitutions can be used (e.g. replace
+%s with a string, or %i with an integer) for easier formatting.
+
+::
+
+    // write out some info
+    console.info("The map projection is %s and has %i layers", map.projection, map.layers.length);
+    console.info('Layer Name: \'%s\'', layer.name);
+
+Assertions can be placed in code as follows:
+
+::
+
+    // make an assertion
+    console.assert(map.layers.length === 1);
+
+I was taught to use the `assert
+statement <http://en.wikipedia.org/wiki/Assertion_%28computing%29>`__ as
+often as possible in code. Its amazing (and disconcerting) how many
+times “impossible” situations can occur. Whilst assertions are normally
+removed from production code for desktop applications, a JavaScript
+error message may prove invaluable when trying to debug a user’s problem
+remotely. As with everything in programming its a personal choice
+whether or not to use assertions �" some people clearly `assertions are
+evil <http://stackoverflow.com/questions/1854302/is-assert-evil>`__.
+
+The console API also supports timers, and writing out the call stack at
+points in your application for when things start getting more
+complicated.
+
+Miscellaneous
+~~~~~~~~~~~~~
+
+-  `This
+   function <http://code.google.com/p/fbug/source/browse/branches/firebug1.6/lite/firebugx.js>`__
+   makes sure that no JavaScript errors are thrown for browsers without
+   Firebug installed. It is included in the sample.
+-  Sometimes you may have to restart your browser, or make sure there is
+   only one instance of Firefox is running for the logging messages to
+   appear.
+-  Internet Explorer 8 has similar development tools that can be
+   downloaded from the `Microsoft
+   site <http://msdn.microsoft.com/en-us/library/dd565628%28VS.85%29.aspx>`__.
+   It appears to support similar `logging
+   functions <http://msdn.microsoft.com/en-us/library/dd565625%28v=VS.85%29.aspx>`__
+   as Firebug, but I’ve not gone into these in any depth.
+
+.. |image| image:: images/2010/04/image5.png
+   :target: http://code.google.com/p/fbug/source/browse/branches/firebug1.6/lite/firebugx.js
+.. |image| image:: images/2010/04/image6.png
+
+.. include:: comments/logging-openlayers-with-firebug.rst

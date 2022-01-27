@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Global Mapper and Shapefiles &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Guests Welcome!" href="guests-welcome.html" />
+    <link rel="prev" title="GIS Servers and the 64-bit Question" href="gis-servers-and-the-64-bit-question.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Global Mapper and Shapefiles</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="gis-servers-and-the-64-bit-question.html" title="Previous Chapter: GIS Servers and the 64-bit Question"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; GIS Servers a...</span>
+    </a>
+  </li>
+  <li>
+    <a href="guests-welcome.html" title="Next Chapter: Guests Welcome!"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Guests Welcome! &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="global-mapper-and-shapefiles">
+<h1>Global Mapper and Shapefiles<a class="headerlink" href="#global-mapper-and-shapefiles" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2012-08-05 11:25</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>programming</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>globalmapper, scripting</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>global-mapper-and-shapefiles</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<div class="document" style="text-align: justify;"><p><a href="#id1"><span class="problematic" id="id2">|http://geographika.co.uk/wp-content/uploads/globalmapper/blue\_marble\_europe\_small.jpg|</span></a>I
+recently had a small project that required vector features in several
+thousand <a class="reference external" href="http://www.bluemarblegeo.com/global-mapper/">Global Mapper</a>
+project files to be extracted into shapefiles.</p>
+</p><p>The batch export tool didn’t seem to be running on the project files, so
+I was asked to take a look at the Global Mapper
+<a class="reference external" href="http://www.globalmapper.com/helpv13/ScriptReference.html">scripting</a>
+documentation. The syntax was easy to follow, and scripts can be run by
+passing the script file name as an argument on the command line to the
+Global Mapper .exe file.</p>
+<p>However when looking at the attributes of some of the exported
+shapefiles in ArcCatalog, the table was blank. Upon further
+investigation a couple of interesting issues came to light.</p>
+<p>1. The shapefile string fields created by the Global Mapper export had a
+maximum length of 255 characters. I compared this to a newly created
+ESRI shapefile, and the DBFs string fields in this only had a maximum
+length of 254 characters. This difference also crashed the ESRI
+<a class="reference external" href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#//001700000055000000">Merge</a>
+tool (with no meaningful explanation). I had to cut the last character
+off in Python before they would merge.</p>
+<p>2. Field names were not cleaned up by the GM export, meaning punctuation
+and spaces led to corrupt shapefiles/DBFs. I was able to get around this
+by editing the field names in the GM project files prior to an export,
+using the following syntax:</p>
+<div class="highlight-literal-block notranslate"><div class="highlight"><pre><span></span>EDIT_VECTOR ATTR_TO_RENAME=&quot;FIELD. NAME.=FIELD_NAME&quot;
+</pre></div>
+</div>
+<p>The <a class="reference external" href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">ESRI Shapefile
+Specification</a>
+states that:</p>
+<blockquote>
+<div><p><em>“The dBASE file (.dbf) contains any desired feature attributes or
+attribute keys to which other tables can be joined. Its format is a
+standard DBF file used by many table-based applications in Windows
+and DOS. “</em></p>
+</div></blockquote>
+<p>However the “standard” <a class="reference external" href="http://www.dbase.com/knowledgebase/int/db7_file_fmt.htm">DBF
+Specification</a>
+simply mentions field names as being stored as ASCII text. It makes no
+mention of any invalid characters, and no mention of 254 character field
+limitations. Opening the DBFs in Excel didn’t cause any issues.</p>
+<p>I sent an email to Global Mapper support mentioning these issues, and
+literally within hours I received the following reply:</p>
+<blockquote>
+<div><p><em>“I updated the maximum field length for DBF export to 254 since
+ESRI can’t handle the full 255 characters that the DBF format itself
+supports. I also limited the field names to just characters,
+numbers, and underscore since it appears that ESRI also can’t handle
+just anything in the DBF field names despite the DBF format itself
+having no such limits. “</em></p>
+<p><em>“I have placed a new build at
+http://www.globalmapper.com/global_mapper13.zip with the latest
+changes for you to try. Simply download that file and extract the
+contents into your existing v13.xx installation folder to give it a
+try. If you are using the 64-bit v13 version there is a new build at
+http://www.globalmapper.com/global_mapper13_64bit.zip .”</em></p>
+</div></blockquote>
+<p>I was stunned to get not only a reply from email technical support that
+not only understood the issue I reported, but had updated, fixed, and
+recompiled the executable, and made it available for
+<a class="reference external" href="http://www.globalmapper.com/global_mapper13.zip">download</a> (all by
+the principle developer Mike Childs). Although I’ve not used Global
+Mapper enough (beyond scripting) to judge it as a GIS application, I can
+certainly vouch for the <em>“unsurpassed technical support with no extra
+support fees”</em> mentioned on their site.</p>
+<p>In addition there are plans to allow to export to the slightly superior
+(in that memo fields can be handled without resorting to additional
+files) ESRI File Geodatabase format:</p>
+<blockquote>
+<div><p><em>“While there is currently only support for reading and not writing
+ESRI File Geodatabases, we are planning on adding ESRI File
+Geodatabase export support, perhaps as soon as the upcoming v14
+release later this year. “</em></p>
+</div></blockquote>
+</div><dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/899709d9d94a0236bce8005c71e6d950?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-365" src="http://www.gravatar.com/avatar/899709d9d94a0236bce8005c71e6d950?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-365"><span class="std std-ref">1.</span></a> <strong>Jim</strong>
+**</p>
+<p>Thanks for the tip! I’ve been using GeoJSON with OpenLayers, and have
+just been generating the GeoJSON using Excel, I’ve been meaning to write
+a PHP script to do the conversion, but it looks like this will work even
+better!</p>
+<a href="mailto:web+geojson-where-are-you#1@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-377" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-377"><span class="std std-ref">2.</span></a> <strong>geographika &amp;raquo; Visualising GeoJSON in 15 Minutes</strong>
+**</p>
+<p>[…] exactly the same steps), and some additional Python packages. This
+example uses GeoJSON data from a CloudMade geocoding service. England
+took a swing to the right after the General […]</p>
+<a href="mailto:web+geojson-where-are-you#2@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-384" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-384"><span class="std std-ref">3.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-365">&#64;Jim</a></div>
+<div class="line-block">
+<div class="line">Please note that the code has been updated to call the find.geojs</div>
+</div>
+</div>
+<p>page rather than find.js which returns JSON rather than GeoJSON.</p>
+<a href="mailto:web+geojson-where-are-you#3@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-416" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-416"><span class="std std-ref">4.</span></a> <strong>geographika &amp;raquo; We Know Where Your Browser Lives</strong>
+**</p>
+<p>[…] “cloud service”, I believe the real power of the Internet will
+come more from manipulating and combining data services than putting
+desktop applications in a browser. Especially if these applications
+can’t easily […]</p>
+<a href="mailto:web+geojson-where-are-you#4@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1633" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1633"><span class="std std-ref">5.</span></a> <strong>OSM2GEO - A JavaScript script to convert OSM 2 GeoJSON | Arunmozhi</strong>
+**</p>
+<p>[…] maps. But sadly, I couldn’t find a data source that gives me
+GeoJSON data. People have been lamenting about this unavailability for
+quiet sometime it seems. My search turned out to be vain. So its time
+[…]</p>
+<a href="mailto:web+geojson-where-are-you#5@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+global-mapper-and-shapefiles@geographika.co.uk?Subject=global-mapper-and-shapefiles" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

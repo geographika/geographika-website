@@ -1,0 +1,40 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1958:
+
+.. image:: http://www.gravatar.com/avatar/e7f0a3d06ed5fe66ff729b0b56d2e850?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1958>` **Tere**
+**
+
+Bien una amigo que este1 en un curso de IDE por Francia, y que tiene un
+proyecto madnoto sobre Map Builder me comenta que sus instructores le
+han mencionado que MapBuilder continuare1 y que no ande creyendo al
+primer post que lea.Que suerte tengo para que me pillen ased de
+cualuqier forma, gracias por la aclaracif3n he hecho algunas
+correcciones al punto de vista original
+
+
+.. raw:: html
+
+    <a href="mailto:web+ms-access-and-applicationexportxml#1@geographika.co.uk?Subject=ms-access-and-applicationexportxml" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+ogr-comes-to-sql-server-2008-spatial@geographika.co.uk?Subject=ogr-comes-to-sql-server-2008-spatial" target="_top">Add Comment</a>

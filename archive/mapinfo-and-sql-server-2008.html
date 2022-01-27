@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MapInfo and SQL Server 2008 &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MapServer and SQL Server 2008 Plug-in" href="mapserver-and-sql-server-2008-plug-in.html" />
+    <link rel="prev" title="MapFish Print Module for IIS" href="mapfish-print-module-for-iis.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">MapInfo and SQL Server 2008</a><ul>
+<li><a class="reference internal" href="#improving-performance-when-connecting-to-a-sql-server-database">Improving Performance when Connecting to a SQL Server Database</a></li>
+<li><a class="reference internal" href="#also-fixed">Also Fixed..</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="mapfish-print-module-for-iis.html" title="Previous Chapter: MapFish Print Module for IIS"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; MapFish Print...</span>
+    </a>
+  </li>
+  <li>
+    <a href="mapserver-and-sql-server-2008-plug-in.html" title="Next Chapter: MapServer and SQL Server 2008 Plug-in"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">MapServer and... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="mapinfo-and-sql-server-2008">
+<h1>MapInfo and SQL Server 2008<a class="headerlink" href="#mapinfo-and-sql-server-2008" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-03-24 11:09</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>bugs, geodatabases, mapinfo, sql server 2008</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>geodatabase, gis, mapinfo, sqlserver</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>mapinfo-and-sql-server-2008</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2010/03/mapinfo_pro.gif"><img alt="image0" src="../_images/mapinfo_pro.gif" /></a>For a new project I am working for the first time with
+<a class="reference external" href="http://www.pbinsight.com/products/location-intelligence/applications/mapping-analytical/mapinfo-professional/">MapInfo</a>
+10 <em>“the world’s premier desktop mapping application.”</em></p>
+<p>In an effort to move away from MapInfo’s .tab files (the shapefile
+equivalent) I was keen to test out the direct connection to geometry
+stored in SQL Server 2008. Until version 9.5 data could only be stored
+and accessed in a relational database using
+<a class="reference external" href="http://www.pbinsight.com/products/location-intelligence/developer-tools/enterprise-software/spatialware/">SpatialWare</a>.
+Again to use ESRI terminology this is the ArcSDE equivalent. Fortunately
+MapInfo was quick off the mark in removing this barrier.</p>
+<p>Access to SQL Server 2008 spatial data is provided by integrating FME
+functionality directly into the product, and having a “Universal Data”
+option on the File menu. There is also a tool named <a class="reference external" href="http://www.pbinsight.com/support/product-downloads/item/easyloader-v10.0">Easy
+Loader</a>
+that allows loading .tab files into SQL Server as geometry.</p>
+<p>Unfortunately on trying to use the Universal Data menu after installing
+a fresh copy of MapInfo 10 I was met with the error <em>“This application
+has failed to start because qfmeext.dll was not found. Re-installing the
+application may fix this problem.”</em></p>
+<p><a class="reference external" href="images/2010/03/map_info_crash.png"><img alt="image1" src="../_images/map_info_crash.png" /></a></p>
+<p>Hardly a good <em>premier</em> start..Anyway it appears upgrading to the 10.0.1
+maintenance release fixes this issue. No mention of the issue itself in
+the <a class="reference external" href="http://reference.mapinfo.com/software/mapinfo_pro/english/10.0.1/MapInfoProfessionalReleaseNotes_1001.pdf">release
+notes</a>
+(<strong>Update</strong>: It is in the <a class="reference external" href="http://reference.mapinfo.com/software/mapinfo_pro/english/10.0.1/MapInfoProfessionalReleaseNotes_1001.pdf">release
+notes</a>,
+see comments below, and only occurs when ArcGIS is also installed).
+There were also a couple of additional fixes for SQL Server (fhe
+following text direct from the maintenance release notes).</p>
+<section id="improving-performance-when-connecting-to-a-sql-server-database">
+<h2>Improving Performance when Connecting to a SQL Server Database<a class="headerlink" href="#improving-performance-when-connecting-to-a-sql-server-database" title="Permalink to this headline">¶</a></h2>
+<p>To improve performance when accessing large SQL Server tables, add a
+Multiple Active Result Sets (MARS) connection setting to the connection
+string in the live access .TAB file. The connection attribute to update
+is \DATALINK\ConnectionString, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&quot;\DATALINK\ConnectionString&quot; = &quot;DSN=local-native10;UID=username;
+Trusted_Connection=Yes;APP=MapInfo Professional®;
+WSID=hostname;DATABASE=test;MARS_Connection=Yes;&quot;
+</pre></div>
+</div>
+<p>You may also add the MARS connection setting to the connection string of
+MapBasic Server_Connect( ) command. Note that a MARS connection:</p>
+<ul class="simple">
+<li><p>does not work for SpatialWare tables.</p></li>
+<li><p>only applies to SQL Native Client or SQL Server Native Client 10.
+Other connection types so not benefit from this setting.</p></li>
+</ul>
+</section>
+<section id="also-fixed">
+<h2>Also Fixed..<a class="headerlink" href="#also-fixed" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">T25293 Opening a SQL Server table containing a column with type NCHAR</div>
+</div>
+<p>causes an error message, “Unsupported data type for column…”
+|  Resolution: Issue is resolved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-984" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-984"><span class="std std-ref">1.</span></a> <strong>Creating Previews of PDF Maps at geographika</strong>
+**</p>
+<p>[…] MapFish print module used by both MapFish and GeoExt generates PDF
+maps that can be saved to clients machines. Over time […]</p>
+<a href="mailto:web+mapfish-print-module-for-iis#1@geographika.co.uk?Subject=mapfish-print-module-for-iis" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+mapinfo-and-sql-server-2008@geographika.co.uk?Subject=mapinfo-and-sql-server-2008" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Visio Data Modelling and VBA &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Visualising GeoJSON in 15 Minutes" href="visualising-geojson-in-15-minutes.html" />
+    <link rel="prev" title="Using TileCache on IIS" href="using-tilecache-on-iis.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Visio Data Modelling and VBA</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="using-tilecache-on-iis.html" title="Previous Chapter: Using TileCache on IIS"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Using TileCac...</span>
+    </a>
+  </li>
+  <li>
+    <a href="visualising-geojson-in-15-minutes.html" title="Next Chapter: Visualising GeoJSON in 15 Minutes"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Visualising G... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="visio-data-modelling-and-vba">
+<h1>Visio Data Modelling and VBA<a class="headerlink" href="#visio-data-modelling-and-vba" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-09-25 02:52</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>geodatabases, programming</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>IVMEEntity VisioModelingEngine  shape visio entity vba uml</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>visio-data-modelling-and-vba</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>I use Visio for a number of tasks. For creating geodatabase models in
+ArcGIS, for system architecture diagrams, and for data flow models. It
+may not be the easiest program to use, but the alternatives are often
+too simplistic, or worse.</p>
+<div class="line-block">
+<div class="line">I wanted to generate a nice diagram of a SQL Server database I had</div>
+</div>
+<p>created, and automatically create hyperlinks that would pop up an Ajax
+box with sample records directly from the database. In order to do this
+each hyperlink had to have a variable based on the table/entity name.
+However it soon became apparent that there is no easy way to access the
+entity name in VBA from its associated shape object. The solution to
+this is the <strong>VisioModelingEngine</strong> library which provides access to the
+UML, but does <em>not</em> provide access to the shapes.
+|</p>
+<p>There appears to be very little documentation on using the classes in
+this library. I found a couple of examples at
+<a class="reference external" href="http://www.eggheadcafe.com/forumarchives/visiodeveloperVisualBasica/Jul2005/post23423796.asp">http://www.eggheadcafe.com/forumarchives/visiodeveloperVisualBasica/Jul2005/post23423796.asp</a>
+and
+<a class="reference external" href="http://www.eggheadcafe.com/software/aspnet/32121825/forward-engineer-visio-er.aspx">http://www.eggheadcafe.com/software/aspnet/32121825/forward-engineer-visio-er.aspx</a></p>
+<p>My eventual workaround involves temporarily changing the first attribute
+in an entity to the entity name, searching through the shape’s text for
+this name, recording the ID and then changing it back. The idea was
+based on <a class="reference external" href="http://www.eggheadcafe.com/conversation.aspx?messageid=32580685&amp;threadid=32580682">this
+post</a>
+which hinted that was what they did, but then frustratingly didn’t post
+their solution.</p>
+<p>Anyway the main use of the code is to associate a Visio entity
+(IVMEEntity) with its shape.</p>
+<p><a class="reference external" href="http://geographika.co.uk/wp-content/uploads/visio_modelling.htm">The full VBA code can be seen by clicking this
+link</a>.</p>
+<p>A good source of VBA scripts for Visio can be found at
+<a class="reference external" href="http://visualsignals.typepad.co.uk/vislog/">http://visualsignals.typepad.co.uk/vislog/</a> this provided me with the
+code for looping through shapes on a page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/b2132a616cd801f3be5b7b2abc33b6aa?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-695" src="http://www.gravatar.com/avatar/b2132a616cd801f3be5b7b2abc33b6aa?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-695"><span class="std std-ref">1.</span></a> <strong>Longred</strong>
+**</p>
+<div class="line-block">
+<div class="line">Awesome, but</div>
+<div class="line-block">
+<div class="line">1. How to call your script from OpenLayers?</div>
+<div class="line">2. Modification of service.py results in a non functioning</div>
+</div>
+</div>
+<p>tilecache_seed.py.
+|  Regards,</p>
+<a href="mailto:web+using-tilecache-on-iis#1@geographika.co.uk?Subject=using-tilecache-on-iis" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-699" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-699"><span class="std std-ref">2.</span></a> <strong>geographika</strong>
+**</p>
+<p>1. The script is called by setting the URL of the WMS layer to the URL
+of the python script. E.g.</p>
+<p>var wms = new OpenLayers.Layer.WMS(“My Layer
+Name”,”<a class="reference external" href="http://myserver.org/tiles/tilecache.py">http://myserver.org/tiles/tilecache.py</a>”, {layers: “mylayer”});</p>
+<p>2. Thanks for the info - not really needed to seed a cache as yet. You
+could always pass in a workingdir parameter, or hardcode it if you only
+have one cache.</p>
+<a href="mailto:web+using-tilecache-on-iis#2@geographika.co.uk?Subject=using-tilecache-on-iis" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+visio-data-modelling-and-vba@geographika.co.uk?Subject=visio-data-modelling-and-vba" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

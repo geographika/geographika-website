@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+geomedia-webmap-v52@geographika.co.uk?Subject=geomedia-webmap-v52" target="_top">Add Comment</a>

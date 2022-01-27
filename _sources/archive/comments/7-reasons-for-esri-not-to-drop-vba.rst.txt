@@ -1,0 +1,37 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-729:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-729>` **Installing Python Modules on Windows at geographika**
+**
+
+[...] for many packages including GDAL (there are further details on
+using 64 bit GDAL and MapScript here), and a compilation of many
+packages including geopy, simplejson, sphinx, pytools and many [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-mapscript-for-python-on-windows#1@geographika.co.uk?Subject=64-bit-mapscript-for-python-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+7-reasons-for-esri-not-to-drop-vba@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Add Comment</a>

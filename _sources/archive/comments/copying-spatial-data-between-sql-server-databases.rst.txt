@@ -1,0 +1,444 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-276:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-276>` **=== Deep Link Engine === | ClickBankKing**
+**
+
+[...] geographika » Compiling a 64 bit Version of PyISAPIe [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#1@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-291:
+
+.. image:: http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-291>` **Phillip**
+**
+
+Hi there,
+
+While I'll be posting some details on the PyISAPIe list later regarding
+changes in the new version to make this process easier, I just thought
+I'd mention a few things that could help you in the future-
+
+- PYI\_PY\_VERSION can be defined in the project settings, under
+C++/Preprocessor. This is the easiest way to compile for different
+versions because no source changes are required.
+
+- You can add additional include and library directories at the project
+settings level rather than the Visual Studio settings level, which can
+help in some cases.
+
+- If SubWCRev wasn't working from Visual Studio but was from the command
+line, all I can suggest is to log out and back into your Windows account
+to be sure that your PATH has been updated everywhere (it works in
+Windows 7 right after installing TortoiseSVN).
+
+Thank you for this guide, I'm positive that it will be a great help to
+those compiling the project themselves.
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#2@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-296:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-296>` **geographika**
+**
+
+| `@Phillip <#comment-291>`__
+|  Thanks for the tips. I've updated the post to include these, and went
+through the steps with the latest sourcecode.
+|  I should have realised the PATH had not been updated having wrote
+about it last week...!
+|  All is working well, and the new project set up makes it easy to
+compile for 32 bit or 64 bit, with many different Python versions.
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#3@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-308:
+
+.. image:: http://www.gravatar.com/avatar/52a7495eeb9152acb2a39c9f0e83cfd9?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-308>` **Jonathan Mayer**
+**
+
+Fantastic work ( you're on my favourites list!!)
+
+You don't happen to have a copy of the dll do you,
+
+Cheers Jonathan ;-)
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#4@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-309:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-309>` **geographika**
+**
+
+| Thanks Jonathan.
+|  You can get a copy of the 64 bit DLL for Python 2.5 at
+|  http://geographika.co.uk/downloads/PyISAPIe64_Python25.zip.
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#5@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-465:
+
+.. image:: http://www.gravatar.com/avatar/aee6b898db6192564421a2269f2afca1?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-465>` **chris**
+**
+
+| Great work and an excellent tutorial!
+|  I'm struggling, getting mod\_python/mod\_wsgi to work under Apache
+2.2 compiled for 64-bit Windows for a while... After reading this, I
+definitely will give IIS7+PyISAPIe a try.
+|  Thanks!
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#6@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-466:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`7. <comment-466>` **geographika**
+**
+
+It has also been announced recently that development on mod\_python is
+to be abandoned
+http://blog.dscpl.com.au/2010/06/modpython-project-is-now-officially.html
+so bail out now!
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#7@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-669:
+
+.. image:: http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`8. <comment-669>` **James Crowley**
+**
+
+This is an awesome article, thank you!!
+
+I've successfully compiled this project to 64bit against Python 2.7.
+However, when I set up the ISAPI filter in IIS I keep getting a
+
+The specified module could not be found. (0x8007007e)
+
+error. As far as I can tell, IIS has full access to that file (I've gone
+as far as giving the Users group and IUSR and Network Service full
+read/write access). Is there anything else likely to be going on here?
+Not sure if there might be issues loading the python bindings or
+something? Any ideas would be much appreciated!
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#8@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-670:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`9. <comment-670>` **geographika**
+**
+
+Hi James,
+
+| Take a look at http://geographika.co.uk/setting-up-python-on-iis7
+which goes through the set up steps in IIS7. Previous versions should be
+similar.
+|  If you just installed Python on the server then try a reboot to make
+sure the Python environment variables have been set.
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#9@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-671:
+
+.. image:: http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`10. <comment-671>` **James Crowley**
+**
+
+Seth, I've followed all those steps as far as I can see (I'm using IIS
+7), and the server has been rebooted. Is there any way I can check that
+the PyISAPIe library works without hooking in IIS? Thanks so much for
+this :)
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#10@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-672:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`11. <comment-672>` **geographika**
+**
+
+As far as I know there is no wat to check outside of IIS. Does the
+hello.py script produce the "module" error/
+
+What I have found useful when getting errors is to use `Process
+Monitor <http://technet.microsoft.com/en-ie/sysinternals/bb896645(en-us).aspx>`__
+to see what DLLs Windows is looking for, and any errors if it can't find
+them or if it does not have the correct security settings.
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#11@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-673:
+
+.. image:: http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`12. <comment-673>` **James Crowley**
+**
+
+Thanks! Yeah, its the hello.py script producing the module error. Will
+try process monitor and see if that reveals anything.
+
+BTW, as a sense check, downloaded your x64 bit version and the 2.5.4 amd
+build you linked - this "works", although complains about a ctypes
+module not being present in python. I checked and it seems to be there
+in 2.7 builds but not the 2.5.4 for some reason?
+
+have joined the pyisapie email list now so will try and stop bugging you
+now! :)
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#12@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-777:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`13. <comment-777>` **MapFish Print Module for IIS at geographika**
+**
+
+[...] Install and configure PyISAPIe. You can follow the instructions
+described on this post or in the README file included with PyISAPIe . If
+you want to run a 64 bit version, have a look at this post. [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#13@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-871:
+
+.. image:: http://www.gravatar.com/avatar/1e7eaf045548b6914c5784c18cc89f09?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`14. <comment-871>` **Quaspam**
+**
+
+| Hi thanks for the great article, i have a very stupid question if i
+may say, i followed about every step you mentioned and i am stuck when
+the build gets to the linking stage, it gave the following error:
+|  **Error LNK1104: cannot open file 'python27.lib'**
+|  here is my build command line:
+
+``/OUT:"x64\Release\PyISAPIe.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\pyisapie\Python\x64\Python27\libs" /LIBPATH:"C:\pyisapie\Python\x64\Python26\libs" /LIBPATH:"C:\pyisapie\Python\x64\Python25\libs" /DLL "kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib" /NODEFAULTLIB:"libc libcmt msvcrt" /DEF:"PyISAPIe.def" /MANIFEST /ManifestFile:"x64\Release\PyISAPIe.dll.intermediate.manifest" /ALLOWISOLATION /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"C:\pyisapie\x64\Release\PyISAPIe.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /PGD:"C:\pyisapie\x64\Release\PyISAPIe.pgd" /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x64\Release\PyISAPIe.lib" /MACHINE:X64 /ERRORREPORT:QUEUE ``
+
+I am using VS2010 and i checked if python27.lib is accessible and
+everything seems fine. Can you please help me
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#14@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-872:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`15. <comment-872>` **geographika**
+**
+
+Hi - it has been a while since I did this. I've not tried with 2.7, but
+you probably have to add:
+
+``#elif PYI_PY_VERSION >= PY_27   #define PYI_PY_VERSION_MAJOR PY_27   #include    #include    #include ``
+
+My build outout for Python 2.6 (in VS2010) is:
+
+``/OUT:"x64\Release\PyISAPIe.dll" /INCREMENTAL:NO /NOLOGO /LIBPATH:"D:\Projects\PyISAPIe\PyISAPIe\Python\x64\Python26\libs" /LIBPATH:"D:\Projects\PyISAPIe\PyISAPIe\Python\x64\Python25\libs" /DLL "kernel32.lib" "user32.lib" "gdi32.lib" "winspool.lib" "comdlg32.lib" "advapi32.lib" "shell32.lib" "ole32.lib" "oleaut32.lib" "uuid.lib" "odbc32.lib" "odbccp32.lib" /NODEFAULTLIB:"libc libcmt msvcrt" /DEF:"PyISAPIe.def" /MANIFEST /ManifestFile:"x64\Release\PyISAPIe.dll.intermediate.manifest" /ALLOWISOLATION /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\Projects\PyISAPIe\PyISAPIe\x64\Release\PyISAPIe.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /PGD:"D:\Projects\PyISAPIe\PyISAPIe\x64\Release\PyISAPIe.pgd" /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x64\Release\PyISAPIe.lib" /MACHINE:X64 /ERRORREPORT:QUEUE ``
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#15@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1714:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`16. <comment-1714>` **wolf++ &raquo; Running Django on Windows: Python 2.7.2 x64, PyISAPIe and IIS 7.5**
+**
+
+[...] not a compiled version of this available for Python 2.7 (x64 in my
+case).  geographika has a great post on doing this.  The following
+instructions are based on his guide, updated with newer versions.  [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#16@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+copying-spatial-data-between-sql-server-databases@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Add Comment</a>

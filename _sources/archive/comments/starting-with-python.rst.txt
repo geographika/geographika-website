@@ -1,0 +1,58 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-123:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-123>` **GIS-Lab Blog&raquo; Архив блога &raquo; Новости вокруг**
+**
+
+[...] Пространственные запросы в Microsoft SQL Server. [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+sql-server-spatial-sql#1@geographika.co.uk?Subject=sql-server-spatial-sql" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1734:
+
+.. image:: http://www.gravatar.com/avatar/6a16efa6603f16340a98c9a5a1932ffb?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1734>` **Nesh P.**
+**
+
+I love you because of this post. Really. I am banging my head for days
+because I didnt knew how to made query or expression to make objects in
+my table VALID. All the best from sql spatial beginner.
+
+
+.. raw:: html
+
+    <a href="mailto:web+sql-server-spatial-sql#2@geographika.co.uk?Subject=sql-server-spatial-sql" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+starting-with-python@geographika.co.uk?Subject=starting-with-python" target="_top">Add Comment</a>

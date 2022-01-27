@@ -1,0 +1,143 @@
+Will HTML5 Revolutionise Raster Web GIS?
+########################################
+:date: 2011-02-18 13:09
+:author: admin
+:category: javascript, OpenLayers, opinion, web development
+:tags: html5, raster
+:slug: will-html5-revolutionise-raster-web-gis
+:status: published
+
+|image| Or perhaps that should be rephrased *start* browser-based raster
+GIS?
+
+GIS data is split into two base types ‚Ä" vector data ‚Ä" geometric shapes,
+usually further split into points, lines, and polygons, and raster data
+‚Ä" cell-based or ‚Äúpixelated‚Äù data.
+
+Graphics on the web mirror this divide. On the vector side
+`SVG <http://www.w3.org/Graphics/SVG/>`__ ‚Ä" scalable vector graphics, is
+used in many browsers to display geometric shapes. On the raster side
+‚Äúdumb‚Äù images come in many well known formats such as bitmaps, GIFs,
+PNGs, and JPEGs.
+
+Vector geometries are easily manipulated after drawing as they have an
+abstract model to work with (the SVG, or KML document), which the
+browser can then convert to the
+`DOM <http://en.wikipedia.org/wiki/Document_Object_Model>`__. As an
+example OpenLayers includes two vector renderers ‚Ä" one for SVG (`see
+source
+code <http://trac.osgeo.org/openlayers/browser/trunk/openlayers/lib/OpenLayers/Renderer/SVG.js>`__),
+one for
+`VML <http://trac.osgeo.org/openlayers/browser/trunk/openlayers/lib/OpenLayers/Renderer/VML.js>`__
+(used by the ever-unique IE), and since the start of this year a `new
+canvas
+renderer <http://trac.osgeo.org/openlayers/browser/trunk/openlayers/lib/OpenLayers/Renderer/Canvas.js>`__.
+
+The canvas renderer is used to draw features to the `new canvas
+element <http://en.wikipedia.org/wiki/Canvas_element>`__ which is part
+of the HTML5 specification. This allows access to images loaded into the
+canvas through new programming interfaces such as the `Canvas 2D Context
+API <http://dev.w3.org/html5/2dcontext/#canvasrenderingcontext2d>`__.¬†
+It is this part of the HTML5 specification that could change the way we
+work with raster data on the web.
+
+.. raw:: html
+
+   <div style="text-align: justify;">
+
+.. raw:: html
+
+   </div>
+
+The power for raster operations will be based on the `**compositing
+functions** <https://developer.mozilla.org/en/Canvas_tutorial/Compositing>`__.
+These correspond with various `map
+algebra <http://www.quantdec.com/SYSEN597/GTKAV/section9/map_algebra.htm>`__
+functions that have been used by desktop GIS systems for years. To take
+a few examples the HTML5
+`transforms <https://developer.mozilla.org/en/Canvas_tutorial/Transformations#Transforms>`__
+include the following:
+
+|image|
+
+    XOR - Shapes are made transparent where both overlap and drawn
+    normal everywhere else.
+
+    LIGHTER - Where both shapes overlap the color is determined by
+    adding color values.
+
+    The clip() function can be used to create masking areas, and to
+    speed up the processing.
+
+These three basic functions cover many of the key uses of raster GIS. By
+adding or subtracting the colour values in a raster cell, you are in
+effect changing the raster data itself.
+
+For example it would be possible for example to multiply a soil type
+raster dataset, with a rainfall raster dataset to produce a third raster
+dataset giving indications of crop suitability. Or as this is in the
+browser a user could choose their own weightings to instantly multiple
+different land use classes to producing a new map.
+
+It‚Äôs Already Here‚Ä¶
+~~~~~~~~~~~~~~~~~~
+
+For excellent examples of these types of pixel manipulations go to
+`Beej‚Äôs Bit
+Bucket <http://beej.us/blog/2010/02/html5s-canvas-part-ii-pixel-manipulation/>`__
+and check out his `blue
+goat <http://beej.us/blog/wp-content/uploads/2010/03/canvasbluegoat.html>`__,
+`scratcher demo <http://beej.us/x/scratcher/>`__, and his challenge to
+create `Sobel edge
+detection <http://en.wikipedia.org/wiki/Sobel_operator>`__ using canvas.
+
+Matthew Trost has created a brilliant `path finding
+demo <http://www.matthewtrost.org/projects/astar/>`__ using canvas and
+JavaScript. Whilst the target audience for is game developers, it
+inadvertently implements several of the `key
+functions <http://www.esri.com/software/arcgis/extensions/networkanalyst/key-features.html>`__
+of raster-based GIS.
+
+It will be coming to OpenLayers soon ‚Ä" the evaluation of HTML5 and
+OpenLayers is presented
+`here <http://trac.osgeo.org/openlayers/wiki/Future/OpenLayersAndHTML5>`__.
+There is a demo showing layers in a canvas element in `krisgeus‚Äôs
+sandbox <http://dev.openlayers.org/sandbox/krisgeus/openlayers/examples/transitionWithCanvas.html>`__.
+And `CampToCamp <http://www.camptocamp.com/>`__ have an impressive demo
+to dynamically `display and graph elevation
+values <http://dev.openlayers.org/sandbox/camptocamp/canvas/openlayers/examples/elevationCanvas.html>`__.
+
+Challenges and Challengers\ |image|
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Currently it is easier to run raster processing on a server, and return
+the results to a user. With an increase in cloud-based processing
+responses times will get even shorter, so developers will have to decide
+which approach will be easier to maintain and implement, whilst meeting
+users‚Äô expectations and requirements.
+
+In an ideal world, processing could be balanced between the client and
+server to bring about the fastest results possible, however coding for
+two different architectures likely rules this out for all but high
+traffic sites.
+
+As pointed out `here <http://www.kontain.com/fi/entries/94636/>`__
+*‚Äúperformance can be a challenge since bitmap operations are very
+processing expensive, especially at high resolutions.‚Äù* A major
+challenge of creating web sites is designing for the lowest common
+denominator ‚Ä" what happens if a user connects to a site using IE6 on a
+15 year-old desktop?
+
+Whether or not it will be more practical to do raster analysis in the
+browser rather than on the server is up for debate. But home computers
+aren‚Äôt going to get slower, and as HTML5 becomes the norm rather than
+the exception raster GIS on the web becomes a very interesting terrain.
+
+.. |image| image:: images/2011/02/image_thumb.png
+   :target: images/2011/02/image.png
+.. |image| image:: images/2011/02/image_thumb1.png
+   :target: images/2011/02/image1.png
+.. |image| image:: images/2011/02/image_thumb2.png
+   :target: images/2011/02/image2.png
+
+.. include:: comments/will-html5-revolutionise-raster-web-gis.rst

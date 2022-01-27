@@ -1,0 +1,405 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Compiling MapServer &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Compiling MapServer</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#downloads-and-setup">Downloads and Setup</a></li>
+<li><a class="reference internal" href="#modifying-the-makefile">Modifying the MakeFile</a></li>
+<li><a class="reference internal" href="#compiling">Compiling</a></li>
+<li><a class="reference internal" href="#python-builds">Python Builds</a></li>
+<li><a class="reference internal" href="#simple-build">Simple Build</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="compiling-mapserver">
+<h1>Compiling MapServer<a class="headerlink" href="#compiling-mapserver" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>These steps are to compie the following:</p>
+<ul class="simple">
+<li><p>GDAL 2.1</p></li>
+<li><p>MapServer 7.0.2 x64</p>
+<ul>
+<li><p>MS SQL Server plugin</p></li>
+<li><p>No Oracle plugin</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="downloads-and-setup">
+<h2>Downloads and Setup<a class="headerlink" href="#downloads-and-setup" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Download CMake from <a class="reference external" href="https://cmake.org/download/">https://cmake.org/download/</a>
+e.g. <a class="reference external" href="https://cmake.org/files/v3.5/cmake-3.5.2-win32-x86.zip">https://cmake.org/files/v3.5/cmake-3.5.2-win32-x86.zip</a></p>
+<p><strong>Note</strong> even though we are building a x64 version of MapServer the 32 bit cmake executable
+will work fine with 64 bit windows and 64 bit compilers. There is no x64 version of CMake.</p>
+</li>
+<li><p>Unzip cmake-3.5.2-win32-x86.zip into <code class="docutils literal notranslate"><span class="pre">C:\cmake-3.5.2-win32-x86</span></code></p></li>
+<li><p>Install Visual Studio 2013</p>
+<p><strong>Note</strong> during installation ensure to select the “x64” compiler for C++</p>
+</li>
+<li><p>Download the MapServer source for the required version from GitHub -
+<a class="reference external" href="https://github.com/mapserver/mapserver/archive/rel-7-0-1.zip">https://github.com/mapserver/mapserver/archive/rel-7-0-1.zip</a> and unzip to <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\mapserver</span></code>
+Alternatively you can check-out the sourcecode from GitHub (again to the <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\mapserver</span></code> folder).</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> C:\MapServerBuild
+git clone https://github.com/mapserver/mapserver.git
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Download the GDAL source for the required version from GitHub - <a class="reference external" href="https://github.com/OSGeo/gdal/archive/2.1.zip">https://github.com/OSGeo/gdal/archive/2.1.zip</a>
+and unzip to <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\gdal</span></code>.
+Alternatively you can check-out the sourcecode from GitHub (again to the <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\gdal</span></code> folder).</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> C:\MapServerBuild
+git clone https://github.com/OSGeo/GDAL
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Download the SDK (software development kit) from <a class="reference external" href="http://download.gisinternals.com/sdk/downloads/release-1800-x64-dev.zip">http://download.gisinternals.com/sdk/downloads/release-1800-x64-dev.zip</a></p></li>
+<li><p>Unzip release-1800-x64-dev.zip to <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild</span></code></p></li>
+<li><p>Whilst the SDK includes a version of SWIG (1.3.39), this currently has issues when creating the Python
+MapScript bindings.</p>
+<p>For this reason download swigwin-1.3.40 from <a class="reference external" href="https://sourceforge.net/projects/swig/files/swigwin/swigwin-1.3.40/">https://sourceforge.net/projects/swig/files/swigwin/swigwin-1.3.40/</a></p>
+<p>For unknown reasons GDAL will not compile when using the latest version of SWIG (swigwin-3.0.8)
+from <a class="reference external" href="http://www.swig.org/download.html">http://www.swig.org/download.html</a></p>
+</li>
+<li><p>Unzip SWIG to <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\swigwin-1.3.40</span></code></p></li>
+<li><p>Download python-2.7.12.amd64.msi from <a class="reference external" href="https://www.python.org/downloads/release/python-2712/">https://www.python.org/downloads/release/python-2712/</a></p></li>
+<li><p>Install python-2.7.12.amd64.msi to <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\Python27-AMD64</span></code>
+Alternatively you can install to <code class="docutils literal notranslate"><span class="pre">C:\Python27</span></code> and make a link to this folder:</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">mklink</span> /J C:\MapServerBuild\Python27-AMD64 C:\Python27
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Download jdk-8u73-windows-x64.exe from <a class="reference external" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
+</li>
+<li><p>Install jdk-8u112-windows-x64.exe to <code class="docutils literal notranslate"><span class="pre">C:\Program</span> <span class="pre">Files\Java\jdk1.8.0_112</span></code> (this is the default install location).</p></li>
+</ul>
+<p>At the end of these steps you should end up with a folder structure similar to below (SWIG version differs
+from the screenshot):</p>
+<img alt="../_images/build_folder_structure.png" src="../_images/build_folder_structure.png" />
+</section>
+<section id="modifying-the-makefile">
+<h2>Modifying the MakeFile<a class="headerlink" href="#modifying-the-makefile" title="Permalink to this headline">¶</a></h2>
+<p>The MakeFile contains commands on building MapServer and its associated utility programs. It is located in
+the root of the development kit - <code class="docutils literal notranslate"><span class="pre">C:\MapServerBuild\Makefile</span></code></p>
+<p>Follow the steps below to make the minor adjustments to the MakeFile to match the configuration above.</p>
+<ol class="arabic">
+<li><p>Update the CMake location.</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>CMAKE_DIR = E:\builds\cmake-3.4.0-win32-x86
+#CMAKE_DIR = E:\builds\cmake-2.8.12.1-win32-x86
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>#CMAKE_DIR = E:\builds\cmake-3.4.0-win32-x86
+CMAKE_DIR = C:\cmake-3.5.2-win32-x86
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Now update the MakeFile to point to the latest version of the MapServer sourcecode.</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>MS_DIR = mapserver-7-0
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>#MS_DIR = mapserver-7-0
+MS_DIR = mapserver
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Now update the MakeFile to point to the latest version of the GDAL sourcecode (this needs to point
+to the location of the makefile.vc file in the <code class="docutils literal notranslate"><span class="pre">gdal/gdal</span></code> subfolder).</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>GDAL_DIR = gdal
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>#GDAL_DIR = gdal
+# needs the containing folder of the makefile.vc
+GDAL_DIR = gdal\gdal
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Next update the MakeFile to point to the newer version of the SWIG.</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>SWIG_DIR = SWIG-1.3.39
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>#SWIG_DIR = SWIG-1.3.39
+SWIG_DIR = swigwin-1.3.40
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Update the MakeFile to point to the correct JAVA_HOME.</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>!IFDEF WIN64
+JAVA_HOME = C:\Java\jdk1.8.0_25x64
+!ELSE
+JAVA_HOME = C:\Java\jdk1.8.0_25
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>!IFDEF WIN64
+#JAVA_HOME = C:\Java\jdk1.8.0_25x64
+JAVA_HOME = C:\Program Files\Java\jdk1.8.0_112
+!ELSE
+JAVA_HOME = C:\Java\jdk1.8.0_25
+</pre></div>
+</div>
+<p>Note if you have installed the Java SDK then this will already be in your Window
+environment variables. Make sure that a previous 32-bit version of the Java Runtime Environment
+has not already set the JAVA_HOME setting. Search for the following in the output to check this
+setting:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">JAVA_HOME</span><span class="p">=</span>C:\Program Files (x86)\Java\jre1.8.0_45
+</pre></div>
+</div>
+<p>Or run the following to check the path:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">%JAVA_HOME%</span>
+</pre></div>
+</div>
+<p>This should look more similar to the following - note there is no (x86):</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">JAVA_HOME</span><span class="p">=</span>C:\Program Files\Java\jdk1.8.0_73
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Also update the hard coded executable name to use the SWIG_DIR variable:</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;-DSWIG_EXECUTABLE=$(BASE_DIR)\SWIG-1.3.39\swig.exe&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;-DSWIG_EXECUTABLE=$(BASE_DIR)\$(SWIG_DIR)\swig.exe&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Update the CMake command so that it does not attempt to build the Oracle plugin.</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;-DWITH_ORACLE_PLUGIN=1&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;-DWITH_ORACLE_PLUGIN=0&quot;</span>
+</pre></div>
+</div>
+<p>Otherwise a message similar to the following appear up in the build log:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>-- Could NOT find ORACLE (missing:  ORACLE_LIBRARY)
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="compiling">
+<h2>Compiling<a class="headerlink" href="#compiling" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Open a command prompt (using the “VS2013 x64 Native Tools Command Prompt”) or a normal prompt
+and run the following command (which will set the build environment correctly):</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="c1">REM VS 2008</span>
+<span class="s2">&quot;C:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\vcvarsall.bat&quot;</span> amd64
+<span class="c1">REM VS 2013</span>
+<span class="s2">&quot;C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat&quot;</span> amd64
+<span class="c1">REM Can&#39;t use the following as MakeFile not yet ready for VS2015</span>
+<span class="s2">&quot;C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat&quot;</span> amd64
+</pre></div>
+</div>
+</li>
+<li><p>Next run the following to compile both GDAL and MapServer. As GDAL is a dependency of MapServer
+you will need to build both.</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> /
+<span class="k">cd</span> C:\MapServerBuild
+nmake gdal
+nmake ms
+nmake ms-sql2008
+nmake ms-python
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If everything ran successfully you should see a new mapserver.dll (along with other files)
+in <code class="docutils literal notranslate"><span class="pre">C:\Build\release-1500-x64\bin</span></code></p>
+<img alt="../_images/build_success.png" src="../_images/build_success.png" />
+<p>To check MapServer is working run the following commands:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> /
+<span class="k">cd</span> C:\Build\release-1500-x64
+SDKShell.bat
+mapserv -v
+</pre></div>
+</div>
+<p>You should see output similar to the following, showing the version of MapServer you compiled and available
+plugins.</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>MapServer version 7.0.0 OUTPUT=PNG OUTPUT=JPEG OUTPUT=KML SUPPORTS=PROJ SUPPORTS=AGG
+SUPPORTS=FREETYPE SUPPORTS=CAIRO SUPPORTS=SVG_SYMBOLS SUPPORTS=SVGCAIRO SUPPORTS=ICONV
+SUPPORTS=FRIBIDI SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT
+SUPPORTS=WCS_SERVER SUPPORTS=SOS_SERVER SUPPORTS=FASTCGI SUPPORTS=THREADS SUPPORTS=GEOS INPUT=JPEG
+INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE
+</pre></div>
+</div>
+</section>
+<section id="python-builds">
+<h2>Python Builds<a class="headerlink" href="#python-builds" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>ERROR:root:Using C:\MapServerBuild\release-1800-x64
+ERROR:root:DLL load failed: <span class="nv">%1</span> is not a valid Win32 application.
+
+Traceback (most recent call last):
+  File <span class="s2">&quot;C:\MapServerBuild2\PythonTest\test.py&quot;</span>, line 5, in <span class="p">&lt;</span>module&gt;
+        common.setup(r<span class="s2">&quot;C:\MapServerBuild2\release-1800-x64&quot;</span>)
+  File <span class="s2">&quot;C:\Code\Python\mappyscript\mappyscript\common.py&quot;</span>, line 44, in setup
+        import mapscript
+  File <span class="s2">&quot;C:\MapServerBuild2\release-1800-x64\bin\ms\python\mapscript.py&quot;</span>, line 25, in <span class="p">&lt;</span>module&gt;
+        _mapscript = swig_import_helper()
+  File <span class="s2">&quot;C:\MapServerBuild2\release-1800-x64\bin\ms\python\mapscript.py&quot;</span>, line 21, in swig_import_helper
+        _mod = imp.load_module(&#39;_mapscript&#39;, fp, pathname, description)
+ImportError: DLL load failed: <span class="nv">%1</span> is not a valid Win32 application.
+</pre></div>
+</div>
+<p>Fix with:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>“C:Program Files (x86)Microsoft Visual Studio 12.0VCvcvarsall.bat” amd64
+mt.exe -inputresource:c:windowssyswow64python27.dll;#2 -outputresource:”C:MapServerBuild2release-1800-x64binmspython_mapscript.pyd”;#2</p>
+</section>
+<section id="simple-build">
+<h2>Simple Build<a class="headerlink" href="#simple-build" title="Permalink to this headline">¶</a></h2>
+<p>LINK : fatal error LNK1104: cannot open file ‘python27_d.lib’</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/11311877/creating-a-dll-from-a-wrapped-cpp-file-with-swig">http://stackoverflow.com/questions/11311877/creating-a-dll-from-a-wrapped-cpp-file-with-swig</a>
+LINK : fatal error LNK1104: cannot open file ‘python27_d.lib’</p>
+<p>ALL_BUILD.vcxproj: The application which this project type is based on was not found. Please try this link for further information: <a class="reference external" href="http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942">http://go.microsoft.com/fwlink/?LinkID=299083&amp;projecttype=8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942</a></p>
+<p>Ran:</p>
+<p>devenv /Setup</p>
+<p>Then reran nmake commands</p>
+<p>Make sure following is installed?</p>
+<p>Microsoft Foundation Classes for C++</p>
+<p>Community 2013 Update 4</p>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

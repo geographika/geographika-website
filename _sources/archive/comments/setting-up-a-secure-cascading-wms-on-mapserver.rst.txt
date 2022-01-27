@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+setting-up-a-secure-cascading-wms-on-mapserver@geographika.co.uk?Subject=setting-up-a-secure-cascading-wms-on-mapserver" target="_top">Add Comment</a>

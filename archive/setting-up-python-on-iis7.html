@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Setting Up Python on IIS7 &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setting up Visual Studio 2008 for Compiling 64-bit DLLs" href="setting-up-visual-studio-2008-for-compiling-64-bit-dlls.html" />
+    <link rel="prev" title="Setting up a Secure Cascading WMS on MapServer" href="setting-up-a-secure-cascading-wms-on-mapserver.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Setting Up Python on IIS7</a><ul>
+<li><a class="reference internal" href="#why-not-cgi">Why Not CGI?</a></li>
+<li><a class="reference internal" href="#some-definitions">Some Definitions…</a></li>
+<li><a class="reference internal" href="#the-python-isapi-extension">The Python ISAPI Extension</a></li>
+<li><a class="reference internal" href="#installation-on-iis-7">Installation on IIS 7</a></li>
+<li><a class="reference internal" href="#testing">Testing</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="setting-up-a-secure-cascading-wms-on-mapserver.html" title="Previous Chapter: Setting up a Secure Cascading WMS on MapServer"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Setting up a ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="setting-up-visual-studio-2008-for-compiling-64-bit-dlls.html" title="Next Chapter: Setting up Visual Studio 2008 for Compiling 64-bit DLLs"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Setting up Vi... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="setting-up-python-on-iis7">
+<h1>Setting Up Python on IIS7<a class="headerlink" href="#setting-up-python-on-iis7" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-02-04 08:30</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>python, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit, handlers, IIS7, ISAPI, PyISAPIe, python, WSGI</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>setting-up-python-on-iis7</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2010/01/iis7.png"><img alt="image0" src="archive/images/2010/01/iis7-300x215.png" /></a>I had already configured Python to run through <a class="reference external" href="http://geographika.co.uk/running-python-through-apache">the Apache
+webserver</a> on
+my development server, but after a few issues on the production server
+(Apache freezing / crashing) I wanted to test running Python scripts
+with IIS7. The principle aim was to run
+<a class="reference external" href="http://tilecache.org/">TileCache</a> through IIS rather than requiring
+Apache.</p>
+<section id="why-not-cgi">
+<h2>Why Not CGI?<a class="headerlink" href="#why-not-cgi" title="Permalink to this headline">¶</a></h2>
+<p>While IIS 7 has Fast-CGI installed (see this <a class="reference external" href="http://forums.iis.net/1103.aspx">IIS
+forum</a>), even better performance can
+be achieved using ISAPI. This answer from
+<a class="reference external" href="http://serverfault.com/questions/9121/how-to-explain-django-python-installation-to-python-newbie-running-a-shared-iis-s">ServerFault</a>
+has a good summary on why ISAPI should be preferred over than CGI. Not
+only  performance  should be considered - maintenance should also be
+taken into account. If a web master or hosting service  is familiar with
+IIS then they are also likely to be familiar with ISAPI.</p>
+<p>From the <a class="reference external" href="http://sourceforge.net/apps/trac/pyisapie">PyISAPIe</a> site:</p>
+<p><em>The reason ISAPI applications have the capability of being better than
+`CGI &lt;http://hoohoo.ncsa.uiuc.edu/cgi/intro.html&gt;`__ or
+`FastCGI &lt;http://www.fastcgi.com/&gt;`__ applications is mostly due to its
+tight integration with the web server environment. Instead of
+initializing an entire program from scratch (in this case, the Python
+interpreter) every time a request is made for a page, an ISAPI extension
+only has to provide a function that is called upon every request. For
+interpreting Python scripts on a per-request basis, this means that the
+interpreter can be initialized</em> <em>once and used many times, creating a
+very noticeable performance gain.</em></p>
+</section>
+<section id="some-definitions">
+<h2>Some Definitions…<a class="headerlink" href="#some-definitions" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><a class="reference external" href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">WSGI</a>-The
+Web Server Gateway Interface defines a simple and universal
+interface between web servers and web applications or frameworks for
+the Python programming language.</p>
+</div></blockquote>
+<p>My interpretation - WSGI glues together IIS and Python scripts, or any
+web server and Python application combination, in a standard way.</p>
+<blockquote>
+<div><p><a class="reference external" href="http://en.wikipedia.org/wiki/Internet_Server_Application_Programming_Interface">ISAPI</a>
+- The Internet Server Application Programming Interface (ISAPI) is
+an N-tier API of Internet Information Services (IIS), Microsoft’s
+collection of Windows-based web server services. The most prominent
+application of IIS and ISAPI is Microsoft’s web server.</p>
+</div></blockquote>
+<p>My uninformed interpretation - ISAPI allows DLLs written in a variety of
+languages to be loaded into IIS to handle web requests. ASP.NET would
+therefore be an ISAPI extension,  set to handle requests which end in
+.aspx</p>
+</section>
+<section id="the-python-isapi-extension">
+<h2>The Python ISAPI Extension<a class="headerlink" href="#the-python-isapi-extension" title="Permalink to this headline">¶</a></h2>
+<p>I initially tried <a class="reference external" href="http://code.google.com/p/isapi-wsgi/">isapi-wsgi</a>,
+but I didn’t have much luck setting it up (I gave up fairly quickly
+though). It also depended on <em>“Mark Hammond’s Python win32 isapi
+extension”</em> - and I was trying to keep the amount of packages installed
+and added to a minimum. I therefore chose to use
+<a class="reference external" href="http://sourceforge.net/apps/trac/pyisapie">PyISAPIe</a> which has no
+dependencies, and only requires a DLL and a folder containing a few .py
+files.</p>
+<p>Documentation and installation instructions are sparse, and assume good
+knowledge of Python, IIS, and web requests in general in which I was
+lacking. In retrospect they make perfect sense though! The following
+links seem to be about the sum knowledge of PyISAPIe on the web - the
+<a class="reference external" href="http://sourceforge.net/apps/trac/pyisapie">homepage</a>, the <a class="reference external" href="http://pyisapie.sourceforge.net/blog/?page_id=13">install
+guide</a>, <a class="reference external" href="http://pyisapie.sourceforge.net/blog/?page_id=14">getting
+started</a>, the <a class="reference external" href="http://groups.google.com/group/pyisapie?hl=en">news
+group</a>, and the
+<a class="reference external" href="http://pyisapie.sourceforge.net/blog/?page_id=15">API</a>. It struck me
+a few times while trying to set up Python and IIS that the numbers of
+people that doing this could be incredibly low. The last Microsoft
+article I found <a class="reference external" href="http://support.microsoft.com/kb/276494">relates to IIS
+5</a>..</p>
+</section>
+<section id="installation-on-iis-7">
+<h2>Installation on IIS 7<a class="headerlink" href="#installation-on-iis-7" title="Permalink to this headline">¶</a></h2>
+<p>1. First make sure IIS is actually installed (Server Manager &gt;&gt; Roles &gt;&gt;
+Add Web Server IIS). Ensure the ISAPI Extensions and ISAPI filters are
+both checked.</p>
+<p>2. Download the latest <a class="reference external" href="http://sourceforge.net/projects/pyisapie/files/pyisapie/">PyISAPIe
+extension</a>.
+Make sure you get the correct version for your version of
+<a class="reference external" href="http://www.python.org/download/">Python</a>. In this example I am using
+Python 2.5.4 and PyISAPIe 1.1.0-rc4-Py2.5</p>
+<p>3. Where to put the files took a while to resolve..in the end it becomes
+apparent they can be placed anywhere! I got confused by my understanding
+of packages and by thinking I could test the Python scripts outside of a
+browser / IIS.</p>
+<p>In the end I created a new folder in C:\Python25 named PyISAPIe. I then
+copied into this the pyISAPIe.dll and HTTP folder.</p>
+<p><a class="reference external" href="images/2010/01/pyisapie1.png"><img alt="image1" src="archive/images/2010/01/pyisapie1-300x89.png" /></a></p>
+<p>4. Next you’ll need to set up the handler in IIS. I wanted all files
+that ended with the .py extension to be handled by the PyISAPIe DLL, so
+I did the following:</p>
+<ul class="simple">
+<li><p>under sites add a new application (I used the name /apps)</p></li>
+<li><p>select the site, and then select “Handler Mappings”</p></li>
+<li><p>right-click and select “Add Script Map”</p></li>
+<li><p>set the “Request path” to *.py</p></li>
+<li><p>set the “Executable” to “C:\Python25\PyISAPIe\PyISAPIe.dll</p></li>
+<li><p>give the handler a relevant name such as “PyISAPIe”</p></li>
+<li><p>in the Request Restrictions section, I set my handler to run only
+when a request contains a .py file that exists on  the server. I set
+it handle all verbs (GET and POST), and gave it Script access.</p></li>
+<li><p>select the “View Ordered List” in the Actions panel to see in what
+order handlers will be applied to a request. Make sure your .py
+handler has a higher priority than the default StaticFile handler, or
+it won’t get a chance to handle anything. The StaticFile handler may
+also <em>appear</em> to be handling requests if your custom handler fails as
+by default PyISAPIe moves to the next handler on an error.</p></li>
+</ul>
+<p><a class="reference external" href="images/2010/01/pyisapie2.png"><img alt="image2" src="archive/images/2010/01/pyisapie2-273x300.png" /></a></p>
+<p><strong>Important!</strong> If you are using a64-bit machine, you will need to create
+a new application pool, and set “Enable 32-bit Applications” to true.
+This is false by default. I found this <a class="reference external" href="http://www.hanselman.com/blog/32bitnessAnd64bitnessAndMigratingDasBlogOnIIS7AndASPNETUnderVista64.aspx">blog
+post</a>
+fairly early on describing the issue but, as if by magic, the true
+setting for my application pool had at some point been set back to
+false, leading to hours of being confronted by the near useless message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">HTTP</span> <span class="n">Error</span> <span class="mf">404.4</span> <span class="o">-</span> <span class="n">Not</span> <span class="n">Found</span>
+<span class="n">The</span> <span class="n">resource</span> <span class="n">you</span> <span class="n">are</span> <span class="n">looking</span> <span class="k">for</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">have</span> <span class="n">a</span> <span class="n">handler</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">it</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="http://pyisapie.sourceforge.net/blog/?page_id=14">Getting Started
+Guide</a> should be
+followed, but I have a few gotchas, learnt the hard way. First save a
+Python script into your web application folder with a name such as
+hello.py with the test code from the guide:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Http</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="k">def</span> <span class="nf">Request</span><span class="p">():</span>
+    <span class="n">Header</span><span class="p">(</span><span class="s2">&quot;Content-type: text/html&quot;</span><span class="p">)</span>
+    <span class="n">Write</span><span class="p">(</span><span class="s2">&quot;Hello, World!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note this script <em>cannot</em> be run from a Python editor, you will get
+warnings such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">Http</span>
+</pre></div>
+</div>
+<p>Even if the HTTP module is in the PYTHONPATH, or site-packages folder
+you will still receive an error such as that below, as the DLL needs to
+be loaded through ISAPI.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">PyISAPIe</span>
+</pre></div>
+</div>
+<p>Pointing to <a class="reference external" href="http://geographika.azurewebsites.net/apps/hello.py">http://geographika.azurewebsites.net/apps/hello.py</a> should
+bring up the output of your Python script. Things get more confusing
+when you want to debug a more complicated script, as it appears nothing
+you change in your script has any effect. This is because once the
+script is run it stays loaded in memory, so no alterations are taken
+into account. To disable this (for testing only - change it back when
+everything is working correctly) modify the
+C:\Python25\PyISAPIe\Http\Isapi.py file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Request</span><span class="p">():</span>
+ <span class="n">Script</span> <span class="o">=</span> <span class="n">Env</span><span class="o">.</span><span class="n">SCRIPT_NAME</span>
+ <span class="n">Key</span> <span class="o">=</span> <span class="n">Name</span> <span class="o">=</span> <span class="s1">&#39;__&#39;</span><span class="o">+</span><span class="n">md5</span><span class="p">(</span><span class="n">Script</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+ <span class="n">Handler</span> <span class="o">=</span> <span class="n">Handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+ <span class="c1"># the following line will ensure the script is reloaded on each request</span>
+ <span class="n">Handler</span> <span class="o">=</span> <span class="kc">None</span>
+
+ <span class="k">if</span> <span class="ow">not</span> <span class="n">Handler</span><span class="p">:</span>
+ <span class="k">try</span><span class="p">:</span>
+ <span class="n">Handlers</span><span class="p">[</span><span class="n">Key</span><span class="p">]</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_source</span><span class="p">(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Env</span><span class="o">.</span><span class="n">SCRIPT_TRANSLATED</span><span class="p">)</span><span class="o">.</span><span class="n">Request</span>
+ <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">Val</span><span class="p">:</span>
+ <span class="c1"># trigger a passthrough to the next ISAPI handler -</span>
+ <span class="c1"># ONLY WORKS FOR WILDCARD APPLICATION MAPPINGS</span>
+ <span class="c1">#return True</span>
+ <span class="c1"># or just fail, preferable for an application map</span>
+ <span class="c1"># show errors in the browser</span>
+ <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">,</span> <span class="s2">&quot;[Loading &#39;</span><span class="si">%s</span><span class="s2">&#39;] </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">Env</span><span class="o">.</span><span class="n">SCRIPT_TRANSLATED</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Val</span><span class="p">))</span>
+
+ <span class="k">return</span> <span class="n">Handlers</span><span class="p">[</span><span class="n">Key</span><span class="p">]()</span>
+</pre></div>
+</div>
+<p>Note the changes you make to the <strong>*Isapi.py file itself*</strong> requires IIS
+to be restarted to take effect. The above modifications only cause the
+scripts in your www/apps directory to be refreshed on each request.</p>
+<p>If you always return <em>true</em> on any exception in the Isapi.py file
+(rather than throwing the error) then you may be met with the following
+message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Possible recursion detected!
+You probably did a passthrough with PyISAPIe configured as an application map instead of a wildcard map.
+</pre></div>
+</div>
+<p>I *think* this is because the first handler failed to return a proper
+response, and so it goes to the next handler for the application. Just
+failing should provide you with a better error message from Python.</p>
+<p>If I’ve missed out any key steps in this summary feel free to add
+comments below and I’ll integrate them into the post. Last but not least
+many thanks to the developer of PyISAPIe - Phillip Sitbon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/4e176d2ec6ac254d53a881b29fefe41b?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1931" src="http://www.gravatar.com/avatar/4e176d2ec6ac254d53a881b29fefe41b?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1931"><span class="std std-ref">1.</span></a> <strong>jusan</strong>
+**</p>
+<p>where can i download Mod_python for python 2.7 where through
+<a class="reference external" href="http://httpd.apache.org/modules/python-download.cgi">http://httpd.apache.org/modules/python-download.cgi</a> page not found?</p>
+<a href="mailto:web+running-python-through-apache#1@geographika.co.uk?Subject=running-python-through-apache" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+setting-up-python-on-iis7@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

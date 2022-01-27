@@ -1,0 +1,163 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-79:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-79>` **Tweets that mention geographika » MapServer &amp; SQL Server 2008 Tips -- Topsy.com**
+**
+
+[...] This post was mentioned on Twitter by mssqlserver, geographika.
+geographika said: MapServer and SQL Server 2008 performance notes
+by..err me! http://geographika.co.uk/?p=149 [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-sql-server-2008-tips#1@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-269:
+
+.. image:: http://www.gravatar.com/avatar/48c3468f75fb69549786f5b6f33fac21?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-269>` **Harry**
+**
+
+I'm developing a server folder (ms4w), but have difficulty connecting
+between Chameleon with sql server 2005 Express. For information i use
+windows xp sp 3, ms4w, SQL Server 2005 Express. How do the steps for
+that? could you please send the answer to my email. Thank you. Harry
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-sql-server-2008-tips#2@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-271:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-271>` **geographika**
+**
+
+| `@Harry <#comment-269>`__
+|  I'd recommend upgrading to SQL Server 2008 so you can use the spatial
+data types and SQL 2008 connector.
+|  With SQL 2005 you have to use a plug=in to use spatial data
+http://www.codeplex.com/wikipage?ProjectName=MsSqlSpatial
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-sql-server-2008-tips#3@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-945:
+
+.. image:: http://www.gravatar.com/avatar/d3456aacca1fa75fe47e89cb93561653?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-945>` **dariapra**
+**
+
+On MapServer's official page on optimization, the last advice says not
+to inmediately close the database connection by using PROCESSING
+"CLOSE\_CONNECTION=DEFER", and it will work with PostGIS, Oracle and
+MySQL.
+
+Although I am not a MS software user - and happy with PostGIS -, I
+wonder if it will also work with SQL Server?
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-sql-server-2008-tips#4@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1899:
+
+.. image:: http://www.gravatar.com/avatar/6c285c4f418e0c3da1114d0bf1054469?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-1899>` **Chris**
+**
+
+Hi
+
+Out of interest when using the MSSQL 2008 plugin in a mapfile, how do
+you retrieve feature attributes (or call them correctly) to produce
+labels etc?
+
+Cheers
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-sql-server-2008-tips#5@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1994:
+
+.. image:: http://www.gravatar.com/avatar/4b9c547133404c6d2a9d6bde6d2a0968?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-1994>` **no xtreme**
+**
+
+| Valuable info. Lucky me I found your site by accident,
+|  and I'm stunned why this coincidence didn't happened earlier!
+|  I bookmarked it.
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-sql-server-2008-tips#6@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+mapserverwindowsapachecrash@geographika.co.uk?Subject=mapserverwindowsapachecrash" target="_top">Add Comment</a>

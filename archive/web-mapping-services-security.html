@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Web Mapping Services &amp; Security &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Will HTML5 Revolutionise Raster Web GIS?" href="will-html5-revolutionise-raster-web-gis.html" />
+    <link rel="prev" title="Web Accessibility and Online GIS" href="web-accessibility-and-online-gis.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Web Mapping Services &amp; Security</a><ul>
+<li><a class="reference internal" href="#wms-and-the-http-protocol">WMS and the HTTP Protocol</a></li>
+<li><a class="reference internal" href="#securing-mapserver-in-apache">Securing MapServer in Apache</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="web-accessibility-and-online-gis.html" title="Previous Chapter: Web Accessibility and Online GIS"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Web Accessibi...</span>
+    </a>
+  </li>
+  <li>
+    <a href="will-html5-revolutionise-raster-web-gis.html" title="Next Chapter: Will HTML5 Revolutionise Raster Web GIS?"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Will HTML5 Re... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="web-mapping-services-security">
+<h1>Web Mapping Services &amp; Security<a class="headerlink" href="#web-mapping-services-security" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-20 06:03</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, security, web development, wms</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>wms mapserver security ogc</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>web-mapping-services-security</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2010/01/bouncer.jpg"><img alt="image0" src="../_images/bouncer.jpg" /></a>For the majority of public GIS systems I’ve worked on all the
+data in a database is available to users via the mapping interface. If
+someone wanted to hack in and “steal” data the only concern would be the
+bandwidth they took up. Security for these systems is fairly low down on
+the list of priorities, if it’s on the list at all.</p>
+<p>GIS systems with organisational data are often only accessible (in
+theory) through an Intranet, so if the network is well protected then so
+isthe GIS.</p>
+<p>There have only been a few mapping systems I’ve worked on where there is
+a mix of public data and datasets with restrictive access in the same
+database. The location of rare bird species (people will <a class="reference external" href="http://news.bbc.co.uk/2/hi/uk_news/1545005.stm">go to some
+lengths</a> for a rare
+egg) and hallucinogenic
+<a class="reference external" href="http://www.combat-diaries.co.uk/diary30/magic%20mushrooms.jpg">mushrooms</a>
+in a <a class="reference external" href="http://www.biodiversityireland.ie/">Biodiversity GIS</a> being an
+example.</p>
+<p>I’m currenty designing a <a class="reference external" href="http://mapserver.org/">MapServer</a> system
+that will serve out
+<a class="reference external" href="http://en.wikipedia.org/wiki/Web_Map_Service">WMS</a> layers to the
+public, and a few which are limited to certain IP address ranges. WMS
+and security was something I had never previously investigated. The rest
+of this post outlines the current situation, and an attempt to restrict
+WMS access on my server.</p>
+<section id="wms-and-the-http-protocol">
+<h2>WMS and the HTTP Protocol<a class="headerlink" href="#wms-and-the-http-protocol" title="Permalink to this headline">¶</a></h2>
+<p>WMS servers interact with their clients via the <a class="reference external" href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol">HTTP
+protocol</a>,
+which uses plain text. For example a client (the user’s browser) would
+send a “GET” request (along with a number of parameters and headers)
+such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GET mapserv.exe?map=/ms4w/apps/... HTTP/1.1
+Host: www.example.com
+</pre></div>
+</div>
+<p>The server would then send a number of response headers as plain text
+and, for a valid WMS request, hopefully an image.</p>
+<p><em>“The rationale behind this is that text protocols allows you to see
+what’s going on on the network by just dumping everything that goes
+through. You don’t need a specialized analyzer as you need for TCP/IP.
+This makes it easier to debug and easier to maintain.” -</em>
+<a class="reference external" href="http://">PolyThinker</a></p>
+<p>Clearly anything sent between two computers in plain text is never going
+to be very secure. The
+<a class="reference external" href="http://www.opengeospatial.org/">OGC</a>announced via a <a class="reference external" href="http://www.opengeospatial.org/pressroom/pressreleases/1073">press
+release</a>
+last August, that they would begin an “Authentication Interoperability
+Experiment” on the  2nd of October, 2009. This experiment <em>“will test
+standard ways of transferring authentication information between OGC
+clients and OGC services using existing mechanisms such as `HTTP
+Authentication &lt;http://en.wikipedia.org/wiki/HTTP_Authentication&gt;`__,
+`HTTP Cookies &lt;http://en.wikipedia.org/wiki/Http_cookies&gt;`__,
+`SSL &lt;http://en.wikipedia.org/wiki/Transport_Layer_Security&gt;`__/`X509 &lt;http://en.wikipedia.org/wiki/X.509&gt;`__,
+`SAML &lt;http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language&gt;`__,
+`Shibboleth &lt;http://en.wikipedia.org/wiki/Shibboleth_%28Internet2%29&gt;`__,
+`OpenID &lt;http://en.wikipedia.org/wiki/OpenID&gt;`__and
+`WS-Security &lt;http://en.wikipedia.org/wiki/WS-Security&gt;`__.”</em></p>
+<p>The experiments participants include the <a class="reference external" href="https://www1.nga.mi">National
+Geospatial-Intelligence Agency</a>, and the <a class="reference external" href="http://www.thecarbonproject.com/">Carbon
+Project</a> and its observers include
+<a class="reference external" href="http://www.esri.com">ESRI</a>. Their presence hopefully would mean any
+resulting decision would be implemented in their software, and lead to
+the widespread acceptance of a standard. The experiment is led by Jeff
+Harrison of <a class="reference external" href="http://www.cubewerx.com/">www.cubewerx.com</a>, who’s
+website states:</p>
+<p><em>“Concerned about standards? So are we. In fact we literally wrote the
+book on many of them”</em></p>
+<p>There don’t seem to have been any updates since then, but a good place
+to keep up with any developments in WMS is through the OGC WMS <a class="reference external" href="http://lists.eogeo.org/mailman/listinfo/wms-dev">mailing
+list</a> - a
+<em>“discussion list for people implementing and deploying instances of the
+OGC Web Map Server Interface specification</em>”, and the experiments <a class="reference external" href="http://www.opengeospatial.org/projects/initiatives/authie">web
+page</a>.</p>
+</section>
+<section id="securing-mapserver-in-apache">
+<h2>Securing MapServer in Apache<a class="headerlink" href="#securing-mapserver-in-apache" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="images/2010/01/feather.gif"><img alt="image1" src="../_images/feather.gif" /></a>In the meantime I was still looking for a way to limit access
+to my WMS services.  I’m using MapServer for Windows
+(<a class="reference external" href="http://www.maptools.org/ms4w/">ms4w</a>) which installs MapServer and
+Apache on a Windows machine. Apache (and IIS) can be used to limit
+access to certain files based on an IP address which is exactly what I
+require.</p>
+<p>Unfortunately MapServer runs through
+<a class="reference external" href="http://en.wikipedia.org/wiki/Common_Gateway_Interface">CGI</a> which
+means limiting access to certain .MAP files was impossible. MapServer
+uses the SYSTEM account in Windows which means it has the same access
+rights no matter what IP address is used to start the process.</p>
+<p>There are ways to run CGI processes as different users
+(<a class="reference external" href="http://httpd.apache.org/docs/1.3/suexec.html">suExec</a> seems to be
+frequently mentioned), but examples on the web all seem to use Linux,
+and I’d imagine there would need to be a pre-processing script checking
+IPs to decide which user account should start the MapServer process.</p>
+<p>In the end it seemed the simplest option was to have two instance of
+ms4w on two different servers (the advantages of several virtual servers
+on one physical server are becoming clearer and clearer). I could then
+limit access to the CGI program on the server with the more restricted
+Map files in the following way:</p>
+<p>Open C:\ms4w\Apache\conf\httpd.conf and search for the following
+text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+<span class="c1"># Configure MS4W locations and directories</span>
+<span class="c1">#</span>
+<span class="o">&lt;</span><span class="n">Location</span> <span class="s2">&quot;/cgi-bin&quot;</span><span class="o">&gt;</span>
+ <span class="n">Options</span> <span class="kc">None</span>
+ <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+ <span class="n">Allow</span> <span class="kn">from</span> <span class="nn">all</span>
+<span class="o">&lt;/</span><span class="n">Location</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The edit these settings to limit the access to the CGI folder to IP
+ranges, addresses, domains etc. For further details see the <a class="reference external" href="http://httpd.apache.org/docs/2.2/mod/core.html#directory">Apache
+documentation</a>
+and this <a class="reference external" href="http://www.cyberciti.biz/faq/apache-restrict-access-based-on-ip-address-to-selected-directories/">blog
+post</a>.
+In the example below only the computer with the IP 192.168.1.10 can
+access MapServer through CGI:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Location</span> <span class="s2">&quot;/cgi-bin&quot;</span><span class="o">&gt;</span>
+ <span class="n">Options</span> <span class="kc">None</span>
+ <span class="n">Order</span> <span class="n">allow</span><span class="p">,</span><span class="n">deny</span>
+ <span class="n">Allow</span> <span class="kn">from</span> <span class="mf">192.168.1.10</span>
+<span class="o">&lt;/</span><span class="n">Location</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>After every change you will need to restart the Apache service to
+activate your changes. The same settings can also be applied to FastCGI.
+To see which IPs are accessing your MapServer look in
+C:\ms4w\Apache\logs\access.log. If you have limited access then IPs
+without permission should receive a HTTP
+<a class="reference external" href="http://en.wikipedia.org/wiki/HTTP_403">403</a>error&gt; These are also
+recorded in the access.log file.</p>
+<p>Ideally I’d like to be able to set access to each MAP file or directory
+by IP range on the same MapServer, so if anyone has achieved this with
+ms4w please let me know!</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+web-mapping-services-security@geographika.co.uk?Subject=web-mapping-services-security" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

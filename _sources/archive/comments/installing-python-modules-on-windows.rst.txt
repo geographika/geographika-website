@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+installing-python-modules-on-windows@geographika.co.uk?Subject=installing-python-modules-on-windows" target="_top">Add Comment</a>

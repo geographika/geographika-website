@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Running Python through Apache &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setting up a Secure Cascading WMS on MapServer" href="setting-up-a-secure-cascading-wms-on-mapserver.html" />
+    <link rel="prev" title="Reboot to Refresh Environment Variables" href="reboot-to-refresh-environment-variables.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Running Python through Apache</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="reboot-to-refresh-environment-variables.html" title="Previous Chapter: Reboot to Refresh Environment Variables"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Reboot to Ref...</span>
+    </a>
+  </li>
+  <li>
+    <a href="setting-up-a-secure-cascading-wms-on-mapserver.html" title="Next Chapter: Setting up a Secure Cascading WMS on MapServer"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Setting up a ... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="running-python-through-apache">
+<h1>Running Python through Apache<a class="headerlink" href="#running-python-through-apache" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-18 19:26</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, python, web development</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>apache, gdal, mod_python, python, tilecache</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>running-python-through-apache</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>I’m trying (and having) to start using Python more and more due to its
+ubiquity in the OpenSource GIS world. There are a number of add-ons and
+libraries for <a class="reference external" href="http://mapserver.org/">MapServer</a> that require Python
+to function properly and/or quickly. It is also widely used for
+scripting both <a class="reference external" href="http://mapserver.org/mapscript/python.html">MapServer
+objects</a> and for raster
+manipulation <a class="reference external" href="http://pypi.python.org/pypi/GDAL/">using GDAL</a>. I
+initially set up Python under Apache to run the
+<a class="reference external" href="http://tilecache.org">Tilecache</a> tile server.</p>
+<p>According to the <a class="reference external" href="http://www.modpython.org/">ModPython</a> site -
+<em>“Python will run many times faster than traditional CGI and will have
+access to advanced features such as ability to retain database
+connections.”</em></p>
+<p><em>|image0|</em>Mod_python is an <a class="reference external" href="http://httpd.apache.org/">Apache</a>
+module that embeds the <a class="reference external" href="http://www.python.org/">Python</a> interpreter
+within the server, and can be downloaded from <a class="reference external" href="http://httpd.apache.org/modules/python-download.cgi">their
+site</a>. There are
+versions for both Unix and Windows, which makes it ideal for <a class="reference external" href="http://www.maptools.org/ms4w/index.phtml?page=home.html">MapServer
+for Windows</a>
+(MS4W). Ironically after saying that using Python for web applications
+is many times faster than CGI, the ModPython download page uses CGI..</p>
+<p>There are a number of <a class="reference external" href="http://mir2.ovh.net/ftp.apache.org/dist/httpd/modpython/win/3.3.1/">Windows versions
+available</a>,
+depending on your version of the Apache server. Make sure you get the
+right one - at the time of writing I am using MS4W v2.3.1, which
+includes Apache HTTP Server version 2.2.11. Your version of Python also
+makes a difference - I’m using 2.5.4 so I downloaded
+<a class="reference external" href="http://mir2.ovh.net/ftp.apache.org/dist/httpd/modpython/win/3.3.1/mod_python-3.3.1.win32-py2.5-Apache2.2.exe">mod_python-3.3.1.win32-py2.5-Apache2.2.exe</a>.
+My reason for not yet having upgraded to Python 2.6 or 3 was because all
+the TileCache documentation refers to <a class="reference external" href="http://tilecache.org/docs/README">Python
+2.5</a>.</p>
+<p>The Mod_python installer allows you to choose your Python and Apache
+directories which in a standard MS4W installation would be C:\Python25
+and C:\ms4w\Apache respectively.</p>
+<p>For the rest of the configuration steps <a class="reference external" href="http://www.modpython.org/live/current/doc-html/inst-testing.html">follow the instructions
+here</a>.
+If you are using MapServer for Windows then a brief summary of these
+steps is as follows:</p>
+<p>1. Open your C:\ms4w\Apache\conf\httpd.conf and add the lines below.
+A C:\ms4w\Apache\modules\mod_python.so file should have been
+created during the installation of Mod_python.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LoadModule</span> <span class="n">python_module</span> <span class="n">modules</span><span class="o">/</span><span class="n">mod_python</span><span class="o">.</span><span class="n">so</span>
+<span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;C:/ms4w/Apache/htdocs/test&quot;</span><span class="o">&gt;</span>
+    <span class="n">AddHandler</span> <span class="n">mod_python</span> <span class="o">.</span><span class="n">py</span>
+    <span class="n">PythonHandler</span> <span class="n">mptest</span>
+    <span class="n">PythonDebug</span> <span class="n">On</span>
+<span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>2. Add the following code to a mptest.py file in a
+C:\ms4w\Apache\htdocs\test folder (check the spaces/tabs for the
+script are correct using the Python editor IDLE):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mod_python</span> <span class="kn">import</span> <span class="n">apache</span>
+
+<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+ <span class="n">req</span><span class="o">.</span><span class="n">content_type</span> <span class="o">=</span> <span class="s1">&#39;text/plain&#39;</span>
+ <span class="n">req</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+ <span class="k">return</span> <span class="n">apache</span><span class="o">.</span><span class="n">OK</span>
+</pre></div>
+</div>
+<p>3. Restart your Apache server service to apply the changes to the
+configuration. You can do this through the GUI or using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">ms4w</span>\<span class="n">Apache</span>\<span class="nb">bin</span>\<span class="n">httpd</span><span class="o">.</span><span class="n">exe</span> <span class="o">-</span><span class="n">k</span> <span class="n">start</span> <span class="o">-</span><span class="n">n</span> <span class="s2">&quot;ApacheMS4WWebServer&quot;</span>
+</pre></div>
+</div>
+<p>4. Go to <a class="reference external" href="http://geographika.azurewebsites.net/test/mptest.py">http://geographika.azurewebsites.net/test/mptest.py</a> in your
+browser (assuming a default HTTP port of 80) and you should see the
+familiar “Hello World” message. If not..see the <a class="reference external" href="http://www.modpython.org/live/current/doc-html/inst-trouble.html">troubleshooting
+page</a>.
+Note that with this configuration <em>all</em> links ending in .py will be
+handled with by the same mptest.py script. So if you are editing your
+Python script and wondering why nothing changes (..said from
+experience), check your httpd.conf.</p>
+<p>You should also be able to see a summary of your system at
+<a class="reference external" href="http://geographika.azurewebsites.net/mpinfo">http://geographika.azurewebsites.net/mpinfo</a>. Setting up TileServer is a
+blog post in itself and I hope to document that soon.</p>
+<p>Finally, if in a fit of frustration with non-running Python scripts you
+uninstall everything mentioning the name Python from your machine, you
+are likely to find the error message below in your Apache log files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="n">make_obcallback</span><span class="p">:</span> <span class="n">could</span> <span class="ow">not</span> <span class="kn">import</span> <span class="nn">mod_python.apache.</span>\<span class="n">n</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">mod_python</span><span class="o">.</span><span class="n">apache</span>
+<span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="n">make_obcallback</span><span class="p">:</span> <span class="n">Python</span> <span class="n">path</span> <span class="n">being</span> <span class="n">used</span> <span class="s2">&quot;[&#39;...</span>
+<span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="p">[</span><span class="n">client</span> <span class="mf">172.30.99.54</span><span class="p">]</span> <span class="n">python_handler</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t get/create interpreter.</span>
+</pre></div>
+</div>
+<p>A reinstall of the Windows Set Up package should fix this.</p>
+<p><a class="reference external" href="../wp-content/uploads/2010/01/python_mod.png"><img alt="image1" src="wp-content/uploads/2010/01/python_mod.png" /></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-295" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-295"><span class="std std-ref">1.</span></a> <strong>geographika &amp;raquo; Compiling a 64 bit Version of PyISAPIe</strong>
+**</p>
+<p>[…] Where WorkingCopyPath is the path to the working copy being
+checked. If you aren’t using a copy of the sourcecode from SVN then you
+will receive errors such as “SubWCRev : ‘D:PyISAPie’ is not a working
+copy.” If you have only just installed TortoiseSVN then make sure you
+log off or restart Windows so that your environment variables are
+updated. […]</p>
+<a href="mailto:web+reboot-to-refresh-environment-variables#1@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-378" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-378"><span class="std std-ref">2.</span></a> <strong>geographika &amp;raquo; Visualising GeoJSON in 15 Minutes</strong>
+**</p>
+<p>[…] you have only installed Python during your log in session then
+reboot to refresh your environment variables. This should allow you to
+use the easy_install program directly from the Windows Command Prompt
+(by […]</p>
+<a href="mailto:web+reboot-to-refresh-environment-variables#2@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-433" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-433"><span class="std std-ref">3.</span></a> <strong>Amit Agarwal</strong>
+**</p>
+<p><strong>Verify all the paths in the PATH directory…</strong></p>
+<p>I found your entry interesting thus I’ve added a Trackback to it on my
+weblog :)…</p>
+<a href="mailto:web+reboot-to-refresh-environment-variables#3@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+running-python-through-apache@geographika.co.uk?Subject=running-python-through-apache" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

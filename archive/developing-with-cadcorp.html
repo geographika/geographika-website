@@ -1,0 +1,314 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Developing with CadCorp &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Developer Pages" href="devpages.html" />
+    <link rel="prev" title="Creating Previews of PDF Maps" href="creating-previews-of-pdf-maps.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Developing with CadCorp</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="creating-previews-of-pdf-maps.html" title="Previous Chapter: Creating Previews of PDF Maps"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Creating Prev...</span>
+    </a>
+  </li>
+  <li>
+    <a href="devpages.html" title="Next Chapter: Developer Pages"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Developer Pages &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="developing-with-cadcorp">
+<h1>Developing with CadCorp<a class="headerlink" href="#developing-with-cadcorp" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-09-27 02:55</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>programming</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>cadcorp</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>developing-with-cadcorp</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>I’ve recently completed my first custom tool for <a class="reference external" href="http://www.cadcorp.com/products_geographical_information_systems/map_modeller.htm">CadCorp’s Map
+Modeller</a>.
+CadCorp is most used in the UK, and it is apparently also big in Japan.
+The main benefit is that it reads many different spatial data formats
+directly, it can connect to SQL Server and Oracle without middleware
+(i.e. an SDE type application), and it is a leader in the open standards
+espoused by the <a class="reference external" href="http://">Open Geospatial Consortium</a>.</p>
+<p><img alt="cadcorp" src="../_images/cadcorp1.jpg" /></p>
+<p>In terms of development the main issue is that there appear to be very
+few people developing tools around CadCorp’s products apart from CadCorp
+themselves. This means that the only code samples are in the help system
+installed with the tool, and a PDF file. Straying outside these samples
+I found involves a lot of trial and error. There is a forum on the
+CadCorp site - annoyingly registration is required to read the posts,
+and there are very few programming related posts. The CadCorp staff do
+however get back to you on any questions you pose.</p>
+<p>Visual Studio and .NET languages can be used to create custom DLLs that
+integrate with the application. Prior to version 7 (the latest CadCorp
+release) custom code was run in a separate memory process, and Windows
+messaging used to pass messages between the custom tool and the CadCorp
+application. Fortunately this has changed so the DLL can run in the same
+memory space. The code below shows how to add two new menu items using
+VB.Net.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Public</span> <span class="n">Sub</span> <span class="n">AddMenus</span><span class="p">()</span>
+  <span class="n">Dim</span> <span class="n">mainMenu</span> <span class="n">As</span> <span class="n">New</span> <span class="n">SisMenuItem</span><span class="p">(</span><span class="s2">&quot;Custom Tool&quot;</span><span class="p">)</span>
+  <span class="n">Dim</span> <span class="n">menuB</span> <span class="n">As</span> <span class="n">New</span> <span class="n">SisMenuItem</span><span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="n">New</span> <span class="n">SisClickHandler</span><span class="p">(</span><span class="n">AddressOf</span> <span class="n">b</span><span class="p">))</span>
+  <span class="n">mainMenu</span><span class="o">.</span><span class="n">MenuItems</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">menuB</span><span class="p">)</span>
+  <span class="n">Dim</span> <span class="n">menuB</span> <span class="n">As</span> <span class="n">New</span> <span class="n">SisMenuItem</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">New</span> <span class="n">SisClickHandler</span><span class="p">(</span><span class="n">AddressOf</span> <span class="n">a</span><span class="p">))</span>
+  <span class="n">mainMenu</span><span class="o">.</span><span class="n">MenuItems</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">menuA</span><span class="p">)</span>
+<span class="n">End</span> <span class="n">Sub</span>
+</pre></div>
+</div>
+<p>Strangely the two menu items would be listed on a new menu item
+<em>alphabetically</em>. Apparently this is by design, and hidden ASCII
+characters can be used to order the menus..</p>
+<p>Each custom menu item has an associated sub procedure that is called
+when clicked. The example above expects two subs a and b. Each would
+look similar to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Private</span> <span class="n">Sub</span> <span class="n">a</span><span class="p">(</span><span class="n">ByVal</span> <span class="n">sender</span> <span class="n">As</span> <span class="n">Object</span><span class="p">,</span> <span class="n">ByVal</span> <span class="n">args</span> <span class="n">As</span> <span class="n">SisClickArgs</span><span class="p">)</span>
+  <span class="n">Dim</span> <span class="n">mm</span> <span class="n">As</span> <span class="n">MapManager</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">MapManager</span>
+<span class="n">End</span> <span class="n">Sub</span>
+</pre></div>
+</div>
+<p>The reference to the CadCorp application is passed in as an argument by
+default. One of my main gripes with development with CadCorp is that the
+programming model appears to be a based partly on objects, and partly on
+passing arcane strings into a huge “application” object. As these are
+strings they are not picked up be intellisense in Visual Studio and have
+to be found in the manual. I’m not sure why this is the case, as a
+simple wrapper could be created to avoid this. Maybe it is in
+development..</p>
+<p>To illustrate my point here is a function to loop through all the layers
+(aka overlays), and find a layer with a particular name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Public</span> <span class="n">Function</span> <span class="n">FindOverlayByName</span><span class="p">(</span><span class="n">ByVal</span> <span class="n">mm</span> <span class="n">As</span> <span class="n">MapManager</span><span class="p">,</span> <span class="n">ByVal</span> <span class="n">sLayerName</span> <span class="n">As</span> <span class="n">String</span><span class="p">)</span> <span class="n">As</span> <span class="n">Integer</span>
+ <span class="n">Dim</span> <span class="n">lNumOverlays</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">GetInt</span><span class="p">(</span><span class="n">SIS_OT_WINDOW</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;_nOverlay&amp;&quot;</span><span class="p">)</span>
+ <span class="n">Dim</span> <span class="n">iOverlayPos</span> <span class="n">As</span> <span class="n">Integer</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+ <span class="s1">&#39;loop through all overlays checking if the name matches</span>
+ <span class="n">For</span> <span class="n">lCount</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">To</span> <span class="n">lNumOverlays</span> <span class="o">-</span> <span class="mi">1</span>
+   <span class="n">Dim</span> <span class="n">sName</span> <span class="n">As</span> <span class="n">String</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">GetStr</span><span class="p">(</span><span class="n">SIS_OT_OVERLAY</span><span class="p">,</span> <span class="n">lCount</span><span class="p">,</span> <span class="s2">&quot;_name$&quot;</span><span class="p">)</span>
+   <span class="n">If</span> <span class="n">sName</span> <span class="o">=</span> <span class="n">sLayerName</span> <span class="n">Then</span>
+     <span class="n">iOverlayPos</span> <span class="o">=</span> <span class="n">lCount</span>
+     <span class="n">Return</span> <span class="n">iOverlayPos</span>
+   <span class="n">End</span> <span class="n">If</span>
+ <span class="n">Next</span> <span class="n">lCount</span>
+ <span class="n">Return</span> <span class="n">iOverlayPos</span>
+<span class="n">End</span> <span class="n">Function</span>
+</pre></div>
+</div>
+<p>The line to notice is mm.GetStr(SIS_OT_OVERLAY, lCount, “_name$”).
+There are many cases of passing and setting properties using the GetStr
+/ SetStr approach, each one with a different third parameter.</p>
+<p>Collections of objects have to be stored in lists, and can only be
+referred to by a string name. This makes code inflexible and hard to
+maintain. For example the code below finds the extent of all features in
+an overlay:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mm</span><span class="o">.</span><span class="n">CreateListFromOverlay</span><span class="p">(</span><span class="n">iLayerPos</span><span class="p">,</span> <span class="s2">&quot;AllItems&quot;</span><span class="p">)</span>
+<span class="n">If</span> <span class="n">mm</span><span class="o">.</span><span class="n">GetListSize</span><span class="p">(</span><span class="s2">&quot;AllItems&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">Then</span>
+ <span class="n">myExtent</span> <span class="o">=</span> <span class="n">mm</span><span class="o">.</span><span class="n">GetListExtent</span><span class="p">(</span><span class="s2">&quot;AllItems&quot;</span><span class="p">)</span>
+ <span class="n">mm</span><span class="o">.</span><span class="n">SplitExtent</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span><span class="p">,</span> <span class="n">myExtent</span><span class="p">)</span>
+<span class="n">End</span> <span class="n">If</span>
+</pre></div>
+</div>
+<p>The “AllItems” string is used to keep track of all the features in an
+overlay. Any string can be used (I chose “AllItems” for readability, and
+this could be saved in a variable, but it still seems starnge to the
+object-orientated world of .Net.</p>
+<p>The tool is now installed and being used by ~15 users, and has a backend
+Oracle geodatabase, and seems to be going well. Next I’ll be trying out
+CadCorp’s web server
+<a class="reference external" href="http://www.cadcorp.com/products_geographical_information_systems/geognosis.htm">GeognoSIS</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/cda1cba19c245f95c9237aa2153155b4?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1413" src="http://www.gravatar.com/avatar/cda1cba19c245f95c9237aa2153155b4?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1413"><span class="std std-ref">1.</span></a> <strong>Sebastian</strong>
+**</p>
+<p>Great! Thank you for this solution. I have been looking for this for a
+long time.</p>
+<a href="mailto:web+creating-a-geodesic-circle-in-openlayers#1@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/5c2a4d528eff7e17a8fdfca5f9d0c1f2?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1647" src="http://www.gravatar.com/avatar/5c2a4d528eff7e17a8fdfca5f9d0c1f2?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1647"><span class="std std-ref">2.</span></a> <strong>Hector</strong>
+**</p>
+<div class="line-block">
+<div class="line">Hi,</div>
+<div class="line-block">
+<div class="line">Whaou, this is great ! I was also looking for this.</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">I got a question. Does the polyline draw should have a “buffer zone”.</div>
+</div>
+<p>I ask this because, i don’t get one.
+|  I need to do a buffer around a polygon. Do you have any idea ? I
+should maybe think about getting the center of my polygon and calculate
+a circle like you did…</p>
+<div class="line-block">
+<div class="line">Thanks in advance for any answer.</div>
+<div class="line-block">
+<div class="line">Great job again.</div>
+</div>
+</div>
+<p>Hector</p>
+<a href="mailto:web+creating-a-geodesic-circle-in-openlayers#2@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/074874552e440b07bf1c25e4e0f4f001?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1702" src="http://www.gravatar.com/avatar/074874552e440b07bf1c25e4e0f4f001?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1702"><span class="std std-ref">3.</span></a> <strong>captdragon</strong>
+**</p>
+<p>Awesome! Please submit this to openlayers code and do everyone a favor!</p>
+<a href="mailto:web+creating-a-geodesic-circle-in-openlayers#3@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/745a893b441b157f042e6b7b514da5b0?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1917" src="http://www.gravatar.com/avatar/745a893b441b157f042e6b7b514da5b0?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1917"><span class="std std-ref">4.</span></a> <strong>Immobilien</strong>
+**</p>
+<p>Saved my day! Thanks!</p>
+<a href="mailto:web+creating-a-geodesic-circle-in-openlayers#4@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/d3b9f6b305e834b538e099e731666cfc?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1981" src="http://www.gravatar.com/avatar/d3b9f6b305e834b538e099e731666cfc?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1981"><span class="std std-ref">5.</span></a> <strong>Ralph Dell</strong>
+**</p>
+<p>The OpenLayers function was very helpful. It will be in production soon.
+Thank you.</p>
+<a href="mailto:web+creating-a-geodesic-circle-in-openlayers#5@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/5a4f71bad04f8286a016cf1034c8e65a?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-2003" src="http://www.gravatar.com/avatar/5a4f71bad04f8286a016cf1034c8e65a?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-2003"><span class="std std-ref">6.</span></a> <strong>mimina</strong>
+**</p>
+<p>Hello !!! it’s a Great tutorial by the way !! ^^</p>
+<div class="line-block">
+<div class="line">I wanted to integrate the circles in my map (openStreetMap</div>
+</div>
+<p>(openlayer)), but it doesn’t work for me
+|  Should I just call the function createGeodesicPolygon to draw my
+circle or something else
+|  thanks !! ^^</p>
+<a href="mailto:web+creating-a-geodesic-circle-in-openlayers#6@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+developing-with-cadcorp@geographika.co.uk?Subject=developing-with-cadcorp" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

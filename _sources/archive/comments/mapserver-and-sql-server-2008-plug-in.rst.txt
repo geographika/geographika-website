@@ -1,0 +1,76 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-180:
+
+.. image:: http://www.gravatar.com/avatar/01870cfa02e0d16d993a4ab6270e8646?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-180>` **Noureddine Farah**
+**
+
+Hi,
+
+Glad that you were able to get the fixes for the issues encountered. One
+quick comment about the error and it fixe in MI Pro 10.0.1 maintenance
+release. In the release notes, while one can argue that the description
+might not be very explicit on the error and its message, here is the
+reference to the issue (in the release notes):
+
+| "
+|  C15797 When ArcGIS® 9.2 or 9.3 is installed on the machine MapInfo
+Professional closes unexpectedly when
+|  opening a Universal Data File.
+|  Resolution: Issue is resolved.
+|  "
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapinfo-and-sql-server-2008#1@geographika.co.uk?Subject=mapinfo-and-sql-server-2008" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-181:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-181>` **geographika**
+**
+
+| `@Noureddine Farah <#comment-180>`__
+|  Thanks for taking the time to read the post and reply. Just looked
+through the release notes, and the issue is right at the top of the
+list.
+|  There's nothing on Google about the error (until this post!), so it
+was hard to narrow down the issue.
+|  The SQL Server data seems to be working perfectly so far (including
+editing), and its nice to see MapInfo take an interest in their users.
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapinfo-and-sql-server-2008#2@geographika.co.uk?Subject=mapinfo-and-sql-server-2008" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+mapserver-and-sql-server-2008-plug-in@geographika.co.uk?Subject=mapserver-and-sql-server-2008-plug-in" target="_top">Add Comment</a>

@@ -1,0 +1,46 @@
+Free Commercial GIS!
+####################
+:date: 2009-09-30 11:00
+:author: admin
+:category: general
+:slug: free-commercial-gis
+:status: published
+
+Most of the major GIS software vendors now have a free introductory
+"viewer" available for download. These normally contain standard
+navigation and selection tools, and allow you to view datasets but not
+change them.
+
+They are very useful if a company is about to invest in a GIS and are
+unsure what software to use. Point their employees to the following
+links, create a few datasets relevant to their organisation, and let
+them get a feel for each and find out their preferences. Clearly it will
+be the management who will make the investment so there will be a
+trade-off between cost and how much their employees like a particular
+product.
+
+Of course you could always just recommend whichever one you feel most
+comfortable developing in..\ |devil|
+
+"GeoMedia Viewer is an easy to use, FREE GIS software application for
+desktop viewing and distribution of geospatial data"
+
+| https://support.intergraph.com/Product/GeoMediaViewer.asp
+| 
+|  "ArcExplorer is a freely available lightweight GIS data viewer that
+lets you perform a variety of basic GIS functions. With ArcExplorer, you
+can display, query, and retrieve data. It can be used as a stand-alone
+application with local data sets or as a client for Internet data and
+map servers."
+
+http://www.esri.com/software/arcexplorer/
+
+"Map Reader provides users of Cadcorp SIS with a powerful free tool to
+effortlessly view, query and print map data. The strength of Map Reader
+lies in its ability to view over 160 formats.." (requires registration)
+
+http://www.cadcorp.com/products_geographical_information_systems/map_reader.htm
+
+.. |devil| image:: images/2009/09/devil.jpg
+
+.. include:: comments/free-commercial-gis.rst

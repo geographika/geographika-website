@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+gis-servers-and-the-64-bit-question@geographika.co.uk?Subject=gis-servers-and-the-64-bit-question" target="_top">Add Comment</a>

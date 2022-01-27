@@ -1,0 +1,184 @@
+Building MapServer & MapScript on Windows
+#########################################
+:date: 2011-07-24 22:40
+:author: admin
+:category: mapserver, programming, python
+:tags: build, gdal, mapscript
+:slug: building-mapserver-mapscript-on-windows
+:status: published
+
+|image|\ There are already `Windows
+packages <http://www.gisinternals.com/sdk/>`__ available for MapServer
+ready for deployment. However if you need to make a modification to the
+source files, apply a patch, or just want to see how MapServer is made
+then you can build MapServer from its C source files. Thanks to the
+`ready made build kits <http://www.gisinternals.com/sdk/>`__ this
+process should only take 10-15 minutes from start to finish.
+
+*Prerequisites: Microsoft Visual Studio with C++*
+
+1. Download the MapServer SDK (Software Development Kit) from
+http://www.gisinternals.com/sdk/. I’m using Visual Studio 2010, and
+building on a 32-bit Windows machine (still using XP..), so I’m using
+`release-1600-dev <http://www.gisinternals.com/sdk/PackageList.aspx?file=release-1600-dev.zip>`__
+
+These build kits, provided by one of MapServer’s developers `Tamas
+Szekeres <http://szekerest.blogspot.com/>`__,  contain everything you
+need to compile both MapServer and `GDAL <http://www.gdal.org/>`__.
+Checking out all the files from the `MapServer SVN
+repository <http://trac.osgeo.org/mapserver/browser>`__ is not enough,
+as this does not contain the GDAL or RegEx dependencies (DLLs that
+MapServer depends on), or SWIG �" a tool used to create MapScript files
+for each of the different scripting languages available in MapServer
+such as Python, Ruby, PHP, Perl etc.
+
+.. raw:: html
+
+   <div align="justify">
+
+.. raw:: html
+
+   </div>
+
+2. Unzip the MapServer SDK on your hard-drive. Make a cup of tea as this
+takes awhile. In this example I’ve extracted the files to D:\\MapServer.
+You should see a folder structure similar to below.
+
+|image|
+
+3. Open up a WIndows command prompt. Navigate to the folder you
+extracted the files. Now run the following command:
+
+"C:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\bin\\vcvars32.bat"
+
+This is a Windows batch file that sets up environment variables so you
+can use the MS Visual Studio tools in your current command session.
+
+If this file is not present then make sure you have Microsoft Visual
+Studio C++ 2010 installed. You can check this in Add/Remove programs, or
+through the About menu in Visual Studio. It is not installed by default
+so you may have to go and find your installation disks or ISO.
+
+|image| |image|
+
+4. The
+`nmake <http://msdn.microsoft.com/en-us/library/dd9y37ha%28v=VS.100%29.aspx>`__
+tool is a Microsoft program that builds projects based on the contents
+of a `Makefile <http://en.wikipedia.org/wiki/Make_%28software%29>`__.
+It’s the command line equivalent of pressing F5 in Visual Studio. You
+can look at the contents of the Makefile in a text editor �" this is
+where all the hard work is done. Run the following command:
+
+nmake ms
+
+Sit back and watch the compilation! If you want to record what happened
+to a log file you can use the command:
+
+nmake ms >> my\_log.txt
+
+After this build there should be a new folder
+D:\\MapServer\\release-1600\\ containing all the files you need to
+deploy MapServer. When unzipped this folder already contained a build,
+but the timestamps for the DLLS should now be from a few minutes ago.
+
+|image|
+
+Rebuilding MapScript
+--------------------
+
+The Makefile D:\\MapServer\\Makefile contains details on how to build
+MapScript. The Makefile commands are great to follow if you want to just
+rebuild Python MapScript rather than the whole of MapServer. Just search
+for “ms-python” and you’ll see all the DOS commands you need to rebuild
+Python. You can then run these “by-hand” as shown below.
+
+My original build produced MapScript for Python 2.6, but I also wanted
+to create a build for 2.7. To create a Python 2.7 compatible MapScript
+follow these steps:
+
+1. Open the D:\\MapServer\\mapserver-6-0\\mapscript\\python\\setup.py
+file in a Python editor such as IDLE. Change the library\_dirs to read:
+
+library\_dirs = ['../../','../../../release-1600/lib/']
+
+|image|\ It should be possible to set these paths outside the setup.py
+on the command line, but I was not able to get this to work. This change
+adds in the folder containing all the .lib files that were created when
+we built MapServer. Check these files are present!
+
+2. Navigate to the D:\\MapServer\\mapserver-6-0\\mapscript\\python
+directory.
+
+3. Run the following commands (taken from the Makefile):
+
+**SET DISTUTILS\_USE\_SDK=1
+ SET MSSdk=1
+ SET LIB=%LIB%;$D:\\MapServer\\release-1600\\lib**
+
+4. Run the following command:
+
+python.exe setup.py build
+
+|image| You should now have two new files �" mapscript.py and
+\_mapscript.pyd (a .pyd file is a DLL `with a couple of
+differences <http://docs.python.org/faq/windows.html#is-a-pyd-file-the-same-as-a-dll>`__).
+
+|image|
+
+Here be Errors
+--------------
+
+I took out all the twists, turns, and errors I encountered along the way
+to make the process appear simple, and me to appear to be an
+expert..however I ran into a myriad of problems, the error messages of
+which I’ve included below, along with how to fix them.
+
+*'nmake' is not recognized as an internal or external command, operable
+program or batch file.*
+
+- Make sure you have run the "C:\\Program Files\\Microsoft Visual Studio
+10.0\\VC\\bin\\vcvars32.bat" file in your current Windows command
+session.
+
+*LINK : fatal error LNK1181: cannot open input file 'gd.lib'
+ error: command 'link.exe' failed with exit status 1181*
+
+- You need to edit the setup.py file to include the folder with the .lib
+files �" see “Rebuilding MapScript step 2.” Also make sure you have built
+MapServer and the gd.lib file is in your
+D:\\MapServer\\release-1600\\lib folder.
+
+*building '\_mapscript' extension
+ error: Unable to find vcvarsall.bat*
+
+- When building MapScript you need to set the correct environment
+variables �" see “Rebuilding MapScript step 3”
+
+*\_mapscript.pyd.manifest : general error c1010070: Failed to load and
+parse the manifest. The system cannot* *find the file specified. error:
+command 'mt.exe' failed with exit status 31*
+
+- Try cleaning the Python MapScript build folders with the following
+command:
+
+**D:\\MapServer\\mapserver-6-0\\mapscript\\python>python.exe setup.py
+clean**
+
+.. |image| image:: images/2011/07/image_thumb.png
+   :target: images/2011/07/image.png
+.. |image| image:: images/2011/07/image_thumb1.png
+   :target: images/2011/07/image1.png
+.. |image| image:: images/2011/07/image_thumb2.png
+   :target: images/2011/07/image2.png
+.. |image| image:: images/2011/07/image_thumb3.png
+   :target: images/2011/07/image3.png
+.. |image| image:: images/2011/07/image_thumb4.png
+   :target: images/2011/07/image4.png
+.. |image| image:: images/2011/07/image_thumb5.png
+   :target: images/2011/07/image5.png
+.. |image| image:: images/2011/07/image_thumb6.png
+   :target: images/2011/07/image6.png
+.. |image| image:: images/2011/07/image_thumb7.png
+   :target: images/2011/07/image7.png
+
+.. include:: comments/building-mapserver-mapscript-on-windows.rst

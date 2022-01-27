@@ -1,0 +1,34 @@
+An End to Database Locks!
+#########################
+:date: 2007-08-11 12:23
+:author: geographika
+:category: arcobjects
+:slug: an-end-to-database-locks
+:status: published
+
+|Locked!|
+
+Writing ArcObjects code and using an Access personal geodatabase will
+result sooner or later in an error along the lines of "Cannot aquire a
+schema lock because of an existing lock." Spending hours going through
+code, making sure objects are disposed of and that all connections
+closed often makes very little difference. It becomes apparent some of
+the problems lie deeper than customised code when the same errors occur
+when using ArcMap or ArcCatalog without any modifications.
+
+I have been using `Unlocker <http://ccollomb.free.fr/unlocker/>`__, a
+freeware program, to solve these issues when developing with ArcObjects
+(or just using ArcMap..). Once installed a simple right click on an ldb
+or mdb file can remove any file locks, and your code is free to run
+again. It works with any Windows file or folder so is a useful program
+to have around even without geodatabases.
+
+More reviews and an alternative download site can be found
+`here <http://www.download.com/Unlocker/3640-2248_4-10637577.html>`__.
+
+|Unlocker|
+
+.. |Locked!| image:: wp-content/uploads/2007/08/locked.png
+.. |Unlocker| image:: images/2007/08/locked_2.png
+
+.. include:: comments/an-end-to-database-locks.rst

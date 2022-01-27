@@ -1,0 +1,91 @@
+Accessing Cross Domain Data with YQL
+####################################
+:date: 2011-04-10 14:14
+:author: admin
+:category: javascript, OpenLayers
+:tags: geoext, yahoo, yql
+:slug: accessing-cross-domain-data-with-yql
+:status: published
+
+|image|\ The `same origin
+policy <http://en.wikipedia.org/wiki/Same_origin_policy>`__ prevents
+code from one domain accessing data from a different domain. For a
+mapping site requests for KML, GeoRSS, WFS services, and some WMS
+operations are all affected by this policy, and therefore require a
+range of workarounds, usually involving a
+`proxy <http://trac.osgeo.org/openlayers/wiki/FrequentlyAskedQuestions#ProxyHost>`__.
+
+One solution is the ExtJS
+`ScriptTagProxy <http://dev.sencha.com/deploy/dev/docs/?class=Ext.data.ScriptTagProxy>`__
+that can be used to retrieve data from an external domain. However for
+this to work the server must return executable JavaScript code. For
+example to access an external WMS capabilities file you’d need to set up
+a special handler on your server to wrap the data in JavaScript before
+being added to your web page. This pattern is referred to as
+`JSONP <http://en.wikipedia.org/wiki/JSONP>`__ (JSON with padding).
+
+YQL
+~~~
+
+Thanks to this `Unwritten Guide to Yahoo Query
+Language <http://jawtek.blogspot.com/2009/03/unwritten-guide-to-yahoo-query-langauge.html>`__
+it became apparent you can get Yahoo to automatically do this wrapping
+for you. Whilst using YQL is still technically a proxy, it’s a proxy you
+don’t have to worry about maintaining.
+
+I’m not a huge fan of relying on commercial APIs and services, partly as
+if they are free then they can also change without warning or
+`disappear <http://en.wikipedia.org/wiki/List_of_Yahoo!-owned_sites_and_services#Closed.2Fdefunct_services>`__,
+and partly as fully understanding the `Terms of
+Service <http://info.yahoo.com/legal/us/yahoo/yql/yql-4307.html>`__
+requires both a law and computer science degree.
+
+However configuring your own proxy and wrapping is a large overhead if
+accessing data from another domain is the only reason you need
+server-side code.
+
+YQL looks a lot like standard SQL, but can be used to query data from a
+URL. Go to the `YQL Console <http://developer.yahoo.com/yql/console/>`__
+and try out the following query:
+
+::
+
+    select * from xml where url='http://api.geoext.org/1.0/examples/data/wmscap.xml'
+
+An External WMS Capabilities Store
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This method can be used to easily access a WMS Capabilities file on an
+external server. I’ve put a small `demo
+online <http://geographika.co.uk/samples/wms-capabilities/wms-capabilities.html>`__
+showing a working example. The source code can be found on
+`BitBucket <https://bitbucket.org/geographika/wms-capabilities/src/tip>`__.
+
+The example is based on `GeoExt’s <http://www.geoext.org>`__ `original
+WMS
+Capabilities <http://api.geoext.org/1.0/examples/wms-capabilities.html>`__
+demo. The code makes use of the ScriptTagProxy, and a slightly modified
+reader that takes the results part of the JSON (the XML) and passes it
+on to the standard WMSCapabilitiesReader:
+
+::
+
+    GeoExt.data.YahooWMSCapabilitiesReader = Ext.extend(GeoExt.data.WMSCapabilitiesReader, {   
+        readRecords: function(data){    
+            data = data.results.toString();    
+            return GeoExt.data.YahooWMSCapabilitiesReader.superclass.readRecords.call(this, data);    
+        }    
+    });
+
+Yahoo have many “clones” of services offered by the other web giants,
+which whilst well implemented don’t really interest me - when was the
+last time you looked at `Yahoo Maps <http://maps.yahoo.com/>`__?. 
+However along with YQL, Yahoo have a few interesting and unique
+developer tools such as `Yahoo Pipes <http://pipes.yahoo.com/pipes/>`__
+and `YUI <http://developer.yahoo.com/yui/3/>`__ (in fact ExtJS branched
+out of YUI), so its worth keeping an eye on the often forgotten man of
+the Internet.
+
+.. |image| image:: images/2011/04/image_thumb.png
+
+.. include:: comments/accessing-cross-domain-data-with-yql.rst

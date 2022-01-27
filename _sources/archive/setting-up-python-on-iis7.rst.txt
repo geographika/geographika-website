@@ -1,0 +1,239 @@
+Setting Up Python on IIS7
+#########################
+:date: 2010-02-04 08:30
+:author: admin
+:category: python, web development
+:tags: 64bit, handlers, IIS7, ISAPI, PyISAPIe, python, WSGI
+:slug: setting-up-python-on-iis7
+:status: published
+
+|image0|\ I had already configured Python to run through `the Apache
+webserver <http://geographika.co.uk/running-python-through-apache>`__ on
+my development server, but after a few issues on the production server
+(Apache freezing / crashing) I wanted to test running Python scripts
+with IIS7. The principle aim was to run
+`TileCache <http://tilecache.org/>`__ through IIS rather than requiring
+Apache.
+
+Why Not CGI?
+~~~~~~~~~~~~
+
+While IIS 7 has Fast-CGI installed (see this `IIS
+forum <http://forums.iis.net/1103.aspx>`__), even better performance can
+be achieved using ISAPI. This answer from
+`ServerFault <http://serverfault.com/questions/9121/how-to-explain-django-python-installation-to-python-newbie-running-a-shared-iis-s>`__
+has a good summary on why ISAPI should be preferred over than CGI. Not
+only  performance  should be considered - maintenance should also be
+taken into account. If a web master or hosting service  is familiar with
+IIS then they are also likely to be familiar with ISAPI.
+
+From the `PyISAPIe <http://sourceforge.net/apps/trac/pyisapie>`__ site:
+
+*The reason ISAPI applications have the capability of being better than
+`CGI <http://hoohoo.ncsa.uiuc.edu/cgi/intro.html>`__ or
+`FastCGI <http://www.fastcgi.com/>`__ applications is mostly due to its
+tight integration with the web server environment. Instead of
+initializing an entire program from scratch (in this case, the Python
+interpreter) every time a request is made for a page, an ISAPI extension
+only has to provide a function that is called upon every request. For
+interpreting Python scripts on a per-request basis, this means that the
+interpreter can be initialized* *once and used many times, creating a
+very noticeable performance gain.*
+
+Some Definitions...
+~~~~~~~~~~~~~~~~~~~
+
+    `WSGI <http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface>`__-The
+    Web Server Gateway Interface defines a simple and universal
+    interface between web servers and web applications or frameworks for
+    the Python programming language.
+
+My interpretation - WSGI glues together IIS and Python scripts, or any
+web server and Python application combination, in a standard way.
+
+    `ISAPI <http://en.wikipedia.org/wiki/Internet_Server_Application_Programming_Interface>`__
+    - The Internet Server Application Programming Interface (ISAPI) is
+    an N-tier API of Internet Information Services (IIS), Microsoft's
+    collection of Windows-based web server services. The most prominent
+    application of IIS and ISAPI is Microsoft's web server.
+
+My uninformed interpretation - ISAPI allows DLLs written in a variety of
+languages to be loaded into IIS to handle web requests. ASP.NET would
+therefore be an ISAPI extension,  set to handle requests which end in
+.aspx
+
+The Python ISAPI Extension
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+I initially tried `isapi-wsgi <http://code.google.com/p/isapi-wsgi/>`__,
+but I didn't have much luck setting it up (I gave up fairly quickly
+though). It also depended on *"Mark Hammond's Python win32 isapi
+extension"* - and I was trying to keep the amount of packages installed
+and added to a minimum. I therefore chose to use
+`PyISAPIe <http://sourceforge.net/apps/trac/pyisapie>`__ which has no
+dependencies, and only requires a DLL and a folder containing a few .py
+files.
+
+Documentation and installation instructions are sparse, and assume good
+knowledge of Python, IIS, and web requests in general in which I was
+lacking. In retrospect they make perfect sense though! The following
+links seem to be about the sum knowledge of PyISAPIe on the web - the
+`homepage <http://sourceforge.net/apps/trac/pyisapie>`__, the `install
+guide <http://pyisapie.sourceforge.net/blog/?page_id=13>`__, `getting
+started <http://pyisapie.sourceforge.net/blog/?page_id=14>`__, the `news
+group <http://groups.google.com/group/pyisapie?hl=en>`__, and the
+`API <http://pyisapie.sourceforge.net/blog/?page_id=15>`__. It struck me
+a few times while trying to set up Python and IIS that the numbers of
+people that doing this could be incredibly low. The last Microsoft
+article I found `relates to IIS
+5 <http://support.microsoft.com/kb/276494>`__..
+
+Installation on IIS 7
+~~~~~~~~~~~~~~~~~~~~~
+
+1. First make sure IIS is actually installed (Server Manager >> Roles >>
+Add Web Server IIS). Ensure the ISAPI Extensions and ISAPI filters are
+both checked.
+
+2. Download the latest `PyISAPIe
+extension <http://sourceforge.net/projects/pyisapie/files/pyisapie/>`__.
+Make sure you get the correct version for your version of
+`Python <http://www.python.org/download/>`__. In this example I am using
+Python 2.5.4 and PyISAPIe 1.1.0-rc4-Py2.5
+
+3. Where to put the files took a while to resolve..in the end it becomes
+apparent they can be placed anywhere! I got confused by my understanding
+of packages and by thinking I could test the Python scripts outside of a
+browser / IIS.
+
+In the end I created a new folder in C:\\Python25 named PyISAPIe. I then
+copied into this the pyISAPIe.dll and HTTP folder.
+
+|image1|
+
+4. Next you'll need to set up the handler in IIS. I wanted all files
+that ended with the .py extension to be handled by the PyISAPIe DLL, so
+I did the following:
+
+-  under sites add a new application (I used the name /apps)
+-  select the site, and then select "Handler Mappings"
+-  right-click and select "Add Script Map"
+-  set the "Request path" to \*.py
+-  set the "Executable" to "C:\\Python25\\PyISAPIe\\PyISAPIe.dll
+-  give the handler a relevant name such as "PyISAPIe"
+-  in the Request Restrictions section, I set my handler to run only
+   when a request contains a .py file that exists on  the server. I set
+   it handle all verbs (GET and POST), and gave it Script access.
+-  select the "View Ordered List" in the Actions panel to see in what
+   order handlers will be applied to a request. Make sure your .py
+   handler has a higher priority than the default StaticFile handler, or
+   it won't get a chance to handle anything. The StaticFile handler may
+   also *appear* to be handling requests if your custom handler fails as
+   by default PyISAPIe moves to the next handler on an error.
+
+|image2|
+
+**Important!** If you are using a64-bit machine, you will need to create
+a new application pool, and set "Enable 32-bit Applications" to true.
+This is false by default. I found this `blog
+post <http://www.hanselman.com/blog/32bitnessAnd64bitnessAndMigratingDasBlogOnIIS7AndASPNETUnderVista64.aspx>`__
+fairly early on describing the issue but, as if by magic, the true
+setting for my application pool had at some point been set back to
+false, leading to hours of being confronted by the near useless message:
+
+::
+
+    HTTP Error 404.4 - Not Found
+    The resource you are looking for does not have a handler associated with it.
+
+Testing
+~~~~~~~
+
+The `Getting Started
+Guide <http://pyisapie.sourceforge.net/blog/?page_id=14>`__ should be
+followed, but I have a few gotchas, learnt the hard way. First save a
+Python script into your web application folder with a name such as
+hello.py with the test code from the guide:
+
+::
+
+    from Http import *
+    def Request():
+        Header("Content-type: text/html")
+        Write("Hello, World!")
+
+Note this script *cannot* be run from a Python editor, you will get
+warnings such as:
+
+::
+
+    ImportError: No module named Http
+
+Even if the HTTP module is in the PYTHONPATH, or site-packages folder
+you will still receive an error such as that below, as the DLL needs to
+be loaded through ISAPI.
+
+::
+
+    ImportError: No module named PyISAPIe
+
+Pointing to http://geographika.azurewebsites.net/apps/hello.py should
+bring up the output of your Python script. Things get more confusing
+when you want to debug a more complicated script, as it appears nothing
+you change in your script has any effect. This is because once the
+script is run it stays loaded in memory, so no alterations are taken
+into account. To disable this (for testing only - change it back when
+everything is working correctly) modify the
+C:\\Python25\\PyISAPIe\\Http\\Isapi.py file.
+
+::
+
+    def Request():
+     Script = Env.SCRIPT_NAME
+     Key = Name = '__'+md5(Script).hexdigest().upper()
+     Handler = Handlers.get(Key, None)
+     # the following line will ensure the script is reloaded on each request
+     Handler = None
+
+     if not Handler:
+     try:
+     Handlers[Key] = imp.load_source(Key, Env.SCRIPT_TRANSLATED).Request
+     except Exception, Val:
+     # trigger a passthrough to the next ISAPI handler -
+     # ONLY WORKS FOR WILDCARD APPLICATION MAPPINGS
+     #return True
+     # or just fail, preferable for an application map
+     # show errors in the browser
+     raise ImportError, "[Loading '%s'] %s" % (Env.SCRIPT_TRANSLATED, str(Val))
+
+     return Handlers[Key]()
+
+Note the changes you make to the ***Isapi.py file itself*** requires IIS
+to be restarted to take effect. The above modifications only cause the
+scripts in your www/apps directory to be refreshed on each request.
+
+If you always return *true* on any exception in the Isapi.py file
+(rather than throwing the error) then you may be met with the following
+message:
+
+::
+
+    Possible recursion detected!
+    You probably did a passthrough with PyISAPIe configured as an application map instead of a wildcard map.
+
+I \*think\* this is because the first handler failed to return a proper
+response, and so it goes to the next handler for the application. Just
+failing should provide you with a better error message from Python.
+
+If I've missed out any key steps in this summary feel free to add
+comments below and I'll integrate them into the post. Last but not least
+many thanks to the developer of PyISAPIe - Phillip Sitbon.
+
+.. |image0| image:: images/2010/01/iis7-300x215.png
+   :target: images/2010/01/iis7.png
+.. |image1| image:: images/2010/01/pyisapie1-300x89.png
+   :target: images/2010/01/pyisapie1.png
+.. |image2| image:: images/2010/01/pyisapie2-273x300.png
+   :target: images/2010/01/pyisapie2.png
+
+.. include:: comments/setting-up-python-on-iis7.rst

@@ -1,0 +1,81 @@
+Some Notes on Web Standards and XHTML
+#####################################
+:date: 2007-03-19 09:22
+:author: admin
+:category: programming, web development
+:slug: some-notes-on-web-standards-and-xhtml
+:status: published
+
+I am starting to develop more and more online GIS and mapping
+applications, and to stop all the wiggly lines in Visual Studio I am
+trying to implement appropriate web standards. A good introductory
+article can be found here:
+
+http://msdn2.microsoft.com/en-us/library/aa479043.aspx
+
+My summary...
+
+There are several versions of XHTML:
+
+.. raw:: html
+
+   <li>
+
+XHTML 1.0 Transitional - most similar to HTML
+
+.. raw:: html
+
+   </li>
+   <li>
+
+XHTML 1.0 Strict - most similar to XML
+
+.. raw:: html
+
+   </li>
+   <li>
+
+XHTML 1.0 Frameset - to allow the use of frames
+
+.. raw:: html
+
+   </li>
+   <li>
+
+XHTML 1.1 - allows additional elements in languages such as SVG
+
+.. raw:: html
+
+   </li>
+   <li>
+
+XHTML 2.0 - is apparently on the way
+
+.. raw:: html
+
+   </li>
+
+Depending on which language is used the page should contain the correct
+DOCTYPE e.g.
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+In ASP.NET 2.0 every control renders valid XHTML 1.0 transitional output
+by default (not strict XHTML..ASP 1.1 controls do not even meet the
+transitional criteria) . As code is used to generate XHTML then pages
+cannot be validated at design time. However a URL can be validated at
+the following site http://validator.w3.org/ - this checks the
+actual XHTML output seen by the browser.
+
+When using JavaScript in a web page, the script shold be enclosed in a
+CDATA (character data)  section. This stops the browser interpreting <
+or > as XML tags.  The CDATA section start and end should be enclosed in
+JavaScript comment tags to avoid errors:
+
+/\* <![CDATA[ \*/
+
+| {}
+|  /\* ]]> \*/
+
+.. include:: comments/some-notes-on-web-standards-and-xhtml.rst

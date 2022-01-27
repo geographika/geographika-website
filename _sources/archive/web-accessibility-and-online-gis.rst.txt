@@ -1,0 +1,38 @@
+Web Accessibility and Online GIS
+################################
+:date: 2007-03-19 09:38
+:author: admin
+:category: general, web development
+:slug: web-accessibility-and-online-gis
+:status: published
+
+Is it impossible?!
+
+Online maps are visual, there is no getting round this basic premise.
+The use of a summary attribute for a map element in a page is the only
+thing I can think of that would be of any use. This works in the same
+was as an alt attribute for an image - screen readers will read this
+text out to users who have problems visual impairments.
+
+As the majority of online mapping servers generate images as output
+there could probably be further development in customising the ALT
+attributes of these images to provide more detailed information of the
+current map state, so rather than alt="A Map", alt="Map showing towns
+and major roads." This alt text could be derived from visible layers,
+and the centre coordinates of the current map location.
+
+I tried running one of my map URLs on the online validator at
+http://webxact.watchfire.com/ which tests "single pages of web content
+for **quality**, **accessibility**, and **privacy** issues." It timed
+out...
+
+http://wave.webaim.org/wave/Output.jsp performs similar checks..what can
+best be described as a mess was returned along with lots of "page not
+found errors."
+
+Fortunately clients do not seem to demand that accessibility standards
+are met for mapping pages, but with increasing legislation in many
+countries for websites to be usable by people with disabilites it is
+definitely an area that needs further work.
+
+.. include:: comments/web-accessibility-and-online-gis.rst

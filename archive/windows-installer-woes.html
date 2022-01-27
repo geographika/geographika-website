@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Windows Installer Woes &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WMS GetCapabilities" href="wms-get-capabilities.html" />
+    <link rel="prev" title="Will HTML5 Revolutionise Raster Web GIS?" href="will-html5-revolutionise-raster-web-gis.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Windows Installer Woes</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="will-html5-revolutionise-raster-web-gis.html" title="Previous Chapter: Will HTML5 Revolutionise Raster Web GIS?"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Will HTML5 Re...</span>
+    </a>
+  </li>
+  <li>
+    <a href="wms-get-capabilities.html" title="Next Chapter: WMS GetCapabilities"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">WMS GetCapabilities &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="windows-installer-woes">
+<h1>Windows Installer Woes<a class="headerlink" href="#windows-installer-woes" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2007-02-20 00:26</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>geographika</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>bugs</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>windows-installer-woes</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p>Finally…all the major bugs have ironed out for a new custom ArcMap
+tool, a “simple” installer package has been created in Visual Studio and
+emailed to a colleague for testing. I can now turn off the computer
+happy in the knowledge that the project is thankfully out of my hands
+for a few days.</p>
+<p>First email the next day..it wouldn’t install, there were errors.
+Specifically:</p>
+<p><em>“Unable to get installer types in the [name of DLL] assembly. –&gt;
+Unable to load one or more of the requested types. Retrieve the
+LoaderExceptions property for more information. “</em></p>
+<p>Well I never  did work out how to retrieve the LoaderExceptions
+property, but after seemingly recreating and installing in an infinite
+loop I ascertained the following:</p>
+<p>i) The DLL I was installing relied on another custom made DLL that had
+to be installed on the system to even allow the package to run.</p>
+<p>ii) On my development machine the latest DLL had been registered as it
+was part of the same Visual Studio solution.</p>
+<p>iii) On the test machine an older version of the DLL was still being
+used. I believe this lacked a new class I had since added that was in
+turn required by the new DLL. This had to be removed, and the latest
+version of this DLL installed.</p>
+<p>iv) Hindsight has 20/20 vision…the new DLL and installer package were
+deployed without problems.</p>
+<p>I believe this error also occurs when trying to install a DLL created on
+a machine with ArcGIS 9.x, on a machine with ArcGIS 8.x. This would be
+for the same reasons - a class which the custom DLL relies on has been
+added/modified/removed.</p>
+<p>An invaluable tool in the whole install/uninstall process is the
+“Windows Installer CleanUp Utility”, downloadable from the Microsoft
+site at <a class="reference external" href="http://support.microsoft.com/kb/290301">http://support.microsoft.com/kb/290301</a>. This is very useful when
+the control panel’s Add/Remove Programs interface no longer seems to
+work.</p>
+<p><strong>UPDATE</strong></p>
+<p>This error has since made a few reappearances, but this time for a
+different (albeit) similar reason. After several fruitless hours I
+decided I would make the effort to <em>“Retrieve the LoaderExceptions
+property for more information.”</em></p>
+<p>There is a useful program named FUSLOGVW.exe. I found this in
+C:\Program Files\Microsoft Visual Studio 8\SDK\v2.0\Bin\ - it had
+been installed as part of Visual Studio 2005. This progam logs
+exceptions for <em>“failed Assembly binds</em>” <em>-</em> further details can be seen
+on MSDN
+<a class="reference external" href="http://msdn2.microsoft.com/en-us/library/e74a18c4(VS.71).aspx">here</a>.</p>
+<p>I set the program to record all application binds for my installation
+and set the custom log path to the folder where the .DLLs would be
+installed:</p>
+<p>` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/fuslogvw.png">http://geographika.files.wordpress.com/2007/04/fuslogvw.png</a>&gt;`__` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/fuslogvw.png">http://geographika.files.wordpress.com/2007/04/fuslogvw.png</a>&gt;`__</p>
+<p><img alt="Assembly Binding Log Viewer" src="../_images/fuslogvw3.png" /></p>
+<p>Just after the error message popped up I hit refresh and was pleasantly
+suprised to see the log viewer had filled with entries as shown below.</p>
+<p>` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/fuslogvw2.png">http://geographika.files.wordpress.com/2007/04/fuslogvw2.png</a>&gt;`__` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/fuslogvw2.png">http://geographika.files.wordpress.com/2007/04/fuslogvw2.png</a>&gt;`__</p>
+<p><img alt="Assembly Binding Log Viewer" src="../_images/fuslogvw3.png" /></p>
+<p>This list included both successful and unsuccessful “binds.” Double
+clicking on the last entry opened up a browser with further details,
+including the fact that the “operation” had failed.</p>
+<p>` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/fuslogvw3.png">http://geographika.files.wordpress.com/2007/04/fuslogvw3.png</a>&gt;`__` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/fuslogvw3.png">http://geographika.files.wordpress.com/2007/04/fuslogvw3.png</a>&gt;`__</p>
+<p><img alt="Assembly Binding Log Viewer" src="../_images/fuslogvw3.png" /></p>
+<p>The (fairly obvious) clue was in the “system cannot find the file
+specified” when trying to bind to the ESRI.ArcGIS.ADF.DLL. One of my
+custom tools was trying to call functions in this file, but could not
+find it. I had excluded all ESRI DLLs from my setup package as I had
+assumed they would be on any machine with ArcMap…apparently not! By
+default the .NET support (basically all the ESRI .NET DLLs) are
+<strong>not</strong>installed. After modifying the ArcGIS installation from the DVD
+and adding this option the installation ran without further issues =)</p>
+<p>` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/install1.png">http://geographika.files.wordpress.com/2007/04/install1.png</a>&gt;`__` &lt;<a class="reference external" href="http://geographika.files.wordpress.com/2007/04/install1.png">http://geographika.files.wordpress.com/2007/04/install1.png</a>&gt;`__</p>
+<p><img alt=".NET Support" src="../_images/install1.png" /></p>
+<p>A final point on this issue - I would recommend setting all your custom
+DLL version numbers manually. To check if this is already the case go to
+Project &gt;&gt; Properties &gt;&gt; Application &gt;&gt; Assembly Information, and make
+sure there are no asterisks amongst the version numbers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1065" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1065"><span class="std std-ref">1.</span></a> <strong>Tweets that mention Will HTML5 Revolutionise Raster Web GIS? at geographika – Topsy.com</strong>
+**</p>
+<p>[…] This post was mentioned on Twitter by Chris Veltman, geographika.
+geographika said: Will HTML5 Revolutionise Raster Web GIS?
+<a class="reference external" href="http://bit.ly/hkbint">http://bit.ly/hkbint</a> #html5 #gis […]</p>
+<a href="mailto:web+will-html5-revolutionise-raster-web-gis#1@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1068" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1068"><span class="std std-ref">2.</span></a> <strong>James Fee GIS Blog &amp;raquo; Blog Archive &amp;raquo; Friday Web Map Fun</strong>
+**</p>
+<p>[…] geographika ponders if HTML5 will change how we map raster
+graphics.  I embrace that new world and hope it gets here sooner than
+[…]</p>
+<a href="mailto:web+will-html5-revolutionise-raster-web-gis#2@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1073" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1073"><span class="std std-ref">3.</span></a> <strong>Friday Web Map Fun &amp;laquo; 懒得折腾</strong>
+**</p>
+<p>[…] geographika ponders if HTML5 will change how we map raster
+graphics.  I embrace that new world and hope it gets here sooner than
+[…]</p>
+<a href="mailto:web+will-html5-revolutionise-raster-web-gis#3@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1691" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1691"><span class="std std-ref">4.</span></a> <strong>Friday Web Map Fun &amp;laquo; Spatially Adjusted</strong>
+**</p>
+<p>[…] geographika ponders if HTML5 will change how we map raster
+graphics.  I embrace that new world and hope it gets here sooner than
+[…]</p>
+<a href="mailto:web+will-html5-revolutionise-raster-web-gis#4@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+windows-installer-woes@geographika.co.uk?Subject=windows-installer-woes" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

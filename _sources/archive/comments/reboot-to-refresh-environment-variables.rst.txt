@@ -1,0 +1,60 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-244:
+
+.. image:: http://www.gravatar.com/avatar/feedaefbf39e7c87892041e50db4afa9?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-244>` **Thomas Wood**
+**
+
+The royal mail have not relaxed their copyright over the PAF, it was the
+Ordnance Survey that released their copy of the postcode centroids as
+part of their Opendata scheme.
+
+
+.. raw:: html
+
+    <a href="mailto:web+politics-it-spending-and-gis#1@geographika.co.uk?Subject=politics-it-spending-and-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-245:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-245>` **geographika**
+**
+
+| `@Thomas Wood <#comment-244>`__
+|  Thanks for the clarification - I've updated the post with an
+additional link.
+
+
+.. raw:: html
+
+    <a href="mailto:web+politics-it-spending-and-gis#2@geographika.co.uk?Subject=politics-it-spending-and-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+reboot-to-refresh-environment-variables@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Add Comment</a>

@@ -1,0 +1,170 @@
+Web Mapping Services & Security
+###############################
+:date: 2010-01-20 06:03
+:author: admin
+:category: mapserver, security, web development, wms
+:tags: wms mapserver security ogc
+:slug: web-mapping-services-security
+:status: published
+
+|image0|\ For the majority of public GIS systems I've worked on all the
+data in a database is available to users via the mapping interface. If
+someone wanted to hack in and "steal" data the only concern would be the
+bandwidth they took up. Security for these systems is fairly low down on
+the list of priorities, if it's on the list at all.
+
+GIS systems with organisational data are often only accessible (in
+theory) through an Intranet, so if the network is well protected then so
+isthe GIS.
+
+There have only been a few mapping systems I've worked on where there is
+a mix of public data and datasets with restrictive access in the same
+database. The location of rare bird species (people will `go to some
+lengths <http://news.bbc.co.uk/2/hi/uk_news/1545005.stm>`__ for a rare
+egg) and hallucinogenic
+`mushrooms <http://www.combat-diaries.co.uk/diary30/magic%20mushrooms.jpg>`__
+in a `Biodiversity GIS <http://www.biodiversityireland.ie/>`__ being an
+example.
+
+I'm currenty designing a `MapServer <http://mapserver.org/>`__ system
+that will serve out
+`WMS <http://en.wikipedia.org/wiki/Web_Map_Service>`__ layers to the
+public, and a few which are limited to certain IP address ranges. WMS
+and security was something I had never previously investigated. The rest
+of this post outlines the current situation, and an attempt to restrict
+WMS access on my server.
+
+WMS and the HTTP Protocol
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+WMS servers interact with their clients via the `HTTP
+protocol <http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol>`__,
+which uses plain text. For example a client (the user's browser) would
+send a "GET" request (along with a number of parameters and headers)
+such as:
+
+::
+
+     GET mapserv.exe?map=/ms4w/apps/... HTTP/1.1
+     Host: www.example.com
+
+The server would then send a number of response headers as plain text
+and, for a valid WMS request, hopefully an image.
+
+*"The rationale behind this is that text protocols allows you to see
+what's going on on the network by just dumping everything that goes
+through. You don't need a specialized analyzer as you need for TCP/IP.
+This makes it easier to debug and easier to maintain." -*
+`PolyThinker <http://>`__
+
+Clearly anything sent between two computers in plain text is never going
+to be very secure. The
+`OGC <http://www.opengeospatial.org/>`__\ announced via a `press
+release <http://www.opengeospatial.org/pressroom/pressreleases/1073>`__
+last August, that they would begin an "Authentication Interoperability
+Experiment" on the  2nd of October, 2009. This experiment *"will test
+standard ways of transferring authentication information between OGC
+clients and OGC services using existing mechanisms such as `HTTP
+Authentication <http://en.wikipedia.org/wiki/HTTP_Authentication>`__,
+`HTTP Cookies <http://en.wikipedia.org/wiki/Http_cookies>`__,
+`SSL <http://en.wikipedia.org/wiki/Transport_Layer_Security>`__/`X509 <http://en.wikipedia.org/wiki/X.509>`__,
+`SAML <http://en.wikipedia.org/wiki/Security_Assertion_Markup_Language>`__,
+`Shibboleth <http://en.wikipedia.org/wiki/Shibboleth_%28Internet2%29>`__,
+`OpenID <http://en.wikipedia.org/wiki/OpenID>`__\ and
+`WS-Security <http://en.wikipedia.org/wiki/WS-Security>`__."*
+
+The experiments participants include the `National
+Geospatial-Intelligence Agency <https://www1.nga.mi>`__, and the `Carbon
+Project <http://www.thecarbonproject.com/>`__ and its observers include
+`ESRI <http://www.esri.com>`__. Their presence hopefully would mean any
+resulting decision would be implemented in their software, and lead to
+the widespread acceptance of a standard. The experiment is led by Jeff
+Harrison of `www.cubewerx.com <http://www.cubewerx.com/>`__, who's
+website states:
+
+*"Concerned about standards? So are we. In fact we literally wrote the
+book on many of them"*
+
+There don't seem to have been any updates since then, but a good place
+to keep up with any developments in WMS is through the OGC WMS `mailing
+list <http://lists.eogeo.org/mailman/listinfo/wms-dev>`__ - a
+*"discussion list for people implementing and deploying instances of the
+OGC Web Map Server Interface specification*", and the experiments `web
+page <http://www.opengeospatial.org/projects/initiatives/authie>`__.
+
+Securing MapServer in Apache
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image1|\ In the meantime I was still looking for a way to limit access
+to my WMS services.  I'm using MapServer for Windows
+(`ms4w <http://www.maptools.org/ms4w/>`__) which installs MapServer and
+Apache on a Windows machine. Apache (and IIS) can be used to limit
+access to certain files based on an IP address which is exactly what I
+require.
+
+Unfortunately MapServer runs through
+`CGI <http://en.wikipedia.org/wiki/Common_Gateway_Interface>`__ which
+means limiting access to certain .MAP files was impossible. MapServer
+uses the SYSTEM account in Windows which means it has the same access
+rights no matter what IP address is used to start the process.
+
+There are ways to run CGI processes as different users
+(`suExec <http://httpd.apache.org/docs/1.3/suexec.html>`__ seems to be
+frequently mentioned), but examples on the web all seem to use Linux,
+and I'd imagine there would need to be a pre-processing script checking
+IPs to decide which user account should start the MapServer process.
+
+In the end it seemed the simplest option was to have two instance of
+ms4w on two different servers (the advantages of several virtual servers
+on one physical server are becoming clearer and clearer). I could then
+limit access to the CGI program on the server with the more restricted
+Map files in the following way:
+
+Open C:\\ms4w\\Apache\\conf\\httpd.conf and search for the following
+text:
+
+::
+
+    #
+    # Configure MS4W locations and directories
+    #
+    <Location "/cgi-bin">
+     Options None
+     Order allow,deny
+     Allow from all
+    </Location>
+
+The edit these settings to limit the access to the CGI folder to IP
+ranges, addresses, domains etc. For further details see the `Apache
+documentation <http://httpd.apache.org/docs/2.2/mod/core.html#directory>`__
+and this `blog
+post <http://www.cyberciti.biz/faq/apache-restrict-access-based-on-ip-address-to-selected-directories/>`__.
+In the example below only the computer with the IP 192.168.1.10 can
+access MapServer through CGI:
+
+::
+
+    <Location "/cgi-bin">
+     Options None
+     Order allow,deny
+     Allow from 192.168.1.10
+    </Location>
+
+After every change you will need to restart the Apache service to
+activate your changes. The same settings can also be applied to FastCGI.
+To see which IPs are accessing your MapServer look in
+C:\\ms4w\\Apache\\logs\\access.log. If you have limited access then IPs
+without permission should receive a HTTP
+`403 <http://en.wikipedia.org/wiki/HTTP_403>`__\ error> These are also
+recorded in the access.log file.
+
+Ideally I'd like to be able to set access to each MAP file or directory
+by IP range on the same MapServer, so if anyone has achieved this with
+ms4w please let me know!
+
+.. |image0| image:: images/2010/01/bouncer.jpg
+   :target: images/2010/01/bouncer.jpg
+.. |image1| image:: images/2010/01/feather.gif
+   :target: images/2010/01/feather.gif
+
+.. include:: comments/web-mapping-services-security.rst

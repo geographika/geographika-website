@@ -1,0 +1,88 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-295:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-295>` **geographika &raquo; Compiling a 64 bit Version of PyISAPIe**
+**
+
+[...] Where WorkingCopyPath is the path to the working copy being
+checked. If you aren’t using a copy of the sourcecode from SVN then you
+will receive errors such as “SubWCRev : ‘D:PyISAPie’ is not a working
+copy.” If you have only just installed TortoiseSVN then make sure you
+log off or restart Windows so that your environment variables are
+updated. [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+reboot-to-refresh-environment-variables#1@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-378:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-378>` **geographika &raquo; Visualising GeoJSON in 15 Minutes**
+**
+
+[...] you have only installed Python during your log in session then
+reboot to refresh your environment variables. This should allow you to
+use the easy\_install program directly from the Windows Command Prompt
+(by [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+reboot-to-refresh-environment-variables#2@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-433:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-433>` **Amit Agarwal**
+**
+
+**Verify all the paths in the PATH directory...**
+
+I found your entry interesting thus I've added a Trackback to it on my
+weblog :)...
+
+
+.. raw:: html
+
+    <a href="mailto:web+reboot-to-refresh-environment-variables#3@geographika.co.uk?Subject=reboot-to-refresh-environment-variables" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+running-python-through-apache@geographika.co.uk?Subject=running-python-through-apache" target="_top">Add Comment</a>

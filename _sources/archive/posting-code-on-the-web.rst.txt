@@ -1,0 +1,81 @@
+Posting Code on the Web
+#######################
+:date: 2007-02-25 16:59
+:author: geographika
+:category: general
+:slug: posting-code-on-the-web
+:status: published
+
+An important part of the blog will be code snippets. I thought it would
+be prettier if these snippets had the same nicely coloured syntax as I
+have in Visual Studio 2005. As will all things computer based things are
+never easy, and take time. After a good hour or so of messing around I
+found the following:
+
+i) Copying and pasting to Word or Frontpage will convert the text to
+HTML (of a fashion..), but spacing and fonts are not retained, and the
+time spent cleaning up the code is probably equal to manually coding the
+HTML from scratch.
+
+ii) I found a .NET macro that can be added to Visual Studio at Jeff
+Atwood's blog - `Coding
+Horror <http://www.codinghorror.com/blog/archives/000429.html>`__. This
+was a useful exercise in seeing how .NET macros could be written and run
+from Visual Studio, and what is involved in converting the text.
+Unfortunately when posting in the WordPress code box there were gaps
+appeared between code lines that had to be deleted manually. For large
+amounts of code this became somewhat annoying...
+
+iii) The solution! A link from the page at `Coding
+Horror <http://www.codinghorror.com/blog/archives/000429.html>`__
+suggested a Visual Studio Add-In created by Colin Coller at his blog
+`Needs
+Improvement <http://www.jtleigh.com/people/colin/blog/archives/2004/10/copysourceashtm.html>`__
+- the latest version can be found
+`here <http://www.jtleigh.com/people/colin/software/CopySourceAsHtml/>`__.
+This Add-In creates a short cut when right clicking on selected code in
+Visual Studio, with a variety of options such as including code line
+numbers, and setting indent levels. The HTML can be pasted in WordPress
+and is displayed perfectly. The only minor problem seems to be if I then
+run the spell checker some spaces disappear. I'll just have to be more
+careful when writing in futur.
+
+Another interesting find, that is not really a requirement for the blog,
+is this `web
+control <http://www.actiprosoftware.com/Products/DotNet/ASPNET/CodeHighlighter/Default.aspx>`__.
+This allows a code text property to be set and when the web page is
+generated it can be rendered with syntax highlighting from a wide choice
+of programming languages.
+
+ 1 Public Sub VeryHappy()
+
+ 2
+
+ 3 Dim LotsOfTimeSaved As Long = 10
+
+ 4
+
+ 5 Try
+
+ 6 'copying and pasting
+
+ 7 LotsOfTimeSaved += 10
+
+ 8 Catch ex As Exception
+
+ 9 'not needed =)
+
+ 10 Finally
+
+ 11 'no need to search for another solution!
+
+ 12 End Try
+
+ 13
+
+ 14 End Sub
+
+I've since found the following link which allows VB code to be pasted
+online to return HTML - http://www.zilpher.com/colourcode.php
+
+.. include:: comments/posting-code-on-the-web.rst

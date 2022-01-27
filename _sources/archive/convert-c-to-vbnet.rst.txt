@@ -1,0 +1,22 @@
+Convert C# to VB.Net
+####################
+:date: 2007-09-02 21:45
+:author: geographika
+:category: arcobjects, programming
+:slug: convert-c-to-vbnet
+:status: published
+
+It can be frustrating when a code sample that seems to do exactly what
+you want is written in C#, and your application is in
+VB.Net. \ http://www.kamalpatel.net/ConvertCSharp2VB.aspx solves this
+problem by converting the C# code directly into its VB.Net equivalent -
+all online and for free for code up to 6.15KB in size, and for larger
+amounts of code a tool can be downloaded for free.
+
+It does the majority of the conversion well but I ran into a few minor
+problems where line breaks were not taken into account.
+
+This tool will be even more useful when the ESRI samples, the majority
+of which are only available in VB6, are updated to .NET...
+
+.. include:: comments/convert-c-to-vbnet.rst

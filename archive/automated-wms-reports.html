@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Automated WMS Reports &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Automated WMS Testing with Python" href="automated-wms-testing-with-python.html" />
+    <link rel="prev" title="Automated Diagrams and Documentation" href="automated-diagrams-and-documentation.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Automated WMS Reports</a><ul>
+<li><a class="reference internal" href="#the-getcapabilities-request">The GetCapabilities Request</a></li>
+<li><a class="reference internal" href="#adding-metadata-to-the-wms-server">Adding Metadata to the WMS Server</a></li>
+<li><a class="reference internal" href="#using-the-getcapabilities-request">Using the GetCapabilities Request</a></li>
+<li><a class="reference internal" href="#formatting-the-getcapabilities-response">Formatting the GetCapabilities Response</a></li>
+<li><a class="reference internal" href="#future-improvements">Future Improvements</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="automated-diagrams-and-documentation.html" title="Previous Chapter: Automated Diagrams and Documentation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Automated Dia...</span>
+    </a>
+  </li>
+  <li>
+    <a href="automated-wms-testing-with-python.html" title="Next Chapter: Automated WMS Testing with Python"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Automated WMS... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="automated-wms-reports">
+<h1>Automated WMS Reports<a class="headerlink" href="#automated-wms-reports" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-26 20:11</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>web development, wms</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>CSS, getcapabilities, mapserver, opensource, wms, XML, XSL</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>automated-wms-reports</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>This post details how the WMS GetCapabilities request can be used to
+create an automated report listing all the map layers available from a
+WMS server. The final sample page can be <a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.html">seen
+here</a>.</p>
+<p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.xml"><img alt="image0" src="../_images/report1.png" /></a></p>
+<section id="the-getcapabilities-request">
+<h2>The GetCapabilities Request<a class="headerlink" href="#the-getcapabilities-request" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.html"><img alt="image1" src="archive/images/2010/01/report2-300x254.png" /></a></p>
+<p>Web Mapping Services
+(<a class="reference external" href="http://www.opengeospatial.org/standards/wms">WMS</a>) is an open
+standard that all major GIS vendors implement in their server software
+(for example see the <a class="reference external" href="http://webhelp.esri.com/arcims/9.2/general/mergedProjects/wms_connect/wms_connector/get_capabilities.htm">ESRI
+documentation</a>).
+As a result applications built on these services are able to easily
+switch from one software package to another - allowing separation of
+code that allows for easier maintenance and reuse.</p>
+<p>The GetCapabilities is one of three requests in the WMS specification.
+It <em>“returns service-level metadata, which is a description of the
+service’s information content and acceptable request parameters.”</em></p>
+<p>After<a class="reference external" href="http://geographika.co.uk/?p=225">eventually being able to
+see</a> the results of a
+GetCapabilities request my aim was to generate a report listing the
+available map layers, and to check I had enetered all the required
+metadata. I had a look on the web to see if there were any stylesheets
+that would nicely format the data.</p>
+<p>The <a class="reference external" href="http://www.easywms.com/easywms/?q=en/node/199">easywms.com site</a>
+has an example on how to build a WMS client from GetCapabilities using
+<a class="reference external" href="http://www.w3schools.com/xsl/">XSL</a> but I was unable to get the
+sample working with my GetCapabilities output. XSL is a stylesheet
+language for XML documents, in much the same way that CSS is used to
+format HTML. I’ve worked with XSL a little before so decided to write
+some code myself after not being able to find an existing example.</p>
+</section>
+<section id="adding-metadata-to-the-wms-server">
+<h2>Adding Metadata to the WMS Server<a class="headerlink" href="#adding-metadata-to-the-wms-server" title="Permalink to this headline">¶</a></h2>
+<p>In order for the GetCapabilities request to return data, it has to be
+entered in the first place. Each WMS server will be configured in
+different ways. In this example I am using
+<a class="reference external" href="http://mapserver.org/">MapServer</a>. The documentation for the WMS
+Server can be <a class="reference external" href="http://mapserver.org/ogc/wms_server.html">found here</a>.</p>
+<p>WMS services are configured using MAP files. Metadata can bet set for
+both the overall map and for each LAYER object in the map.Further
+documentation can be found
+<a class="reference external" href="http://mapserver.org/ogc/wms_server.html#setup-a-mapfile-for-your-wms">here</a>.
+An example of layer metadata would look as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LAYER</span>
+   <span class="n">NAME</span> <span class="s1">&#39;MyLayerName&#39;</span>
+   <span class="n">TYPE</span> <span class="n">LINE</span>
+   <span class="n">METADATA</span>
+     <span class="s1">&#39;wms_title&#39;</span> <span class="s1">&#39;My Layer Title&#39;</span>
+   <span class="n">END</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+<section id="using-the-getcapabilities-request">
+<h2>Using the GetCapabilities Request<a class="headerlink" href="#using-the-getcapabilities-request" title="Permalink to this headline">¶</a></h2>
+<p>To test the MAP file is set up correctly as a WMS Service follow the
+steps
+<a class="reference external" href="http://mapserver.org/ogc/wms_server.html#validate-the-capabilities-metadata">here</a>.
+You can paste a URL such as the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://my.host.com/cgi-bin/mapserv?map=mywms.map&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities
+</pre></div>
+</div>
+<p>The map=mywms.map parameter is specific to MapServer, but the rest of
+the parameters are part of the WMS standards. If your browser keeps
+trying to download the server response, try sending an incorrect WMS
+version as explained in <a class="reference external" href="http://geographika.co.uk/?p=225">my previous
+post</a>. The MapServer site has a
+<a class="reference external" href="http://www2.dmsolutions.ca/cgi-bin/mswms_gmap?SERVICE=WMS&amp;VERSION=1.0.3&amp;REQUEST=GetCapabilities">live
+example</a>
+of a WMS service you can use for comparison with your own.</p>
+</section>
+<section id="formatting-the-getcapabilities-response">
+<h2>Formatting the GetCapabilities Response<a class="headerlink" href="#formatting-the-getcapabilities-response" title="Permalink to this headline">¶</a></h2>
+<p>The server responds to a valid GetCapabilities by sending back XML. This
+XML can be formatted in the broswer to produce a report using an XSL
+file. My <a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.html">sample
+page</a> consists
+of the following components:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.xsl">GetCapabilities.xsl</a>-
+an XSL file which transforms a GetCapabilities XML document into HTML</p></li>
+<li><p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.js">GetCapabilities.js</a>
+- a JavaScript file which can be used to apply the XSL to the XML
+file. The XML can either be a static saved XML file, or a URL that
+returns XML. For security reasons, modern browsers do not allow
+access across domains, so this must be stored on the WMS server. The
+JavasScript was taken from the <a class="reference external" href="http://www.w3schools.com/XML/xml_parser.asp">W3
+Schools</a> site.</p></li>
+<li><p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.css">GetCapabilities.css</a>
+- a stylesheet that applies colours and layout to the HTML (with
+thanks to <a class="reference external" href="http://veerle.duoh.com/blog/comments/a_css_styled_table_version_2/">Verlees’s blog
+post</a>).</p></li>
+<li><p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.html">GetCapabilities.html</a>
+- an HTML file that loads the JavaScript and displays the report.</p></li>
+</ul>
+<p>The XSL stylesheet can also be applied directly to the XML by including
+the following lines at the top of the XML file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; standalone=&quot;no&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;GetCapabilities.xsl&quot;?&gt;
+</pre></div>
+</div>
+<p>However this is not an option if the XML is returned dynamically (apart
+from if you start modifying your WMS server code).</p>
+</section>
+<section id="future-improvements">
+<h2>Future Improvements<a class="headerlink" href="#future-improvements" title="Permalink to this headline">¶</a></h2>
+<p>The current XSL stylesheet is fairly basic, but does provide a quick way
+to list your layers, and to check that all the required WMS metadata
+items have been filled in. Possible additions to the XSL sheet include:</p>
+<ul class="simple">
+<li><p>highlighting required metdata parameters that are missing</p></li>
+<li><p>collapsing legend images, or allow a trigger to load them (for large
+legends, and to improve loading speeds)</p></li>
+<li><p>allowing a link to create a sample tile of the data, or adding this
+in automatically - it would be useful to check how features are
+rendered that services are running correctly</p></li>
+<li><p>sorting of table columns</p></li>
+<li><p>linking to metadata documents</p></li>
+</ul>
+<p>Any thoughts and feedback appreciated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+automated-wms-reports@geographika.co.uk?Subject=automated-wms-reports" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+GeoJSON Where are You?
+######################
+:date: 2010-05-21 15:02
+:author: admin
+:category: python, web development
+:tags: cloudmade, geojson
+:slug: geojson-where-are-you
+:status: published
+
+I was looking around the web to try and find some services that returned
+`GeoJSON <http://geojson.org/>`__ to try out
+`Shapely <http://trac.gispython.org/lab/wiki/Shapely>`__. It was
+surprisingly hard to find servers or web services given the `amount of
+tools <http://wiki.geojson.org/Users>`__ that have already been built to
+use GeoJSON.
+
+Eventually I found the CloudMade’s `geocoding developer
+samples <http://developers.cloudmade.com/wiki/geocoding-http-api/Examples>`__.
+`CloudMade <http://cloudmade.com/>`__ is a company that builds tools and
+services on top of `OpenStreetMap <http://www.openstreetmap.org/>`__.
+Even though many of the people involved in both CloudMade and OSM are
+the same, using the two brands interchangeably has not been without
+`controversy <http://www.spatiallyadjusted.com/2010/04/17/cloudmades-openstreetmap-project-is-successful/>`__.
+
+|image|\ Once you’ve signed up for a `free
+account <http://www.cloudmade.com/signup>`__, you can then register for
+an API key that allows you to call their web services. `See
+here <http://cloudmade.com/select/web>`__ for differences between free
+and paid accounts. The service I was interested in testing was the
+geocoding service that returns GeoJSON.
+
+Depending on the type of feature you are looking for you can get
+different geometry types �" the standard point, lines, and polygons, all
+as GeoJSON objects.
+
+The API uses URLs and GET requests to return data. Calls can be made to
+either a find.html page which returns the GeoJSON object displayed on a
+map, as shown in the query for “england” on the left. Alternatively the
+query can be made to find.geojs to return just the GeoJSON itself. There
+is also a find.js which can be used to return geometry as JSON, although
+this seems a little confusing - even more so as the coordinate order is
+reversed from the standard GeoJSON [lon,lat].
+
+The API can be used in several languages (Ruby, Perl, PHP etc.), my
+current choice is Python, and the CloudMade Python API documentation is
+`available online
+here <http://developers.cloudmade.com/documentation/python-lib/index.html>`__.
+Retreiving GeoJSON however is easy enough even without this API. For
+example in Python use:
+
+[python]import urllib2
+
+| root = 'http://geocoding.cloudmade.com'
+|  apikey = '85453debd0fc4ad18c5855c3d8eef780'
+|  query = 'england'
+|  url =
+'%s/%s/geocoding/v2/find.geojs?query=%s&amp;return\_geometry=true' \\
+|  % (root,apikey,query)
+
+json = urllib2.urlopen(url).read()
+
+print json[/python]
+
+Now that I have a source GeoJSON I can start to use some of the more
+interesting tools to analyse and manipulate these features.
+
+.. |image| image:: images/2010/05/image2.png
+   :target: http://geocoding.cloudmade.com/BC9A493B41014CAABB98F0471D759707/geocoding/v2/find.html?query=england&return_geometry=true
+
+.. include:: comments/geojson-where-are-you.rst

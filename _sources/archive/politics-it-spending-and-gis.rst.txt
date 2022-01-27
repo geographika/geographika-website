@@ -1,0 +1,113 @@
+Politics, IT, Spending, and GIS
+###############################
+:date: 2010-03-31 00:17
+:author: admin
+:category: general, opinion
+:tags: australia, datalinking, gis, IT, politics, spending
+:slug: politics-it-spending-and-gis
+:status: published
+
+|image| With an `impending
+election <http://news.bbc.co.uk/2/hi/uk_news/politics/8496591.stm>`__ in
+the UK, the Conservatives, the current opposition party have decided to
+try and win some votes by `cutting spending in
+IT <http://www.theregister.co.uk/2010/03/29/osborne_it/>`__. On the
+upside they plan to scrap `ID cards <http://www.no2id.net/>`__ if
+elected. Which GIS projects this may affect is impossible to tell as:
+
+*He [the shadow chancellor] was unable to cite specific projects, as
+opposition parties are not allowed to inspect government contracts.*
+
+What would be ideal is if IT projects were able to be scrutinised by the
+opposition parties, *and* the public. It appears Australia is far more
+open with their government tenders, and even include the *`actual
+costs <https://www.tenders.gov.au/?keyword=gis&event=public.advancedsearch.keyword&orderBy=Publish+Date&submitSort=Go>`__*
+involved which would be considered as extremely sensitive business data
+in other countries.
+
+|image|
+
+During the good times IT projects are always associated with savings and
+efficiencies. During the bad times they now seem to be seen as an
+extravagance, and `prone to
+failure <http://www.computing.co.uk/computing/comment/2248138/why-failure-comes-easy-4785962>`__.
+A good point made in `the
+comments <http://forums.theregister.co.uk/forum/1/2010/03/29/osborne_it/>`__
+on `The Register
+article <http://www.theregister.co.uk/2010/03/29/osborne_it/>`__ was:
+
+    Personally, I'd like all large businesses subject to the same
+    auditing and publishing requirements that government IT projects are
+    so we can get some perspective. Starting with the media. I strongly
+    suspect that government projects are no worse than anyone else's,
+    but they're the only ones open to serious scrutiny.
+
+Amongst the projects likely to face cuts is the `National Programme for
+IT <http://en.wikipedia.org/wiki/NHS_National_Programme_for_IT>`__ a
+National Health Service IT project with  a budget of around £12bn, that
+was set to be *“the world's biggest civil information technology
+programme."* Whether or not patients are likely to benefit is very much
+`up for
+debate <http://www.telegraph.co.uk/news/uknews/1548813/Patients-wont-benefit-from-12bn-IT-project.html>`__.
+What does seem to be lacking in this plan is the use of GIS and
+geospatial technologies, apparently due to a `lack of
+expertise <http://www.gisdevelopment.net/magazine/years/2005/jun/service1.htm>`__.
+Maybe ESRI should have sent the NHS `their
+brochure <http://www.amazon.com/gp/product/187910265X?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=187910265X>`__.
+
+Send me the Link
+~~~~~~~~~~~~~~~~
+
+Where the government (or their advisors) may previously have
+`FAIL <http://www.epicfail.com/>`__\ ed is their desire for centralised
+databases and systems. This approach may have recently changed to a more
+decentralised `linked data
+approach <http://www.jenitennison.com/blog/node/140>`__.
+
+    *[Linked data] is about using URIs to identify things, providing
+    information at the end of those URIs that is self-descriptive, and
+    linking those things to other things through typed links.*
+
+|image| `Sean Gillies <http://sgillies.net/blog/987/linking-uk-data/>`__
+seems to think it’s a step in the right direction - which is always a
+good thing. Have a look at the `new site <http://data.gov.uk/>`__ to
+judge for yourselves. The use of linked data rather than databases in
+`walled
+gardens <http://en.wikipedia.org/wiki/Walled_garden_%28technology%29>`__,
+allows for all sorts of applications to be created by both the public
+and private sector such as this `expenditure
+map <http://ishortman.com/projects/expendituremap/>`__ (I’ll forgive the
+use of Flash just this once..). The amount of mash-ups that can be
+created is now only limited by the imagination. Notice how maps are high
+on the `list of ideas <http://data.gov.uk/ideas>`__.
+
+A change that has occurred in the UK that could be seen as on a par with
+`Obama’s health
+reforms <http://news.bbc.co.uk/2/hi/americas/8579322.stm>`__ is the
+`freeing of
+data <http://www.guardian.co.uk/technology/free-our-data>`__. Recently
+the `Ordnance Survey <http://www.ordnancesurvey.co.uk>`__ `released free
+mapping <http://www.guardian.co.uk/technology/2009/nov/19/ordnance-survey-maps-free-online>`__.
+This seems to have had a knock on effect with the Post Office `relaxing
+copyright <http://data.gov.uk/ideas/post-office-and-os-relax-copyright-and-licences-uk-address-and-coordinate-data>`__
+on postcodes (the zip code equivalent). Although it may have helped that
+this has been available for download on `The Pirate
+Bay <http://thepiratebay.org/torrent/5090599/UK_government_database_of_all_1_841_177_post_codes>`__
+since last September.  [**Clarification** - the Ordnance Surey have
+released the geographic locations of postcodes, but the Post Office have
+*not* released the database `linking actual postal addresses to
+postcodes <http://news.bbc.co.uk/2/hi/technology/8402327.stm>`__].
+
+So even though the cuts to IT may have an impact if there is a change of
+government, the opening up of data will create far more opportunities to
+geospatial developers, who will now be able to build workable systems
+and prototypes using real data to proactively drive IT projects rather
+than wait for the high hand of government to possibly offer them some
+crumbs from the table.
+
+.. |image| image:: images/2010/03/image10.png
+   :target: http://www.amazon.com/gp/product/1411678273?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=1411678273
+.. |image| image:: images/2010/03/image11.png
+.. |image| image:: images/2010/03/image12.png
+
+.. include:: comments/politics-it-spending-and-gis.rst

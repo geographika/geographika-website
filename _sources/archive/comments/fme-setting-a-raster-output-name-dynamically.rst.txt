@@ -1,0 +1,169 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-188:
+
+.. image:: http://www.gravatar.com/avatar/6e616123b26319779cfb3d6193c6773f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-188>` **Ed Katibah**
+**
+
+Good discussion. I've talked with some of our SQL Azure folks and they
+had the following comments: "[The] Data transfer rate issue is clearly
+not a problem between the DB and the app as long as they are in Windows
+Azure. Apps using SQL Azure that aren’t in Windows Azure will pay
+additional amounts but that is [a] less common [scenario] due to network
+latency [considerations]. Usually people end up putting some local cache
+DB like SQL [Server] Express [in Windows Azure].".
+
+Here is information from our web site: `Data Transfer
+Details <http://www.microsoft.com/WindowsAzure/offers/popup.aspx?lang=en&locale=en-US&offer=MS-AZR-0001P>`__:
+"Our data transfer rates are determined by the region in which your
+solution is deployed. \ **Data transfers between Azure Services located
+within the same sub region are not subject to charge.** Data transfers
+between sub regions are charged at normal rates on both sides of the
+transfer. A sub region is the lowest level geo-location that you may
+select to deploy your applications and associated data.
+
+
+.. raw:: html
+
+    <a href="mailto:web+does-sql-azure-have-allure#1@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-190:
+
+.. image:: http://www.gravatar.com/avatar/879803d51456cc53221b5987aeee4402?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-190>` **David Chou**
+**
+
+Great post. And we’re glad to see that you find value in using SQL
+Server for GIS applications. Although a few clarification points may
+help with understanding SQL Azure better and how it can be best used.
+
+1. SQL Azure is a multi-tenant, scale-out relational database service.
+It’s not “hosted SQL Server” a-la-SaaS style. The implementation today,
+in a nutshell, allows you to interact with the SQL Azure application,
+but each logical database is actually managed as 3 separate replicas
+underneath the SQL Azure application, which then use SQL Server as the
+relational database engine. The SQL Azure application then load-balances
+and synchronizes the incremental changes across those 3 replicas. To you
+it’s looks like one SQL Server database over the Internet but SQL Azure
+uses this strategy to ensure resiliency and scalability. It’s not the
+same as any hosting solution anywhere else.
+
+2. The “Currently you can’t bring your existing on-premises Windows
+Server, SQL Server to Windows Azure, SQL Azure” comment was intended to
+point out that developers cannot bring server software to deploy into
+Windows Azure and SQL Azure; as you can tell from the first point above
+– Windows Azure and SQL Azure aren’t hosted servers. Thus, from a
+development model perspective, Windows Azure and SQL Azure actually do
+support current applications and databases created locally and then
+uploaded into Azure. In fact, for SQL Server, all your views, stored
+procs, functions, and data, can all go directly into SQL Azure. There
+are some differences but today we’re at about 98% feature parity and are
+working towards 100%.
+
+3. Similar to your observations, and as Ed Katibah pointed out, SQL
+Azure isn’t ideally suited as a replacement for a local SQL Server
+database. This also goes back to what does cloud computing represent?
+Many people think cloud is simply someone else’s data center that runs
+the same things for rent. In our case, Windows Azure and SQL Azure, as
+they are implemented as a different type of technology, they’re not
+simply hosted versions of software that you have locally. And thus,
+they’re ideally suited for different types of workloads and application
+scenarios. However, some laws of physics still apply, as an application
+that uses a relational database as a back-end will continue to operate
+better having the database local as opposed to over the Internet. And
+that means many applications that use SQL Azure will also be more
+ideally suited to be hosted in Windows Azure as well. Other scenarios
+also evolve around data sharing leveraging data integration techniques.
+
+Just my thoughts. :) Best! -David
+(`blogs.msdn.com/dachou <http://blogs.msdn.com/dachou>`__)
+
+
+.. raw:: html
+
+    <a href="mailto:web+does-sql-azure-have-allure#2@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-192:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-192>` **geographika**
+**
+
+| `@Ed Katibah <#comment-188>`__
+|  Thanks Ed. Good to know that its the data that leaves the cloud that
+is counted. I presume that a WMS MapServer could be set up as an Azure
+application `after reading this
+post <http://blogs.msdn.com/jnak/archive/2009/03/18/calling-into-native-dlls-on-windows-azure.aspx>`__.
+
+I guess the sub-regions also help government departments from keeping
+within data legislation rules.
+
+
+.. raw:: html
+
+    <a href="mailto:web+does-sql-azure-have-allure#3@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-193:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-193>` **geographika**
+**
+
+| `@David Chou <#comment-190>`__
+|  Your technical summary makes far more sense than the marketing pages!
+I've updated my post to include your comments.
+
+With regards to where cloud computing could be useful, hosting the
+mapping engine and database in Azure could provide a powerful, scalable
+back-end for many different client map viewing applications.
+
+
+.. raw:: html
+
+    <a href="mailto:web+does-sql-azure-have-allure#4@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+fme-setting-a-raster-output-name-dynamically@geographika.co.uk?Subject=fme-setting-a-raster-output-name-dynamically" target="_top">Add Comment</a>

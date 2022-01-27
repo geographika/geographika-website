@@ -1,0 +1,234 @@
+Migrating .NET Projects from ArcGIS 9.1 to 9.2
+##############################################
+:date: 2007-04-04 14:30
+:author: admin
+:category: arcobjects, esri, programming
+:slug: migrating-net-projects-from-arcgis-91-to-92
+:status: published
+
+My Windows XP recently decided to fall apart, so after a few days
+reinstalling everything I decided it would be a good time to switch from
+ArcGIS 9.1 to 9.2. The installation went smoothly enough, and after a
+few more hours I had Visual Studio 2005 up and running as well. With
+some trepidation I opened up my largest ArcGIS VB solution...1030
+errors, let alone warnings! The solution had been developed for ArcGIS
+9.1 so I had expected some issues..
+
+After some investigation it became apparent the cause of most errors
+were:
+
+1. None of the ESRI 9.1 DLLs that my projects referenced were present on
+my machine. These had all been updated to 9.2
+
+2. The ESRI.ArcGIS.Utility library has been deprecated, and its existing
+functionality moved to the ESRI.ArcGIS.ADF library.
+
+With regards to the first issue all the libraries still had the same
+name, but were different versions. Changing the "Specific Name" property
+of the reference allowed VS to find the library and removed the error. I
+must have several 100 of these references for several projects so I
+decided to try out the VS macros to automate this task. To edit and
+create macros manually go to Tools >> Macros > Macros IDE in Visual
+Studio (2005). All the subs in this post were created in the same
+module, and require the following references listed below. Some of these
+had to be added manually to the "MyMacros" project via the References in
+the Macros IDE Project Explorer. The VSLangProj80 and VSLangProj2
+libraries are in C:\\Program Files\\Microsoft Visual Studio
+8\\Common7\\IDE\\PublicAssemblies\\
+
+    1 Option Strict On
+
+    2 Option Explicit On
+
+    3 
+
+    4 ImportsEnvDTE
+
+    5 ImportsVSLangProj
+
+    6 Imports VSLangProj2
+
+    7 Imports VSLangProj80
+
+The following procedure loops through every project in the solution, and
+then through every reference in the project. If the reference starts
+with the text ESRI then the "Specific Version" property is set to false.
+
+    2 
+
+    3        
+'http://msdn2.microsoft.com/en-us/library/vslangproj80.reference3.specificversion(VS.80).aspx
+
+    4 
+
+    5         DimprojectItem AsProjectItem
+
+    6         DimmyCodeProject AsVSLangProj.VSProject
+
+    7         Dimproj As Project
+
+    8         Dim ref As Reference3
+
+    9 
+
+   10         For Eachproj InDTE.Solution.Projects
+
+   11             If  TypeOf proj.Object IsVSLangProj.VSProject  Then
+'loop through projects
+
+   12                 myCodeProject = CType(proj.Object, VSProject)
+
+   13                 For Each ref InmyCodeProject.References
+
+   14                     If ref.Name Like "ESRI.\*" Then
+
+   15                         ref.SpecificVersion = False
+
+   16                     End If
+
+   17                 Next
+
+   18             End If
+
+   19         Next
+
+   20 
+
+   21     End Sub
+
+This greatly reduced the number of errors, and was so satisfying I
+continued playing around with macros and the macro recorder available in
+VS. OK it may have taken longer than doing all this manually..but where
+is the fun in that..
+
+The following macros work as follows:
+
+UpdateReferences - runs all the sub macros, passing parameters where
+appropriate.
+
+ReplaceReference - removes a reference tat is no longer needed, and
+automatically adds in the new reference. In this example I use it to
+replace all references (sic) to the deprecated ESRI.ArcGIS.Utility
+reference with the new ESRI.ArcGIS.ADF reference.
+
+ReplaceNameSpaces - this opens the find / replace dialog with parameters
+already filled. I commented out the automated execution of this
+replacement as I sometimes received dialogs while replacing that cause
+the macro to crash. In this example I replaced all Import declarations
+with the new ESRI.ArcGIS.ADF reference.
+
+   35     SubUpdateReferences()
+
+   36 
+
+   37         ChangeSpecificVersions()
+
+   38         ReplaceNameSpaces("ESRI.ArcGIS.Utility",
+"ESRI.ArcGIS.ADF")
+
+   39         ReplaceReference("ESRI.ArcGIS.Utility", "C:\\Program
+Files\\ArcGIS\\DotNet\\ESRI.ArcGIS.ADF.dll")
+
+   40 
+
+   41     End Sub
+
+   42     SubReplaceReference(ByValstrOrigRefName As String,
+ByValstrNewRefPath As String)
+
+   43 
+
+   44 
+
+   45         DimprojectItem AsProjectItem
+
+   46         DimmyCodeProject AsVSLangProj.VSProject
+
+   47         Dimproj As Project
+
+   48         Dim ref As Reference3
+
+   49 
+
+   50         For Eachproj InDTE.Solution.Projects
+
+   51             If TypeOfproj.Object IsVSLangProj.VSProject Then 'loop
+through projects
+
+   52                 myCodeProject = CType(proj.Object, VSProject)
+
+   53                 For Each ref InmyCodeProject.References
+
+   54                     Ifref.Name = strOrigRefName Then
+
+   55                         ref.Remove()
+
+   56                        
+myCodeProject.References.Add(strNewRefPath)
+
+   57                     End If
+
+   58                 Next
+
+   59             End If
+
+   60         Next
+
+   61 
+
+   62     End Sub
+
+   63 
+
+   64     SubReplaceNameSpaces(ByValstrOldNameSpace As String,
+ByValstrNewNameSpace As String)
+
+   65 
+
+   66         DTE.ExecuteCommand("Edit.Find")
+
+   67         DTE.ExecuteCommand("Edit.SwitchtoReplaceInFiles")
+
+   68         DTE.Find.Target = vsFindTarget.vsFindTargetFiles
+
+   69         DTE.Find.FindWhat = strOldNameSpace
+
+   70         DTE.Find.ReplaceWith = strNewNameSpace
+
+   71         DTE.Find.MatchCase = False
+
+   72         DTE.Find.MatchWholeWord = True
+
+   73         DTE.Find.MatchInHiddenText = False
+
+   74         DTE.Find.PatternSyntax =
+vsFindPatternSyntax.vsFindPatternSyntaxLiteral
+
+   75         DTE.Find.SearchPath = "Entire Solution"
+
+   76         DTE.Find.SearchSubfolders = True
+
+   77         DTE.Find.KeepModifiedDocumentsOpen = False
+
+   78         DTE.Find.FilesOfType = "\*.vb"
+
+   79         DTE.Find.ResultsLocation =
+vsFindResultsLocation.vsFindResults1
+
+   80         DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+
+   81         'If (DTE.Find.Execute() =
+vsFindResult.vsFindResultNotFound) Then
+
+   82         'Throw New System.Exception("vsFindResultNotFound")
+
+   83         'End If
+
+   84        
+'DTE.Windows.Item("{CF2DDC32-8CAD-11D2-9302-005345000000}").Close()
+
+   85 
+
+   86     End Sub
+
+.. include:: comments/migrating-net-projects-from-arcgis-91-to-92.rst

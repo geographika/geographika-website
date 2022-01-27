@@ -1,0 +1,104 @@
+MapServer+Windows 64 bit+Apache=Crash?
+######################################
+:date: 2010-03-11 15:38
+:author: admin
+:category: bugs, mapserver
+:tags: 64bit, apache, bug, mapserver
+:slug: mapserverwindowsapachecrash
+:status: published
+
+|image0|\ I developed my MapServer application on Windows 2003 (a
+virtual 64 bit server running), using MS4W (MapServer for Windows), and
+had set up TileCache, and some Python scripts to `run through
+Apache <http://geographika.co.uk/running-python-through-apache>`__. I
+had managed to crash the set up numerous times in development, but I
+hadn't come across any errors not of my own making.
+
+The installation went well  on the production server which was also a 64
+bit machine, but was using Windows Server 2008. The site had an
+unpublicised release as it is still in beta, and from this was getting
+about 60 - 70 visitors a day.
+
+I use `host-tracker.com <http://host-tracker.com/>`__ - a web site
+monitoring service which lets me know if a site is down, and I was soon
+made aware that it was.. There were no responses at all coming from
+Apache, even though the Apache service was still running. Not even HTML
+pages were returned. Restarting Apache returned the service to normal,
+but this was happening every other day.
+
+The Windows Error Log
+~~~~~~~~~~~~~~~~~~~~~
+
+The Windows Event Log had lots of the following errors:
+
+::
+
+    Faulting application name: mapserv.exe, version: 0.0.0.0, time stamp: 0x4935ad86
+    Faulting module name: MSVCR71.dll, version: 7.10.3052.4, time stamp: 0x3e561eac
+    Exception code: 0xc0000005Faulting process id: 0xe08
+    Faulting application start time: 0x01caa0e28e6dcbb6
+    Faulting application path: C:\ms4w\Apache\cgi-bin\mapserv.exe
+    Faulting module path: C:\ms4w\Apache\cgi-bin\MSVCR71.dll
+    Report Id: 4bc3555e-0cd7-11df-9e56-00155d002601
+
+The MSVCR71 refers to the Microsoft C run-time libraries, so I \*think\*
+the errors are likely to be from a program that uses them (ie.
+MapServer) rather than the DLL itself. Windows 2003 has this DLL in its
+system32 folder, whereas Windows 2008 does not, but as long as it is in
+the application directory (cgi-bin in MapServer's case) then it should
+not be a problem. In short I don't believe this DLL was the root of the
+problem. I tried turning on MapServer debugging, but there were no
+errors reported from MapServer itself.
+
+The Apache Error Log
+~~~~~~~~~~~~~~~~~~~~
+
+On the other hand the Apache log (C:\\ms4w\\Apache\\logs\\error.log) had
+several warnings such as the following:
+
+::
+
+    [Thu Jan 28 15:37:15 2010] [warn] (OS 64)The specified network name is no longer available.  :
+    winnt_accept: Asynchronous AcceptEx failed.
+
+The Apache documentation suggests that a possible cause of these errors
+is due to *"virus scanning or virtual private network packages, have
+bugs that interfere with the proper operation of AcceptEx()."* While I
+could rule the first out, the second was a definite possibility as I was
+required to use Juniper's
+`NetScreenRemote <http://www.nscreensales.com/NetScreen_Remote_s/10.htm>`__
+to connect to the server. The Juniper site now states *"No Longer
+Available. Use Standards based IPSec client."*
+
+I've had horrible problems with this software before, including no
+longer being able to connect to wi-fi networks (repairing IPSEC was the
+eventually solution), and corrupting a Cisco VPN client. The 0.5 star
+`review on
+CNET <http://reviews.cnet.com/remote-access/netscreen-remote-vpn-client/4505-3540_7-30340681.html>`__
+show I am not alone in this opinion.
+
+I tried using the
+`Win32DisableAcceptEx <http://httpd.apache.org/docs/2.2/mod/mpm_winnt.html>`__
+directive to try and stop these errors and hopefully resolve the Apache
+crashes. Apache runs in 32 bit mode, so hopefully the 64 bit server
+wouldn't mind..In C:\\ms4w\\Apache\\conf\\httpd.conf  add the following
+line, and restart the Apache service:
+
+::
+
+    Win32DisableAcceptEx
+
+Final Outcome
+~~~~~~~~~~~~~
+
+Unfortunately although the Apache changes stopped the errors it didn't
+stop the crashing. In the end I had to set up MapServer with IIS and the
+site has been working fine ever since. As a bonus I was also able to use
+the 64 bit versions of MapServer.
+
+::
+
+.. |image0| image:: images/2010/01/mapserver_error-277x300.png
+   :target: images/2010/01/mapserver_error.png
+
+.. include:: comments/mapserverwindowsapachecrash.rst

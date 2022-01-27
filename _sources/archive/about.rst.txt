@@ -1,0 +1,84 @@
+About
+#####
+:date: 2007-02-14 17:57
+:author: geographika
+:slug: about
+:status: published
+
+Who am I?
+~~~~~~~~~
+
+I'm an independent geodeveloper who designs, creates, and customises
+Geographic Information Systems (GIS) for the web and desktop. Most of my
+time is spent providing consulting and bespoke geospatial software
+development to clients in Ireland and Europe.
+
+What do I Use?
+~~~~~~~~~~~~~~
+
+Originally I started out writing custom add-ons to ESRI's ArcView 3.1
+using
+`Avenue <http://support.esri.com/index.cfm?fa=knowledgebase.gisDictionary.search&searchTerm=Avenue>`__.
+I've since gone through all the upgrades to ArcGIS 9.3 using .NET via
+`VBA <http://geographika.co.uk/7-reasons-for-esri-not-to-drop-vba>`__.
+
+As most projects involve bespoke development to build on existing GIS
+systems I've had to chance to work with most GIS packages including
+`Geomedia <http://www.intergraph.com/sgi/products/productFamily.aspx?family=10&country=>`__,
+`CadCorp <http://www.cadcorp.com/>`__, and `Oracle
+Spatial <http://www.oracle.com/technology/products/spatial/index.html>`__.
+
+My current favourite technologies are a mix of proprietary and
+open-source technologies. I'm a big fan of `SQL Server
+2008 <http://geographika.co.uk/category/sql-server-2008>`__, which has
+spatial support. I often use
+`MapServer <http://geographika.co.uk/category/mapserver>`__ for serving
+out data via `web services <http://geographika.co.uk/category/wms>`__.
+For web mapping I am currently using a mix of
+`OpenLayers <http://openlayers.org/>`__,
+`GeoExt <http://www.geoext.org/>`__, and
+`MapFish <http://geographika.co.uk/category/mapfish>`__. `
+ <http://geographika.co.uk/category/mapfish>`__
+
+[caption id="" align="aligncenter" width="542" caption="If this makes no
+sense then neither will this blog.."]\ |image0|\ [/caption]
+
+Why a Blog?
+~~~~~~~~~~~
+
+One of the main reasons for starting a blog was as a "work diary" - a
+handy place to keep track of how exactly I did something, so I can refer
+to it a year later when I've forgotten it. As a bonus, and incentive to
+documenting what I've been up to, others may find a few useful tips, or
+solutions to errors. Feel free to leave comments or questions on any of
+the posts.  If you require custom spatial software development then
+please `get in touch <http://geographika.co.uk/contact-me>`__.
+
+I can also be found on `Twitter <http://twitter.com/geographika>`__ and
+`StackOverflow <http://stackoverflow.com/users/179520/geographika>`__.
+` <http://twitter.com/geographika>`__
+
+.. raw:: html
+
+   <p>
+   <script src="http://stackoverflow.com/users/flair/179520.js?theme=clean" type="text/javascript"></script>
+
+| 
+|  `
+ |GIS profile for geographika|
+ <http://gis.stackexchange.com/users/186/geographika>`__
+
+.. raw:: html
+
+   </p>
+   <p>
+   <script type="text/javascript">// <![CDATA[<br />
+     var dyn = document.getElementById('dynContent');<br />
+     dyn.innerHTML = "Seth Girvin";<br />
+   // ]]></script>
+   </p>
+
+.. |image0| image:: http://imgs.xkcd.com/comics/going_west.png
+.. |GIS profile for geographika| image:: http://gis.stackexchange.com/users/flair/186.png?theme=clean
+
+.. include:: comments/about.rst

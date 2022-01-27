@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Automated Diagrams and Documentation &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Automated WMS Reports" href="automated-wms-reports.html" />
+    <link rel="prev" title="Assigning Points to Polygons in SQL Server" href="assigning-points-to-polygons-in-sql-server.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Automated Diagrams and Documentation</a><ul>
+<li><a class="reference internal" href="#class-diagrams">Class Diagrams</a></li>
+<li><a class="reference internal" href="#sequence-diagrams">Sequence Diagrams</a></li>
+<li><a class="reference internal" href="#shapely">Shapely</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="assigning-points-to-polygons-in-sql-server.html" title="Previous Chapter: Assigning Points to Polygons in SQL Server"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Assigning Poi...</span>
+    </a>
+  </li>
+  <li>
+    <a href="automated-wms-reports.html" title="Next Chapter: Automated WMS Reports"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Automated WMS Reports &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="automated-diagrams-and-documentation">
+<h1>Automated Diagrams and Documentation<a class="headerlink" href="#automated-diagrams-and-documentation" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-04-09 15:07</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>documentation, general, python</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>automation, diagrams, documentation, python, shapely</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>automated-diagrams-and-documentation</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>As I <a class="reference external" href="http://geographika.co.uk/task-13-user-documentation">previously
+wrote</a>, one of
+the ways to get through the task of documenting a project is to turn the
+documentation process into a coding project. Documentation sometimes
+seems pointless as the likelihood of anyone other than yourself reading
+it are low to nil.</p>
+<p>To increase the chances pretty pictures always help. If they are also
+useful then the documentation starts to have real value. Up until now
+I’ve been using Microsoft’s Visio, but recently I tried out a couple of
+online tools.</p>
+<section id="class-diagrams">
+<h2>Class Diagrams<a class="headerlink" href="#class-diagrams" title="Permalink to this headline">¶</a></h2>
+<p>The MapServer <a class="reference external" href="http://mapserver.org/mapscript/mapscript.html">Mapscript
+documentation</a>
+currently uses of diagrams made from ASCII text to illustrate
+relationships between classes. I’m not sure if these were generated
+automatically, but the images now appear a little dated. They do
+however have the advantage over an image of being able to copy and paste
+class names.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+-------+</span> <span class="mf">0.</span><span class="o">.*</span>     <span class="mi">1</span> <span class="o">+-------+</span>
+<span class="o">|</span> <span class="n">Class</span> <span class="o">|</span> <span class="o">&lt;--------&gt;</span> <span class="o">|</span> <span class="n">Layer</span> <span class="o">|</span>
+<span class="o">+-------+</span>            <span class="o">+-------+</span>
+</pre></div>
+</div>
+<p>I tried to recreate these diagrams using the online service
+<a class="reference external" href="http://yuml.me/">http://yuml.me/</a>. On the site you enter your model description using a
+fairly basic syntax. From then on the same diagram can be accessed using
+different URLs, which are used to control display and formatting
+options.</p>
+<p><a href="#id1"><span class="problematic" id="id2">|http://yuml.me/diagram/scruffy;dir:lr/class/%5BHashtable%5D1..1-%3E1%5BClass%7Bbg:yellow%7D%5D,%5BLabel%20%5D0..1-%3E1%5BClass%5D,%20%5BStyle%5D0..\*-%3E1%5BClass%5D,%5BClass%5D0..\*-%3E1%5BLayer%7Bbg:green%7D%5D|</span></a></p>
+<p>The diagram above was created using the syntax below. You can play
+around with this sample by <a class="reference external" href="http://yuml.me/diagram/scruffy/class/edit/%5Bnote:%20Mapscript%20Classes%20from%20the%20SWIG%20MapScript%20API%20Reference%7Bbg:cornsilk%7D%5D,%5BHashtable%5D1..1-%3E1%5BClass%7Bbg:yellow%7D%5D,%5BLabel%20%5D0..1-%3E1%5BClass%5D,%20%5BStyle%5D0..*-%3E1%5BClass%5D,%5BClass%5D0..*-%3E1%5BLayer%7Bbg:green%7D%5D">clicking
+here</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Hashtable</span><span class="p">]</span><span class="mf">1..1</span><span class="o">-&gt;</span><span class="mi">1</span><span class="p">[</span><span class="n">Class</span><span class="p">{</span><span class="n">bg</span><span class="p">:</span><span class="n">yellow</span><span class="p">}],</span>
+<span class="p">[</span><span class="n">Label</span> <span class="p">]</span><span class="mf">0..1</span><span class="o">-&gt;</span><span class="mi">1</span><span class="p">[</span><span class="n">Class</span><span class="p">],</span>
+<span class="p">[</span><span class="n">Style</span><span class="p">]</span><span class="mf">0.</span><span class="o">.*-&gt;</span><span class="mi">1</span><span class="p">[</span><span class="n">Class</span><span class="p">],</span>
+<span class="p">[</span><span class="n">Class</span><span class="p">]</span><span class="mf">0.</span><span class="o">.*-&gt;</span><span class="mi">1</span><span class="p">[</span><span class="n">Layer</span><span class="p">{</span><span class="n">bg</span><span class="p">:</span><span class="n">green</span><span class="p">}]</span>
+</pre></div>
+</div>
+<p><img alt="image1" src="http://yuml.me/diagram/scruffy/class/%5BClass%7Ckeyimage%20string;label%20labelObj;layer%20layerObj;maxscale%20float;metadata%20hashTableObj;minscale%20float;name%20string;numstyles%20int;status%20int;template%20string;title%20string;type%20int;debug%20int;%5D" /><a class="reference external" href="http://yuml.me/diagram/scruffy/class/[Class|keyimage%20string;label%20labelObj;layer%20layerObj;maxscale%20float;metadata%20hashTableObj;minscale%20float;name%20string;numstyles%20int;status%20int;template%20string;title%20string;type%20int;debug%20int;]">The class
+diagram</a>
+on the left shows the properties of the <a class="reference external" href="http://mapserver.org/mapscript/mapscript.html#classobj">MapServer Class
+object</a>.
+Anyone can add
+<a class="reference external" href="http://yuml.me/diagram/edit/scruffy/class/[Class|keyimage%20string;label%20labelObj;layer%20layerObj;maxscale%20float;metadata%20hashTableObj;minscale%20float;name%20string;numstyles%20int;status%20int;template%20string;title%20string;type%20int;debug%20int;]">/edit/</a>
+to the URL path to make a new diagram based on this. A “clean” format of
+the diagram can be seen <a class="reference external" href="http://yuml.me/7967b1d6">here</a>.</p>
+<p><a class="reference external" href="http://yuml.me/">http://yuml.me/</a> has plenty of samples, but I couldn’t find full
+documentation on all the available syntax. As this is an online service
+you can never be sure when, or if, they might start charging. They do
+offer a download including sourcecode ($50 for a single user) to install
+locally so you can avoid paying a per diagram charge.</p>
+<p>In response to the accusations that
+<a class="reference external" href="http://en.wikipedia.org/wiki/Unified_Modeling_Language">UML</a> is evil
+<a class="reference external" href="http://yuml.me/">http://yuml.me/</a> responds:</p>
+<blockquote>
+<div><p><em>UML is evil when you use it too much for your given project; it’s
+easy to burn hours and hours doing UML stuff when you could be
+writing code or doing something more useful. Some projects use a lot
+of UML and that really helps them.</em></p>
+</div></blockquote>
+</section>
+<section id="sequence-diagrams">
+<h2>Sequence Diagrams<a class="headerlink" href="#sequence-diagrams" title="Permalink to this headline">¶</a></h2>
+<p>Next I wanted to make a simple to show the interaction between various
+parts of a MapServer and TileCache system I’ve been working on. For this
+I needed to create a <a class="reference external" href="http://en.wikipedia.org/wiki/Sequence_diagram">sequence
+diagram</a> that <em>“shows
+how processes operate with one another and in what order.”</em></p>
+<p><a class="reference external" href="http://www.amazon.com/gp/product/0521540186?ie=UTF8&amp;tag=geographika-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=0521540186">Scott
+Ambler</a>
+at <a class="reference external" href="http://www.agilemodeling.com/artifacts/sequenceDiagram.htm">Agile
+Modelling</a>
+thoughts on these diagrams are:</p>
+<blockquote>
+<div><p><em>My advice is to only create a sequence diagram when you have
+complex logic that you want to think through ?” if the logic is
+straightforward the sequence diagram won’t add any value, you had
+might as well go straight to code.”</em></p>
+</div></blockquote>
+<p>Whether or not my example fits into that category I’m not sure - this
+example was principally to test a different service. This time used I
+used the online service at <a class="reference external" href="http://www.websequencediagrams.com">http://www.websequencediagrams.com</a>. The whole
+diagram generation process can be automated using Python - the script
+used to generate the diagram below can be <a class="reference external" href="http://geographika.co.uk/downloads/diagram.py">downloaded
+here</a>. Again by
+changing parameters in the URL you can change the “scruffy” appearance
+to a more clean style depending on the diagrams audience for example a
+more formal version could be included in a bug report, and a more
+colourful version in a user wiki.</p>
+<p><a class="reference external" href="http://gispython.org/shapely-1.2/manual/manual.html#simplification"><img alt="image" src="../_images/image42.png" /></a></p>
+</section>
+<section id="shapely">
+<h2><a class="reference external" href="http://pypi.python.org/pypi/Shapely">Shapely</a><a class="headerlink" href="#shapely" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://gispython.org/shapely-1.2/manual/manual.html#simplification"><img alt="image" src="../_images/image42.png" /></a></p>
+<p><a class="reference external" href="http://sgillies.net/blog/1015/shapely-1-2b5">Sean Gillies</a> has just
+finished documenting the Shapely a “Python package for manipulation and
+analysis of planar geometries.”</p>
+<p>The first impression you get is that it’s attractive. The images of
+geometry (generated by the Python package
+<a class="reference external" href="http://pypi.python.org/pypi/descartes/">descartes</a>) catch the eye,
+and it was these images as much as anything else that led me to trying
+Shapely in the first place.</p>
+<p>The documentation also has plenty of code samples ?” which as any
+developer knows is by far the easiest way to start using a new library
+or framework. If you can combine writing code samples with generating
+nice diagrams for a user manual then no wonder he is:</p>
+<blockquote>
+<div><p><a class="reference external" href="http://twitter.com/sgillies/status/11481274612">Enjoy(ing) writing some documentation. Crazy, I
+know.</a></p>
+</div></blockquote>
+<p>Hit F5 and let the computer do the work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/6e868664c98eae852a7aad7ad15722eb?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-12" src="http://www.gravatar.com/avatar/6e868664c98eae852a7aad7ad15722eb?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/automated-diagrams-and-documentation.html#comment-12"><span class="std std-ref">1.</span></a> <strong>Eric R.</strong>
+**</p>
+<div class="line-block">
+<div class="line">This is great! But, how would I release all schema locks</div>
+</div>
+<p>programmatically, using VBA?
+|  Is there a method such as schemaLock.ReleaseAll?</p>
+<p>Thanks, –Eric</p>
+<a href="mailto:web+an-end-to-database-locks#1@geographika.co.uk?Subject=an-end-to-database-locks" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/83fd94d85906c73f32de8b0fc2ffe209?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-13" src="http://www.gravatar.com/avatar/83fd94d85906c73f32de8b0fc2ffe209?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/automated-diagrams-and-documentation.html#comment-13"><span class="std std-ref">2.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line">As any application accessing the database would itself cause a lock on</div>
+</div>
+<p>the .mdb file, I don’t think it would be possible with VBA code.
+|  You can use code from <a class="reference external" href="http://support.microsoft.com/kb/198755/EN-US/">http://support.microsoft.com/kb/198755/EN-US/</a>
+to find a list of users connected to the database and if they are in a
+suspect state.
+|  Failing all else you could write code to delete the .ldb file, but
+this may cause more problems than it solves.</p>
+<a href="mailto:web+an-end-to-database-locks#2@geographika.co.uk?Subject=an-end-to-database-locks" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+automated-diagrams-and-documentation@geographika.co.uk?Subject=automated-diagrams-and-documentation" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

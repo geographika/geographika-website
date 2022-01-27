@@ -1,0 +1,86 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-9:
+
+.. image:: http://www.gravatar.com/avatar/b61a233709f8b1999e52b2fa84d25322?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-9>` **Janey**
+**
+
+Can you explain IEnumerator??? I'm getting an error when trying to use
+it.
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-arcobjects-to-get-unique-values-from-a-table#1@geographika.co.uk?Subject=using-arcobjects-to-get-unique-values-from-a-table" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-10:
+
+.. image:: http://www.gravatar.com/avatar/b61a233709f8b1999e52b2fa84d25322?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-10>` **Janey**
+**
+
+I'm having trouble with the CTypes also. It seems like this code is for
+VB.net not VBA/VB6. Do you have a conversion??? It would help me out a
+lot! I'm trying to modify it to do a few things with a table that I'm
+adding to an ArcMap document. Thanks!!
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-arcobjects-to-get-unique-values-from-a-table#2@geographika.co.uk?Subject=using-arcobjects-to-get-unique-values-from-a-table" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-11:
+
+.. image:: http://www.gravatar.com/avatar/83fd94d85906c73f32de8b0fc2ffe209?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-11>` **geographika**
+**
+
+Hi,
+
+| The .NET sample posted here is based on an existing VBA script that
+can be seen at
+http://edndoc.esri.com/arcobjects/8.3/ComponentHelp/esriCore/DataStatistics_Example.htm
+|  Hope that helps!
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-arcobjects-to-get-unique-values-from-a-table#3@geographika.co.uk?Subject=using-arcobjects-to-get-unique-values-from-a-table" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+using-tilecache-on-iis@geographika.co.uk?Subject=using-tilecache-on-iis" target="_top">Add Comment</a>

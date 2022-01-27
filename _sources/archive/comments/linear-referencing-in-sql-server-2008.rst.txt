@@ -1,0 +1,36 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-16:
+
+.. image:: http://www.gravatar.com/avatar/559f3dac36e8f6203bc05c22b415d6fc?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-16>` **Richard Chase**
+**
+
+Hey, hide GDB\_ tales script is quite handy! So is the unblocker tool,
+thanks.
+
+
+.. raw:: html
+
+    <a href="mailto:web+hiding-geodatabase-tables#1@geographika.co.uk?Subject=hiding-geodatabase-tables" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+linear-referencing-in-sql-server-2008@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Add Comment</a>

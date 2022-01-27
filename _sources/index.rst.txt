@@ -1,0 +1,74 @@
+.. title:: Home
+
+.. rst-class:: hidden
+    Geographika
+    ===========
+
+.. raw:: html
+
+    <div id='map' style='width: 100%; height: 300px;'></div>
+
+.. rst-class:: mytitle
+What's New?
+
+Welcome to the new web site! I have decided to move away from blog format to a more documentation-based approach. The plan is to write 
+more detailed technical articles and talk links, and try and keep them up-to-date. 
+
+    *August, 2019*
+
+    + Presenting "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_
+      Slides online at http://www.geographika.net/presentations/mapserver-state-2019/index.html
+    + Presenting "State of GeoExt" at `FOSS4G 2019 <https://2019.foss4g.org>`_
+      Slides online at http://www.geographika.net/presentations/geoext-state-2019/index.html
+
+    *April, 2019*
+
+    + `Third Irish OSGeo Symposium 2019 <https://wiki.osgeo.org/wiki/Ireland/Symposium2019>`_
+      Lightning talk - `Lightning Mapping using OSGeo's MapCache <http://www.cs.nuim.ie/~pmooney/OSGeoIE2019/5.pdf>`_
+..
+    *July, 2017*
+
+    + `mappyfile <http://mappyfile.readthedocs.io/en/latest/>`_ 0.3.2 released.
+    + Presented mappyfile at `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ - slides available :download:`here</files/foss4ge2017_mappyfile_sgirvin.pdf>`. 
+
+    *May, 2017*
+
+    + All WordPress posts and comments migrated to this new Sphinx-based web site.
+    + `mappyfile <http://mappyfile.readthedocs.io/en/latest/>`_ 0.2.2 released.
+    + I'll be giving a lightning talk at the `OSGeo Ireland - 1st National Symposium 2017 <https://wiki.osgeo.org/wiki/Ireland/Symposium2017>`_ in Limerick on *"Contributing to an OSGeo Project"*.
+    + A talk on *mappyfile* has been accepted for `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ in Paris in July.
+
+.. note:: The site is currently being redeveloped, so some posts formatting may be temporarily broken. 
+
+.. rst-class:: mytitle
+Site Contents
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    archive/index
+
+.. rst-class:: mytitle
+Who am I?
+
+I'm an independent geodeveloper who designs, creates, and customises Geographic Information Systems (GIS) for the web and desktop. 
+Most of my time is spent providing consulting and bespoke geospatial software development to clients in Ireland and Europe.
+
+Get in touch via sethg@geographika.co.uk
+
+.. raw:: html
+
+    <a href="https://github.com/geographika/" style="color:#828282;"><span class="fa fa-github fa-4x"></span>geographika</a>
+    <a href="https://stackexchange.com/users/60058">
+    <img src="https://stackexchange.com/users/flair/60058.png?theme=clean" width="208" height="58" alt="profile for geographika on Stack Exchange, a network of free, community-driven Q&amp;A sites" 
+    title="profile for geographika on Stack Exchange, a network of free, community-driven Q&amp;A sites">
+    </a>
+
+..
+    http://tylerlh.github.io/github-latest-commits-widget/?username=geographika&repo=mappyfile&limit=10
+    <script src="_static/geographika.js" type="text/javascript"></script>
+
+.. raw:: html
+   
+    <script src="_static/geographika-ol.js" type="text/javascript"></script>

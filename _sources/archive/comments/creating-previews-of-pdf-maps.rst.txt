@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+creating-previews-of-pdf-maps@geographika.co.uk?Subject=creating-previews-of-pdf-maps" target="_top">Add Comment</a>

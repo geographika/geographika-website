@@ -1,0 +1,106 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1065:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1065>` **Tweets that mention Will HTML5 Revolutionise Raster Web GIS? at geographika -- Topsy.com**
+**
+
+[...] This post was mentioned on Twitter by Chris Veltman, geographika.
+geographika said: Will HTML5 Revolutionise Raster Web GIS?
+http://bit.ly/hkbint #html5 #gis [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+will-html5-revolutionise-raster-web-gis#1@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1068:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1068>` **James Fee GIS Blog &raquo; Blog Archive &raquo; Friday Web Map Fun**
+**
+
+[...] geographika ponders if HTML5 will change how we map raster
+graphics.  I embrace that new world and hope it gets here sooner than
+[...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+will-html5-revolutionise-raster-web-gis#2@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1073:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1073>` **Friday Web Map Fun &laquo; 懒得折腾**
+**
+
+[...] geographika ponders if HTML5 will change how we map raster
+graphics.  I embrace that new world and hope it gets here sooner than
+[...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+will-html5-revolutionise-raster-web-gis#3@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1691:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-1691>` **Friday Web Map Fun &laquo; Spatially Adjusted**
+**
+
+[...] geographika ponders if HTML5 will change how we map raster
+graphics.  I embrace that new world and hope it gets here sooner than
+[...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+will-html5-revolutionise-raster-web-gis#4@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+windows-installer-woes@geographika.co.uk?Subject=windows-installer-woes" target="_top">Add Comment</a>

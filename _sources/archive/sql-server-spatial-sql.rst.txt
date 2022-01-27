@@ -1,0 +1,162 @@
+SQL Server Spatial SQL
+######################
+:date: 2009-12-18 11:05
+:author: admin
+:category: geodatabases, sql server 2008
+:slug: sql-server-spatial-sql
+:status: published
+
+I've been working more and more with the SQL Server 2008 spatial
+queries. For standard queries I now rarely use the\ |sql\_server\_2008|
+graphic design tools available in SQL Server Management Studio - SQL
+scripts are far quicker, and easier to reuse. For spatial queries I
+don't think there even is a GUI. Anyway the following SQL snippets may
+be of use to someone. I have only been using the GEOMETRY type, so these
+may not be relevant to the GEOGRAPHY type, for a distinction see this
+`Microsoft
+document <http://msdn.microsoft.com/en-us/library/bb964711.aspx>`__.
+
+Geometry and Projections
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Make `valid
+geometry <http://msdn.microsoft.com/en-us/library/bb933835.aspx>`__ -
+this can often fix 'invisible' datasets in desktop GIS packages such as
+CadCorp.
+
+::
+
+    UPDATE MyTable SET GeomFieldName = GeomFieldName.MakeValid()
+
+Set the `spatial reference <http://www.spatialreference.org/>`__ for all
+features in a table
+(`STSrid <http://msdn.microsoft.com/en-us/library/bb933851.aspx>`__),
+this is the equivalent of using a .prj file with a shapefile. You
+*could* set a different reference for individual features, although why
+you'd want to do that I've no idea. Note that this does not reproject
+your data, but it is used to tell client applications what projection
+the data is in. In `MapServer <http://mapserver.org/>`__ I found the
+SRID has to be set correctly for
+`WMS <http://en.wikipedia.org/wiki/Web_Map_Service>`__ layers to appear
+in OpenLayers.  Conversely in CadCorp's
+`GeognoSIS <http://www.cadcorp.com/products_geographical_information_systems/geognosis.htm>`__\ I
+had to set these values to 0 for data to display correctly. Change the
+code according to the projection of your data.
+
+::
+
+    UPDATE MyTable SET GeomFieldName.STSrid = 3785 --change this value to your EPSG code
+
+Feature Extents
+~~~~~~~~~~~~~~~
+
+The next SQL code gets the extents of each feature, and saves them into
+new fields. These fields are "calculated" so if the features are
+modified then the extents will be updated, yet they are also saved to
+disk rather than calculated dynamically for each query so they are as
+fast to display as other fields.
+
+::
+
+    ALTER TABLE MyTable
+    ADD MinX AS (CONVERT(int,GeomFieldName.STEnvelope().STPointN((1)).STX,0)) PERSISTED
+    ALTER TABLE MyTable
+    ADD MinY AS (CONVERT(int,GeomFieldName.STEnvelope().STPointN((1)).STY,0)) PERSISTED
+    ALTER TABLE MyTable
+    ADD MaxX AS (CONVERT(int,GeomFieldName.STEnvelope().STPointN((3)).STX,0)) PERSISTED
+    ALTER TABLE MyTable
+    ADD MaxY AS (CONVERT(int,GeomFieldName.STEnvelope().STPointN((3)).STY,0)) PERSISTED
+
+Then to get the full extent of your data you can use (although there are
+alternatives):
+
+::
+
+    SELECT Min(MinX)AS MinX, Min(MinY) AS MinY,
+    MAX(MaxX) AS MaxX, MAX(MaxY) AS MaxY
+    FROM MyTable
+
+Spatial Indexes
+~~~~~~~~~~~~~~~
+
+As mentioned in a `previous post <http://geographika.co.uk/?p=149>`__
+spatial indexes can greatly improve display and query speeds. To create
+an index in SQL use the following syntax. You should set the bounding
+box to the extent of your data, which can be calculated using the query
+above (and included in the SQL script).
+
+::
+
+    CREATE SPATIAL INDEX MyIndexName ON MyTable(GeomFieldName) USING  GEOMETRY_GRID
+    WITH (
+    BOUNDING_BOX =(-1493907.5664457313, 6128509.51667404, -578861.3521250226, 7703103.135644257),
+    GRIDS =(LEVEL_1 = MEDIUM,LEVEL_2 = MEDIUM,LEVEL_3 = MEDIUM,LEVEL_4 = MEDIUM),
+    CELLS_PER_OBJECT = 16, PAD_INDEX  = OFF, SORT_IN_TEMPDB = OFF,
+    DROP_EXISTING = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
+
+Spatial Queries
+~~~~~~~~~~~~~~~
+
+Sometimes SQL Server doesn't seem to use spatial indexes automatically.
+You can force a spatial query to use an index using the
+WITH(INDEX(IndexName) statement similar to below which finds all
+geometry in a table at a point specified by an X and Y (in a Web
+Mercator projection -
+`EPSG:3785 <http://www.spatialreference.org/ref/epsg/3785/>`__)
+
+::
+
+    SELECT *
+    FROM MyTable
+    WITH (INDEX (MyIndexName))
+    WHERE (geometry::Point(@x,@y,3785).STWithin(MyGeomField) = 1)
+
+I have found that sometimes it is quicker when querying by points *not*
+to use a spatial index, so it is worth experimenting.
+
+To find all features within a user defined bounding box you can create a
+stored procedure similar to the following:
+
+::
+
+    CREATE PROCEDURE [SearchByBounds]
+     @minx nvarchar(max),
+     @miny nvarchar(max),
+     @maxx nvarchar(max),
+     @maxy nvarchar(max)
+    AS
+    BEGIN
+     SET NOCOUNT ON;
+     declare @g as geometry;
+     declare @wkt as nvarchar(max);
+     set @wkt = 'POLYGON ((' + @minx + ' ' + @miny + ',' +
+     @minx + ' ' + @maxy + ',' +  @maxx + ' ' + @maxy + ',' + @maxx +
+     ' ' + @miny + ',' + @minx + ' ' + @miny +  '))';
+     set @g = geometry::STGeomFromText(@wkt, 3785);
+     --print @wkt
+     SELECT *
+     FROM MyTable WITH (INDEX (MySpatialIndex))
+     WHERE GeomFieldName.STIntersects(@g) = 1
+    END
+
+I haven't found too many tutorials or blogs on the spatial features in
+SQL Server 2008. The best resources I've found are:
+
+-  `Jason Follas's Introduction to SQL Server
+   Spatial <http://www.jasonfollas.com/blog/archive/2008/03/14/sql-server-2008-spatial-data-part-1.aspx>`__
+-  `Issac's posts on Spatial
+   Indexing <http://blogs.msdn.com/isaac/archive/2009/05/28/sql-server-spatial-indexing.aspx>`__
+-  `Bob Beauchemin's SQL Server Spatial
+   Blog <http://www.sqlskills.com/blogs/Bobb/>`__
+-  Alastair Aitchison's book `Beginning Spatial with SQL Server
+   2008 <http://www.amazon.com/gp/product/1430218290?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=1430218290>`__\ |image1|
+-  `MSDN's SQL Server Spatial
+   Forums <http://social.msdn.microsoft.com/Forums/en/sqlspatial/threads>`__
+
+Feel free to post more links below.
+
+.. |sql\_server\_2008| image:: ../wp-content/uploads/2009/12/sql_server_2008-300x188.png
+   :target: ../wp-content/uploads/2009/12/sql_server_2008.png
+.. |image1| image:: http://www.assoc-amazon.com/e/ir?t=geographika-20&l=as2&o=1&a=1430218290
+
+.. include:: comments/sql-server-spatial-sql.rst

@@ -1,0 +1,66 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-12:
+
+.. image:: http://www.gravatar.com/avatar/6e868664c98eae852a7aad7ad15722eb?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-12>` **Eric R.**
+**
+
+| This is great! But, how would I release all schema locks
+programmatically, using VBA?
+|  Is there a method such as schemaLock.ReleaseAll?
+
+Thanks, --Eric
+
+
+.. raw:: html
+
+    <a href="mailto:web+an-end-to-database-locks#1@geographika.co.uk?Subject=an-end-to-database-locks" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-13:
+
+.. image:: http://www.gravatar.com/avatar/83fd94d85906c73f32de8b0fc2ffe209?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-13>` **geographika**
+**
+
+| As any application accessing the database would itself cause a lock on
+the .mdb file, I don't think it would be possible with VBA code.
+|  You can use code from http://support.microsoft.com/kb/198755/EN-US/
+to find a list of users connected to the database and if they are in a
+suspect state.
+|  Failing all else you could write code to delete the .ldb file, but
+this may cause more problems than it solves.
+
+
+.. raw:: html
+
+    <a href="mailto:web+an-end-to-database-locks#2@geographika.co.uk?Subject=an-end-to-database-locks" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+automated-diagrams-and-documentation@geographika.co.uk?Subject=automated-diagrams-and-documentation" target="_top">Add Comment</a>

@@ -1,0 +1,107 @@
+Global Mapper and Shapefiles
+############################
+:date: 2012-08-05 11:25
+:author: admin
+:category: programming
+:tags: globalmapper, scripting
+:slug: global-mapper-and-shapefiles
+:status: published
+
+.. raw:: html
+
+   <div class="document" style="text-align: justify;">
+
+|http://geographika.co.uk/wp-content/uploads/globalmapper/blue\_marble\_europe\_small.jpg|\ I
+recently had a small project that required vector features in several
+thousand `Global Mapper <http://www.bluemarblegeo.com/global-mapper/>`__
+project files to be extracted into shapefiles.
+
+.. raw:: html
+
+   </p>
+
+The batch export tool didn't seem to be running on the project files, so
+I was asked to take a look at the Global Mapper
+`scripting <http://www.globalmapper.com/helpv13/ScriptReference.html>`__
+documentation. The syntax was easy to follow, and scripts can be run by
+passing the script file name as an argument on the command line to the
+Global Mapper .exe file.
+
+However when looking at the attributes of some of the exported
+shapefiles in ArcCatalog, the table was blank. Upon further
+investigation a couple of interesting issues came to light.
+
+1. The shapefile string fields created by the Global Mapper export had a
+maximum length of 255 characters. I compared this to a newly created
+ESRI shapefile, and the DBFs string fields in this only had a maximum
+length of 254 characters. This difference also crashed the ESRI
+`Merge <http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#//001700000055000000>`__
+tool (with no meaningful explanation). I had to cut the last character
+off in Python before they would merge.
+
+2. Field names were not cleaned up by the GM export, meaning punctuation
+and spaces led to corrupt shapefiles/DBFs. I was able to get around this
+by editing the field names in the GM project files prior to an export,
+using the following syntax:
+
+.. code:: literal-block
+
+     EDIT_VECTOR ATTR_TO_RENAME="FIELD. NAME.=FIELD_NAME"
+
+The `ESRI Shapefile
+Specification <http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf>`__
+states that:
+
+    *"The dBASE file (.dbf) contains any desired feature attributes or
+    attribute keys to which other tables can be joined. Its format is a
+    standard DBF file used by many table-based applications in Windows
+    and DOS. "*
+
+However the "standard" `DBF
+Specification <http://www.dbase.com/knowledgebase/int/db7_file_fmt.htm>`__
+simply mentions field names as being stored as ASCII text. It makes no
+mention of any invalid characters, and no mention of 254 character field
+limitations. Opening the DBFs in Excel didn't cause any issues.
+
+I sent an email to Global Mapper support mentioning these issues, and
+literally within hours I received the following reply:
+
+    *"I updated the maximum field length for DBF export to 254 since
+    ESRI can't handle the full 255 characters that the DBF format itself
+    supports. I also limited the field names to just characters,
+    numbers, and underscore since it appears that ESRI also can't handle
+    just anything in the DBF field names despite the DBF format itself
+    having no such limits. "*
+
+    *"I have placed a new build at
+    http://www.globalmapper.com/global\_mapper13.zip with the latest
+    changes for you to try. Simply download that file and extract the
+    contents into your existing v13.xx installation folder to give it a
+    try. If you are using the 64-bit v13 version there is a new build at
+    http://www.globalmapper.com/global\_mapper13\_64bit.zip ."*
+
+I was stunned to get not only a reply from email technical support that
+not only understood the issue I reported, but had updated, fixed, and
+recompiled the executable, and made it available for
+`download <http://www.globalmapper.com/global_mapper13.zip>`__ (all by
+the principle developer Mike Childs). Although I've not used Global
+Mapper enough (beyond scripting) to judge it as a GIS application, I can
+certainly vouch for the *"unsurpassed technical support with no extra
+support fees"* mentioned on their site.
+
+In addition there are plans to allow to export to the slightly superior
+(in that memo fields can be handled without resorting to additional
+files) ESRI File Geodatabase format:
+
+    *"While there is currently only support for reading and not writing
+    ESRI File Geodatabases, we are planning on adding ESRI File
+    Geodatabase export support, perhaps as soon as the upcoming v14
+    release later this year. "*
+
+.. raw:: html
+
+   </div>
+
+.. |http://geographika.co.uk/wp-content/uploads/globalmapper/blue\_marble\_europe\_small.jpg| image:: images/globalmapper/blue_marble_europe_small.jpg
+
+.. include:: comments/global-mapper-and-shapefiles.rst

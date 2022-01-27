@@ -1,0 +1,38 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-267:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-267>` **geographika &raquo; Compiling a 64 bit Version of PyISAPIe**
+**
+
+[...] Studio 2008, and a number of other tools that are detailed as I go
+along. I’ve also got the 64 bit compilation tools installed. There are a
+few notes from Phillip on compiling it for Windows 64-bit in the
+discussion lists (see [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-visual-studio-2008-for-compiling-64-bit-dlls#1@geographika.co.uk?Subject=setting-up-visual-studio-2008-for-compiling-64-bit-dlls" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+source-control-using-bitbucket@geographika.co.uk?Subject=source-control-using-bitbucket" target="_top">Add Comment</a>

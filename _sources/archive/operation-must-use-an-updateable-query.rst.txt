@@ -1,0 +1,28 @@
+Operation must use an Updateable Query
+######################################
+:date: 2007-08-14 17:47
+:author: geographika
+:category: bugs
+:slug: operation-must-use-an-updateable-query
+:status: published
+
+I know I see this error about once a year and can never remember the
+cause, so I'm writing it down this time!
+
+In my case it has always been related to SQL queries and Access
+databases. Check the following if your SQL command produces this error
+when executed:
+
+#. The database is not read only - Visual Source Safe can often be a
+   culprit in setting this property..
+#. The SQL query may contain fields that are reserve words (e.g. DATE,
+   TOP etc.). These should all be renamed in the database (I normally
+   add an underscore at the end).
+#. Go through a long and tedious process of which Windows user is
+   running the SQL (ASPNET, IUSR\_COMPUTERNAME etc.) and check thy have
+   write permissions to the folder containing the database, and the
+   database file itself. Remember Access needs to create those pesky
+   .ldb lock files..
+
+
+.. include:: comments/operation-must-use-an-updateable-query.rst

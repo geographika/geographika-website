@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Quantum GIS and MapServer &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reboot to Refresh Environment Variables" href="reboot-to-refresh-environment-variables.html" />
+    <link rel="prev" title="Project Build Error" href="project-build-error.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Quantum GIS and MapServer</a><ul>
+<li><a class="reference internal" href="#further-details">Further Details</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="project-build-error.html" title="Previous Chapter: Project Build Error"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Project Build Error</span>
+    </a>
+  </li>
+  <li>
+    <a href="reboot-to-refresh-environment-variables.html" title="Next Chapter: Reboot to Refresh Environment Variables"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Reboot to Ref... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="quantum-gis-and-mapserver">
+<h1>Quantum GIS and MapServer<a class="headerlink" href="#quantum-gis-and-mapserver" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-10-12 15:02</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, programming</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>desktop, gis, mapserver, opensource, qgis, quantum gis</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>quantum-gis-and-mapserver</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>One of the main barriers I had to using
+<a class="reference external" href="http://mapserver.org/">MapServer</a> as a web GIS server was that
+layers had to be symbolised i<img alt="qgis" src="../_images/qgis.png" />n a text editor, using a MAPFILE.
+It was cumbersome to keep editing and refreshing a browser, there was no
+easy way to check for errors, and you have to learn the syntax and
+keywords.</p>
+<p>Whilst this is ok for smaller projects where I could make these myself,
+larger projects require non-programmers to gather data, symbolise it,
+and handle the map layouts and creation.</p>
+<p>I’ve just discovered that another of the
+<a class="reference external" href="http://www.osgeo.org/">OSGeo</a>’s projects, <a class="reference external" href="http://www.qgis.org/">Quantum
+GIS</a> (often abbreviated to QGIS) has a tool
+that can take a map project created and symbolised in the desktop
+application, and export it to a MAPFILE which can be read by MapServer.
+This seems to be the missing link in a complete<a class="reference external" href="http://kelsocartography.com/blog/?p=1098">Open Source GIS
+stack</a>.</p>
+<p>I had a few problems finding where this tool was installed. By default
+the Python files should be in the
+C:\OSGeo4W\apps\qgis\python\plugins\mapserver_export directory,
+however this directory did not exist after running through a default
+installation without paying attention.</p>
+<p>OSGeo have a <a class="reference external" href="http://trac.osgeo.org/osgeo4w/">custom installer</a> that
+you can use to install all their software including MapServer,
+QuantumGIS, and <a class="reference external" href="http://www.osgeo.org/grass">GRASS</a>. To install
+Quantum GIS follow the notes on this <a class="reference external" href="http://wiki.qgis.org/qgiswiki/OsGeo4wSetup">wiki
+page</a>. Clearly you need
+to select QGIS, but the MapServer Export tool also requires
+<strong>python-qgis</strong>. I think I missed this the first time round, however you
+can always rerun the installer to add new packages and libraries.</p>
+<p>[caption id=”attachment_138” align=”aligncenter” width=”300”
+caption=”The OSGeo Installer”]<a class="reference external" href="images/2009/10/osgeo4w1.png"><img alt="The OSGeo Installer" src="archive/images/2009/10/osgeo4w1-300x196.png" /></a>[/caption]</p>
+<p>Once you have the Python for QGIS library installed open QGIS, and go to
+Plugins &gt;&gt; Fetch Python Plugins. The MapServer Export plug-in should be
+installed. Now go to Plug-Ins &gt;&gt; Manage Plugins and check the MapServer
+Export box as below.</p>
+<p><a class="reference external" href="images/2009/10/osgeo4w2.png"><img alt="osgeo4w2" src="archive/images/2009/10/osgeo4w2-300x216.png" /></a></p>
+<p>You should now see a new MapServer Export menu item on the Plugins menu.</p>
+<section id="further-details">
+<h2>Further Details<a class="headerlink" href="#further-details" title="Permalink to this headline">¶</a></h2>
+<p>There is a good introduction to using QGIS at
+<a class="reference external" href="http://spatialhorizons.com/category/qgis/">http://spatialhorizons.com/category/qgis/</a></p>
+<p>You can also install a standalone version of MapServer Export -
+<a class="reference external" href="http://spatialserver.net/qgis2ms/">http://spatialserver.net/qgis2ms/</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+quantum-gis-and-mapserver@geographika.co.uk?Subject=quantum-gis-and-mapserver" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

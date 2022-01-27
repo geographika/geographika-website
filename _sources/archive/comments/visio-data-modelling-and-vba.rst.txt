@@ -1,0 +1,68 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-695:
+
+.. image:: http://www.gravatar.com/avatar/b2132a616cd801f3be5b7b2abc33b6aa?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-695>` **Longred**
+**
+
+| Awesome, but
+|  1. How to call your script from OpenLayers?
+|  2. Modification of service.py results in a non functioning
+tilecache\_seed.py.
+|  Regards,
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-tilecache-on-iis#1@geographika.co.uk?Subject=using-tilecache-on-iis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-699:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-699>` **geographika**
+**
+
+1. The script is called by setting the URL of the WMS layer to the URL
+of the python script. E.g.
+
+var wms = new OpenLayers.Layer.WMS("My Layer
+Name","http://myserver.org/tiles/tilecache.py", {layers: "mylayer"});
+
+2. Thanks for the info - not really needed to seed a cache as yet. You
+could always pass in a workingdir parameter, or hardcode it if you only
+have one cache.
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-tilecache-on-iis#2@geographika.co.uk?Subject=using-tilecache-on-iis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+visio-data-modelling-and-vba@geographika.co.uk?Subject=visio-data-modelling-and-vba" target="_top">Add Comment</a>

@@ -1,0 +1,48 @@
+Mapfish JavaScript Toolbox
+##########################
+:date: 2010-01-14 11:16
+:author: admin
+:category: javascript, mapfish, programming
+:tags: javascript, mapfish, opensource, python
+:slug: mapfish-javascript-toolbox
+:status: published
+
+|image0|\ Mapfish is an open-source web mapping framework built using
+the `Pylons <http://pylonshq.com/>`__ Python web framework for
+*"creating web services that allow querying and editing of geographic
+objects."* However the server-side functionality of the system I am
+currently working on is already handled by SQL Server 2008 Spatial and
+MapServer. What interested me more was that Mapfish *"provides a
+complete RIA-oriented (Rich Internet Application) JavaScript toolbox."*
+
+A couple of examples of the front-end interface can be found at the `EU
+Inspire
+Geoportal <http://www.inspire-geoportal.eu/index.cfm/pageid/341>`__, and
+the `Marbled Murrelet Mashup <http://mamu.littleearth.ca/>`__. The
+Mapfish client combines three frameworks into one
+`OpenLayers <http://openlayers.org/>`__,
+`GeoExt <http://geoext.org/>`__, and `ExtJS <http://www.extjs.com/>`__.
+
+The client JavaScript is available via downloaded from
+http://www.mapfish.org/downloads/. At the time of writing
+`mapfish-client-1.2.tar.gz <http://www.mapfish.org/downloads/mapfish-client-1.2.tar.gz>`__
+was the most recent version. The files can be unzipped using the
+open-source program `7-zip <http://www.7-zip.org/>`__ that handles both
+gzip and "tar ball" zip files. Once unzipped there are a number of
+samples that can be run and edited locally (look for the
+examples/map/index.html page). This alone is a huge step forward in
+creating a basic online mapping system that rivals proprietary
+offerings.
+
+Further details on using the toolkit can be found at the `Mapfish
+tutorial <http://www.mapfish.org/doc/tutorials/introduction/introduction.html?highlight=demo#mapfish-client>`__
+and `this blog
+tutorial <http://www.source3.com/mgiswiki/tiki-index.php?page=Customizing+the+sample+map>`__.
+I'll also be writing some more technical posts, specifically around
+using Mapfish with Windows, as most of the current documentation assumes
+people are running Linux.
+
+.. |image0| image:: images/2010/01/mapfish_white-150x96.png
+   :target: images/2010/01/mapfish_white.png
+
+.. include:: comments/mapfish-javascript-toolbox.rst

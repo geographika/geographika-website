@@ -1,0 +1,45 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1564:
+
+.. image:: http://www.gravatar.com/avatar/9efa1f6789843301fc9f7e27d24dd0a2?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1564>` **Samuel Smith**
+**
+
+Hey Man,
+
+I'm super close getting this proxy to work ... I seems to be exactly
+what I need, but am getting a 401.3 (Access Denied) error.
+
+I've given ASPNET and NETWORK service full control on the directory (all
+files/subs), and IUSR\_ read, write, execute, restarted the app pool
+(and IIS) ...
+
+Have you come across this issue or got any other directions? Please :)
+Am in IIS 6 on 32 bit Win Server 2003.
+
+
+.. raw:: html
+
+    <a href="mailto:web+a-proxy-for-iis-and-net#1@geographika.co.uk?Subject=a-proxy-for-iis-and-net" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+accessing-cross-domain-data-with-yql@geographika.co.uk?Subject=accessing-cross-domain-data-with-yql" target="_top">Add Comment</a>

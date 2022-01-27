@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>OpenAerialMap &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OpenLayers" href="openlayers.html" />
+    <link rel="prev" title="OGR Comes to SQL Server 2008 Spatial" href="ogr-comes-to-sql-server-2008-spatial.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">OpenAerialMap</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="ogr-comes-to-sql-server-2008-spatial.html" title="Previous Chapter: OGR Comes to SQL Server 2008 Spatial"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; OGR Comes to ...</span>
+    </a>
+  </li>
+  <li>
+    <a href="openlayers.html" title="Next Chapter: OpenLayers"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">OpenLayers &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="openaerialmap">
+<h1>OpenAerialMap<a class="headerlink" href="#openaerialmap" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-06-06 18:57</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>general, opinion</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>data, openaerialmap, osm</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>openaerialmap</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><img alt="image" src="../_images/image63.png" /> Everyone loves aerial photography. Some of its <a class="reference external" href="http://en.wikipedia.org/wiki/Sidney_Cotton#Spy_missions">early
+pioneers</a>
+were the James Bonds of their era. Twenty years ago people could go
+round neighbourhoods in England and sell people frames photographs of
+their houses from the air.</p>
+<p>Today people spend hours looking at the aerial photography layer on
+Google Maps wondering why so many people have outdoor swimming pools in
+the UK..</p>
+<p>People also like <a class="reference external" href="http://www.freeourdata.org.uk/index.php">free
+data</a>. And companies like
+<a class="reference external" href="http://wiki.openstreetmap.org/wiki/Faq#Why_don.27t_you_just_use_Google_Maps.2Fwhoever_for_your_data.3F">data free from the Google Terms of
+Service</a>
+even more. The successful <a class="reference external" href="http://wiki.openstreetmap.org/wiki/OpenAerialMap">OpenStreetMap
+wiki</a> refers to
+what seems to be the perfect datasource - the
+<a class="reference external" href="http://openaerialmap.org/">OpenAerialMap</a> (OAM) project, however it
+starts with the rather ominous opening statement:</p>
+<p><em>It was available at</em>
+<a class="reference external" href="http://openaerialmap.org/">*http://openaerialmap.org/*</a> <em>but…</em></p>
+<div style="text-align: justify;"></div><p>The reasons for its demise are documented by <a class="reference external" href="http://crschmidt.net/">Christopher
+Schmidt</a> (a major force in the development of
+OpenLayers and TileCache) in <a class="reference external" href="http://openaerialmap.org/pipermail/talk_openaerialmap.org/2008-December/000055.html">this post to the mailing
+list</a>.
+In summary the main reasons for failure were technical - dealing with
+the huge amounts of raster data and getting disk space.</p>
+<p><a class="reference external" href="http://mapfishblog.blogspot.com/">Cedric Mouillet</a> asked on <a class="reference external" href="http://openaerialmap.org/pipermail/talk_openaerialmap.org/2010-April/000361.html">the
+mailing
+list</a>
+what was the state of the project, to see if it could be used as
+reference mapping for the <a class="reference external" href="www.openaddresses.org">OpenAddresses</a>
+project. No answers were posted.</p>
+<p>There is still however life in the movement. A conference call was made
+at the start of May 2010 to discuss the <a class="reference external" href="http://openaerialmap.org/OAM_Hardware_Conference_Call">hardware set-up of the
+project</a>.
+Included in the attendees list for the call and on the <a class="reference external" href="http://www.openaerialmap.org/OAM_Steering_Committee">OAM Steering
+Committee</a> are
+members of OSGeo which may prove critical to the future of the project.</p>
+<p>Anyway here’s hoping to a successful second version of OAM. In the
+meantime Google’s aerial photography service (followed by Bing and
+Yahoo) will remain way out in front terms of <a class="reference external" href="http://www.terrametrics.com/support/faqs_content.htm">data quality,
+quantity</a>, and
+ease of access. Just remember it is only “free” in one sense.</p>
+<p style="text-align: justify;">
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="580" height="360" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><embed type="application/x-shockwave-flash" width="580" height="360" src="http://www.youtube.com/v/FOR0fPTx-os&amp;hl=en_US&amp;fs=1&amp;rel=0&amp;border=1" allowscriptaccess="always" allowfullscreen="true">
+</embed>
+</object>
+</p><dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+openaerialmap@geographika.co.uk?Subject=openaerialmap" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Creating a Geodesic Circle in OpenLayers &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Creating Previews of PDF Maps" href="creating-previews-of-pdf-maps.html" />
+    <link rel="prev" title="Could not use ‘’; file already in use.”" href="could-not-use-file-already-in-use.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Creating a Geodesic Circle in OpenLayers</a><ul>
+<li><a class="reference internal" href="#code">Code</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="could-not-use-file-already-in-use.html" title="Previous Chapter: Could not use ‘’; file already in use.”"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Could not use...</span>
+    </a>
+  </li>
+  <li>
+    <a href="creating-previews-of-pdf-maps.html" title="Next Chapter: Creating Previews of PDF Maps"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Creating Prev... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="creating-a-geodesic-circle-in-openlayers">
+<h1>Creating a Geodesic Circle in OpenLayers<a class="headerlink" href="#creating-a-geodesic-circle-in-openlayers" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-11-27 17:49</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>javascript, OpenLayers</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>buffer, geodesic, geometry, polygon</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>creating-a-geodesic-circle-in-openlayers</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="http://geographika.co.uk/samples/geodesic/"><img alt="image" src="../_images/image_thumb52.png" /></a></p>
+<p>I recently asked a question on <a class="reference external" href="http://gis.stackexchange.com/questions/3264/using-geodesic-measurements-for-cirle-radii">GIS Stack
+Exchange</a>
+on how to create a  buffer around a point that took into account the
+curvature of the earth. OpenLayers has support for <a class="reference external" href="http://en.wikipedia.org/wiki/Geodesic">geodesic
+measurements</a>, but not
+creating geodesic polygons. Drawing a standard polygon on a Mercator
+projected map can produce features with very different measurements from
+their intended “on the ground” equivalents.</p>
+<p><a class="reference external" href="http://www.cleverelephant.ca/">Paul Ramsey</a> pointed out that <em>“the
+scale errors for Mercator are very high indeed (infinite, in fact, at
+the poles) increasing as you head north/south from the true scale
+latitude.”</em> In fact drawing a circle (in Ireland - 53 degrees North)
+with a 10km geometric radius produced a circle with an on the ground
+radius of 6km.  A huge margin of error over a very short distance (see a
+<a class="reference external" href="http://geographika.co.uk/watch-out-for-openlayer-distances">previous
+post</a> on
+the same subject).</p>
+<p>After a useful answer from <a class="reference external" href="http://blog.shoutis.org/">Dan Shoutis</a>,
+it appeared most of the work to implement geodesic circles was already
+available in the OpenLayers API. The <a class="reference external" href="http://trac.osgeo.org/openlayers/browser/trunk/openlayers/lib/OpenLayers/Util.js">OpenLayers’ geodesic
+functions</a>
+are based on code adapted from Chris Veness work at
+<a class="reference external" href="http://www.movable-type.co.uk/scripts/latlong-vincenty-direct.html">http://www.movable-type.co.uk/scripts/latlong-vincenty-direct.html</a>.</p>
+<p>The code to create a regular (non-geodesic) polygon can be seen in the
+OpenLayers source
+<a class="reference external" href="http://trac.osgeo.org/openlayers/browser/trunk/openlayers/lib/OpenLayers/Geometry/Polygon.js">here</a>.
+There is a function added after the class
+OpenLayers.Geometry.Polygon.createRegularPolygon that can be used to
+<em>“create a regular polygon around a radius. Useful for creating circles
+and the like.”</em></p>
+<p>This function only required a couple of changes - notably using
+Longitude and Latitude and rather than X and Ys, to produce geodesic
+polygons. If you are using the Mercator projection then transformations
+requires <a class="reference external" href="http://proj4js.org/">proj4js</a> support.</p>
+<section id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<p>An online demo of the function is available at
+<a class="reference external" href="http://geographika.co.uk/samples/geodesic/">http://geographika.co.uk/samples/geodesic/</a>. The adapted function can be
+seen at <a class="reference external" href="http://geographika.co.uk/samples/geodesic/GeodesicPolygon.js">http://geographika.co.uk/samples/geodesic/GeodesicPolygon.js</a>.</p>
+<p>I have uploaded the full source code for the demo to
+<a class="reference external" href="http://bitbucket.org/geographika/openlayers/src">http://bitbucket.org/geographika/openlayers/src</a>.</p>
+<p><a class="reference external" href="http://geographika.co.uk/samples/geodesic/"><img alt="image" src="../_images/image_thumb52.png" /></a></p>
+<p>Just don’t try drawing circles around the map edges..</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/e7f2c8dfbae7e8b9bb848809d86192ed?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-15" src="http://www.gravatar.com/avatar/e7f2c8dfbae7e8b9bb848809d86192ed?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-15"><span class="std std-ref">1.</span></a> <strong>farvish</strong>
+**</p>
+<p>Nice article. This error may come due to corruption in database. In this
+situation you can use compact and repair option or <a class="reference external" href="http://www.repair-access-file.com">access
+repair</a> utility which can fix the
+error and repair database</p>
+<a href="mailto:web+could-not-use-file-already-in-use#1@geographika.co.uk?Subject=could-not-use-file-already-in-use" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+creating-a-geodesic-circle-in-openlayers@geographika.co.uk?Subject=creating-a-geodesic-circle-in-openlayers" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+OpenAerialMap
+#############
+:date: 2010-06-06 18:57
+:author: admin
+:category: general, opinion
+:tags: data, openaerialmap, osm
+:slug: openaerialmap
+:status: published
+
+|image| Everyone loves aerial photography. Some of its `early
+pioneers <http://en.wikipedia.org/wiki/Sidney_Cotton#Spy_missions>`__
+were the James Bonds of their era. Twenty years ago people could go
+round neighbourhoods in England and sell people frames photographs of
+their houses from the air.
+
+Today people spend hours looking at the aerial photography layer on
+Google Maps wondering why so many people have outdoor swimming pools in
+the UK..
+
+People also like `free
+data <http://www.freeourdata.org.uk/index.php>`__. And companies like
+`data free from the Google Terms of
+Service <http://wiki.openstreetmap.org/wiki/Faq#Why_don.27t_you_just_use_Google_Maps.2Fwhoever_for_your_data.3F>`__
+even more. The successful `OpenStreetMap
+wiki <http://wiki.openstreetmap.org/wiki/OpenAerialMap>`__ refers to
+what seems to be the perfect datasource - the
+`OpenAerialMap <http://openaerialmap.org/>`__ (OAM) project, however it
+starts with the rather ominous opening statement:
+
+*It was available at*
+`*http://openaerialmap.org/* <http://openaerialmap.org/>`__ *but...*
+
+.. raw:: html
+
+   <div style="text-align: justify;">
+
+.. raw:: html
+
+   </div>
+
+The reasons for its demise are documented by `Christopher
+Schmidt <http://crschmidt.net/>`__ (a major force in the development of
+OpenLayers and TileCache) in `this post to the mailing
+list <http://openaerialmap.org/pipermail/talk_openaerialmap.org/2008-December/000055.html>`__.
+In summary the main reasons for failure were technical - dealing with
+the huge amounts of raster data and getting disk space.
+
+`Cedric Mouillet <http://mapfishblog.blogspot.com/>`__ asked on `the
+mailing
+list <http://openaerialmap.org/pipermail/talk_openaerialmap.org/2010-April/000361.html>`__
+what was the state of the project, to see if it could be used as
+reference mapping for the `OpenAddresses <www.openaddresses.org>`__
+project. No answers were posted.
+
+There is still however life in the movement. A conference call was made
+at the start of May 2010 to discuss the `hardware set-up of the
+project <http://openaerialmap.org/OAM_Hardware_Conference_Call>`__.
+Included in the attendees list for the call and on the `OAM Steering
+Committee <http://www.openaerialmap.org/OAM_Steering_Committee>`__ are
+members of OSGeo which may prove critical to the future of the project.
+
+Anyway here’s hoping to a successful second version of OAM. In the
+meantime Google’s aerial photography service (followed by Bing and
+Yahoo) will remain way out in front terms of `data quality,
+quantity <http://www.terrametrics.com/support/faqs_content.htm>`__, and
+ease of access. Just remember it is only “free” in one sense.
+
+.. raw:: html
+
+   <p style="text-align: justify;">
+   <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="580" height="360" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0">
+
+.. raw:: html
+
+   <embed type="application/x-shockwave-flash" width="580" height="360" src="http://www.youtube.com/v/FOR0fPTx-os&amp;hl=en_US&amp;fs=1&amp;rel=0&amp;border=1" allowscriptaccess="always" allowfullscreen="true">
+   </embed>
+   </object>
+   </p>
+
+.. |image| image:: images/2010/05/image6.png
+
+.. include:: comments/openaerialmap.rst

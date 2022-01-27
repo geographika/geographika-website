@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MapServer+Windows 64 bit+Apache=Crash? &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Masquerades, Geocaching, and Easter Eggs" href="masquerades-geocaching-and-easter-eggs.html" />
+    <link rel="prev" title="3 MapServer &amp; SQL Server 2008 Performance Tips" href="mapserver-sql-server-2008-tips.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">MapServer+Windows 64 bit+Apache=Crash?</a><ul>
+<li><a class="reference internal" href="#the-windows-error-log">The Windows Error Log</a></li>
+<li><a class="reference internal" href="#the-apache-error-log">The Apache Error Log</a></li>
+<li><a class="reference internal" href="#final-outcome">Final Outcome</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="mapserver-sql-server-2008-tips.html" title="Previous Chapter: 3 MapServer & SQL Server 2008 Performance Tips"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 3 MapServer &...</span>
+    </a>
+  </li>
+  <li>
+    <a href="masquerades-geocaching-and-easter-eggs.html" title="Next Chapter: Masquerades, Geocaching, and Easter Eggs"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Masquerades, ... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="mapserver-windows-64-bit-apache-crash">
+<h1>MapServer+Windows 64 bit+Apache=Crash?<a class="headerlink" href="#mapserver-windows-64-bit-apache-crash" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-03-11 15:38</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>bugs, mapserver</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit, apache, bug, mapserver</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>mapserverwindowsapachecrash</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a href="#id1"><span class="problematic" id="id2">|image0|</span></a>I developed my MapServer application on Windows 2003 (a
+virtual 64 bit server running), using MS4W (MapServer for Windows), and
+had set up TileCache, and some Python scripts to <a class="reference external" href="http://geographika.co.uk/running-python-through-apache">run through
+Apache</a>. I
+had managed to crash the set up numerous times in development, but I
+hadn’t come across any errors not of my own making.</p>
+<p>The installation went well  on the production server which was also a 64
+bit machine, but was using Windows Server 2008. The site had an
+unpublicised release as it is still in beta, and from this was getting
+about 60 - 70 visitors a day.</p>
+<p>I use <a class="reference external" href="http://host-tracker.com/">host-tracker.com</a> - a web site
+monitoring service which lets me know if a site is down, and I was soon
+made aware that it was.. There were no responses at all coming from
+Apache, even though the Apache service was still running. Not even HTML
+pages were returned. Restarting Apache returned the service to normal,
+but this was happening every other day.</p>
+<section id="the-windows-error-log">
+<h2>The Windows Error Log<a class="headerlink" href="#the-windows-error-log" title="Permalink to this headline">¶</a></h2>
+<p>The Windows Event Log had lots of the following errors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Faulting</span> <span class="n">application</span> <span class="n">name</span><span class="p">:</span> <span class="n">mapserv</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.0.0.0</span><span class="p">,</span> <span class="n">time</span> <span class="n">stamp</span><span class="p">:</span> <span class="mh">0x4935ad86</span>
+<span class="n">Faulting</span> <span class="n">module</span> <span class="n">name</span><span class="p">:</span> <span class="n">MSVCR71</span><span class="o">.</span><span class="n">dll</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="mf">7.10.3052.4</span><span class="p">,</span> <span class="n">time</span> <span class="n">stamp</span><span class="p">:</span> <span class="mh">0x3e561eac</span>
+<span class="ne">Exception</span> <span class="n">code</span><span class="p">:</span> <span class="mh">0xc0000005Fa</span><span class="n">ulting</span> <span class="n">process</span> <span class="nb">id</span><span class="p">:</span> <span class="mh">0xe08</span>
+<span class="n">Faulting</span> <span class="n">application</span> <span class="n">start</span> <span class="n">time</span><span class="p">:</span> <span class="mh">0x01caa0e28e6dcbb6</span>
+<span class="n">Faulting</span> <span class="n">application</span> <span class="n">path</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span>\<span class="n">ms4w</span>\<span class="n">Apache</span>\<span class="n">cgi</span><span class="o">-</span><span class="nb">bin</span>\<span class="n">mapserv</span><span class="o">.</span><span class="n">exe</span>
+<span class="n">Faulting</span> <span class="n">module</span> <span class="n">path</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span>\<span class="n">ms4w</span>\<span class="n">Apache</span>\<span class="n">cgi</span><span class="o">-</span><span class="nb">bin</span>\<span class="n">MSVCR71</span><span class="o">.</span><span class="n">dll</span>
+<span class="n">Report</span> <span class="n">Id</span><span class="p">:</span> <span class="mi">4</span><span class="n">bc3555e</span><span class="o">-</span><span class="mi">0</span><span class="n">cd7</span><span class="o">-</span><span class="mi">11</span><span class="n">df</span><span class="o">-</span><span class="mf">9e56</span><span class="o">-</span><span class="mi">00155</span><span class="n">d002601</span>
+</pre></div>
+</div>
+<p>The MSVCR71 refers to the Microsoft C run-time libraries, so I *think*
+the errors are likely to be from a program that uses them (ie.
+MapServer) rather than the DLL itself. Windows 2003 has this DLL in its
+system32 folder, whereas Windows 2008 does not, but as long as it is in
+the application directory (cgi-bin in MapServer’s case) then it should
+not be a problem. In short I don’t believe this DLL was the root of the
+problem. I tried turning on MapServer debugging, but there were no
+errors reported from MapServer itself.</p>
+</section>
+<section id="the-apache-error-log">
+<h2>The Apache Error Log<a class="headerlink" href="#the-apache-error-log" title="Permalink to this headline">¶</a></h2>
+<p>On the other hand the Apache log (C:\ms4w\Apache\logs\error.log) had
+several warnings such as the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">28</span> <span class="mi">15</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">warn</span><span class="p">]</span> <span class="p">(</span><span class="n">OS</span> <span class="mi">64</span><span class="p">)</span><span class="n">The</span> <span class="n">specified</span> <span class="n">network</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">available</span><span class="o">.</span>  <span class="p">:</span>
+<span class="n">winnt_accept</span><span class="p">:</span> <span class="n">Asynchronous</span> <span class="n">AcceptEx</span> <span class="n">failed</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The Apache documentation suggests that a possible cause of these errors
+is due to <em>“virus scanning or virtual private network packages, have
+bugs that interfere with the proper operation of AcceptEx().”</em> While I
+could rule the first out, the second was a definite possibility as I was
+required to use Juniper’s
+<a class="reference external" href="http://www.nscreensales.com/NetScreen_Remote_s/10.htm">NetScreenRemote</a>
+to connect to the server. The Juniper site now states <em>“No Longer
+Available. Use Standards based IPSec client.”</em></p>
+<p>I’ve had horrible problems with this software before, including no
+longer being able to connect to wi-fi networks (repairing IPSEC was the
+eventually solution), and corrupting a Cisco VPN client. The 0.5 star
+<a class="reference external" href="http://reviews.cnet.com/remote-access/netscreen-remote-vpn-client/4505-3540_7-30340681.html">review on
+CNET</a>
+show I am not alone in this opinion.</p>
+<p>I tried using the
+<a class="reference external" href="http://httpd.apache.org/docs/2.2/mod/mpm_winnt.html">Win32DisableAcceptEx</a>
+directive to try and stop these errors and hopefully resolve the Apache
+crashes. Apache runs in 32 bit mode, so hopefully the 64 bit server
+wouldn’t mind..In C:\ms4w\Apache\conf\httpd.conf  add the following
+line, and restart the Apache service:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Win32DisableAcceptEx</span>
+</pre></div>
+</div>
+</section>
+<section id="final-outcome">
+<h2>Final Outcome<a class="headerlink" href="#final-outcome" title="Permalink to this headline">¶</a></h2>
+<p>Unfortunately although the Apache changes stopped the errors it didn’t
+stop the crashing. In the end I had to set up MapServer with IIS and the
+site has been working fine ever since. As a bonus I was also able to use
+the 64 bit versions of MapServer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="o">|</span><span class="n">image0</span><span class="o">|</span> <span class="n">image</span><span class="p">::</span> <span class="n">images</span><span class="o">/</span><span class="mi">2010</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">mapserver_error</span><span class="o">-</span><span class="mi">277</span><span class="n">x300</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">target</dt>
+<dd class="field-odd"><p>images/2010/01/mapserver_error.png</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-79" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-79"><span class="std std-ref">1.</span></a> <strong>Tweets that mention geographika » MapServer &amp;amp; SQL Server 2008 Tips – Topsy.com</strong>
+**</p>
+<p>[…] This post was mentioned on Twitter by mssqlserver, geographika.
+geographika said: MapServer and SQL Server 2008 performance notes
+by..err me! <a class="reference external" href="http://geographika.co.uk/?p=149">http://geographika.co.uk/?p=149</a> […]</p>
+<a href="mailto:web+mapserver-sql-server-2008-tips#1@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/48c3468f75fb69549786f5b6f33fac21?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-269" src="http://www.gravatar.com/avatar/48c3468f75fb69549786f5b6f33fac21?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-269"><span class="std std-ref">2.</span></a> <strong>Harry</strong>
+**</p>
+<p>I’m developing a server folder (ms4w), but have difficulty connecting
+between Chameleon with sql server 2005 Express. For information i use
+windows xp sp 3, ms4w, SQL Server 2005 Express. How do the steps for
+that? could you please send the answer to my email. Thank you. Harry</p>
+<a href="mailto:web+mapserver-sql-server-2008-tips#2@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-271" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-271"><span class="std std-ref">3.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-269">&#64;Harry</a></div>
+<div class="line-block">
+<div class="line">I’d recommend upgrading to SQL Server 2008 so you can use the spatial</div>
+</div>
+</div>
+<p>data types and SQL 2008 connector.
+|  With SQL 2005 you have to use a plug=in to use spatial data
+<a class="reference external" href="http://www.codeplex.com/wikipage?ProjectName=MsSqlSpatial">http://www.codeplex.com/wikipage?ProjectName=MsSqlSpatial</a></p>
+<a href="mailto:web+mapserver-sql-server-2008-tips#3@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/d3456aacca1fa75fe47e89cb93561653?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-945" src="http://www.gravatar.com/avatar/d3456aacca1fa75fe47e89cb93561653?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-945"><span class="std std-ref">4.</span></a> <strong>dariapra</strong>
+**</p>
+<p>On MapServer’s official page on optimization, the last advice says not
+to inmediately close the database connection by using PROCESSING
+“CLOSE_CONNECTION=DEFER”, and it will work with PostGIS, Oracle and
+MySQL.</p>
+<p>Although I am not a MS software user - and happy with PostGIS -, I
+wonder if it will also work with SQL Server?</p>
+<a href="mailto:web+mapserver-sql-server-2008-tips#4@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/6c285c4f418e0c3da1114d0bf1054469?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1899" src="http://www.gravatar.com/avatar/6c285c4f418e0c3da1114d0bf1054469?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1899"><span class="std std-ref">5.</span></a> <strong>Chris</strong>
+**</p>
+<p>Hi</p>
+<p>Out of interest when using the MSSQL 2008 plugin in a mapfile, how do
+you retrieve feature attributes (or call them correctly) to produce
+labels etc?</p>
+<p>Cheers</p>
+<a href="mailto:web+mapserver-sql-server-2008-tips#5@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4b9c547133404c6d2a9d6bde6d2a0968?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1994" src="http://www.gravatar.com/avatar/4b9c547133404c6d2a9d6bde6d2a0968?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1994"><span class="std std-ref">6.</span></a> <strong>no xtreme</strong>
+**</p>
+<div class="line-block">
+<div class="line">Valuable info. Lucky me I found your site by accident,</div>
+<div class="line-block">
+<div class="line">and I’m stunned why this coincidence didn’t happened earlier!</div>
+<div class="line">I bookmarked it.</div>
+</div>
+</div>
+<a href="mailto:web+mapserver-sql-server-2008-tips#6@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+mapserverwindowsapachecrash@geographika.co.uk?Subject=mapserverwindowsapachecrash" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

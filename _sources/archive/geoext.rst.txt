@@ -1,0 +1,141 @@
+GeoExt
+######
+:date: 2010-11-12 12:40
+:author: admin
+:slug: geoext
+:status: published
+
+.. raw:: html
+
+   <div id="cse" style="width: 100%;">
+
+Loading
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+Related Links:
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`ExtJs Forum <http://extjs.com/forum/>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`GeoExt Mailing List Archives <http://www.geoext.org/pipermail/dev/>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`GeoExt Source <http://trac.geoext.org/>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`GeoExt Blog <http://geoext.blogspot.com/>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`GeoExt Home <http://www.geoext.org/>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`Online Examples <http://www.geoext.org/examples.html>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`API <http://www.geoext.org/lib/index.html>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`Community SandBoxes <http://trac.geoext.org/wiki/Community>`__
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div style="width: 100%;">
+
+`Source Trunk <http://trac.geoext.org/browser/core/trunk/geoext>`__
+
+.. raw:: html
+
+   <p>
+   <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+   <script type="text/javascript">// <![CDATA[<br />
+     google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});<br />
+     google.setOnLoadCallback(function() {<br />
+       var customSearchControl = new google.search.CustomSearchControl('007370177247820514249:rex17zfztcs');<br />
+       customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);<br />
+       customSearchControl.draw('cse');<br />
+     }, true);<br />
+   // ]]></script>
+   </p>
+
+.. raw:: html
+
+   </div>
+
+
+.. include:: comments/geoext.rst

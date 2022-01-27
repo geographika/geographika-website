@@ -1,0 +1,72 @@
+A 10 Minute Intro on using BitBucket with Windows
+#################################################
+:date: 2010-06-09 13:38
+:author: admin
+:category: programming
+:tags: bitbucket, sourcecontrol
+:slug: a-10-minute-intro-on-using-bitbucket-with-windows
+:status: published
+
+There are already a couple of `official quick start
+guides <http://tortoisehg.bitbucket.org/manual/1.0/quick.html>`__ to
+using Mercurial’s Window’s client program
+`TortoiseHG <http://tortoisehg.bitbucket.org/>`__, but below are the
+bare details of how to use it with a new account on the `BitBucket
+service <http://geographika.co.uk/?p=584>`__.
+
+1. Create a new account on http://bitbucket.org/. Then create a new
+repository for your code.
+
+|image|
+
+2. Download the TortoiseHG program for Windows from
+http://tortoisehg.bitbucket.org/. Install and reboot. This will add
+context commands to Windows Explorer.
+
+3. Right-click on a folder in Windows Explorer that contains the code
+files or scripts you want to add to your BitBucket account, and select
+“Create Repository Here” from the context menu.
+
+|image|
+
+4. Next right-click in the folder and select “Add Files.” You can now
+check which files in the folder you wish to add to BitBucket, and click
+the “Add” button.
+
+|image|
+
+5. Right-click again in the folder and select “Hg Commit.” The screen
+below should appear. You can enter a text description for the update
+(“add tilecache script” in the image below). Once you’ve done this click
+the “Commit” button in the toolbar.
+
+|image|
+
+6. Right-click again in the folder and select “Hg Repository Explorer.”
+Add the name of your BitBucket repository to the address bar as shown
+below. In this case my repository is
+http://bitbucket.org/geographika/mapserver-scripts �" yours should be in
+a similar format.
+
+|image|
+
+7. In the menu select “Synchronize” and then “Push”
+
+|image|
+
+8. You should be presented with a confirmation dialog as below. You will
+be asked for your username and password for BitBucket (step 1). That’s
+it! You can then check your code online, and learn the rest at your own
+pace! Let me know if you’ve posted anything good in the comments below!
+
+|image|
+
+.. |image| image:: images/2010/06/image2.png
+.. |image| image:: images/2010/06/image3.png
+.. |image| image:: images/2010/06/image4.png
+.. |image| image:: images/2010/06/image5.png
+.. |image| image:: images/2010/06/image6.png
+.. |image| image:: images/2010/06/image7.png
+.. |image| image:: images/2010/06/image8.png
+
+.. include:: comments/a-10-minute-intro-on-using-bitbucket-with-windows.rst

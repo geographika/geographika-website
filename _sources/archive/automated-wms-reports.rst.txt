@@ -1,0 +1,155 @@
+Automated WMS Reports
+#####################
+:date: 2010-01-26 20:11
+:author: admin
+:category: web development, wms
+:tags: CSS, getcapabilities, mapserver, opensource, wms, XML, XSL
+:slug: automated-wms-reports
+:status: published
+
+This post details how the WMS GetCapabilities request can be used to
+create an automated report listing all the map layers available from a
+WMS server. The final sample page can be `seen
+here <http://geographika.co.uk/samples/GetCapabilities.html>`__.
+
+|image0|
+
+The GetCapabilities Request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image1|
+
+Web Mapping Services
+(`WMS <http://www.opengeospatial.org/standards/wms>`__) is an open
+standard that all major GIS vendors implement in their server software
+(for example see the `ESRI
+documentation <http://webhelp.esri.com/arcims/9.2/general/mergedProjects/wms_connect/wms_connector/get_capabilities.htm>`__).
+As a result applications built on these services are able to easily
+switch from one software package to another - allowing separation of
+code that allows for easier maintenance and reuse.
+
+The GetCapabilities is one of three requests in the WMS specification.
+It *"returns service-level metadata, which is a description of the
+service's information content and acceptable request parameters."*
+
+After\ `eventually being able to
+see <http://geographika.co.uk/?p=225>`__ the results of a
+GetCapabilities request my aim was to generate a report listing the
+available map layers, and to check I had enetered all the required
+metadata. I had a look on the web to see if there were any stylesheets
+that would nicely format the data.
+
+The `easywms.com site <http://www.easywms.com/easywms/?q=en/node/199>`__
+has an example on how to build a WMS client from GetCapabilities using
+`XSL <http://www.w3schools.com/xsl/>`__ but I was unable to get the
+sample working with my GetCapabilities output. XSL is a stylesheet
+language for XML documents, in much the same way that CSS is used to
+format HTML. I've worked with XSL a little before so decided to write
+some code myself after not being able to find an existing example.
+
+Adding Metadata to the WMS Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order for the GetCapabilities request to return data, it has to be
+entered in the first place. Each WMS server will be configured in
+different ways. In this example I am using
+`MapServer <http://mapserver.org/>`__. The documentation for the WMS
+Server can be `found here <http://mapserver.org/ogc/wms_server.html>`__.
+
+WMS services are configured using MAP files. Metadata can bet set for
+both the overall map and for each LAYER object in the map.Further
+documentation can be found
+`here <http://mapserver.org/ogc/wms_server.html#setup-a-mapfile-for-your-wms>`__.
+An example of layer metadata would look as follows:
+
+::
+
+    LAYER
+       NAME 'MyLayerName'
+       TYPE LINE
+       METADATA
+         'wms_title' 'My Layer Title'
+       END
+       ...
+
+Using the GetCapabilities Request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To test the MAP file is set up correctly as a WMS Service follow the
+steps
+`here <http://mapserver.org/ogc/wms_server.html#validate-the-capabilities-metadata>`__.
+You can paste a URL such as the following:
+
+::
+
+    http://my.host.com/cgi-bin/mapserv?map=mywms.map&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetCapabilities
+
+The map=mywms.map parameter is specific to MapServer, but the rest of
+the parameters are part of the WMS standards. If your browser keeps
+trying to download the server response, try sending an incorrect WMS
+version as explained in `my previous
+post <http://geographika.co.uk/?p=225>`__. The MapServer site has a
+`live
+example <http://www2.dmsolutions.ca/cgi-bin/mswms_gmap?SERVICE=WMS&VERSION=1.0.3&REQUEST=GetCapabilities>`__
+of a WMS service you can use for comparison with your own.
+
+Formatting the GetCapabilities Response
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The server responds to a valid GetCapabilities by sending back XML. This
+XML can be formatted in the broswer to produce a report using an XSL
+file. My \ `sample
+page <http://geographika.co.uk/samples/GetCapabilities.html>`__ consists
+of the following components:
+
+-  `GetCapabilities.xsl <http://geographika.co.uk/samples/GetCapabilities.xsl>`__-
+   an XSL file which transforms a GetCapabilities XML document into HTML
+-  `GetCapabilities.js <http://geographika.co.uk/samples/GetCapabilities.js>`__
+   - a JavaScript file which can be used to apply the XSL to the XML
+   file. The XML can either be a static saved XML file, or a URL that
+   returns XML. For security reasons, modern browsers do not allow
+   access across domains, so this must be stored on the WMS server. The
+   JavasScript was taken from the `W3
+   Schools <http://www.w3schools.com/XML/xml_parser.asp>`__ site.
+-  `GetCapabilities.css <http://geographika.co.uk/samples/GetCapabilities.css>`__
+   - a stylesheet that applies colours and layout to the HTML (with
+   thanks to `Verlees's blog
+   post <http://veerle.duoh.com/blog/comments/a_css_styled_table_version_2/>`__).
+-  `GetCapabilities.html <http://geographika.co.uk/samples/GetCapabilities.html>`__
+   - an HTML file that loads the JavaScript and displays the report.
+
+The XSL stylesheet can also be applied directly to the XML by including
+the following lines at the top of the XML file:
+
+::
+
+    <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+    <?xml-stylesheet type="text/xsl" href="GetCapabilities.xsl"?>
+
+However this is not an option if the XML is returned dynamically (apart
+from if you start modifying your WMS server code).
+
+Future Improvements
+~~~~~~~~~~~~~~~~~~~
+
+The current XSL stylesheet is fairly basic, but does provide a quick way
+to list your layers, and to check that all the required WMS metadata
+items have been filled in. Possible additions to the XSL sheet include:
+
+-  highlighting required metdata parameters that are missing
+-  collapsing legend images, or allow a trigger to load them (for large
+   legends, and to improve loading speeds)
+-  allowing a link to create a sample tile of the data, or adding this
+   in automatically - it would be useful to check how features are
+   rendered that services are running correctly
+-  sorting of table columns
+-  linking to metadata documents
+
+Any thoughts and feedback appreciated.
+
+.. |image0| image:: images/2010/01/report1.png
+   :target: http://geographika.co.uk/samples/GetCapabilities.xml
+.. |image1| image:: images/2010/01/report2-300x254.png
+   :target: http://geographika.co.uk/samples/GetCapabilities.html
+
+.. include:: comments/automated-wms-reports.rst

@@ -1,0 +1,261 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>MapServer on Linux &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">MapServer on Linux</a><ul>
+<li><a class="reference internal" href="#azure">Azure</a></li>
+<li><a class="reference internal" href="#compass-vm">Compass VM</a></li>
+<li><a class="reference internal" href="#tldr">TLDR</a></li>
+<li><a class="reference internal" href="#breakdown">Breakdown</a></li>
+<li><a class="reference internal" href="#apache">Apache</a></li>
+<li><a class="reference internal" href="#storing-data">Storing Data</a></li>
+<li><a class="reference internal" href="#mapcache">MapCache</a></li>
+<li><a class="reference internal" href="#optional">Optional</a><ul>
+<li><a class="reference internal" href="#gdal">GDAL</a></li>
+<li><a class="reference internal" href="#reproject-data">Reproject Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="mapserver-on-linux">
+<h1>MapServer on Linux<a class="headerlink" href="#mapserver-on-linux" title="Permalink to this headline">¶</a></h1>
+<section id="azure">
+<h2>Azure<a class="headerlink" href="#azure" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>New VM</p></li>
+<li><p>Ubuntu Server 16.04 LTS Canonical</p></li>
+<li><p>Deployment model: Resource Manager</p></li>
+<li><p>Basics:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Name: mapview</p></li>
+<li><p>VM disk type: SSD</p></li>
+<li><p>User name: compassinfo</p></li>
+<li><p>Authentication type: password</p></li>
+<li><p>Resource group: Create new - mapview</p></li>
+<li><p>Location: UK South</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Size: DS1_V2 Standard (1 Core, 3.5 GB, 7 GB SSD)</p></li>
+<li><p>Storage: Managed disks: No</p></li>
+<li><p>Public IP: mapview-ip (static) - 51.140.43.114</p></li>
+<li><p>Network Interfaces &gt; Network security group (mapview-nsg)</p>
+<ul class="simple">
+<li><p>Inbound - TCP, port 80</p></li>
+<li><p>Outbound - TCP, port 80</p></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="http://mapserver.org/installation/unix.html#installation">http://mapserver.org/installation/unix.html#installation</a>
+<a class="reference external" href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</a>
+<a class="reference external" href="https://askubuntu.com/questions/16521/where-in-the-filesystem-should-i-store-shared-data">https://askubuntu.com/questions/16521/where-in-the-filesystem-should-i-store-shared-data</a></p>
+</section>
+<section id="compass-vm">
+<h2>Compass VM<a class="headerlink" href="#compass-vm" title="Permalink to this headline">¶</a></h2>
+<p>13.74.161.63
+mapview
+compassinfo/DemoGlobePolygon5</p>
+</section>
+<section id="tldr">
+<h2>TLDR<a class="headerlink" href="#tldr" title="Permalink to this headline">¶</a></h2>
+<p>Complete script</p>
+<p><a class="reference external" href="http://mapserver.org/installation/unix.html#installation">http://mapserver.org/installation/unix.html#installation</a></p>
+</section>
+<section id="breakdown">
+<h2>Breakdown<a class="headerlink" href="#breakdown" title="Permalink to this headline">¶</a></h2>
+<p>sudo apt-get -y install apache2 libapache2-mod-fastcgi              <a class="reference external" href="https://help.ubuntu.com/lts/serverguide/httpd.html">https://help.ubuntu.com/lts/serverguide/httpd.html</a>  should now be able to check the Apache site 51.140.43.114
+sudo add-apt-repository -y ppa:ubuntugis/ppa
+sudo apt-get update
+sudo apt-get -y install cgi-mapserver
+sudo apt-get -y install libapache2-mod-mapcache
+sudo apt-get -y install mapcache-tools</p>
+</section>
+<section id="apache">
+<h2>Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h2>
+<p># following not needed as installed via above - can search and see this file in here
+#sudo ln -s /usr/local/bin/mapserv /usr/lib/cgi-bin/mapserv           # You’ll want to setup a symlink to that executable from your cgi-bin directory
+#                                                                     # link command <a class="reference external" href="https://www.computerhope.com/unix/uln.htm">https://www.computerhope.com/unix/uln.htm</a>
+#                                                                     # sudo find / -name mapserv
+# sudo chmod o+x /usr/lib/cgi-bin/mapserv                                    <a class="reference external" href="http://mapserver.org/installation/unix.html#file-permissions">http://mapserver.org/installation/unix.html#file-permissions</a></p>
+<p>sudo a2enmod actions cgi fastcgi alias                   See <a class="reference external" href="http://manpages.ubuntu.com/manpages/trusty/man8/a2enmod.8.html">http://manpages.ubuntu.com/manpages/trusty/man8/a2enmod.8.html</a> - enable a module <a class="reference external" href="https://httpd.apache.org/docs/2.4/mod/mod_actions.html">https://httpd.apache.org/docs/2.4/mod/mod_actions.html</a> Execute CGI scripts
+sudo chmod 755 /usr/lib/cgi-bin                         rwxr-xr-x
+sudo service apache2 restart</p>
+<p><a class="reference external" href="http://51.140.125.27/cgi-bin/mapserv">http://51.140.125.27/cgi-bin/mapserv</a></p>
+</section>
+<section id="storing-data">
+<h2>Storing Data<a class="headerlink" href="#storing-data" title="Permalink to this headline">¶</a></h2>
+<p>sudo mkdir /srv/mapview
+sudo chmod u=rwx,g=r,o=rwx /srv/mapview/                 see <a class="reference external" href="http://www.computerhope.com/unix/uchmod.htm">http://www.computerhope.com/unix/uchmod.htm</a> - for folders x means view contents</p>
+<blockquote>
+<div><p>ls /srv/mapview</p>
+</div></blockquote>
+<p>Copy data from: C:Codeosviewer</p>
+<p><a class="reference external" href="http://51.140.43.114/cgi-bin/mapserv?MAP=/srv/mapview/viewer.map&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;LAYERS=land&amp;STYLES=&amp;CRS=EPSG%3A4326&amp;EXCEPTIONS=INIMAGE&amp;WIDTH=2417&amp;HEIGHT=1209&amp;BBOX=-106.259765625%2C-212.3876953125%2C106.259765625%2C212.3876953125">http://51.140.43.114/cgi-bin/mapserv?MAP=/srv/mapview/viewer.map&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;LAYERS=land&amp;STYLES=&amp;CRS=EPSG%3A4326&amp;EXCEPTIONS=INIMAGE&amp;WIDTH=2417&amp;HEIGHT=1209&amp;BBOX=-106.259765625%2C-212.3876953125%2C106.259765625%2C212.3876953125</a>
+<a class="reference external" href="http://13.74.161.63/cgi-bin/mapserv?MAP=/srv/mapview/viewer.map&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;LAYERS=land&amp;STYLES=&amp;CRS=EPSG%3A4326&amp;EXCEPTIONS=INIMAGE&amp;WIDTH=2417&amp;HEIGHT=1209&amp;BBOX=-106.259765625%2C-212.3876953125%2C106.259765625%2C212.3876953125">http://13.74.161.63/cgi-bin/mapserv?MAP=/srv/mapview/viewer.map&amp;SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;LAYERS=land&amp;STYLES=&amp;CRS=EPSG%3A4326&amp;EXCEPTIONS=INIMAGE&amp;WIDTH=2417&amp;HEIGHT=1209&amp;BBOX=-106.259765625%2C-212.3876953125%2C106.259765625%2C212.3876953125</a></p>
+</section>
+<section id="mapcache">
+<h2>MapCache<a class="headerlink" href="#mapcache" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.mapserver.org/mapcache/install.html#apache-module-specific-instructions">http://www.mapserver.org/mapcache/install.html#apache-module-specific-instructions</a></p>
+<p>Module already loaded with install</p>
+<p>Add following line to: /etc/apache2/sites-available/000-default.conf</p>
+<p>sudo chmod u=rw,g=r,o=rw /etc/apache2/sites-available/000-default.conf</p>
+<p>Place inside &lt;VirtualHost&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;IfModule mapcache_module&gt;</dt><dd><dl class="simple">
+<dt>&lt;Directory /path/to/directory&gt;</dt><dd><p>Require all granted</p>
+</dd>
+</dl>
+<p>&lt;/Directory&gt;
+MapCacheAlias /mapcache “/srv/mapview/mapcache.xml”</p>
+</dd>
+</dl>
+<p>&lt;/IfModule&gt;</p>
+</div></blockquote>
+<p>Then</p>
+<p>sudo chmod u=rw,g=r,o=r /etc/apache2/sites-available/000-default.conf
+sudo service apache2 restart</p>
+<p>With custom mapcache.xml</p>
+<p><a class="reference external" href="http://51.140.43.114/mapcache/?LAYERS=land&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;SRS=EPSG%3A4326&amp;BBOX=-180,0,-90,90&amp;WIDTH=256&amp;HEIGHT=256">http://51.140.43.114/mapcache/?LAYERS=land&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;SRS=EPSG%3A4326&amp;BBOX=-180,0,-90,90&amp;WIDTH=256&amp;HEIGHT=256</a></p>
+<p>Check for errors in</p>
+<p>/var/log/apache2/error.log</p>
+</section>
+<section id="optional">
+<h2>Optional<a class="headerlink" href="#optional" title="Permalink to this headline">¶</a></h2>
+<section id="gdal">
+<h3>GDAL<a class="headerlink" href="#gdal" title="Permalink to this headline">¶</a></h3>
+<p>sudo apt-get install gdal-bin</p>
+</section>
+<section id="reproject-data">
+<h3>Reproject Data<a class="headerlink" href="#reproject-data" title="Permalink to this headline">¶</a></h3>
+<p>C:MapServerSDKShell.bat
+cd C:Codeosviewer
+ogr2ogr.exe -s_srs EPSG:4326 -t_srs EPSG:3857 -f “ESRI Shapefile” land3857.shp ne_110m_land.shp -skipfailures</p>
+</section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

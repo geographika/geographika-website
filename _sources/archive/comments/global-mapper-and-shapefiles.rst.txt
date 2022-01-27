@@ -1,0 +1,132 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-365:
+
+.. image:: http://www.gravatar.com/avatar/899709d9d94a0236bce8005c71e6d950?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-365>` **Jim**
+**
+
+Thanks for the tip! I've been using GeoJSON with OpenLayers, and have
+just been generating the GeoJSON using Excel, I've been meaning to write
+a PHP script to do the conversion, but it looks like this will work even
+better!
+
+
+.. raw:: html
+
+    <a href="mailto:web+geojson-where-are-you#1@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-377:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-377>` **geographika &raquo; Visualising GeoJSON in 15 Minutes**
+**
+
+[...] exactly the same steps), and some additional Python packages. This
+example uses GeoJSON data from a CloudMade geocoding service. England
+took a swing to the right after the General [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+geojson-where-are-you#2@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-384:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-384>` **geographika**
+**
+
+| `@Jim <#comment-365>`__
+|  Please note that the code has been updated to call the find.geojs
+page rather than find.js which returns JSON rather than GeoJSON.
+
+
+.. raw:: html
+
+    <a href="mailto:web+geojson-where-are-you#3@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-416:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-416>` **geographika &raquo; We Know Where Your Browser Lives**
+**
+
+[...] “cloud service”, I believe the real power of the Internet will
+come more from manipulating and combining data services than putting
+desktop applications in a browser. Especially if these applications
+can’t easily [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+geojson-where-are-you#4@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1633:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-1633>` **OSM2GEO - A JavaScript script to convert OSM 2 GeoJSON | Arunmozhi**
+**
+
+[...] maps. But sadly, I couldn’t find a data source that gives me
+GeoJSON data. People have been lamenting about this unavailability for
+quiet sometime it seems. My search turned out to be vain. So its time
+[...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+geojson-where-are-you#5@geographika.co.uk?Subject=geojson-where-are-you" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+global-mapper-and-shapefiles@geographika.co.uk?Subject=global-mapper-and-shapefiles" target="_top">Add Comment</a>

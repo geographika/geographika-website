@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>FME: Setting a Raster Output Name Dynamically &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Free Commercial GIS!" href="free-commercial-gis.html" />
+    <link rel="prev" title="Does SQL Azure have Allure?" href="does-sql-azure-have-allure.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">FME: Setting a Raster Output Name Dynamically</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="does-sql-azure-have-allure.html" title="Previous Chapter: Does SQL Azure have Allure?"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Does SQL Azur...</span>
+    </a>
+  </li>
+  <li>
+    <a href="free-commercial-gis.html" title="Next Chapter: Free Commercial GIS!"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Free Commercial GIS! &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="fme-setting-a-raster-output-name-dynamically">
+<h1>FME: Setting a Raster Output Name Dynamically<a class="headerlink" href="#fme-setting-a-raster-output-name-dynamically" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-10-10 13:17</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>fme</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>Data Processing, fme</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>fme-setting-a-raster-output-name-dynamically</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>I have started to use <a class="reference external" href="http://www.safe.com/">FME</a> more and more for
+data imports and data processing. I like automating any workflow as much
+as possible, and FME is great for this. For one part of a project had a
+number of similar raster processes that could be defined in a single
+workspace, as long as parameters could be used.</p>
+<p>The system documentation is normally both detailed and clear, and FME
+also has very good <a class="reference external" href="http://www.safe.com/fmeusercentral/index.php">support and community web
+sites</a>.  However in
+this case it took a lot of documentation reading and trial and error to
+work out how to change the ouput filename of a model. This may be
+obvious to experienced users of FME, but it had me stumped for a while.</p>
+<p><a href="#id1"><span class="problematic" id="id2">|raster\_naming2|</span></a></p>
+<p>The steps involved are simple in retrospect, and are as follows:</p>
+<p>Create your raster model as normal, but add an additional
+<strong>AttributeSetter</strong> transformer, as shown in the screenshot above.</p>
+<p>Next create a new <strong>Published Parameter</strong> that will be used to pass in
+the output raster filename. The source dataset and destination folder
+can also be set to be published parameters to provide full flexibility.</p>
+<p><a href="#id3"><span class="problematic" id="id4">|raster\_naming3|</span></a></p>
+<p>Next right click on the newly created published parameter and check the
+AttributeSetter value item. This creates the link between the parameter
+and the value for the attribute.</p>
+<p><a href="#id5"><span class="problematic" id="id6">|raster\_naming4|</span></a></p>
+<p>If you look at the AttributeSetter’s properties they should now look
+similar to below.</p>
+<p><a href="#id7"><span class="problematic" id="id8">|raster\_naming5|</span></a></p>
+<p>Finally look at the properties for your output raster dataset. Make sure
+the “Fanout By Attribute” is checked and the attribute is set to
+fme_basename. This sets the output filename to be the same as the
+fme_basename attribute value, which is now set via an input parameter.</p>
+<p><a href="#id9"><span class="problematic" id="id10">|raster\_naming1|</span></a></p>
+<p>The model is now ready to run from the command line or through a batch
+process, for one or many raster transformations. The output filename
+parameter does not require a .tif extension.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fme</span><span class="o">.</span><span class="n">exe</span> <span class="n">raster_sample</span><span class="o">.</span><span class="n">fmw</span>
+      <span class="o">--</span><span class="n">SourceDataset_ARCVIEWGRID</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Grids</span>
+      <span class="o">--</span><span class="n">DestDataset_GEOTIFF</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Rasters</span>
+      <span class="o">--</span><span class="n">OutputFileName</span> <span class="n">MyOutputRaster</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/6e616123b26319779cfb3d6193c6773f?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-188" src="http://www.gravatar.com/avatar/6e616123b26319779cfb3d6193c6773f?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-188"><span class="std std-ref">1.</span></a> <strong>Ed Katibah</strong>
+**</p>
+<p>Good discussion. I’ve talked with some of our SQL Azure folks and they
+had the following comments: “[The] Data transfer rate issue is clearly
+not a problem between the DB and the app as long as they are in Windows
+Azure. Apps using SQL Azure that aren’t in Windows Azure will pay
+additional amounts but that is [a] less common [scenario] due to network
+latency [considerations]. Usually people end up putting some local cache
+DB like SQL [Server] Express [in Windows Azure].”.</p>
+<p>Here is information from our web site: <a class="reference external" href="http://www.microsoft.com/WindowsAzure/offers/popup.aspx?lang=en&amp;locale=en-US&amp;offer=MS-AZR-0001P">Data Transfer
+Details</a>:
+“Our data transfer rates are determined by the region in which your
+solution is deployed. <strong>Data transfers between Azure Services located
+within the same sub region are not subject to charge.</strong> Data transfers
+between sub regions are charged at normal rates on both sides of the
+transfer. A sub region is the lowest level geo-location that you may
+select to deploy your applications and associated data.</p>
+<a href="mailto:web+does-sql-azure-have-allure#1@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/879803d51456cc53221b5987aeee4402?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-190" src="http://www.gravatar.com/avatar/879803d51456cc53221b5987aeee4402?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-190"><span class="std std-ref">2.</span></a> <strong>David Chou</strong>
+**</p>
+<p>Great post. And we’re glad to see that you find value in using SQL
+Server for GIS applications. Although a few clarification points may
+help with understanding SQL Azure better and how it can be best used.</p>
+<p>1. SQL Azure is a multi-tenant, scale-out relational database service.
+It’s not “hosted SQL Server” a-la-SaaS style. The implementation today,
+in a nutshell, allows you to interact with the SQL Azure application,
+but each logical database is actually managed as 3 separate replicas
+underneath the SQL Azure application, which then use SQL Server as the
+relational database engine. The SQL Azure application then load-balances
+and synchronizes the incremental changes across those 3 replicas. To you
+it’s looks like one SQL Server database over the Internet but SQL Azure
+uses this strategy to ensure resiliency and scalability. It’s not the
+same as any hosting solution anywhere else.</p>
+<p>2. The “Currently you can’t bring your existing on-premises Windows
+Server, SQL Server to Windows Azure, SQL Azure” comment was intended to
+point out that developers cannot bring server software to deploy into
+Windows Azure and SQL Azure; as you can tell from the first point above
+– Windows Azure and SQL Azure aren’t hosted servers. Thus, from a
+development model perspective, Windows Azure and SQL Azure actually do
+support current applications and databases created locally and then
+uploaded into Azure. In fact, for SQL Server, all your views, stored
+procs, functions, and data, can all go directly into SQL Azure. There
+are some differences but today we’re at about 98% feature parity and are
+working towards 100%.</p>
+<p>3. Similar to your observations, and as Ed Katibah pointed out, SQL
+Azure isn’t ideally suited as a replacement for a local SQL Server
+database. This also goes back to what does cloud computing represent?
+Many people think cloud is simply someone else’s data center that runs
+the same things for rent. In our case, Windows Azure and SQL Azure, as
+they are implemented as a different type of technology, they’re not
+simply hosted versions of software that you have locally. And thus,
+they’re ideally suited for different types of workloads and application
+scenarios. However, some laws of physics still apply, as an application
+that uses a relational database as a back-end will continue to operate
+better having the database local as opposed to over the Internet. And
+that means many applications that use SQL Azure will also be more
+ideally suited to be hosted in Windows Azure as well. Other scenarios
+also evolve around data sharing leveraging data integration techniques.</p>
+<p>Just my thoughts. :) Best! -David
+(<a class="reference external" href="http://blogs.msdn.com/dachou">blogs.msdn.com/dachou</a>)</p>
+<a href="mailto:web+does-sql-azure-have-allure#2@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-192" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-192"><span class="std std-ref">3.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-188">&#64;Ed Katibah</a></div>
+<div class="line-block">
+<div class="line">Thanks Ed. Good to know that its the data that leaves the cloud that</div>
+</div>
+</div>
+<p>is counted. I presume that a WMS MapServer could be set up as an Azure
+application <a class="reference external" href="http://blogs.msdn.com/jnak/archive/2009/03/18/calling-into-native-dlls-on-windows-azure.aspx">after reading this
+post</a>.</p>
+<p>I guess the sub-regions also help government departments from keeping
+within data legislation rules.</p>
+<a href="mailto:web+does-sql-azure-have-allure#3@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-193" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-193"><span class="std std-ref">4.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-190">&#64;David Chou</a></div>
+<div class="line-block">
+<div class="line">Your technical summary makes far more sense than the marketing pages!</div>
+</div>
+</div>
+<p>I’ve updated my post to include your comments.</p>
+<p>With regards to where cloud computing could be useful, hosting the
+mapping engine and database in Azure could provide a powerful, scalable
+back-end for many different client map viewing applications.</p>
+<a href="mailto:web+does-sql-azure-have-allure#4@geographika.co.uk?Subject=does-sql-azure-have-allure" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+fme-setting-a-raster-output-name-dynamically@geographika.co.uk?Subject=fme-setting-a-raster-output-name-dynamically" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

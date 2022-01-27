@@ -1,0 +1,64 @@
+Copying Spatial Data between SQL Server Databases
+#################################################
+:date: 2010-01-04 15:01
+:author: admin
+:category: geodatabases, sql server 2008
+:slug: copying-spatial-data-between-sql-server-databases
+:status: published
+
+**Aim** - to copy a table containing geometry fields between two
+database servers.\ |filetransfer| The task was made slightly trickier as
+the two servers are on two different domains.
+
+I wanted to use SQL rather than FME, or a SQL Server wizard, as it would
+be easier to script the process for the several tables I had to copy.
+
+The first task was to set up `linked
+servers <http://msdn.microsoft.com/en-us/library/ms188279.aspx>`__. I
+used the following SQL (when logged in to my destination server, and
+using SQL Server Management Studio) to add the source server:
+
+::
+
+    EXEC sp_addLinkedServer 'MY_SOURCE_SERVER_NAME'
+
+I then needed to allow log-in access to the source server. The SQL below
+assumes there is a *sa* user with a password of *sa* on the source
+server:
+
+::
+
+    sp_addlinkedsrvlogin @rmtsrvname = 'MY_SOURCE_SERVER_NAME'
+     ,  @useself =  'FALSE'
+     ,  @locallogin =  null
+     ,  @rmtuser =  'sa'  
+     ,  @rmtpassword =  'sa'
+
+I thought I was then ready to run a "SELECT INTO" query to copy records
+from the source table into a new table in the destination database.
+However I was met by the following error:
+
+::
+
+    Msg 7325, Level 16, State 1, Line 1
+    Objects exposing columns with CLR types are not allowed in distributed queries.
+    Please use a pass-through query to access remote object '"MY_SOURCE_SERVER_NAME"."schema_name"."TableName"'.
+
+It appeared that the geometry columns containing the SQL Server spatial
+types were causing the problem.  After reading up on pass-through
+queries 
+`OPENQUERY <http://technet.microsoft.com/en-us/library/ms188427.aspx>`__
+seemed to be the solution.  I tried the following SQL:
+
+::
+
+    SELECT * INTO newschema.MyNewTableName
+    FROM OPENQUERY([MY_SOURCE_SERVER_NAME],
+    'SELECT * from [source_database_name].[schema_name].[TableName]');
+
+    :-)
+
+.. |filetransfer| image:: images/2010/01/filetransfer-300x174.jpg
+   :target: images/2010/01/filetransfer.jpg
+
+.. include:: comments/copying-spatial-data-between-sql-server-databases.rst

@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>A 10 Minute Intro on using BitBucket with Windows &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="A Proxy for IIS and .NET" href="a-proxy-for-iis-and-net.html" />
+    <link rel="prev" title="7 Reasons for ESRI not to Drop VBA" href="7-reasons-for-esri-not-to-drop-vba.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">A 10 Minute Intro on using BitBucket with Windows</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="7-reasons-for-esri-not-to-drop-vba.html" title="Previous Chapter: 7 Reasons for ESRI not to Drop VBA"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 7 Reasons for...</span>
+    </a>
+  </li>
+  <li>
+    <a href="a-proxy-for-iis-and-net.html" title="Next Chapter: A Proxy for IIS and .NET"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">A Proxy for I... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="a-10-minute-intro-on-using-bitbucket-with-windows">
+<h1>A 10 Minute Intro on using BitBucket with Windows<a class="headerlink" href="#a-10-minute-intro-on-using-bitbucket-with-windows" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-06-09 13:38</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>programming</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>bitbucket, sourcecontrol</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>a-10-minute-intro-on-using-bitbucket-with-windows</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p>There are already a couple of <a class="reference external" href="http://tortoisehg.bitbucket.org/manual/1.0/quick.html">official quick start
+guides</a> to
+using Mercurial’s Window’s client program
+<a class="reference external" href="http://tortoisehg.bitbucket.org/">TortoiseHG</a>, but below are the
+bare details of how to use it with a new account on the <a class="reference external" href="http://geographika.co.uk/?p=584">BitBucket
+service</a>.</p>
+<p>1. Create a new account on <a class="reference external" href="http://bitbucket.org/">http://bitbucket.org/</a>. Then create a new
+repository for your code.</p>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<p>2. Download the TortoiseHG program for Windows from
+<a class="reference external" href="http://tortoisehg.bitbucket.org/">http://tortoisehg.bitbucket.org/</a>. Install and reboot. This will add
+context commands to Windows Explorer.</p>
+<p>3. Right-click on a folder in Windows Explorer that contains the code
+files or scripts you want to add to your BitBucket account, and select
+“Create Repository Here” from the context menu.</p>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<p>4. Next right-click in the folder and select “Add Files.” You can now
+check which files in the folder you wish to add to BitBucket, and click
+the “Add” button.</p>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<p>5. Right-click again in the folder and select “Hg Commit.” The screen
+below should appear. You can enter a text description for the update
+(“add tilecache script” in the image below). Once you’ve done this click
+the “Commit” button in the toolbar.</p>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<p>6. Right-click again in the folder and select “Hg Repository Explorer.”
+Add the name of your BitBucket repository to the address bar as shown
+below. In this case my repository is
+<a class="reference external" href="http://bitbucket.org/geographika/mapserver-scripts">http://bitbucket.org/geographika/mapserver-scripts</a> ?” yours should be in
+a similar format.</p>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<ol class="arabic simple" start="7">
+<li><p>In the menu select “Synchronize” and then “Push”</p></li>
+</ol>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<p>8. You should be presented with a confirmation dialog as below. You will
+be asked for your username and password for BitBucket (step 1). That’s
+it! You can then check your code online, and learn the rest at your own
+pace! Let me know if you’ve posted anything good in the comments below!</p>
+<p><img alt="image" src="../_images/image81.png" /></p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-17" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-17"><span class="std std-ref">1.</span></a> <strong>James Fee GIS Blog &amp;raquo; Blog Archive &amp;raquo; In defense of VBA</strong>
+**</p>
+<p>[…] to be a large percentage of ESRI developers that still rely on VBA
+to customize ArcGIS Desktop.  geoGraphika has even written a blog post
+outlining 7 reasons why ESRI shouldn’t drop […]</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#1@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/bbce61753336e2fbc667a231eeb04234?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-18" src="http://www.gravatar.com/avatar/bbce61753336e2fbc667a231eeb04234?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-18"><span class="std std-ref">2.</span></a> <strong>Kevin Dunlop</strong>
+**</p>
+<p>How about an 8th:</p>
+<p>8. VBA apps can be run without requiring an install. Many organization
+limit what users can install on their computers yet rarely limit VBA.
+While a .NET may not be allowed, a VBA is.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#2@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/a48be129c20455d326dcb43923c74af0?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-19" src="http://www.gravatar.com/avatar/a48be129c20455d326dcb43923c74af0?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-19"><span class="std std-ref">3.</span></a> <strong>Michalis Avraam</strong>
+**</p>
+<p>Indeed, but VBA is no longer being licensed by Microsoft to 3rd parties
+(as of 2007), and all development has since stopped as well. There are
+many security holes and issues with it, and I think ESRi is doing well
+to phase it out. The 2+ years people have of warning about this should
+be plenty for people to migrate to something else (Python with the new
+functionality of 9.4?).</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#3@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/f37731f1a2aec8882c6477e8eb13be24?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-20" src="http://www.gravatar.com/avatar/f37731f1a2aec8882c6477e8eb13be24?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-20"><span class="std std-ref">4.</span></a> <strong>Nico</strong>
+**</p>
+<p>Do not take me wrong but:</p>
+<div class="line-block">
+<div class="line">1. You do not need to explicitly implement all the interface , there</div>
+</div>
+<p>are tools to do this.
+|  2. A setup doesn’t need to be “heavy” , in fact it is as lean as VBA.
+|  3. I agree, if you don’t need anything different to what a sample
+provides it’s ok to with it. As you stated it’s easy for someone with no
+programming experience.
+|  4. I agree
+|  5. I agree
+|  6. I agree partially , if you were always to held the same position
+this can help, I’m not sure about people out there, but since I have
+moved a lot I do not rely on this knowledge to help/keep me a job.
+|  7. I don’t really get the point, I’m no native English speaker,but I
+don’t think anyone’s recommending C# over Vb.Net,
+|  this is just about deprecating VBA.
+|  8. I don’t know if that’s possible
+|  9. Yes that would be great, not sure if possible</p>
+<div class="line-block">
+<div class="line">Just to let you now I started doing “Magik” (Smallworld)and afterward</div>
+</div>
+<p>VB6 ,I moved to PL/SQL and SQL, then Java, then C#,
+|  then shell scripting (Solaris,Linux,AIX).This has always occurred
+within GIS environments, there are some more GIS offerings besides ESRI
+( though I currently work in an ESRI based project)</p>
+<p>Do not rely in one language to do your day to day work, this can easily
+change. Just get the roots and you’ll be prepared for every language.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#4@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/1c2bd24889c8db6ffc43fb9b4ee7a93e?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-25" src="http://www.gravatar.com/avatar/1c2bd24889c8db6ffc43fb9b4ee7a93e?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-25"><span class="std std-ref">5.</span></a> <strong>admin</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-20">&#64;Nico</a></div>
+<div class="line-block">
+<div class="line">Hi Nico,</div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">Even with the tools to set up the interface, you still need to learn</div>
+</div>
+<p>Visual Studio, how to add in the ESRI tools to this, and then be
+confronted with a whole load of pregenerated code which would look like
+nonsense to any non-developer.
+|  A set up could be very simple, but again it takes time and effort on
+the developer’s part to create custom installer classes and set up
+packages.
+|  I agree that a developer should not fear the death of VBA from
+ArcGIS, but for advanced GIS users who are probably more numerous in
+various civil service jobs, it removes the chance of automating daily
+tasks themselves.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#5@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4c7a12ae2a227696e2ed5c52e0486875?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-31" src="http://www.gravatar.com/avatar/4c7a12ae2a227696e2ed5c52e0486875?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-31"><span class="std std-ref">6.</span></a> <strong>SeaJunk</strong>
+**</p>
+<div class="line-block">
+<div class="line">Re: The field calculator</div>
+<div class="line-block">
+<div class="line">VBScript will still be around so maybe we’ll see a vbscript and</div>
+</div>
+</div>
+<p>python parser in the field calculator.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#6@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4499184b4aacc97bcd4855e6ca6fd6ab?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-32" src="http://www.gravatar.com/avatar/4499184b4aacc97bcd4855e6ca6fd6ab?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-32"><span class="std std-ref">7.</span></a> <strong>Dave Miller</strong>
+**</p>
+<p>The dropping of support for VBA gives rise to a big question for what I
+would call the “non-programmer GIS community”. That is those of us who
+have learned GIS and picked up a bit of VBA along the way (for
+customisation, labelling expressions, field calculator expressions etc.)
+without being fully-blown programmers.</p>
+<p>That question is what should we use now?. Clearly VBA is on the way out,
+and ESRI have given us a good head’s up that support for it will be
+dropped if we hadn’t already figured that out from Microsoft’s decision
+not to continue development. Can Python do everything that VBA could do?
+If not, should we channel our efforts in other directions?</p>
+<p>Dave</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#7@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/2d86baa91082e76019786135274075ba?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-50" src="http://www.gravatar.com/avatar/2d86baa91082e76019786135274075ba?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-50"><span class="std std-ref">8.</span></a> <strong>Tom Magdaleno</strong>
+**</p>
+<div class="line-block">
+<div class="line">Dave, I completely agree. Can’t we just go back to Avenue? :)</div>
+</div>
+<p>Seriously though, I am not a programmer and frankly I do not want to be
+one. I get the feeling that the future of GIS will mean you have to know
+programming languages. All these languages have a nasty habit of
+becoming obsolete every few years.
+|  The attitude of most programmers is
+|  “Learn how to program and then programing for GIS will be easy.”
+|  thats like saying “Learn calculus for a job that only requires adding
+fractions.” I hope ESRI continues to be helpful in letting users share
+code to keep it simple.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#8@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/83a1d6cfe73cc236faa60431f88fa420?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-53" src="http://www.gravatar.com/avatar/83a1d6cfe73cc236faa60431f88fa420?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-53"><span class="std std-ref">9.</span></a> <strong>Bog</strong>
+**</p>
+<p>I am bummed. Mostly because I am foggy on ESRI’s direction after this.
+Looks like they are pretty tight with Microsoft now (Silverlight, etc),
+so whatever way MS goes, ESRI will follow no doubt. Python is pretty
+prevalent in ArcGIS, but as someone mentioned - not exactly hooked into
+the interface and all that ArcObjects have to offer. If they develop an
+API for Python that bridges the gap, then all is not lost. I have
+several MXD-based VBA apps that will have to be updated (many planned
+for .Net anyway), but the quick result macro functionality of VBA will
+be missed. Yes, Avenue was a good analogy in seeing code work or not
+work immediately without having to go into a compiling environment like
+Studio. Perhaps 9.4 will be the last version many use for a long time
+(even if on maintenance) like those still using Win 2K out there (as
+discovered in James Fee blog), Some on 8.X, and probably even those
+still using AV 3.2!</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#9@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/85b6867565aca483a02e6ffe197377dc?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-54" src="http://www.gravatar.com/avatar/85b6867565aca483a02e6ffe197377dc?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-54"><span class="std std-ref">10.</span></a> <strong>Duncan Hornby</strong>
+**</p>
+<p>Hi all,</p>
+<p>I’m somewhat perturbed by the future of VBA. I’ve written some very
+large and successful projects entirely within the MXD and will be very
+concerned about the demise of VBA, mainly because some clients I have
+developed for have such a ridiculous IT policy that despite them asking
+for a tool their IT department won’t allow the installation of DLLs
+which is what .Net creates. I cannot create an extension, a command
+buton, or a GP function tool because they are all DLLs that you have to
+install and don’t get me on my soap box about administrative rights…</p>
+<p>None of this is an issue with VBA. So I agree with the blog that if they
+want VB .Net, fine but for God sake don’t drop the ability to store code
+and customisation within an MXD.</p>
+<p>I really hope someone from ESRI is reading this…</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#10@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/8fc15e9ab65e202f9e089a66fded9925?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1918" src="http://www.gravatar.com/avatar/8fc15e9ab65e202f9e089a66fded9925?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-1918"><span class="std std-ref">11.</span></a> <strong>Rinke</strong>
+**</p>
+<div class="line-block">
+<div class="line">There is a replacement available for VBA in MXD now that stores VB.Net</div>
+</div>
+<p>in MXD.
+|  Made possible by the ARIS .Net Scripting Tool for ArcMap:
+|  <a class="reference external" href="http://www.aris.nl/dotnetscripting_arcmap">http://www.aris.nl/dotnetscripting_arcmap</a></p>
+<div class="line-block">
+<div class="line">Use VB.Net for prototyping, no need to open Visual Studio.</div>
+<div class="line-block">
+<div class="line">Store the VB.Net script in the MXD and build and run directly from</div>
+</div>
+</div>
+<p>ArcMap.
+|  No Visual Studio license required.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#11@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/8b3809c1b9143b944ea3ba7ffafb8b4f?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-2549" src="http://www.gravatar.com/avatar/8b3809c1b9143b944ea3ba7ffafb8b4f?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/a-10-minute-intro-on-using-bitbucket-with-windows.html#comment-2549"><span class="std std-ref">12.</span></a> <strong>Andrew</strong>
+**</p>
+<p>Why just don’t continue to use older version of ArcGIS which support VBA
+and all stuff writen on it for old projects? Not only ESRI refuse from
+VBA, Autodesk, for example did the same thing. Microsoft stoped
+supporting VBA and others did the same. But this tool (I mean VBA) is
+very good to refuse from it. Understand that newer versions of softwsre
+have some advantages, but for most users they are not so important. For
+example our company stoped at AutoCAD 2007, MS Office 2003 and ArcGIS
+9.1 and uses them all with VBA.</p>
+<a href="mailto:web+7-reasons-for-esri-not-to-drop-vba#12@geographika.co.uk?Subject=7-reasons-for-esri-not-to-drop-vba" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+a-10-minute-intro-on-using-bitbucket-with-windows@geographika.co.uk?Subject=a-10-minute-intro-on-using-bitbucket-with-windows" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Setting up a Secure Cascading WMS on MapServer &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setting Up Python on IIS7" href="setting-up-python-on-iis7.html" />
+    <link rel="prev" title="Running Python through Apache" href="running-python-through-apache.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Setting up a Secure Cascading WMS on MapServer</a><ul>
+<li><a class="reference internal" href="#mapfile-configuration">MapFile Configuration</a></li>
+<li><a class="reference internal" href="#configuring-ssl-and-mapserver-part-1">Configuring SSL and MapServer (Part 1)</a></li>
+<li><a class="reference internal" href="#getting-a-security-certificate">Getting a Security Certificate</a></li>
+<li><a class="reference internal" href="#configuring-ssl-and-mapserver-part-2">Configuring SSL and MapServer (Part 2)</a></li>
+<li><a class="reference internal" href="#poor-image-quality">Poor Image Quality?</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="running-python-through-apache.html" title="Previous Chapter: Running Python through Apache"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Running Pytho...</span>
+    </a>
+  </li>
+  <li>
+    <a href="setting-up-python-on-iis7.html" title="Next Chapter: Setting Up Python on IIS7"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Setting Up Py... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="setting-up-a-secure-cascading-wms-on-mapserver">
+<h1>Setting up a Secure Cascading WMS on MapServer<a class="headerlink" href="#setting-up-a-secure-cascading-wms-on-mapserver" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-07-20 15:46</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, security, wms</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit, cURL, ssl</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>setting-up-a-secure-cascading-wms-on-mapserver</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><img alt="image" src="../_images/image221.png" /> There a number of benefits to using a cascading
+<a class="reference external" href="http://en.wikipedia.org/wiki/Web_Map_Service">WMS</a> service ?” a WMS
+service that is read and then forwarded on through an intermediary WMS
+server:</p>
+<ul>
+<li><div><p>you can cache the service (for example with
+<a class="reference external" href="http://tilecache.org/">TileCache</a>) to greatly improve performance</p>
+</div></li>
+<li><div><p>your application need only worry about a single point of connection,
+using WMS layers aggregated from many different sources</p>
+</div></li>
+<li><div><p>you can add additional metadata missing from the source</p>
+</div></li>
+<li><div><p>services can be reprojected (using <a class="reference external" href="http://www.gdal.org/">GDAL</a>)</p>
+</div></li>
+<li><div><p>you can merge WMS layers together and server them out as a new map
+layer</p>
+</div></li>
+</ul>
+<p>There are also some negatives:</p>
+<ul>
+<li><div><p>you have additional server configuration to set up and maintain</p>
+</div></li>
+<li><div><p>if you are not adding or changing the WMS service you should probably
+connect to the WMS service directly in the client applications,
+otherwise there will be a performance hit</p>
+</div></li>
+<li><div><p>caching may contravene the licensing agreement of the original WMS
+source</p>
+</div></li>
+</ul>
+<p>The rest of this post details the steps in setting up a cascading WMS
+using <a class="reference external" href="http://mapserver.org/">MapServer</a>. You need MapServer 5.4.1 or
+higher to implement a secure cascaded WMS service. This example uses a
+64-bit version of MapServer 5.6 taken from <a class="reference external" href="http://szekerest.blogspot.com/">Tamas
+Szekeres</a>’s <a class="reference external" href="http://vbkto.dyndns.org/sdk/">autobuilds
+site</a> installed in a C:\ms4w64 folder.
+It also assumes MapServer has been configured with SSL <a class="reference external" href="http://geographika.co.uk/64-bit-curl-with-openssl-on-windows">as detailed in
+another
+post</a>.
+In this example I use IIS and Windows Server 2003.</p>
+<div style="text-align: justify;"></div><section id="mapfile-configuration">
+<h2>MapFile Configuration<a class="headerlink" href="#mapfile-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Configuring a MapFile for a cascading WMS service is well-documented on
+the <a class="reference external" href="http://mapserver.org/ogc/wms_client.htm">MapServer WMS Client
+page</a>. An example is shown
+below. Note that this service is not reprojected, and the username and
+password can be passed through the metadata parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>LAYER
+  NAME &quot;MyLayer&quot;
+  TYPE RASTER
+  STATUS OFF
+  CONNECTION “https://webservices…”
+  CONNECTIONTYPE WMS
+  #DEBUG 5 #to debug the original layer
+  METADATA
+    &quot;wms_srs&quot;             &quot;EPSG:2157&quot;
+    &quot;wms_name&quot;            &quot;0&quot;
+    &quot;wms_server_version&quot;  &quot;1.1.1&quot;
+    &quot;wms_format&quot;          &quot;image/png&quot;
+    &quot;wms_auth_username&quot; &quot;username&quot;
+    &quot;wms_auth_password&quot; &quot;password&quot;
+    &quot;wms_bgcolor&quot; &quot;0xFFFFFF&quot;
+  END
+END
+</pre></div>
+</div>
+<p>It is vital you set up debugging for the MapFile to see why a connection
+may be failing. You can set this by adding the following lines to the
+MapFile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEBUG</span> <span class="mi">5</span> <span class="c1">#debugging level between 1 and 5, 5 is the most detailed</span>
+<span class="n">CONFIG</span> <span class="s2">&quot;MS_ERRORFILE&quot;</span> <span class="s2">&quot;C:/ms4w64/tmp/ms.log&quot;</span>
+<span class="c1">#path to log file - ensure IIS can write to this file</span>
+</pre></div>
+</div>
+<p>This can be removed once everything is working correctly.</p>
+</section>
+<section id="configuring-ssl-and-mapserver-part-1">
+<h2>Configuring SSL and MapServer (Part 1)<a class="headerlink" href="#configuring-ssl-and-mapserver-part-1" title="Permalink to this headline">¶</a></h2>
+<p>A secure WMS service is one that uses an <strong>https</strong>:// address, and may
+require a username and password. Setting up MapServer to connect using
+SSL is by far the trickiest part of the configuration. First of all I
+had to <a class="reference external" href="http://geographika.co.uk/64-bit-curl-with-openssl-on-windows">compile my own
+libcurl.dll</a>
+to include <a class="reference external" href="http://www.openssl.org/">OpenSSL</a>. Otherwise I got the
+following error in the log file:</p>
+<p><em>msHTTPExecuteRequests(): HTTP request error. HTTP: request failed with
+curl error code 1 (Protocol https not supported or disabled in libcurl)</em></p>
+<p>Once I had the new libcurl.dll I replaced the existing file in the
+C:\ms4w64\bin folder (always make a back-up of the original files
+first!) with my freshly compiled version. I used <a class="reference external" href="http://technet.microsoft.com/en-us/sysinternals/bb896645.aspx">Process
+Monitor</a>
+to  see if I was missing any other DLLs ?” I was. The libcurl.dll
+required some additional OpenSSL DLLs to connect to https addresses.
+These DLLs were:</p>
+<ul>
+<li><div><p>libeay32.dll</p>
+</div></li>
+<li><div><p>ssleay32.dll</p>
+</div></li>
+</ul>
+<p>These too I copied into my C:\mapserver\bin folder from the
+openssl-1.0.0a\out32dll folder created <a class="reference external" href="http://geographika.co.uk/64-bit-curl-with-openssl-on-windows">when compiling
+libcurl.dll</a>.
+Next I got the following error:</p>
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>HTTP: request failed with curl error code 60 (SSL certificate problem,
+verify that the CA cert is OK. Details:</p>
+<blockquote>
+<div><p>error:14090086:SSL routines:SSL3_GET_SERVER_CERTIFICATE:certificate</p>
+</div></blockquote>
+<p>verify failed) for <a class="reference external" href="https://">https://</a>…*</p>
+<p>These errors relate to <a class="reference external" href="http://osgeo-org.1803224.n2.nabble.com/WMS-Layer-with-secure-http-url-td2807534.html#a2814037">missing
+certificates</a>.
+For more details on security certificates <a class="reference external" href="http://curl.haxx.se/docs/sslcerts.html">see this
+page</a>.</p>
+</section>
+<section id="getting-a-security-certificate">
+<h2>Getting a Security Certificate<a class="headerlink" href="#getting-a-security-certificate" title="Permalink to this headline">¶</a></h2>
+<p>I needed to get a valid certificate from the web service and point
+MapServer to this file. I was able to get a certificate by typing in the
+service;s <a class="reference external" href="https://">https://</a> url in FireFox, and then selecting Tools &gt; Page Info
+&gt; Security &gt; View Certificate &gt; Details &gt; Export. You can also
+right-click on the padlock icon at the bottom of the page to access the
+same option.</p>
+<p>When exporting I selected the “X 509 Certificate with chain (PEM)”
+option. I tried an export without the “chain” but this didn’t allow me
+to connect.</p>
+<p><img alt="image" src="../_images/image221.png" /></p>
+<p>I’d recommend trying to connect to the site independently of MapServer,
+so any issues can be narrowed to certificate problems rather than the
+MapServer configuration. I ran these tests on my development machine ?” a
+32bit Windows XP laptop, following these steps:</p>
+<p>1. Install a standalone version of cURL from the <a class="reference external" href="http://curl.haxx.se/download.html">cURL download
+page</a> (I used
+libcurl-7.19.3-win32-ssl-msvc.zip).</p>
+<p>2. Save your security certificate with the filename
+<strong>curl-ca-bundle.crt</strong> in the same folder as you unzipped the curl.exe
+file. Placing it in the same folder, with this name, will mean the
+certificate can be read by cURL. <img alt="image" src="../_images/image221.png" /></p>
+<p>In a DOS window navigate to the folder with the curl.exe file and run
+the following command to see if the certificate works with the site. Add
+in some valid WMS parameters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>curl https://webserveraddress.com/wms?VERSION=1.1.1&amp;REQUEST=...
+</pre></div>
+</div>
+<p>If you need to pass in a username and password to the service use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>curl https://username:password@webserveraddress.com/wms?VERSION=1.1.1&amp;REQUEST=...
+</pre></div>
+</div>
+<p>If you get the following error:</p>
+<p><em>(60) SSL certificate problem, verify that the CA cert is OK.
+Details:error:14090086:SSL
+routines:SSL3_GET_SERVER_CERTIFICATE:certificate verify failed</em></p>
+<p>It means your certificate is invalid. You can try the command with a
+<strong>/k</strong> switch to ignore the security and check that there isn’t a
+connection problem rather than a security problem:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>curl https://username:password@webserveraddress.com/wms?VERSION=1.1.1&amp;REQUEST=... /k
+</pre></div>
+</div>
+<p>If all went well with the certificate you should get a DOS window filled
+with random characters:</p>
+<p><img alt="image" src="../_images/image221.png" /></p>
+<p>This is good! It is an image file viewed as text and means you have
+successfully returned an image from the secure WMS server.</p>
+</section>
+<section id="configuring-ssl-and-mapserver-part-2">
+<h2>Configuring SSL and MapServer (Part 2)<a class="headerlink" href="#configuring-ssl-and-mapserver-part-2" title="Permalink to this headline">¶</a></h2>
+<p>Now all that remains is to set up the certificate on the MapServer.
+There are some <a class="reference external" href="http://213.207.42.55/README_INSTALL.html#g-certificates-for-https-with-wms-wfs-servers">instructions
+here</a>
+and <a class="reference external" href="http://trac.osgeo.org/mapserver/ticket/3070">more here.</a> I got a
+little confused thinking I could point to the certificate file using a
+CONFIG command in the MapFile to set the environment variable. This is
+not the case.</p>
+<p>It must be set  using a Windows environment variable (although you can
+set it in Apache if you’re not using IIS). It took a while for me to
+figure this out, but due to the beauty of OpenSource if you get too
+stuck you can search the sourcecode itself to see how parameters are
+used. The <a class="reference external" href="http://trac.osgeo.org/mapserver/browser/branches/branch-5-6/mapserver/maphttp.c">relevant sourcecode can be found
+here</a>.</p>
+<p>I created a new Windows environment variable CURL_CA_BUNDLE to point
+to the .crt file as shown below:</p>
+<p><img alt="image" src="../_images/image221.png" /></p>
+<p>And this time in the log ?” success!</p>
+<div class="line-block">
+<div class="line">[Wed Jul 07 16:04:55 2010].384000 msDrawMap(): kicking into non-square</div>
+</div>
+<p>pixel preserving mode.
+|  [Wed Jul 07 16:04:55 2010].838000 HTTP: Starting to prepare HTTP
+requests.
+|  [Wed Jul 07 16:04:55 2010].838000 Using
+CURL_CA_BUNDLE=C:\ms4w64\bin\curl-ca-bundle.crt</p>
+</section>
+<section id="poor-image-quality">
+<h2>Poor Image Quality?<a class="headerlink" href="#poor-image-quality" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes the WMS images lack the quality of the originals when run
+through a cascaded service. <a class="reference external" href="http://comments.gmane.org/gmane.comp.gis.mapserver.user/41900">This
+post</a>
+attributes it to either reprojection or incompatible output formats. In
+my case it was the latter. As the forum post writer says ?” if you aren’t
+reprojecting or adding information then using a proxy rather than a
+cascading WMS would be far more efficient.</p>
+<div style="text-align: justify;"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><img alt="image" src="../_images/image221.png" /></p></td>
+<td><p><img alt="image" src="../_images/image221.png" /></p></td>
+</tr>
+<tr class="row-even"><td><p>My original MapFile
+<a class="reference external" href="http://mapserver.org/mapfile/outputformat.html#outputformat">OUTPUTFORMAT</a>
+had worked perfectly for all my
+local WMS services, but with the
+cascaded service the aerial
+photography was blotchy.</p>
+<p><dl class="simple">
+<dt>OUTPUTFORMAT</dt><dd><p>NAME ‘AGGA’
+DRIVER AGG/PNG
+IMAGEMODE RGBA
+END</p>
+</dd>
+</dl>
+</td>
+<td><p>I changed the OUTPUTFORMAT to the
+following settings and the images
+were back to good resolution.</p>
+<p><dl class="simple">
+<dt>OUTPUTFORMAT</dt><dd><p>NAME “png”
+DRIVER “GDAL/PNG”
+MIMETYPE “image/png”
+EXTENSION “png”
+END</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div><dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+setting-up-a-secure-cascading-wms-on-mapserver@geographika.co.uk?Subject=setting-up-a-secure-cascading-wms-on-mapserver" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

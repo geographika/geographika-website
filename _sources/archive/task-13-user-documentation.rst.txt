@@ -1,0 +1,121 @@
+Task #13: User Documentation
+############################
+:date: 2010-03-15 16:36
+:author: admin
+:category: general, programming
+:tags: .net, automation, documentation, handler, screwturnwiki, wiki
+:slug: task-13-user-documentation
+:status: published
+
+|image0|\ All projects I've worked on have a few days set aside for the
+dreaded "*documentation*." Clients often try and reduce the billable
+hours set aside for documentation and when project delivery times are
+closing its often the last thing on a developers mind, so it gets cut
+from both sides.
+
+I've come to the conclusion that a detailed and long word document,
+while it may tick the box on the client's checklist, is an exercise in
+futility. No-one ever reads it, you're lucky if you can even find it a
+year later, and its out of date the moment its written (or  if its a
+rehash of the technical specification its never actually *in-date*).
+
+My key requirements for user documentation are:
+
+-  make it easily accessible from within and from without the system
+-  have only one repository for the user documentation
+-  allow people other than the developer to create and edit the
+   documentation
+-  auto-generate when and if possible
+
+I initially started creating web pages, even for desktop systems, as
+these could be accessed by both project managers and users of the
+system. This met most of my criteria above, but I knew that if anything
+in the system changed I'd be the one who would have to go in and edit
+the HTML. Step forward..
+
+Wikis
+~~~~~
+
+Despite a name that makes me cringe every time I say it, an online wiki
+has all the benefits of using web pages for user help systems, but with
+an additional  number of advantages:
+
+-  non-developers can learn how to use wiki markup much more easily than
+   writing HTML pages
+-  edits are attributed to users
+-  edits are stamped with a time and date which gives you an overview of
+   how up to date the documentation is (this may not necessarily be a
+   good thing..)
+-  inbuilt search functionality
+-  premade themes and templates
+-  administration tools
+
+ScrewTurn Wiki
+~~~~~~~~~~~~~~
+
+I've been moving more and more towards open source tools, and after a
+brief dalliance with a few different wikis I settled on `Screwturn
+Wiki <http://www.screwturn.eu/>`__. It is written in .NET which I am
+very familiar with, and most of my client's sites are hosted under
+IIS/Windows. While some clients do use Microsoft's Sharepoint, and
+Sharepoint includes a wiki, it seems overly complicated to develop a
+help system internally and then try and import to the client's
+Sharepoint set up. A new ScrewTurn Wiki site can be set up in about 10
+minutes, and an existing site can be installed on a client's server by
+simply copying over a folder.
+
+Now the fun part..
+~~~~~~~~~~~~~~~~~~
+
+While the actual writing of user help is tedious, the creation of a help
+system need not be. And if you are using a wiki you may be able to
+"delegate" the user help to someone else (depending on the size of your
+company). Once the wiki is being populated the more you can use this
+information throughout your system the better.
+
+|image1|
+
+For a `MapFish <http://mapfish.org/>`__ based online mapping system I am
+creating, I was able to automate my help system to display the toolbar
+buttons, along with their associated icons, as part of my help menu
+structure. If the icons are changed, the button removed or renamed, or
+new buttons added, the help system will update accordingly. The next
+step was to load the relevant tool description text from the wiki when
+the tool was selected in the menu.
+
+To do this I created basic pages in the wiki, and gave each toolbar
+button a custom helpPage attribute with the name of the wiki page. I
+then took my first look at the ScrewTurn Wiki (version 2.0) sourcecode
+to see how to retrieve the relevant HTML.
+
+I created an ASP.NET handler that would retrieve the HTML from a
+pre-made wiki page, without requiring IFrames. The class `can be seen
+here <http://geographika.co.uk/downloads/wikiHandler.ashx.txt>`__.
+
+I had to edit the Global.asax file to allow my wikiHandler.ashx web
+handler to be accessed (by default all .ashx are seen as wiki pages).
+
+::
+
+    if(ext.Equals("ashx")) {
+        if(pageName != "wikiHandler"){
+          // Demand the request to Default.aspx
+          HttpContext.Current.RewritePath("~/Default.aspx?Page=" +
+          ScrewTurn.Wiki.Tools.UrlEncode(pageName) + qs);
+        }
+     }
+
+I could then make requests such as
+`wikiHandler.ashx?Page=ZoomIn <http://>`__ to return snippets of HTML
+that would be loaded dynamically into my help system. Knowing that wiki
+text may actually be read helps to get that "documentation" task finally
+checked off and a project signed off.  A client is also happy to know
+that they can update and add to the help notes without requiring
+developers.
+
+.. |image0| image:: images/2010/03/documentation-300x299.jpg
+   :target: images/2010/03/documentation.jpg
+.. |image1| image:: images/2010/03/user_help-300x126.png
+   :target: images/2010/03/user_help.png
+
+.. include:: comments/task-13-user-documentation.rst

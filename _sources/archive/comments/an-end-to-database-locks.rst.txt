@@ -1,0 +1,95 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1311:
+
+.. image:: http://www.gravatar.com/avatar/ad2bd7f23b8cd33f2412acdc462b6a13?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1311>` **Duarte Carreira**
+**
+
+Hi. This is a very nice idea. How would you go about extending this to
+all the other tools: get feat info? or printing? also, wms get map is
+routed through the proxy when you config one in OpenLayers. Would this
+work? (I couldn't see the map in your example)
+
+| Regards,
+|  Duarte
+
+
+.. raw:: html
+
+    <a href="mailto:web+accessing-cross-domain-data-with-yql#1@geographika.co.uk?Subject=accessing-cross-domain-data-with-yql" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1312:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1312>` **geographika**
+**
+
+Hi Duarte,
+
+The use case I needed the above code for was for a simple mapping page
+that needed to add in WMS layers from any remote server.
+
+It was to install on IIS / Windows, so setting up a Python CGI proxy
+seemed overkill, and also I'd have to whitelist all sites.
+
+Its not going to replace all the features of a proxy (though it would be
+nice to have a plugin that used YQL through Openlayer.Proxyhost), but
+simplifies some setups.
+
+
+.. raw:: html
+
+    <a href="mailto:web+accessing-cross-domain-data-with-yql#2@geographika.co.uk?Subject=accessing-cross-domain-data-with-yql" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-14681:
+
+.. image:: http://www.gravatar.com/avatar/66d14f07b67ff43c6007734e82dd47f5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-14681>` **javier**
+**
+
+Hello
+
+It is possible use YQL with geoext 2?
+
+
+.. raw:: html
+
+    <a href="mailto:web+accessing-cross-domain-data-with-yql#3@geographika.co.uk?Subject=accessing-cross-domain-data-with-yql" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+an-end-to-database-locks@geographika.co.uk?Subject=an-end-to-database-locks" target="_top">Add Comment</a>

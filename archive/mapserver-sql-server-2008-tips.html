@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>3 MapServer &amp; SQL Server 2008 Performance Tips &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MapServer+Windows 64 bit+Apache=Crash?" href="mapserverwindowsapachecrash.html" />
+    <link rel="prev" title="MapServer, OpenLayers and the WFS Maze" href="mapserver-openlayers-and-the-wfs-maze.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">3 MapServer &amp; SQL Server 2008 Performance Tips</a><ul>
+<li><a class="reference internal" href="#reproject-your-data-in-the-database">Reproject Your Data in the Database</a></li>
+<li><a class="reference internal" href="#use-fast-cgi">Use Fast CGI</a></li>
+<li><a class="reference internal" href="#use-spatial-indexes">Use Spatial Indexes</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="mapserver-openlayers-and-the-wfs-maze.html" title="Previous Chapter: MapServer, OpenLayers and the WFS Maze"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; MapServer, Op...</span>
+    </a>
+  </li>
+  <li>
+    <a href="mapserverwindowsapachecrash.html" title="Next Chapter: MapServer+Windows 64 bit+Apache=Crash?"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">MapServer+Win... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="mapserver-sql-server-2008-performance-tips">
+<h1>3 MapServer &amp; SQL Server 2008 Performance Tips<a class="headerlink" href="#mapserver-sql-server-2008-performance-tips" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-12-12 15:20</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver, sql server 2008, web development, wms</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>mapserver-sql-server-2008-tips</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p>A current project I’ve been developing uses a combination of SQL Server
+2008 and MapServer (for Windows) to <a class="reference external" href="images/2009/12/242px-Teeshanrd.jpg"><img alt="Townland Sign" src="../_images/242px-Teeshanrd.jpg" /></a>serve many WMS
+layers. As much as it irks developers, web users only care about two
+things - how nice the site looks, and how fast it is. Whether the
+correct information is displayed comes a poor third..</p>
+<p>I’ve found a number of tweaks that have dramatically improved the WMS
+creation speed. In these examples I’m using a table in SQL Server 2008
+with 50773 features (<a class="reference external" href="http://en.wikipedia.org/wiki/Townland">Irish
+Townlands</a> if you’re asking).</p>
+<p>To test speeds I use the program
+<a class="reference external" href="http://mapserver.org/utilities/shp2img.html">shp2img</a> program, which
+can be found in the C:\ms4w\tools\mapserv folder. This is useful for
+not only checking if there are errors in your MAP file, but also for
+checking the speeds of individual layers. I use STATUS OFF for all
+layers, and then pass in the layer name with the following command (in
+the MS4W-Shell - a DOS window with environment variables set to various
+MapServer folders.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shp2img</span> <span class="o">-</span><span class="n">all_debug</span> <span class="mi">5</span> <span class="o">-</span><span class="n">m</span> <span class="n">C</span><span class="p">:</span>\<span class="n">ms4w</span>\<span class="n">apps</span>\<span class="n">sei</span>\<span class="n">test</span><span class="o">.</span><span class="n">map</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">l</span> <span class="s2">&quot;Townlands&quot;</span> <span class="n">test</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<section id="reproject-your-data-in-the-database">
+<h2>Reproject Your Data in the Database<a class="headerlink" href="#reproject-your-data-in-the-database" title="Permalink to this headline">¶</a></h2>
+<p>A nice feature of MapServer is that it can reproject your data
+on-the-fly. However this comes at a performance cost. The original data
+is projected in the <a class="reference external" href="http://spatialreference.org/ref/epsg/29902/">Irish National
+Grid</a>, but the web
+viewer is based around OpenLayers and background mapping from Google,
+which is projected in
+<a class="reference external" href="http://spatialreference.org/ref/epsg/3785/">EPSG:3785</a> (or
+EPSG:900913 / EPSG:google - I prefer the vendor free projection myself).</p>
+<p>The “web Mercator” projection can be added to MapServer by pasting the
+following lines into the C:\ms4w\proj\nad\epsg file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Google Projection</span>
+<span class="o">&lt;</span><span class="mi">900913</span><span class="o">&gt;</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">merc</span> <span class="o">+</span><span class="n">a</span><span class="o">=</span><span class="mi">6378137</span> <span class="o">+</span><span class="n">b</span><span class="o">=</span><span class="mi">6378137</span> <span class="o">+</span><span class="n">lat_ts</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">lon_0</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">x_0</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">y_0</span><span class="o">=</span><span class="mi">0</span> <span class="o">+</span><span class="n">k</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">+</span><span class="n">units</span><span class="o">=</span><span class="n">m</span> <span class="o">+</span><span class="n">nadgrids</span><span class="o">=</span><span class="nd">@null</span> <span class="o">+</span><span class="n">no_defs</span>
+<span class="c1">## Google Projection - new code</span>
+<span class="o">&lt;</span><span class="mi">3785</span><span class="o">&gt;</span> <span class="o">+</span><span class="n">proj</span><span class="o">=</span><span class="n">merc</span> <span class="o">+</span><span class="n">a</span><span class="o">=</span><span class="mi">6378137</span> <span class="o">+</span><span class="n">b</span><span class="o">=</span><span class="mi">6378137</span> <span class="o">+</span><span class="n">lat_ts</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">lon_0</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">x_0</span><span class="o">=</span><span class="mf">0.0</span> <span class="o">+</span><span class="n">y_0</span><span class="o">=</span><span class="mi">0</span> <span class="o">+</span><span class="n">k</span><span class="o">=</span><span class="mf">1.0</span> <span class="o">+</span><span class="n">units</span><span class="o">=</span><span class="n">m</span> <span class="o">+</span><span class="n">nadgrids</span><span class="o">=</span><span class="nd">@null</span> <span class="o">+</span><span class="n">no_defs</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="images/2009/12/tbl.png"><img alt="Townland Table" src="archive/images/2009/12/tbl-300x158.png" /></a><a class="reference external" href="http://www.safe.com/">FME</a>was then used to
+reproject the geometry in SQL Server. A nice feature of using the
+database as opposed to shapefiles is that two or more geometry fields
+can be stored in the same table, so different projections can be used
+for different WMS services or applications. In my MAP file my layer
+definition is now as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CONNECTIONTYPE</span> <span class="n">PLUGIN</span>
+<span class="n">PLUGIN</span> <span class="s2">&quot;C:\ms4w\Apache\specialplugins\msplugin_mssql2008.dll&quot;</span>
+<span class="n">CONNECTION</span> <span class="s2">&quot;server=****;uid=****;pwd=****;database=****;Integrated Security=false&quot;</span>
+<span class="n">DATA</span> <span class="s2">&quot;GEOM3785 from Townland&quot;</span>
+</pre></div>
+</div>
+<p>Reprojected time to create layer: <strong>46.06</strong> seconds</p>
+<p>Unprojected time to create layer (all features): <strong>13.469</strong> seconds</p>
+</section>
+<section id="use-fast-cgi">
+<h2>Use Fast CGI<a class="headerlink" href="#use-fast-cgi" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><a class="reference external" href="http://mapserver.org/optimization/fastcgi.html">Fast CGI</a> is a
+protocol for keeping cgi-bin style web applications running as a
+daemon to take advantage of preserving memory caches, and amortizing
+other high start-up costs (like heavy database connections) over
+many requests.</p>
+</div></blockquote>
+<p>Fast CGI can be set up by following the instructions in
+C:\ms4w\README_INSTALL.html#f-fastcgi</p>
+<p>I don’t think differences can be measure using shp2img, so I tested
+using<a class="reference external" href="http://getfirebug.com/net.html">FireBug’s Net Tab</a>. The
+following line was added in to the LAYER definition in the MAP file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PROCESSING</span> <span class="s2">&quot;CLOSE_CONNECTION=DEFER&quot;</span>
+</pre></div>
+</div>
+<p>Without FastCGI: <strong>9.23</strong> seconds</p>
+<p>With FastCGI: <strong>8.46</strong> seconds</p>
+<p>How accurate these results are I’m not really sure. I guess that
+improvements in speed will become more noticeable when many layers are
+loaded in that all use the same database connection at the same time.
+However even on a single layer the FastCGI was almost a second quicker
+on every test run.</p>
+</section>
+<section id="use-spatial-indexes">
+<h2>Use Spatial Indexes<a class="headerlink" href="#use-spatial-indexes" title="Permalink to this headline">¶</a></h2>
+<p>Using a spatial index when querying all layers would have no effect, so
+to see what difference it made on speed I needed to limit the results to
+a selected area. I decided to select all Townlands which intersected the
+county of Carlow. This  returns 1708 records. The following command was
+used to simulate this in shp2img:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">shp2img</span> <span class="o">-</span><span class="n">all_debug</span> <span class="mi">5</span> <span class="o">-</span><span class="n">m</span> <span class="n">C</span><span class="p">:</span>\<span class="n">ms4w</span>\<span class="n">apps</span>\<span class="n">sei</span>\<span class="n">wind</span><span class="o">.</span><span class="n">map</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">e</span> <span class="o">-</span><span class="mi">791171</span> <span class="mi">6884314</span> <span class="o">-</span><span class="mi">724041</span> <span class="mi">6967856</span> <span class="o">-</span><span class="n">l</span> <span class="s2">&quot;Townlands&quot;</span> <span class="n">test</span><span class="o">.</span><span class="n">png</span>
+</pre></div>
+</div>
+<p>To select data using a spatial index the following line is used in the
+MAP file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DATA</span> <span class="s2">&quot;GEOM3785 from Townland WITH(INDEX(Townland3785_sidx)) USING UNIQUE FID USING SRID=3785&quot;</span>
+</pre></div>
+</div>
+<p>I initially believed that spatially indexes had to be specified
+explicitly in the MAP file, and to test speeds without an index you
+could just remove the (WITH(INDEX…) statement. However speeds remained
+very similar. Disabling the spatial index in SQL Server (an option when
+right clicking on the index) revealed very different speeds. To
+re-enable the index, simply rebuild it. I’d leave the (WITH(INDEX…)
+statement in just to make sure it is used.</p>
+<p>Not using a spatial index: <strong>3.806</strong> seconds</p>
+<p>Using a spatial index: <strong>0.875</strong> seconds</p>
+<p>Any feedback, or more tips much appreciated! There is also an <a class="reference external" href="http://mapserver.org/optimization/index.html">official
+page on optimisation</a>
+here. Happy MapServing..</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/5a1e4161992a0d84f6898e55822f8b37?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1679" src="http://www.gravatar.com/avatar/5a1e4161992a0d84f6898e55822f8b37?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1679"><span class="std std-ref">1.</span></a> <strong>Alexandre</strong>
+**</p>
+<p>Very useful post. Thanks for the info.</p>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#1@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1704" src="http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1704"><span class="std std-ref">2.</span></a> <strong>Donald Kerr</strong>
+**</p>
+<p>Excellent article. Solved my problem. Thanks.</p>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#2@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/729f2a961d3d76aa58fe3868fae2aea4?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1731" src="http://www.gravatar.com/avatar/729f2a961d3d76aa58fe3868fae2aea4?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1731"><span class="std std-ref">3.</span></a> <strong>dgambin</strong>
+**</p>
+<p>Was here several times….each visit solved my problems..thanks very
+much</p>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#3@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/e95a536969d115234ec044ea8b40fa16?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1732" src="http://www.gravatar.com/avatar/e95a536969d115234ec044ea8b40fa16?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1732"><span class="std std-ref">4.</span></a> <strong>MatissV</strong>
+**</p>
+<p>Does anyone have a url with an example of this solution working in
+practice?</p>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#4@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1907" src="http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1907"><span class="std std-ref">5.</span></a> <strong>Donald Kerr</strong>
+**</p>
+<p>Just noticed that Mapserver will not show “OtherSRS” in a
+GetCapabilities request unless “EPSG” in the following is UPPERCASE:</p>
+<p>“wfs_srs” “EPSG:29902”</p>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#5@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1908" src="http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1908"><span class="std std-ref">6.</span></a> <strong>Donald Kerr</strong>
+**</p>
+<p>For Openlayers, you also need to define, as a minimum, the map
+projection in order for the reprojected Mapserver layer to work:</p>
+<div class="line-block">
+<div class="line">map = new OpenLayers.Map(“MapOSM”, {</div>
+<div class="line-block">
+<div class="line">projection: “EPSG:900913”</div>
+<div class="line">});</div>
+</div>
+</div>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#6@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/d474540485aca70530a5a7ef778175fd?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1930" src="http://www.gravatar.com/avatar/d474540485aca70530a5a7ef778175fd?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1930"><span class="std std-ref">7.</span></a> <strong>Luís</strong>
+**</p>
+<p>Thank you very much for this post. I’d never guess that trick with the
+extra srsName bit on the URL.</p>
+<a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#7@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+mapserver-sql-server-2008-tips@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

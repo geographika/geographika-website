@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Using ArcObjects and .NET in Python &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using ArcObjects to get Unique Values from a Table" href="using-arcobjects-to-get-unique-values-from-a-table.html" />
+    <link rel="prev" title="The Seven Bridges of Königsberg" href="the-seven-bridges.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Using ArcObjects and .NET in Python</a><ul>
+<li><a class="reference internal" href="#why-not-just-use-net">Why not just use .NET?</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="the-seven-bridges.html" title="Previous Chapter: The Seven Bridges of Königsberg"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; The Seven Bri...</span>
+    </a>
+  </li>
+  <li>
+    <a href="using-arcobjects-to-get-unique-values-from-a-table.html" title="Next Chapter: Using ArcObjects to get Unique Values from a Table"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Using ArcObje... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="using-arcobjects-and-net-in-python">
+<h1>Using ArcObjects and .NET in Python<a class="headerlink" href="#using-arcobjects-and-net-in-python" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2011-04-17 13:59</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>arcobjects, programming, python</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>using-arcobjects-and-net-in-python</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2011/04/image1.png"><img alt="image" src="../_images/image_thumb26.png" /></a></p>
+<p>This question was posed on the <a class="reference external" href="http://gis.stackexchange.com/questions/80/how-do-i-access-arcobjects-from-python">GIS Stack
+Exchange</a>,
+and the replies include a number of interesting approaches. Below is
+another one.</p>
+<section id="why-not-just-use-net">
+<h2>Why not just use .NET?<a class="headerlink" href="#why-not-just-use-net" title="Permalink to this headline">¶</a></h2>
+<p>I have several years worth of DLLs built using VB.NET and ArcObjects.
+Recently I’ve been using more and more open-source libraries, the
+majority of which can be manipulated using Python.</p>
+<p>A major advantage of using a interpreted language (rather than one that
+needs to compile) like Python is that you can easily change paths and
+variables in a script.</p>
+<p>You can deliver a folder of .NET ArcObjects DLLs, a sample Python script
+and an end user can automate their workflow themselves. This negates the
+requirement to build a UI on top of your code as a (Python familiar)
+user can script it themselves.</p>
+<p>DLLs still have their place as ArcObjects includes many functions not
+available in the ESRI Python libraries. It is also easier to write and
+test ArcObjects code in Visual Studio with all the advantages of error
+checking and auto-completion.</p>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<p>Python is a programming language, but it can and has been implemented
+many times using different underlying technologies. The “default”
+version of Python is implemented in C (and therefore named
+<a class="reference external" href="http://en.wikipedia.org/wiki/CPython">CPython</a>). Jython is
+implemented in Java, and IronPython is implemented in C#.</p>
+<p>IronPython therefore seems perfect to use if the majority of your code
+<a class="reference external" href="images/2011/04/image1.png"><img alt="image" src="../_images/image_thumb26.png" /></a>is based around the <a class="reference external" href="http://www.microsoft.com/net/">.NET
+framework</a>, however as it is separate
+from standard Python many third-party libraries are incompatible.</p>
+<p><em>This may no longer be true thanks to the `CPython
+extensions &lt;http://www.voidspace.org.uk/ironpython/cpython_extensions.shtml&gt;`__
+to IronPython, which embeds a CPython interpreter into IronPython ?” it
+sounds crazy but apparently works.</em></p>
+<p>Embedding CPython into IronPython relies upon a library called <a class="reference external" href="http://pythonnet.sourceforge.net/readme.html">Python
+for .NET</a>, which also
+allows .NET libraries to be used in standard CPython. The library can be
+used deparately from IronPython, so the solution I ended up using was
+CPython and the Python for .NET library.</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><div><p>Go the download page for the Python for .Net project at
+<a class="reference external" href="http://sourceforge.net/projects/pythonnet/files/">http://sourceforge.net/projects/pythonnet/files/</a>, and download the
+appropriate zip file for your existing Python installation (2.5, 2.6
+or 2.7).</p>
+</div></li>
+<li><div><p>Unzip the file to a folder of your choice. Ideally this should be
+somewhere on the Python path, but in the sample code below you can
+add a reference to this folder by changing the path to the
+pythonnet-2.0-alpha2-clr2.0_131_py27_UCS2 folder.</p>
+</div></li>
+<li><div><p>That’s all you need to do!</p>
+</div></li>
+</ol>
+<p>The sample script below shows how to add references to your own DLLs and
+to the ESRI ArcObject DLLs, open ArcMap, and create classes.</p>
+<p>
+<script src="https://gist.github.com/923954.js"> </script>
+</p><p>As this approach is not ArcObjects specific you can use classes in any
+of your other .NET DLLs, and even classes in .NET .exes.</p>
+<p>I can now script all the classes in my .NET DLLs through Python ?”
+instantly removing the need for hastily put together user interfaces,
+and fully automating previously manual tasks. It also allows easy
+passing of data between the ESRI and open source stacks. I’ve only
+scripted a few processes so far, but I’ve had no issues yet, and at the
+moment it feels like one of the rare programming occasions where getting
+things to work together was actually easier than expected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/1f3083754b79e77c7d06f353c2f7cbd9?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-302" src="http://www.gravatar.com/avatar/1f3083754b79e77c7d06f353c2f7cbd9?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-302"><span class="std std-ref">1.</span></a> <strong>Ruben Berenguel</strong>
+**</p>
+<p>A well written post, I say. I’m also happy at discovering ‘Gephi’, it
+looks gorgeous.</p>
+<a href="mailto:web+the-seven-bridges#1@geographika.co.uk?Subject=the-seven-bridges" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/a00ac6ca365712a2e87acee41e8f8e4e?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-324" src="http://www.gravatar.com/avatar/a00ac6ca365712a2e87acee41e8f8e4e?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-324"><span class="std std-ref">2.</span></a> <strong>Mathieu Bastian</strong>
+**</p>
+<p>Hi,</p>
+<p>A new Gephi plugin has just been released: GeoLayout. It allows to use
+latitude/longitude coordinates to set nodes’ position.</p>
+<p>You can download it from this page (<a class="reference external" href="http://gephi.org/plugins/geolayout/">http://gephi.org/plugins/geolayout/</a>)
+or install directly from Gephi (Go To Tools &gt; Plugins).</p>
+<p>The author is looking for feedbacks, don’t hesitate to come to the
+forum!</p>
+<a href="mailto:web+the-seven-bridges#2@geographika.co.uk?Subject=the-seven-bridges" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/7ae23bfa8ce5821731be235d83ae5f0c?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1962" src="http://www.gravatar.com/avatar/7ae23bfa8ce5821731be235d83ae5f0c?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1962"><span class="std std-ref">3.</span></a> <strong>Donte</strong>
+**</p>
+<p>You are so awesome for helping me solve this myretsy.</p>
+<a href="mailto:web+the-seven-bridges#3@geographika.co.uk?Subject=the-seven-bridges" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+using-arcobjects-and-net-in-python@geographika.co.uk?Subject=using-arcobjects-and-net-in-python" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

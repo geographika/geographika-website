@@ -1,0 +1,19 @@
+
+Export from OSM
+
+Convert to shapefile
+
+http://www.gdal.org/drv_osm.html
+
+https://wiki.openstreetmap.org/wiki/OGR
+
+cd C:\Data\MarneValley
+ogr2ogr -skipfailures -f "ESRI Shapefile" shp map.osm -overwrite
+
+
+Symbol order important (choose drawing phase)
+
+SVG issues: https://trac.osgeo.org/mapserver/ticket/4252
+
+
+Here’s another “shadow” technique.  This map’s gradient shade is made with 8 buffers , each a half kilometer wide. The colors are calculated dividing the color distance from start to end by 8. The colors are scaled like so:

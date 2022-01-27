@@ -1,0 +1,36 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-251:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-251>` **geographika &raquo; Automated Diagrams and Documentation**
+**
+
+[...] I previously wrote, one of the ways to get through the task of
+documenting a project is to turn the documentation [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+task-13-user-documentation#1@geographika.co.uk?Subject=task-13-user-documentation" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+the-seven-bridges@geographika.co.uk?Subject=the-seven-bridges" target="_top">Add Comment</a>

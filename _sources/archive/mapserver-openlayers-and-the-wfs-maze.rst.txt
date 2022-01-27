@@ -1,0 +1,215 @@
+MapServer, OpenLayers and the WFS Maze
+######################################
+:date: 2011-06-10 18:07
+:author: admin
+:category: mapserver, OpenLayers, web development
+:tags: projections, srs, wfs
+:slug: mapserver-openlayers-and-the-wfs-maze
+:status: published
+
+|image|\ First a little background on what I was trying to achieve. I am
+developing a GIS that has both a web and desktop component. It's built
+using SQL Server 2008, MapServer, OpenLayers, and using MapInfo and QGIS
+for desktop connections.
+
+On the web system I have an OpenLayers map, with an OpenStreetMap
+background layer. As with nearly all the online tiling services, these
+are projected in EPSG:900913 (the Web Mercator / Google projection).
+
+I wanted to display a road network on top of these as a WFS (Web Feature
+Service). The source data is defined in the Irish National Grid
+projection (EPSG:29902).
+
+At the same time I also wanted people to be able to connect to the WFS
+via a desktop GIS client using the Irish National Grid projection.
+
+Multiple Spatial Reference Systems (SRSs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `Rules for Handling SRS in MapServer
+WFS <http://mapserver.org/ogc/wfs_server.html#configuring-your-mapfile-to-serve-wfs-layers>`__
+are not the easiest to work with. The first paragraph of the rules imply
+that multiple projections are not available for a single WFS layer
+available through MapServer:
+
+    Contrary to WMS, the OGC WFS specification doesn’t allow a layer
+    (feature type) to be advertised in more than one SRS. Also, there is
+    no default SRS that applies to all layers by default in the OGC WFS
+    spec. However, it is possible to have every layer in a WFS server
+    advertised in a different SRS.
+
+However there is now support for multiple SRSs - added in version 6.0 of
+MapServer as outlined in `this
+ticket <http://trac.osgeo.org/mapserver/ticket/3227>`__. You can check
+how a WFS layer is “advertised” to a client using a URL similar to the
+following:
+
+http://geographika.azurewebsites.net/mapserver/mapserv.exe?map=C:/PathToMapFile/MyMap.map&service=WFS&request=GetCapabilities&version=1.1.0
+
+Each of the layers should have some XML which lists the DefaultSRS, and
+if you have set it up one or more OtherSRS tags:
+
+::
+
+    <FeatureType>
+        <Name>Test</Name>
+        <Title>Test</Title>
+        <DefaultSRS>urn:ogc:def:crs:EPSG::900913</DefaultSRS>
+        <OtherSRS>urn:ogc:def:crs:EPSG::29902</OtherSRS>
+
+| 
+|  To get to this point however is not the simplest of journeys..
+
+How to Set Up Multiple SRSs in MapServer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The `SRS
+rules <http://mapserver.org/ogc/wfs_server.html#configuring-your-mapfile-to-serve-wfs-layers>`__
+explain how MapServer advertises the available projections for each of
+your WFS layers:
+
+    -  If a top-level map SRS is defined\* then this SRS is used and
+       applies to all layers (feature types) in this WFS. In this case
+       the SRS of individual layers is simply ignored even if it’s set.
+    -  If there is no top-level map SRS defined\* then each layer is
+       advertised in its own SRS in the capabilities.
+    -  By “SRS is defined”, we mean either the presence of a PROJECTION
+       object defined using an EPSG code, or of a “wfs\_srs” metadata at
+       this level.
+
+I recommend you read the further explanations in the official
+documentation, as there are a lot of other rules on how priorities and
+conflicts between different configuration settings work. From the
+documentation:
+
+    Confusing? As a rule of thumb, simply set the wfs\_srs at the map
+    level (in web metadata) and never set the wfs\_srs metadata at the
+    layer level and things will work fine for most cases.
+
+.. raw:: html
+
+   <p style="text-align: justify;">
+
+However this only applies if you don't want to use multiple projections.
+This cut-down example of a map file may help to illustrate what these
+rules actually look like in code: 
+
+.. raw:: html
+
+   <script src="https://gist.github.com/1019212.js"> </script>
+   </p>
+
+A few additional notes from spending a number of hours struggling with
+these:
+
+-  The DefaultSRS is always the first item in the wfs\_srs list. **The
+   order these are listed is therefore critical.
+   **
+-  If no metadata is available then the SRS is taken from the Map
+   Projection. In this case there are no OtherSRS values.
+-  I’d recommend **not** sharing the SRS definitions between WFS and WMS
+   (you can do this with the ows\_srs metadata setting) as the order
+   makes no real difference to a WMS service, but is critical for a WFS
+   service.
+-  You need to set the PROJECTION object for each WFS layer with
+   multiple projections. *Even if the layer is in the same projection as
+   the MAP projection.* This was probably the hardest issue to track
+   down. If you don't set it you end up with the nasty situation of the
+   client BBOX in one projection searching for features in the other
+   projection. It would be nice if MapServer just threw an error at this
+   point. Instead you'll likely get a message such as:
+
+::
+
+    <gml:boundedBy>
+    <gml:Null>missing</gml:Null>
+    </gml:boundedBy>
+
+The WFS Client - OpenLayers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Once you've got you DefaultSRS and OtherSRSs set up correctly in
+MapServer and checked them with the GetCapabilities request, you can to
+try to connect to them with a real WFS client. The MapInfo desktop WFS
+involved entering the server name, and selecting layers from a list. The
+OpenLayers connection was more difficult.
+
+::
+
+To add a WFS to OpenLayers, you create a vector layer with the WFS
+protocol. Make sure the WFS version is set to **1.1.0**. Why? If you use
+WFS 1.0.0 the srsName is not supported, so you can't use OpenLayers to
+decide in which projection you want your features returned.
+
+::
+
+    protocol: new OpenLayers.Protocol.WFS({
+                  featureType: “Test”,
+                  featurePrefix: "ms",
+                  srsName: "EPSG:900913",
+                  version: "1.1.0",
+                  url: url
+               })
+
+If you set the srsName in the WFS protocol your WFS requests will
+include now include the srsName (it can also pick this up from the map,
+but I find it easier to be explicit about projections). If you check
+your requests in FireBug or Fiddler you can see the XML that is posted
+to MapServer when you switch on a vector layer:
+
+::
+
+    <wfs:Query typeName="Test" srsName="EPSG:900913">
+
+A full OpenLayers request looks similar to this:
+
+.. raw:: html
+
+   <p>
+   <script src="https://gist.github.com/1019119.js"> </script>
+   </p>
+
+However there is one more piece of the puzzle left - as adding the
+srsName value to the WFS protocol has very little effect! Features will
+be correctly selected, but they will be returned in the DefaultSRS, in
+this example EPSG:29902, so they will never appear in OpenLayers.
+Whether this is an issue with MapServer or the WFS specification I'm not
+sure.
+
+What you need to do is to pass the srsName to the URL of your WFS
+server. E.g.
+
+http://geographika.azurewebsites.net/mapserver/?map=C:/PathToMapFile/mymap.map&SERVICE=WFS&VERSION=1.1.0&srsName=EPSG:900913
+
+The POST request remains the same, but setting the SRS in the URL forces
+MapServer to reproject the features. The WFS protocol should therefore
+look something like this:
+
+::
+
+    protocol: new OpenLayers.Protocol.WFS({
+                  featureType: “Test”,
+                  featurePrefix: "ms",
+                  srsName: "EPSG:900913",
+                  version: "1.1.0",
+                  url: url + "&srsName=EPSG:900913",
+               })
+
+If you enter a SRS which is not listed for your WFS layer you’ll get the
+following message:
+
+::
+
+    msWFSGetFeature(): WFS server error. Invalid GetFeature Request:Invalid SRS.  
+    Please check the capabilities and reformulate your request.
+
+If all has gone well you'll have a MAP file containing WFS layers that
+can be requested by clients in a variety of projections - very useful
+when some people are connecting through a web system based on Web
+Mercator, and others through a desktop using other datasets projected to
+national grids.
+
+.. |image| image:: images/2011/06/image.png
+   :target: http://www.flickr.com/photos/jlcarmichael/
+
+.. include:: comments/mapserver-openlayers-and-the-wfs-maze.rst

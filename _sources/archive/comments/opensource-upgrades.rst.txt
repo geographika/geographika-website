@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+opensource-upgrades@geographika.co.uk?Subject=opensource-upgrades" target="_top">Add Comment</a>

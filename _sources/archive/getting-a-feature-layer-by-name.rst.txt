@@ -1,0 +1,114 @@
+Getting a Feature Layer by Name
+###############################
+:date: 2009-06-03 10:43
+:author: admin
+:category: arcobjects, esri, programming
+:slug: getting-a-feature-layer-by-name
+:status: published
+
+An often required function is to get a specific layer from a current map
+document. The code below is for VB.NET and requires a map document and
+uses the alias name of the feature class. The first function returns all
+`IGeoFeature <http://edndoc.esri.com/arcobjects/9.2/ComponentHelp/esriCarto/IGeoFeatureLayer.htm>`__
+layers in a map - these are layers based on vector geographic data. The
+second loops through these layers and compares the layer names.
+
+::
+
+    Public Function GetFeatureLayers(ByRef pMap As IMap) As IEnumLayer
+
+    Dim pUID As New UIDClass
+    pUID.Value = "{E156D7E5-22AF-11D3-9F99-00C04F6BC78E}" 'IGeoFeatureLayer GUID
+
+    If pMap.LayerCount > 0 Then
+    GetFeatureLayers = pMap.Layers(pUID, True)
+    Else
+    Return Nothing
+    End If
+
+    End Function
+
+    Public Function GetFeatureLayerByAliasName(ByRef pMap As IMap, _
+    ByVal strLayerModelName As String) As IFeatureLayer
+
+    Dim pLayerEnum As IEnumLayer
+    Dim pFLayer As IFeatureLayer
+
+    pLayerEnum = GetFeatureLayers(pMap)
+    If pLayerEnum Is Nothing Then
+    Return Nothing
+    End If
+
+    pFLayer = DirectCast(pLayerEnum.Next, IFeatureLayer)
+
+    Do Until pFLayer Is Nothing
+    If pFLayer.Valid Then
+    If strLayerModelName = pFLayer.FeatureClass.AliasName Then
+    Return pFLayer
+    End If
+    End If
+    pFLayer = DirectCast(pLayerEnum.Next, IFeatureLayer)
+    Loop
+
+    'the layer was not found
+    Return Nothing
+
+    End Function
+
+Rather than using the layer name visible in the table of contents which
+is easly changed by a user, I use the .AliasName of the feature class.
+This is automatically set to the name of the layer when added to a map.
+A user is much less likely to change this. There is however another name
+that is 100% certain not to change, it does however require an
+additional step when adding the layer shown below:
+
+::
+
+    Dim pModelInfo As IModelInfo
+    pModelInfo = CType(pFLayer.FeatureClass, IModelInfo)
+    pModelInfo.ModelName = “AnyValueYouLike”
+
+The code to find this layer is similar to the FindFeatureLayer, but
+relies on the
+`IModelInfo <http://edndoc.esri.com/arcobjects/9.1/ComponentHelp/esriGeoDatabase/IModelInfo.htm>`__
+interface. As stated in the documentation - *"Object classes and fields
+in a geodatabase can have between one and three names..The third name is
+the model name which is a tool for developers of custom objects to use
+to guarantee the names of objects independent of the true name or alias
+name."*
+
+This property could be used in conjunction with a GUID to ensure you
+return the layer you are looking for.
+
+::
+
+    Public Function GetFeatureLayerByModelName(ByRef pMap As IMap, _
+    ByVal strLayerModelName As String) As IFeatureLayer
+
+    Dim pLayerEnum As IEnumLayer
+    Dim pFLayer As IFeatureLayer
+    Dim pModelInfo As IModelInfo
+
+    pLayerEnum = GetFeatureLayers(pMap)
+    If pLayerEnum Is Nothing Then
+    Return Nothing
+    End If
+
+    pFLayer = DirectCast(pLayerEnum.Next, IFeatureLayer)
+
+    Do Until pFLayer Is Nothing
+    If pFLayer.Valid Then
+    pModelInfo = DirectCast(pFLayer.FeatureClass, IModelInfo)
+    If strLayerModelName = pModelInfo.ModelName Then
+    Return pFLayer
+    End If
+    End If
+    pFLayer = DirectCast(pLayerEnum.Next, IFeatureLayer)
+    Loop
+
+    'the layer was not found
+    Return Nothing
+    End Function
+
+
+.. include:: comments/getting-a-feature-layer-by-name.rst

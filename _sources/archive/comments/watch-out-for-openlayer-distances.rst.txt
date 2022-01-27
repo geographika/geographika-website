@@ -1,0 +1,86 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-381:
+
+.. image:: http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-381>` **Sean Gillies**
+**
+
+I looked at one of the API example links and find.geojs seems to return
+[lon, lat] coordinates:
+http://geocoding.cloudmade.com/BC9A493B41014CAABB98F0471D759707/geocoding/v2/find.geojs?around=city:london;country:uk&object\_type=park
+
+
+.. raw:: html
+
+    <a href="mailto:web+visualising-geojson-in-15-minutes#1@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-383:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-383>` **geographika**
+**
+
+| `@Sean Gillies <#comment-381>`__
+|  Thanks for the link Sean. I realised after reading further there is a
+find.js page to return JSON - which can also return coordinates in the
+[lat, lon] order, and a find.geojs which return geojson in a [lon,lat]
+order.
+|  Once I updated the code to use the find.geojs all worked fine.
+
+
+.. raw:: html
+
+    <a href="mailto:web+visualising-geojson-in-15-minutes#2@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-390:
+
+.. image:: http://www.gravatar.com/avatar/48f28dc74ffa851aab0ebcbf2afe1302?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-390>` **Sean Gillies**
+**
+
+Calling ax.set\_aspect(1) will square up that plot. Thank you for
+blogging this. I'm pleased to see that this mostly works out of the box
+with win32.
+
+
+.. raw:: html
+
+    <a href="mailto:web+visualising-geojson-in-15-minutes#3@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+watch-out-for-openlayer-distances@geographika.co.uk?Subject=watch-out-for-openlayer-distances" target="_top">Add Comment</a>

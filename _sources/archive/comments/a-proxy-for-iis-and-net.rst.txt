@@ -1,0 +1,35 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1052:
+
+.. image:: http://www.gravatar.com/avatar/24d560e9c03ad96566974d9bcaee5a82?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1052>` **pencho**
+**
+
+thats awesome .Thnx very much man . This rly helps
+
+
+.. raw:: html
+
+    <a href="mailto:web+a-10-minute-intro-on-using-bitbucket-with-windows#1@geographika.co.uk?Subject=a-10-minute-intro-on-using-bitbucket-with-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+a-proxy-for-iis-and-net@geographika.co.uk?Subject=a-proxy-for-iis-and-net" target="_top">Add Comment</a>

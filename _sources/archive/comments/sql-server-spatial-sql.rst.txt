@@ -1,0 +1,38 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-436:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-436>` **geographika &raquo; A 10 Minute Intro on using BitBucket with Windows**
+**
+
+[...] There are already a couple of official quick start guides to using
+Mercurial’s Window’s client program TortoiseHG, but below are the bare
+details of how to use it with a new account on the BitBucket service.
+[...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+source-control-using-bitbucket#1@geographika.co.uk?Subject=source-control-using-bitbucket" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+sql-server-spatial-sql@geographika.co.uk?Subject=sql-server-spatial-sql" target="_top">Add Comment</a>

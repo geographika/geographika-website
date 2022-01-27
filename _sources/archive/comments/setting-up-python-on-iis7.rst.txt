@@ -1,0 +1,36 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1931:
+
+.. image:: http://www.gravatar.com/avatar/4e176d2ec6ac254d53a881b29fefe41b?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1931>` **jusan**
+**
+
+where can i download Mod\_python for python 2.7 where through
+http://httpd.apache.org/modules/python-download.cgi page not found?
+
+
+.. raw:: html
+
+    <a href="mailto:web+running-python-through-apache#1@geographika.co.uk?Subject=running-python-through-apache" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+setting-up-python-on-iis7@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Add Comment</a>

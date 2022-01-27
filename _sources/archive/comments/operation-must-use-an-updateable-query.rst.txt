@@ -1,0 +1,44 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-921:
+
+.. image:: http://www.gravatar.com/avatar/6b97148b07e119f6793e1a216e9c5b2c?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-921>` **Israel**
+**
+
+Greatings!
+
+Could you Help me, plese?
+
+I have a dude about off a missing Library from MSSQLSpatial Data, I'm
+searshing for the complementoff the sql server data Spacial (geography
+and geometry) for the command OGR for console, cold you sendme the step
+or links, about this?
+
+a lot to thanks!
+
+
+.. raw:: html
+
+    <a href="mailto:web+ogr-comes-to-sql-server-2008-spatial#1@geographika.co.uk?Subject=ogr-comes-to-sql-server-2008-spatial" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+operation-must-use-an-updateable-query@geographika.co.uk?Subject=operation-must-use-an-updateable-query" target="_top">Add Comment</a>

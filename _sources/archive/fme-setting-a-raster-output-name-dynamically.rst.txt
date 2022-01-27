@@ -1,0 +1,71 @@
+FME: Setting a Raster Output Name Dynamically
+#############################################
+:date: 2009-10-10 13:17
+:author: admin
+:category: fme
+:tags: Data Processing, fme
+:slug: fme-setting-a-raster-output-name-dynamically
+:status: published
+
+I have started to use `FME <http://www.safe.com/>`__ more and more for
+data imports and data processing. I like automating any workflow as much
+as possible, and FME is great for this. For one part of a project had a
+number of similar raster processes that could be defined in a single
+workspace, as long as parameters could be used.
+
+The system documentation is normally both detailed and clear, and FME
+also has very good `support and community web
+sites <http://www.safe.com/fmeusercentral/index.php>`__.  However in
+this case it took a lot of documentation reading and trial and error to
+work out how to change the ouput filename of a model. This may be
+obvious to experienced users of FME, but it had me stumped for a while.
+
+|raster\_naming2|\ 
+
+The steps involved are simple in retrospect, and are as follows:
+
+Create your raster model as normal, but add an additional
+**AttributeSetter** transformer, as shown in the screenshot above.
+
+Next create a new **Published Parameter** that will be used to pass in
+the output raster filename. The source dataset and destination folder
+can also be set to be published parameters to provide full flexibility.
+
+|raster\_naming3|
+
+Next right click on the newly created published parameter and check the
+AttributeSetter value item. This creates the link between the parameter
+and the value for the attribute.
+
+|raster\_naming4|
+
+If you look at the AttributeSetter's properties they should now look
+similar to below.
+
+|raster\_naming5|
+
+Finally look at the properties for your output raster dataset. Make sure
+the "Fanout By Attribute" is checked and the attribute is set to
+fme\_basename. This sets the output filename to be the same as the
+fme\_basename attribute value, which is now set via an input parameter.
+
+|raster\_naming1|
+
+The model is now ready to run from the command line or through a batch
+process, for one or many raster transformations. The output filename
+parameter does not require a .tif extension.
+
+::
+
+        fme.exe raster_sample.fmw
+              --SourceDataset_ARCVIEWGRID C:\Grids
+              --DestDataset_GEOTIFF C:\Rasters
+              --OutputFileName MyOutputRaster
+
+.. |raster\_naming2| image:: images/2009/10/raster_naming21.png
+.. |raster\_naming3| image:: images/2009/10/raster_naming3.png
+.. |raster\_naming4| image:: images/2009/10/raster_naming4.png
+.. |raster\_naming5| image:: images/2009/10/raster_naming5.png
+.. |raster\_naming1| image:: images/2009/10/raster_naming1-300x261.png
+
+.. include:: comments/fme-setting-a-raster-output-name-dynamically.rst

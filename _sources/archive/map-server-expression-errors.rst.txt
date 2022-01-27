@@ -1,0 +1,94 @@
+Map Server Expression Errors
+############################
+:date: 2010-01-07 20:18
+:author: admin
+:category: bugs, mapserver
+:slug: map-server-expression-errors
+:status: published
+
+|image0|\ Errors...
+~~~~~~~~~~~~~~~~~~~
+
+After turning on logging to diagnose an issue with MapServer I found a
+more worrying error, that was causing the log file to fill up at a rate
+of about 2MB a minute! I was reusing a legend for five or six datasets,
+and it was causing the following debug notes:
+
+::
+
+    [Thu Jan 07 15:28:21 2010].629000 msyyparse():
+    Expression parser error. syntax error
+
+    [Thu Jan 07 15:28:21 2010].629000 msEvalExpression:
+    Expression parser error.
+    Failed to parse expression:  ( >= 2.251) AND ( <= 2.5)
+
+Map Server Logging
+~~~~~~~~~~~~~~~~~~
+
+To turn on logging in MapServer enter the following lines near the top
+of the .MAP file. The
+`DEBUG <http://mapserver.org/mapfile/map.html?highlight=debug>`__\ value
+ranges from 0 (only actual errors are logged), to 5 which logs
+everything (diagnostics, errors, and debug notes). The second line
+requires the path to a logfile (any path and filename can be used).
+
+::
+
+    DEBUG 5
+    CONFIG "MS_ERRORFILE" "C:/ms4w/apps/myapp/tmp/ms.log"
+
+Problem Solved
+~~~~~~~~~~~~~~
+
+I am using the SQL Server plug-in so initially I thought it could be
+related to this. I also tried changing the field name used in the
+expressions in case MEAN was a reserved word. Several sites also
+suggested the field may need to be in UPPERCASE, but I think this
+relates only to shapefiles.
+
+MapServer was still generating full images, so data was being read and
+symbolised. I eventually found the `following
+post <http://n2.nabble.com/problem-with-expression-null-values-in-table-td1999490.html>`__
+which pointed to the problem..nulls. I should have spotted this sooner
+as the debug output was clear in retrospect. The expression parser was
+replacing my field name with empty values. So the expression
+**EXPRESSION ( ([MEAN] >= 2.251) AND ([MEAN] <= 2.5) )** became **( >=
+2.251) AND ( <= 2.5)** wherever the [MEAN] field contained a NULL. All
+these features turned out to be
+`slivers <http://www.cise.ufl.edu/~mssz/GIS/sliver.gif>`__ and could be
+deleted from the database, allowing my debug files to be readable again.
+If the features were required I would either have had to create a view
+of the table in SQL Server and point my LAYER to read from this, or
+replace the NULL values with a 0 if this was appropriate.
+
+The `post mentioned
+above <http://n2.nabble.com/problem-with-expression-null-values-in-table-td1999490.html>`__
+suggests that in the case of shapefiles NULLS are automatically replaced
+with 0 for numeric fields, and by '' for strings. I think I'd prefer
+errors than automated assumptions about the data, but maybe a more
+obvious message in the log files would be useful.
+
+As for the image - apparently the The Greek lowercase `omega
+(ω) <http://en.wikipedia.org/wiki/Omega>`__ character is used to
+represent Null in `database
+theory <http://en.wikipedia.org/wiki/Database_theory>`__. You live and
+learn..
+
+Update
+~~~~~~
+
+Rather than delete null features from the database, you can ignore them
+completely when displaying your layer using the
+`FILTER <http://mapserver.org/mapfile/layer.html#layer>`__\ keyword -
+*"this parameter allows for data specific attribute filtering that is
+done at the same time spatial filtering is done, but before any CLASS
+expressions are evaluated."*
+
+For a SQL Server 2008 dataset to exclude nulls use a statement such as:
+
+FILTER "[FieldName] IS NOT NULL"
+
+.. |image0| image:: images/2010/01/Db_null.png
+
+.. include:: comments/map-server-expression-errors.rst

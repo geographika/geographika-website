@@ -1,0 +1,60 @@
+We Know Where Your Browser Lives
+################################
+:date: 2010-05-28 14:03
+:author: admin
+:category: javascript, opinion, web development
+:tags: browser, cloud, firefox, geolocation
+:slug: we-know-where-your-browser-lives
+:status: published
+
+|image| Maybe I’m a `little
+late <http://www.theregister.co.uk/2009/06/30/firefox_3point5_review/>`__
+in finding this, but if you have FireFox 3.5 or higher try clicking
+`this link <#>`__ (you will have to agree to let your browser divulge
+your location to open the link). The JavaScript code run when clicking
+the link is as follows, and can also be pasted directly into your
+address bar:
+
+::
+
+    javascript:navigator.geolocation.getCurrentPosition(
+    function(position){
+    window.location.href="http://maps.google.com/?ll="+position.coords.latitude+",
+    "+position.coords.longitude;});
+
+I believe the navigator.geolocation object is also available in Safari,
+iPhone, and Chrome. The `Mozilla
+documentation <http://www.mozilla.com/en-US/firefox/geolocation/>`__
+provides more details on its use. This `StackOverflow
+question <http://stackoverflow.com/questions/1349064/which-devices-support-javascript-geolocation-via-navigator-geolocation>`__
+asks which browsers and devices it applies to, and this is set to grow
+if it becomes part of the browser standards - the W3C has an online
+draft `Geolocation API
+Specification <http://dev.w3.org/geo/api/spec-source.html>`__. They list
+the following `use
+cases <http://dev.w3.org/geo/api/spec-source.html#usecases>`__:
+
+-  Find points of interest in the user's area
+-  Annotating content with location information
+-  Show the user's position on a map
+-  Turn-by-turn route navigation
+-  Alerts when points of interest are in the user's vicinity
+-  Up-to-date local information
+-  Location-tagged status updates in social networking applications
+
+There is also a framework API *aligned* to the W3C specification at
+http://code.google.com/p/geo-location-javascript/
+
+In the week that ArcGIS is released as a `“cloud
+service” <http://www.spatiallyadjusted.com/2010/05/24/arcgis-com-beta-goes-live/>`__,
+I believe the real power of the Internet will come more from
+manipulating and `combining data
+services <http://geographika.co.uk/?p=517>`__ than putting desktop
+applications in a browser. Especially if these applications can’t easily
+integrate open web services. When the full range of ArcGIS geoprocessing
+tools can be fed streams of GeoJSON, combined with user location, then
+the geocloud will have truely arrived.
+
+.. |image| image:: images/2010/05/image7.png
+
+.. include:: comments/we-know-where-your-browser-lives.rst

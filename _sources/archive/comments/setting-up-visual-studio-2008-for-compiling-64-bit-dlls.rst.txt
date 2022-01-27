@@ -1,0 +1,567 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-160:
+
+.. image:: http://www.gravatar.com/avatar/2643e328972eed9c07b7ec3bb9b4b964?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-160>` **Cyrus**
+**
+
+Thanks for the post!!! I was having the same trouble finding anything
+about IIS 7 and Python. I am really just wadding into the IIS waters. I
+can find everything and follow your whole post except for one thing, the
+DLL file. I downloaded the PyISAPIe package and I have files that end in
+.h,def, and sln but no dll. Do I have to make this file?
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#1@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-161:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-161>` **geographika**
+**
+
+| `@Cyrus <#comment-160>`__
+|  Hi Cyrus,
+
+On the `downloads
+page <http://sourceforge.net/projects/pyisapie/files/>`__ there are a
+few options:
+
+| PyISAPIe-1.1.0-rc4-Source.zip
+|  PyISAPIe-1.1.0-rc4-Py2.6.zip
+|  PyISAPIe-1.1.0-rc4-Py2.5.zip
+
+The first is the sourcecode for the DLL (C++ and Visual Studio solution
+files). The second two point to the DLLs - select Py2.6 or Py2.5
+depending on your installed Python version. These downloads contain the
+compiled DLLs.
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#2@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-167:
+
+.. image:: http://www.gravatar.com/avatar/2643e328972eed9c07b7ec3bb9b4b964?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-167>` **Cyrus**
+**
+
+@geographika
+
+Thanks for that. I seem to have a common problem with many django-to-ISS
+wranglers and that is how to properly connect the two together. I was
+wondering if you had solved the riddle completely. I can run the
+hello.py script and I have also been able to copy the ISAPI.py file into
+my root directory and given it the name rundjango.py. Then when I hit
+http://mysite.com/rundjango.py I get the "Welcome to Django" screen. But
+how do I get the PyISAPI/ISAPI connective stuff to know when I hit
+http://mysite.com/myapp/ that this is python/django?
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#3@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-168:
+
+.. image:: http://www.gravatar.com/avatar/2643e328972eed9c07b7ec3bb9b4b964?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-168>` **Cyrus**
+**
+
+Nevermind, I got it working. Needed the most up to date Pyisapie files.
+Then had to mod Pyisapie.py for django 1.0. Thanks!
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#4@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-177:
+
+.. image:: http://www.gravatar.com/avatar/52a7495eeb9152acb2a39c9f0e83cfd9?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-177>` **Jonathan**
+**
+
+Great Stuff. I was playing with this about two months ago and came to an
+abrupt halt - python was proving too much of a learning curve. Just to
+confirm - have you defintely got tilecache working with this set up -
+and if do - how does it compare with mod\_apache?
+
+All the best,
+
+Jonathan
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#5@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-179:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-179>` **geographika**
+**
+
+| `@Jonathan <#comment-177>`__
+|  TileCache has been running for a couple of months now without any
+problems.
+|  Both http://sei.maps.ie/wind and http://sei.maps.ie/geothermal are
+using caches.
+|  I had both Apache and IIS running the same .map files on the same
+Windows 2008 64-bit server.
+|  I used JMeter to test the performance between the two, but after a
+few consecutive requests Apache froze. `I wasn't able to find out
+why <http://geographika.co.uk/mapserverwindowsapachecrash>`__, but IIS
+and ISAPI were able to handle anything I threw at it.
+|  I'd strongly recommend using IIS if using Windows. You can also take
+advantage of the 64-bit MapServer (although a 64-bit Python version is
+not yet ready as far as I know).
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#6@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-233:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`7. <comment-233>` **geographika &raquo; Reboot to Refresh Environment Variables**
+**
+
+[...] This knowledge may save a couple of hours of frustration if you
+are running Python scripts on IIS through PyISAPIe. [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#7@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-268:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`8. <comment-268>` **geographika &raquo; Compiling a 64 bit Version of PyISAPIe**
+**
+
+[...] then set up the PyISAPIe.DLL on IIS7 (using the same process as I
+detailed here), replacing the 32-bit DLL with my newly compiled 64-bit,
+and using the DefaultAppPool which should [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#8@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-299:
+
+.. image:: http://www.gravatar.com/avatar/9e74650e99099d9a650364cbbdca8d59?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`9. <comment-299>` **joss**
+**
+
+A quick hack I found very useful was to modify Http/Isapi.py such that
+it reloads the file if you have modified it:
+
+| from PyISAPIe import Env
+|  from hashlib import md5
+|  import imp
+|  from os import stat
+
+| Handlers = {}
+|  TimeMap = {}
+
+| def Request():
+|  Script = Env.SCRIPT\_NAME
+|  Key = Name = '\_\_'+md5(Script).hexdigest().upper()
+|  Handler = Handlers.get(Key, None)
+|  mtime = stat(Env.SCRIPT\_TRANSLATED[4:])[8]
+|  if not Handler or TimeMap[Key] < mtime:
+|  Handlers[Key] = imp.load\_source(Key, Env.SCRIPT\_TRANSLATED).Request
+|  TimeMap[Key] = mtime
+|  return Handlers[Key]()
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#9@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-306:
+
+.. image:: http://www.gravatar.com/avatar/a14efba45be6281f9699e2b614a031ec?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`10. <comment-306>` **Josh**
+**
+
+| `@Cyrus <#comment-168>`__
+|  Cyrus, can you describe what you did here? How does IIS know to run
+the rundjango.py file of you do not specify the filename on the command
+line?
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#10@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-467:
+
+.. image:: http://www.gravatar.com/avatar/5f8c9e73a0c51b69da6c4881cefe457c?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`11. <comment-467>` **chris**
+**
+
+| @geographika
+|  first of all: I like your blog and your simple way to explain things,
+I guess you did already safe some people some time!
+
+you said, that you were able to get TileCache running on IIS7 with
+PyISAPIe. Could you give me a hint, how the original tilecache.py has to
+be changed?
+
+| ------------------------------
+|  from TileCache import Service, cgiHandler, cfgfiles
+
+| if \_\_name\_\_ == '\_\_main\_\_':
+|  svc = Service.load(\*cfgfiles)
+|  cgiHandler(svc)
+|  ------------------------------
+
+I guess, since it isn't a CGI script, that has to be adopted...
+currently I get:
+
+Request handler failed
+
+| Traceback (most recent call last):
+|  File "C:\\Python25\\PyISAPIe\\Http\\Isapi.py", line 49, in Request
+|  raise ImportError, "[Loading '%s'] %s" % (Env.SCRIPT\_TRANSLATED,
+str(Val))
+|  ImportError: [Loading
+'\\\\?\\C:\\inetpub\\wwwroot\\tilecache\\tilecache.py'] 'module' object
+has no attribute 'argv'
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#11@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-469:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`12. <comment-469>` **geographika**
+**
+
+Hi Chris - I uploaded my TileCache script to
+http://bitbucket.org/geographika/mapserver-scripts/changeset/40e84703a58d
+
+Let me know how you get on. I'll try and turn my notes into a post at
+some point. I think there were a couple of changes I have to make in the
+TileCache scripts themselves due to Python errors.
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#12@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-471:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`13. <comment-471>` **geographika &raquo; Using TileCache on IIS**
+**
+
+[...] previously written about using PyISAPie to run Python under IIS –
+this allows Python scripts to run faster than using CGI. Rather than
+starting up the Python [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#13@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-644:
+
+.. image:: http://www.gravatar.com/avatar/27fcfd8c3cba0ca7986d3e1e07a79ffe?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`14. <comment-644>` **Timothy Walker**
+**
+
+Very good example. Found another good site that shows exactly how to
+setup CGI II7 and C++, along with your example I have finally setup a
+nice web host to host my own site! DynDNS offers nice services to do
+this. There is something generic about have others like GoDaddy host
+your web site, especially if you are a 7 language programmer! I am not a
+web master, but I do have 20 years of C++ so why not host my own site!
+Others can do so as well, but the hardest part of it is finding clear
+concise examples, and Microsoft does not offer anything close to this.
+You are wasting your time if you think MS can give you any good help for
+free! This is the beauty of the web, people like us that can offer
+better help than major corporations! For free that is.
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#14@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-770:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`15. <comment-770>` **MapFish Print Module for IIS at geographika**
+**
+
+[...] and configure PyISAPIe. You can follow the instructions described
+on this post or in the README file included with PyISAPIe . If you want
+to run a 64 bit version, have a look at [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#15@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1450:
+
+.. image:: http://www.gravatar.com/avatar/24b02e0a84d2ca3af8ea44686298fb58?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`16. <comment-1450>` **Vaibhav**
+**
+
+| Hi,
+|  Thanks for this article, it seems to be very useful.
+|  I'm getting below error
+|  HTTP Error 404.17 - Not Found
+|  The requested content appears to be script and will not be served by
+the static file handler.
+
+It would be really good if you could provide any pointers as to what is
+missing which causes this issue. Thanks in advance.
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#16@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1698:
+
+.. image:: http://www.gravatar.com/avatar/50c6f8a0bee5604bd504c7279f8b2cf6?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`17. <comment-1698>` **Detzler**
+**
+
+HTTP Error 404.17 – Not Found
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#17@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1715:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`18. <comment-1715>` **wolf++ &raquo; Running Django on Windows: Python 2.7.2 x64, PyISAPIe and IIS 7.5**
+**
+
+[...] Setting up Python on IIS7 –
+http://geographika.co.uk/setting-up-python-on-iis7 [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#18@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1978:
+
+.. image:: http://www.gravatar.com/avatar/a8b8ea92ee5b6f777a9a54f2c0d8397f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`19. <comment-1978>` **Ritesh Chandora**
+**
+
+| Tried everything mentioned.... but no success..
+|  Pythong 2.6
+|  IIS 7
+|  django 1.5.5
+
+Am I missing something???
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#19@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1979:
+
+.. image:: http://www.gravatar.com/avatar/a8b8ea92ee5b6f777a9a54f2c0d8397f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`20. <comment-1979>` **Ritesh Chandora**
+**
+
+windows server 2008R2
+
+
+.. raw:: html
+
+    <a href="mailto:web+setting-up-python-on-iis7#20@geographika.co.uk?Subject=setting-up-python-on-iis7" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+setting-up-visual-studio-2008-for-compiling-64-bit-dlls@geographika.co.uk?Subject=setting-up-visual-studio-2008-for-compiling-64-bit-dlls" target="_top">Add Comment</a>

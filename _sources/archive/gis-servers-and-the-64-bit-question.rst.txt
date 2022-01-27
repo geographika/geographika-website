@@ -1,0 +1,171 @@
+GIS Servers and the 64-bit Question
+###################################
+:date: 2010-07-06 18:55
+:author: admin
+:category: general, mapserver, opinion
+:tags: 64bit
+:slug: gis-servers-and-the-64-bit-question
+:status: published
+
+|image|\ The following is the first in a series of posts related to
+configuring a 64-bit Windows server as a GIS server  using
+`MapServer <http://mapserver.org/>`__ and Python.
+
+*Why move to 64-bit?*
+
+If a server’s operating system and hardware are 64-bit it seems a waste
+not to take advantage of them. It may be better to look at the question
+why move to 64-bit software, as *why wouldn’t you* *move to 64-bit
+software?*
+
+Its nice to be able to claim one-upmanship over `commercial GIS
+products <http://resources.arcgis.com/content/kbase?fa=articleShow&d=29391>`__
+who are only now bringing out 64 bit versions. However having gone
+through the pain of setting up Open Source GIS applications on Windows
+I’m not surprised companies took the time to simplify the process (and
+wait for Microsoft to do some of the legwork) rather than dealing with
+all the 32/64 bit support issues too early.
+
+.. raw:: html
+
+   <div style="text-align: justify;">
+
+.. raw:: html
+
+   </div>
+
+Memory & Performance
+^^^^^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+   <div style="text-align: justify;">
+
+    Intel x86/32-bit architecture limits virtual memory space to 3 GB,
+    not 4 GB, due to much of the 3�"4 GB region being reserved for
+    hardware addressing -
+    `Wikipedia <http://en.wikipedia.org/wiki/64-bit#Pros_and_cons>`__
+
+.. raw:: html
+
+   </div>
+
+Performance-wise one of the main benefits of 64-bit hardware is the
+extra memory you can add to a server. 64 bit Windows 7 can support up to
+`128 GB of
+RAM <http://msdn.microsoft.com/en-us/library/aa366778%28VS.85%29.aspx>`__.
+GIS applications are used to dealing with large spatial datasets �" both
+raster and vector, and will therefore be able to make full use of
+additional memory. This is not the case for all programs for example
+`Visual
+Studio <http://blogs.msdn.com/b/ricom/archive/2009/06/10/visual-studio-why-is-there-no-64-bit-version.aspx>`__
+which is unlikely to be multiuser or used to handle large datasets.
+
+A 64-bit server allows files larger than 4GB to be loaded directly into
+memory. This is very advantageous to video editing, bit also to GISs
+that use aerial imagery which can be served more quickly if loaded into
+memory rather than loading in sections.
+
+Databases make use of additional memory to cache data for faster
+responses to user requests, and to handle more concurrent connections �"
+there is a nice summary post on the `benefits of 64-bit for SQL Server
+here <http://blogs.msdn.com/b/sqlprogrammability/archive/2007/04/30/will-64-bit-increase-the-performance-of-my-sql-server-application.aspx>`__.
+Spatial databases, with their additional larger and complex data
+structures, are even better placed to take advantage of 64-bit
+computing.
+
+Future Proofing
+^^^^^^^^^^^^^^^
+
+Even though it is not the easiest thing to configure a GIS server,
+nearly all future software will have a 64 bit release, and in a few
+years 32 bit versions may start to be phased out. Future-proofing a
+system currently in development may help your GIS to last a few more
+years in a production environment.
+
+Another benefit is that you can start designing your infrastructure to
+scale �" all on the same physical machine. You can create a virtual web
+server, a virtual database server, and a virtual map server and divide
+up large amounts of memory, facilitated by a 64-bit architecture,
+between them. If the site needs to allow for more users, you can simply
+take the virtual server and move it to another physical machine �" and
+(in theory) there is very little to configure once the virtual machine
+has been moved.
+
+Cost
+^^^^
+
+As noted above the reduced number of physical machines should mean lower
+maintenance costs. In addition if you can get more throughput from your
+database then this may require fewer licences (such as for SQL Server
+2008 which often comes with a per-processor licence). Of course with a
+64-bit server you could have up to 64 processors, although this could
+well melt the server’s case..
+
+What to Update?
+^^^^^^^^^^^^^^^
+
+I’m currently involved in a couple of projects, one using Windows Server
+2008 and another Windows Server 2003. Both are 64-bit operating systems
+on 64-bit hardware. As 32-bit and 64-bit applications don’t play very
+well together it seems it will be an “all or nothing” migration,
+involving the following components:
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   MapServer
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   `GDAL <http://www.gdal.org/>`__
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   Python (for TileCache and Mapscript)
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   Shapely
+
+   .. raw:: html
+
+      </div>
+
+I’ll try and put steps together for each of these for my future sanity,
+and also in the help that there will be a few more developers straddling
+the Open Source and Windows divide. It would be nice at the end to post
+some benchmarks, but running both set ups on the same server could prove
+problematictraumatic. If anyone has noticed performance increases when
+using 64-bit GIS applications please leave comments!
+
+.. |image| image:: images/2010/07/image5.png
+
+.. include:: comments/gis-servers-and-the-64-bit-question.rst

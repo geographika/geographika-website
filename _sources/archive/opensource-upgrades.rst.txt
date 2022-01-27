@@ -1,0 +1,77 @@
+OpenSource Upgrades
+###################
+:date: 2010-06-24 23:35
+:author: admin
+:category: mapserver, opinion, web development
+:tags: openlayers, opensource, upgrades
+:slug: opensource-upgrades
+:status: published
+
+|image| Moving to new versions in OpenSource has in the past been like
+playing Russian roulette. Just now clicking on "Upgrade to WordPress
+3.0" I thought would lead to a greater understanding of the database
+schema, template inconsistencies, and plug-in idiosynchrocies of
+WordPress as I met an inevitable "Upgrade Failed. Please see log for
+details" message.
+
+But no! **Five seconds** later, all was successful, and everything
+looked as before. There have been numerous `bug fixes and
+improvements <http://codex.wordpress.org/Version_3.0>`__, but after a
+brief look through the list I didn’t see any “killer” new features.
+
+In the world of GIS however there are a number of important new versions
+coming up this summer.
+
+`OpenLayers <http://openlayers.org/>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OpenLayers 3.0 development has started. Key features and ideology are
+`listed
+here <http://openlayers.org/pipermail/dev/2010-June/006189.html>`__.
+There is also a `wiki page <http://trac.openlayers.org/wiki/three>`__.
+There is a move towards separating the core functions from the UI. I get
+the feeling OpenLayers could be moving from a homage to the Google Maps
+API , into a full JavaScript / browser geospatial framework.
+
+    The core should focus on the following:
+
+    -  layer management - tile handling & vector rendering
+    -  map & layer related event handling
+    -  server/client communication - generating requests and parsing
+       responses
+    -  geometry digitization & editing
+
+    A separate OpenLayers UI lib should focus on the following:
+
+    -  rendering of buttons and other widgets
+    -  presenting map information that is not rendered as features
+       (layer properties, feature attributes)
+    -  gathering user input for map configuration, queries, etc.
+
+`MapServer <http://mapserver.org/>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+On the server side of things, it seems
+`GeoServer <http://geoserver.org/display/GEOS/Welcome>`__ has recently
+had more traction than the older MapServer. However there will soon be
+(sometime in July if I understand correctly) a `version
+6 <http://trac.osgeo.org/mapserver/wiki/60ReleasePlan>`__.  This has a
+number of new items I’ve recently required for a new project, and they
+are now tantalisingly within reach. These include:
+
+-  XML mapfile consumption: run-time compilation (XML/XSLT => .map) or
+   embedded XML parser *- it will then be possible to easily generate
+   and manipulate MapFiles from a database, or script (I’m sure these
+   already exist, but moving to XML will mean all sorts of powerful
+   libraries in any language can be used to do this)*
+-  Output formats: KML and GeoJSON �" *excellent news! I’ve tried WFS,
+   and I don’t like it. Its nowhere near as ubiquitous as KML (a now
+   open standard) , or as easy to manipulate as JSON.*
+-  Tile caching support *�" whilst it is slightly annoying that having
+   got to grips with* `*TileCache* <http://tilecache.org/>`__ *and
+   Windows it looks like it will be integrated into MapServer, one less
+   system component to deal with is always a good thing.*
+
+.. |image| image:: images/2010/06/image9.png
+
+.. include:: comments/opensource-upgrades.rst

@@ -1,0 +1,177 @@
+Stack Overflow & OSGeo
+######################
+:date: 2010-05-19 21:46
+:author: admin
+:category: general, programming
+:tags: opensource, osgeo, stackoverflow
+:slug: stack-overflow-osgeo
+:status: published
+
+`Stack Overflow <http://stackoverflow.com/>`__, as most developers will
+already know, is a question and answer site for programmers. Itâ€™s
+perfect for mainstream development questions in any programming
+language, and has also become the support site of choice for some newer
+programming communities such as `Android
+developers <http://stackoverflow.com/questions/tagged/android>`__.
+|image|
+
+It can also be used as a barometer to see which current open source GIS
+projects have gained traction in the mainstream programming world. I
+took the full list of OSGeo projects from http://www.osgeo.org/ and ran
+queries on the site to see how many questions there were for each
+project. The results are as follows (as of May 2010):
+
++--------------------+--------------------+--------------------+--------------------+
+| **Project**        | **Type**           | **No. of           | **Link to          |
+|                    |                    | Questions**        | Questions**        |
++--------------------+--------------------+--------------------+--------------------+
+| `deegree <http://w | web mapping        | 0 results          |                    |
+| ww.osgeo.org/deegr |                    |                    |                    |
+| ee>`__             |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `geomajas <http:// | web mapping        | 1 result           | `geomajas <http:// |
+| geomajas.org/>`__  |                    |                    | stackoverflow.com/ |
+|                    |                    |                    | questions/tagged/g |
+|                    |                    |                    | eomajas>`__        |
++--------------------+--------------------+--------------------+--------------------+
+| `GeoServer <http:/ | web mapping        | **13 results**     | `geoserver <http:/ |
+| /geoserver.org/>`_ |                    |                    | /stackoverflow.com |
+| _                  |                    |                    | /questions/tagged/ |
+|                    |                    |                    | geoserver>`__      |
++--------------------+--------------------+--------------------+--------------------+
+| `Mapbender <http:/ | web mapping        | 0 results          |                    |
+| /www.osgeo.org/map |                    |                    |                    |
+| bender>`__         |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `MapBuilder <http: | web mapping        | 0 results          |                    |
+| //www.osgeo.org/ma |                    |                    |                    |
+| pbuilder>`__       |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `MapFish <http://m | web mapping        | 1 result           | `mapfish <http://s |
+| apfish.org/>`__    |                    |                    | tackoverflow.com/q |
+|                    |                    |                    | uestions/tagged/ma |
+|                    |                    |                    | pfish>`__          |
++--------------------+--------------------+--------------------+--------------------+
+| `MapGuide <http:// | web mapping        | 1 result           | `mapguide <http:// |
+| www.osgeo.org/mapg |                    |                    | stackoverflow.com/ |
+| uide>`__           |                    |                    | questions/tagged/m |
+|                    |                    |                    | apguide>`__        |
++--------------------+--------------------+--------------------+--------------------+
+| `MapServer <http:/ | web mapping        | 17 results         | `mapserver <http:/ |
+| /www.osgeo.org/map |                    |                    | /stackoverflow.com |
+| server>`__         |                    |                    | /questions/tagged/ |
+|                    |                    |                    | mapserver>`__      |
+|                    |                    |                    | &                  |
+|                    |                    |                    | `umn-mapserver <ht |
+|                    |                    |                    | tp://stackoverflow |
+|                    |                    |                    | .com/questions/tag |
+|                    |                    |                    | ged/umn-mapserver> |
+|                    |                    |                    | `__                |
++--------------------+--------------------+--------------------+--------------------+
+| `OpenLayers <http: | web mapping        | **56 results**     | `openlayers <http: |
+| //www.osgeo.org/op |                    |                    | //stackoverflow.co |
+| enlayers>`__       |                    |                    | m/questions/tagged |
+|                    |                    |                    | /openlayers>`__    |
++--------------------+--------------------+--------------------+--------------------+
+| `GRASS             | desktop            | 0 results          |                    |
+| GIS <http://www.os |                    |                    |                    |
+| geo.org/grass>`__  |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `OSSIM <http://www | desktop            | 0 results          |                    |
+| .osgeo.org/ossim>` |                    |                    |                    |
+| __                 |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `Quantum           | desktop            | 0 results          |                    |
+| GIS <http://www.os |                    |                    |                    |
+| geo.org/qgis>`__   |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `gvSIG <http://www | desktop            | 0 results          |                    |
+| .osgeo.org/gvsig>` |                    |                    |                    |
+| __                 |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `FDO <http://fdo.o | library            | 0 results          |                    |
+| sgeo.org>`__       |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `GDAL/OGR <http:// | library            | **14 results**     | `gdal <http://stac |
+| www.osgeo.org/gdal |                    |                    | koverflow.com/ques |
+| _ogr>`__           |                    |                    | tions/tagged/gdal> |
+|                    |                    |                    | `__                |
++--------------------+--------------------+--------------------+--------------------+
+| `GEOS <http://geos | library            | 2 results          | `geos <http://stac |
+| .osgeo.org>`__     |                    |                    | koverflow.com/ques |
+|                    |                    |                    | tions/tagged/geos> |
+|                    |                    |                    | `__                |
++--------------------+--------------------+--------------------+--------------------+
+| `GeoTools <http:// | library            | 7 results          | `geotools <http:// |
+| www.osgeo.org/geot |                    |                    | stackoverflow.com/ |
+| ools>`__           |                    |                    | questions/tagged/g |
+|                    |                    |                    | eotools>`__        |
++--------------------+--------------------+--------------------+--------------------+
+| `MetaCRS <http://m | library            | 0 results          |                    |
+| etacrs.osgeo.org/> |                    |                    |                    |
+| `__                |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+| `PostGIS <http://w | library            | **54 results**     | `postgis <http://s |
+| ww.postgis.org/>`_ |                    |                    | tackoverflow.com/q |
+| _                  |                    |                    | uestions/tagged/po |
+|                    |                    |                    | stgis>`__          |
++--------------------+--------------------+--------------------+--------------------+
+| `GeoNetwork <http: | metadata catalog   | 0 results          |                    |
+| //www.osgeo.org/ge |                    |                    |                    |
+| onetwork>`__       |                    |                    |                    |
++--------------------+--------------------+--------------------+--------------------+
+
+A couple of disclaimers â€" I added the MapFish tag, and tagged a few of
+the GeoTools questions myself.
+
+Its clear that OpenLayers and PostGIS are way out in front in terms of
+questions asked, and it may not be too much of a leap to suggest these
+projects are the most widely used GIS projects outside of the GIS world.
+
+.. raw:: html
+
+   <div class="mceTemp mceIEcenter" style="text-align: justify;">
+
+|image|
+    A JavaScript error ironically thrown by OpenLayers
+
+.. raw:: html
+
+   </div>
+
+Neither of these projects however match the huge numbers of questions
+about
+`neogeographerâ€™s <http://www.slideshare.net/ajturner/how-neogeography-killed-gis?src=embed>`__
+tools of choice â€" `Google
+Maps <http://stackoverflow.com/questions/tagged/google-maps>`__ at
+**1,369** questions. Poor old Bing Maps (perhaps partly due to being
+renamed from Live Maps) only gets 71 questions.
+
+Stack Overflow makes use of tags and a REST API so **the full collection
+of questions related to OSGeo projects can be seen using the `following
+URL <http://stackoverflow.com/questions/tagged/geomajas%20or%20geoserver%20or%20mapfish%20or%20mapguide%20or%20mapserver%20or%20openlayers%20or%20gdal%20or%20geos%20or%20geotools%20or%20postgis%20or%20osgeo>`__.**
+
+While it looks very unlikely that Stack Overflow will ever replace the
+`OSGeo mailing lists <http://lists.osgeo.org/mailman/listinfo>`__ as the
+first choice for debate and support, it would be good if a few of the
+FAQ got asked on Stack Overflow to help new users of these projects who
+arenâ€™t aware of the mailing lists, or the `Nabble
+interface <http://osgeo-org.1803224.n2.nabble.com/>`__ to search them.
+It would also spread knowledge that these projects exist to mainstream
+developers and could help some projects gain traction.
+
+You can also upvote (or downvote) my answers too, as there are so few
+GIS developers using the site that no one can assess the whether my
+answers are valid or nonsense..
+
+.. raw:: html
+
+   <p style="text-align: justify;">
+   <script src="http://stackoverflow.com/users/flair/179520.js?theme=clean" type="text/javascript"></script>
+   </p>
+
+.. |image| image:: images/2010/05/image1.png
+   :target: http://stackoverflow.com/
+.. |image| image:: images/2010/05/image.png
+
+.. include:: comments/stack-overflow-osgeo.rst

@@ -1,0 +1,18 @@
+Baking Donuts...
+################
+:date: 2009-10-20 19:11
+:author: admin
+:category: fme, general
+:tags: donuts, fme, polygons
+:slug: baking-donuts
+:status: published
+
+Nice to see `FME <http://www.safe.com/>`__ developers have a sense of
+humour!
+
+|FME\_Donuts|
+
+.. |FME\_Donuts| image:: images/2009/10/FME_Donuts.png
+   :target: images/2009/10/FME_Donuts.png
+
+.. include:: comments/baking-donuts.rst

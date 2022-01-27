@@ -1,0 +1,39 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-14:
+
+.. image:: http://www.gravatar.com/avatar/a8caee27b27462444c293652fcd30a1c?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-14>` **Paul Steinberg**
+**
+
+I am developing on Vista Ultimate and found the program was operating
+system security settings. The User account could not write to mdb
+database.
+
+Your gave me another place to look. Thanks
+
+
+.. raw:: html
+
+    <a href="mailto:web+operation-must-use-an-updateable-query#1@geographika.co.uk?Subject=operation-must-use-an-updateable-query" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+politics-it-spending-and-gis@geographika.co.uk?Subject=politics-it-spending-and-gis" target="_top">Add Comment</a>

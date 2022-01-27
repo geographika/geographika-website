@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Hiding Geodatabase Tables &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installing Python Modules on Windows" href="installing-python-modules-on-windows.html" />
+    <link rel="prev" title="Guests Welcome!" href="guests-welcome.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Hiding Geodatabase Tables</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="guests-welcome.html" title="Previous Chapter: Guests Welcome!"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Guests Welcome!</span>
+    </a>
+  </li>
+  <li>
+    <a href="installing-python-modules-on-windows.html" title="Next Chapter: Installing Python Modules on Windows"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Installing Py... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="hiding-geodatabase-tables">
+<h1>Hiding Geodatabase Tables<a class="headerlink" href="#hiding-geodatabase-tables" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2008-04-03 10:27</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>geographika</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>arcobjects</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>hiding-geodatabase-tables</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p>The following VBA function hides all on the geodatabase tables added by
+ESRI into an Access database. Useful if you spatially enable your users
+database, and they wonder what all those GDB_ tables are for..</p>
+<div style="text-align:center;"><p><img alt="GDB Tables" src="../_images/gdb_tables.png" /></p>
+</div><div class="line-block">
+<div class="line">To unhide just change the Trues to False in the code snippet below, or</div>
+</div>
+<p>add a parameter to the sub.
+|
+|  <a href="#id1"><span class="problematic" id="id2">``</span></a>Public Sub HideGeoDatabaseTables() ``</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dim</span> <span class="pre">strTableName</span> <span class="pre">As</span> <span class="pre">String</span> <span class="pre">For</span> <span class="pre">i</span> <span class="pre">=</span> <span class="pre">0</span> <span class="pre">To</span> <span class="pre">CurrentDb.TableDefs.Count</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">If</span> <span class="pre">CurrentDb.TableDefs(i).Name</span> <span class="pre">Like</span> <span class="pre">&quot;GDB_*&quot;</span> <span class="pre">Then</span> <span class="pre">strTableName</span> <span class="pre">=</span> <span class="pre">CurrentDb.TableDefs(i).Name</span> <span class="pre">Access.SetHiddenAttribute</span> <span class="pre">acTable,</span> <span class="pre">strTableName,</span> <span class="pre">True</span> <span class="pre">End</span> <span class="pre">If</span> <span class="pre">NextAccess.SetHiddenAttribute</span> <span class="pre">acTable,</span> <span class="pre">&quot;SelectedObjects&quot;,</span> <span class="pre">True</span> <span class="pre">Access.SetHiddenAttribute</span> <span class="pre">acTable,</span> <span class="pre">&quot;Selections&quot;,</span> <span class="pre">True</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">End</span> <span class="pre">Sub</span></code></p>
+<p>To view hidden objects in Microsoft Access, go to Options and check the
+“Hidden Objects” box.</p>
+<div style="text-align:center;"><p><img alt="Access Options" src="../_images/access_options.png" /></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/5469f74c7012246bc8aac93b13daefa8?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-778" src="http://www.gravatar.com/avatar/5469f74c7012246bc8aac93b13daefa8?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-778"><span class="std std-ref">1.</span></a> <strong>amercader</strong>
+**</p>
+<p>Howay the lads!! :)</p>
+<a href="mailto:web+guests-welcome#1@geographika.co.uk?Subject=guests-welcome" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+hiding-geodatabase-tables@geographika.co.uk?Subject=hiding-geodatabase-tables" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

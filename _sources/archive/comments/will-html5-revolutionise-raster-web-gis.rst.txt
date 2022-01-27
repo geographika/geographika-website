@@ -1,0 +1,61 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-311:
+
+.. image:: http://www.gravatar.com/avatar/942b373533c2acff27e24483aea23276?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-311>` **Ro**
+**
+
+This
+`script <http://www.movable-type.co.uk/scripts/latlong-vincenty.html>`__
+should be used for Lat/Lon distances.
+
+It works great IMO
+
+
+.. raw:: html
+
+    <a href="mailto:web+watch-out-for-openlayer-distances#1@geographika.co.uk?Subject=watch-out-for-openlayer-distances" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-859:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-859>` **Creating a Geodesic Circle in OpenLayers at geographika**
+**
+
+[...] with an on the ground radius of 6km.  A huge margin of error over
+a very short distance (see a previous post on the same [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+watch-out-for-openlayer-distances#2@geographika.co.uk?Subject=watch-out-for-openlayer-distances" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+will-html5-revolutionise-raster-web-gis@geographika.co.uk?Subject=will-html5-revolutionise-raster-web-gis" target="_top">Add Comment</a>

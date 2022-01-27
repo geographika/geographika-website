@@ -1,0 +1,146 @@
+Automated Diagrams and Documentation
+####################################
+:date: 2010-04-09 15:07
+:author: admin
+:category: documentation, general, python
+:tags: automation, diagrams, documentation, python, shapely
+:slug: automated-diagrams-and-documentation
+:status: published
+
+As I `previously
+wrote <http://geographika.co.uk/task-13-user-documentation>`__, one of
+the ways to get through the task of documenting a project is to turn the
+documentation process into a coding project. Documentation sometimes
+seems pointless as the likelihood of anyone other than yourself reading
+it are low to nil.
+
+To increase the chances pretty pictures always help. If they are also
+useful then the documentation starts to have real value. Up until now
+I’ve been using Microsoft’s Visio, but recently I tried out a couple of
+online tools.
+
+Class Diagrams
+~~~~~~~~~~~~~~
+
+The MapServer `Mapscript
+documentation <http://mapserver.org/mapscript/mapscript.html>`__
+currently uses of diagrams made from ASCII text to illustrate
+relationships between classes. I’m not sure if these were generated
+automatically, but the images now appear a little dated. They do 
+however have the advantage over an image of being able to copy and paste
+class names.
+
+::
+
+    +-------+ 0..*     1 +-------+
+    | Class | <--------> | Layer |
+    +-------+            +-------+
+
+I tried to recreate these diagrams using the online service
+http://yuml.me/. On the site you enter your model description using a
+fairly basic syntax. From then on the same diagram can be accessed using
+different URLs, which are used to control display and formatting
+options.
+
+|http://yuml.me/diagram/scruffy;dir:lr/class/%5BHashtable%5D1..1-%3E1%5BClass%7Bbg:yellow%7D%5D,%5BLabel%20%5D0..1-%3E1%5BClass%5D,%20%5BStyle%5D0..\*-%3E1%5BClass%5D,%5BClass%5D0..\*-%3E1%5BLayer%7Bbg:green%7D%5D|
+
+The diagram above was created using the syntax below. You can play
+around with this sample by `clicking
+here <http://yuml.me/diagram/scruffy/class/edit/%5Bnote:%20Mapscript%20Classes%20from%20the%20SWIG%20MapScript%20API%20Reference%7Bbg:cornsilk%7D%5D,%5BHashtable%5D1..1-%3E1%5BClass%7Bbg:yellow%7D%5D,%5BLabel%20%5D0..1-%3E1%5BClass%5D,%20%5BStyle%5D0..*-%3E1%5BClass%5D,%5BClass%5D0..*-%3E1%5BLayer%7Bbg:green%7D%5D>`__.
+
+::
+
+    [Hashtable]1..1->1[Class{bg:yellow}],
+    [Label ]0..1->1[Class],
+    [Style]0..*->1[Class],
+    [Class]0..*->1[Layer{bg:green}]
+
+|image1|\ `The class
+diagram <http://yuml.me/diagram/scruffy/class/[Class|keyimage%20string;label%20labelObj;layer%20layerObj;maxscale%20float;metadata%20hashTableObj;minscale%20float;name%20string;numstyles%20int;status%20int;template%20string;title%20string;type%20int;debug%20int;]>`__
+on the left shows the properties of the `MapServer Class
+object <http://mapserver.org/mapscript/mapscript.html#classobj>`__.
+Anyone can add
+`/edit/ <http://yuml.me/diagram/edit/scruffy/class/[Class|keyimage%20string;label%20labelObj;layer%20layerObj;maxscale%20float;metadata%20hashTableObj;minscale%20float;name%20string;numstyles%20int;status%20int;template%20string;title%20string;type%20int;debug%20int;]>`__
+to the URL path to make a new diagram based on this. A “clean” format of
+the diagram can be seen `here <http://yuml.me/7967b1d6>`__.
+
+http://yuml.me/ has plenty of samples, but I couldn’t find full
+documentation on all the available syntax. As this is an online service
+you can never be sure when, or if, they might start charging. They do
+offer a download including sourcecode ($50 for a single user) to install
+locally so you can avoid paying a per diagram charge.
+
+In response to the accusations that
+`UML <http://en.wikipedia.org/wiki/Unified_Modeling_Language>`__ is evil
+http://yuml.me/ responds:
+
+    *UML is evil when you use it too much for your given project; it's
+    easy to burn hours and hours doing UML stuff when you could be
+    writing code or doing something more useful. Some projects use a lot
+    of UML and that really helps them.*
+
+Sequence Diagrams
+~~~~~~~~~~~~~~~~~
+
+Next I wanted to make a simple to show the interaction between various
+parts of a MapServer and TileCache system I’ve been working on. For this
+I needed to create a `sequence
+diagram <http://en.wikipedia.org/wiki/Sequence_diagram>`__ that *“shows
+how processes operate with one another and in what order.”*
+
+`Scott
+Ambler <http://www.amazon.com/gp/product/0521540186?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0521540186>`__
+at `Agile
+Modelling <http://www.agilemodeling.com/artifacts/sequenceDiagram.htm>`__
+thoughts on these diagrams are:
+
+    *My advice is to only create a sequence diagram when you have
+    complex logic that you want to think through �" if the logic is
+    straightforward the sequence diagram won’t add any value, you had
+    might as well go straight to code."*
+
+Whether or not my example fits into that category I'm not sure - this
+example was principally to test a different service. This time used I
+used the online service at http://www.websequencediagrams.com. The whole
+diagram generation process can be automated using Python - the script
+used to generate the diagram below can be `downloaded
+here <http://geographika.co.uk/downloads/diagram.py>`__. Again by
+changing parameters in the URL you can change the “scruffy” appearance
+to a more clean style depending on the diagrams audience for example a
+more formal version could be included in a bug report, and a more
+colourful version in a user wiki.
+
+|image|
+
+`Shapely <http://pypi.python.org/pypi/Shapely>`__
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image|
+
+`Sean Gillies <http://sgillies.net/blog/1015/shapely-1-2b5>`__ has just
+finished documenting the Shapely a “Python package for manipulation and
+analysis of planar geometries.”
+
+The first impression you get is that it's attractive. The images of
+geometry (generated by the Python package
+`descartes <http://pypi.python.org/pypi/descartes/>`__) catch the eye,
+and it was these images as much as anything else that led me to trying
+Shapely in the first place.
+
+The documentation also has plenty of code samples �" which as any
+developer knows is by far the easiest way to start using a new library
+or framework. If you can combine writing code samples with generating
+nice diagrams for a user manual then no wonder he is:
+
+    `Enjoy(ing) writing some documentation. Crazy, I
+    know. <http://twitter.com/sgillies/status/11481274612>`__
+
+Hit F5 and let the computer do the work.
+
+.. |http://yuml.me/diagram/scruffy;dir:lr/class/%5BHashtable%5D1..1-%3E1%5BClass%7Bbg:yellow%7D%5D,%5BLabel%20%5D0..1-%3E1%5BClass%5D,%20%5BStyle%5D0..\*-%3E1%5BClass%5D,%5BClass%5D0..\*-%3E1%5BLayer%7Bbg:green%7D%5D| image:: http://yuml.me/diagram/scruffy;dir:lr/class/%5BHashtable%5D1..1-%3E1%5BClass%7Bbg:yellow%7D%5D,%5BLabel%20%5D0..1-%3E1%5BClass%5D,%20%5BStyle%5D0..*-%3E1%5BClass%5D,%5BClass%5D0..*-%3E1%5BLayer%7Bbg:green%7D%5D
+.. |image1| image:: http://yuml.me/diagram/scruffy/class/%5BClass%7Ckeyimage%20string;label%20labelObj;layer%20layerObj;maxscale%20float;metadata%20hashTableObj;minscale%20float;name%20string;numstyles%20int;status%20int;template%20string;title%20string;type%20int;debug%20int;%5D
+.. |image| image:: images/2010/04/image3.png
+.. |image| image:: images/2010/04/image4.png
+   :target: http://gispython.org/shapely-1.2/manual/manual.html#simplification
+
+.. include:: comments/automated-diagrams-and-documentation.rst

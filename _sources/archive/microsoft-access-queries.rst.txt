@@ -1,0 +1,42 @@
+Microsoft Access Queries
+########################
+:date: 2007-03-02 23:52
+:author: geographika
+:category: programming
+:slug: microsoft-access-queries
+:status: published
+
+With the arrival of MS Access as the "personal" (i.e. restricted...)
+geodatabase of choice, I along with many others have had to get familiar
+with using SQL and Access. The graphical query generator (I am currently
+using MS Access 2002) seems to like to make the statements as verbose as
+possible, even thoigh relatively simple SQL still runs. Anyway below are
+some of my often used queries.
+
+-  To copy data from one table to another (where both fields in both
+   tables match). This is useful when two identical datasets cover two
+   different geographical areas but need to be combined into a larger
+   datasets.
+
+    | INSERT INTO Table1( Field1, Field2)
+    |  SELECT Field1, Field2
+    |  FROM Table2;
+
+-  To create a new field in a table using a SQL statement (useful if you
+   have to update many tables).
+
+    ALTER TABLE Table1 ADD COLUMN MyStringField STRING;
+
+-  To combine the results of two queries with the same fields (the top
+   15 values from one subquery, and a specific record from another).
+
+    | SELECT TOP 15 Field1, Field2
+    |  FROM Subquery1
+    |  UNION
+    |  SELECT Field1, Field2
+    |  FROM Subquery2
+    |  WHERE Field1 = 272;
+
+    More to follow (they get harder to explain!)...
+
+.. include:: comments/microsoft-access-queries.rst

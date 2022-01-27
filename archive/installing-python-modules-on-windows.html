@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Installing Python Modules on Windows &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linear Referencing in SQL Server 2008" href="linear-referencing-in-sql-server-2008.html" />
+    <link rel="prev" title="Hiding Geodatabase Tables" href="hiding-geodatabase-tables.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Installing Python Modules on Windows</a><ul>
+<li><a class="reference internal" href="#bit-windows">64-Bit Windows</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="hiding-geodatabase-tables.html" title="Previous Chapter: Hiding Geodatabase Tables"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Hiding Geodat...</span>
+    </a>
+  </li>
+  <li>
+    <a href="linear-referencing-in-sql-server-2008.html" title="Next Chapter: Linear Referencing in SQL Server 2008"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Linear Refere... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="installing-python-modules-on-windows">
+<h1>Installing Python Modules on Windows<a class="headerlink" href="#installing-python-modules-on-windows" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-10-20 17:49</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>python</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit, geojson, json, windows</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>installing-python-modules-on-windows</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2010/10/image2.png"><img alt="image" src="../_images/image_thumb23.png" /></a> Installing Python modules on 32 bit Windows is a fairly simple
+process once you get to know the vocabulary of packages (Python scripts
+and libraries), eggs (similar to a bundled zip file), and the Cheeseshop
+(the Python “app store” equivalent ?” now renamed the Python Package
+Index or <a class="reference external" href="http://pypi.python.org/pypi">PyPi</a>).</p>
+<p>Many popular packages in PyPi have custom Windows installers that take
+care of both Python files and any associated DLLs. For example
+<a class="reference external" href="http://pypi.python.org/pypi/Shapely/">Shapely</a> and
+<a class="reference external" href="http://pypi.python.org/pypi/numpy/1.5.0">NumPy</a>.</p>
+<p>For other packages the easiest way to add them to your Python
+installation is to use <a class="reference external" href="http://pypi.python.org/pypi/setuptools">Setup
+Tools</a>. Download the Windows
+setup package corresponding to your version of Python from
+<a class="reference external" href="http://pypi.python.org/pypi/setuptools">http://pypi.python.org/pypi/setuptools</a> and double click to install.</p>
+<p>This adds an easy_install.exe to your C:\Python\Scripts folder that
+can be used to quickly add packages.  You run easy_install from the
+Windows command line followed by the name of the package. It searches
+the online PyPi for the best match for your Python version, and then
+downloads and installs it.</p>
+<p>For example to install <a class="reference external" href="http://mapfish.org/">MapFish</a> open a command
+window and run:</p>
+<p>C:\Python27\Scripts\easy_install mapfish</p>
+<p>Or for GeoJSON:</p>
+<p>C:\Python27\Scripts\easy_install geojson</p>
+<p><a class="reference external" href="images/2010/10/image2.png"><img alt="image" src="../_images/image_thumb23.png" /></a></p>
+<section id="bit-windows">
+<h2>64-Bit Windows<a class="headerlink" href="#bit-windows" title="Permalink to this headline">¶</a></h2>
+<p>If you install the 32-bit version of Python on Windows 64 bit then you
+can continue to install the standard 32-bit packages as above. However
+if you want to take advantage of a 64-bit version of Python then things
+get trickier.</p>
+<p>If you are lucky an official 64-bit Windows installer is already
+available for download e.g.
+<a class="reference external" href="http://pypi.python.org/pypi/Shapely/">Shapely</a>, unfortunately this
+is the exception rather than the rule. There are however often
+“unofficial” installers available on the web.</p>
+<p>If you try to run a 32-bit installer then it will often say it cannot
+find your Python installation. This is because the 64-bit and 32-bit
+Python installations write to <a class="reference external" href="http://stackoverflow.com/questions/3652625/installing-setuptools-on-64-bit-windows">different parts of the Windows
+registry</a>.
+You can try and fool the set up package into installing using the method
+outlined
+<a class="reference external" href="http://selfsolved.com/problems/setuptools-06c11-fails-to-instal">here</a>,
+however if the package relies on DLLs then you could end up with
+problems. If the package is pure Python (no associated DLLs) then I
+don’t think this should be an issue.</p>
+<p>If you receive a <em>“This application has failed to start because
+MSVCR71.dll was not found”</em> error then the Python package relies on DLLs
+written in C++. To use these packages you need to install the Microsoft
+Visual C++ Redistributable Package. This can be downloaded from
+<a class="reference external" href="http://www.microsoft.com/downloads/en/details.aspx?familyid=BA9257CA-337F-4B40-8C14-157CFDFFEE4E&amp;displaylang=en">here</a>.
+It contains “<em>runtime components of Visual C++ Libraries required to
+run 64-bit applications developed with Visual C++ SP1 on a computer that
+does not have Visual C++ 2008 SP1 installed.</em>”</p>
+<p><a class="reference external" href="images/2010/10/image2.png"><img alt="image" src="../_images/image_thumb23.png" /></a></p>
+<p>I recently came across a treasure trove for 64-bit Windows and Python
+maintained by <a class="reference external" href="http://www.lfd.uci.edu/~gohlke/">Christoph Gohlke</a> at
+<a class="reference external" href="http://www.lfd.uci.edu/~gohlke/pythonlibs/">http://www.lfd.uci.edu/~gohlke/pythonlibs/</a>. This page contains 64-bit
+Windows installers for many packages including
+<a class="reference external" href="http://www.gdal.org/">GDAL</a> (there are further details on using 64
+bit GDAL and MapScript
+<a class="reference external" href="http://geographika.co.uk/64-bit-mapscript-for-python-on-windows">here</a>),
+and a compilation of many packages including geopy, simplejson, sphinx,
+pytools and many others.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+installing-python-modules-on-windows@geographika.co.uk?Subject=installing-python-modules-on-windows" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

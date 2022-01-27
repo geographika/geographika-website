@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>GIS Servers and the 64-bit Question &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Global Mapper and Shapefiles" href="global-mapper-and-shapefiles.html" />
+    <link rel="prev" title="GIS and Licensing for Developers" href="gis-and-licensing-for-developers.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">GIS Servers and the 64-bit Question</a><ul>
+<li><a class="reference internal" href="#memory-performance">Memory &amp; Performance</a></li>
+<li><a class="reference internal" href="#future-proofing">Future Proofing</a></li>
+<li><a class="reference internal" href="#cost">Cost</a></li>
+<li><a class="reference internal" href="#what-to-update">What to Update?</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="gis-and-licensing-for-developers.html" title="Previous Chapter: GIS and Licensing for Developers"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; GIS and Licen...</span>
+    </a>
+  </li>
+  <li>
+    <a href="global-mapper-and-shapefiles.html" title="Next Chapter: Global Mapper and Shapefiles"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Global Mapper... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="gis-servers-and-the-64-bit-question">
+<h1>GIS Servers and the 64-bit Question<a class="headerlink" href="#gis-servers-and-the-64-bit-question" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-07-06 18:55</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>general, mapserver, opinion</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>gis-servers-and-the-64-bit-question</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><img alt="image" src="../_images/image52.png" />The following is the first in a series of posts related to
+configuring a 64-bit Windows server as a GIS server  using
+<a class="reference external" href="http://mapserver.org/">MapServer</a> and Python.</p>
+<p><em>Why move to 64-bit?</em></p>
+<p>If a server’s operating system and hardware are 64-bit it seems a waste
+not to take advantage of them. It may be better to look at the question
+why move to 64-bit software, as <em>why wouldn’t you</em> <em>move to 64-bit
+software?</em></p>
+<p>Its nice to be able to claim one-upmanship over <a class="reference external" href="http://resources.arcgis.com/content/kbase?fa=articleShow&amp;d=29391">commercial GIS
+products</a>
+who are only now bringing out 64 bit versions. However having gone
+through the pain of setting up Open Source GIS applications on Windows
+I’m not surprised companies took the time to simplify the process (and
+wait for Microsoft to do some of the legwork) rather than dealing with
+all the 32/64 bit support issues too early.</p>
+<div style="text-align: justify;"></div><section id="memory-performance">
+<h2>Memory &amp; Performance<a class="headerlink" href="#memory-performance" title="Permalink to this headline">¶</a></h2>
+<div style="text-align: justify;">
+
+ Intel x86/32-bit architecture limits virtual memory space to 3 GB,
+ not 4 GB, due to much of the 3?"4 GB region being reserved for
+ hardware addressing -
+ `Wikipedia <http://en.wikipedia.org/wiki/64-bit#Pros_and_cons>`__</div><p>Performance-wise one of the main benefits of 64-bit hardware is the
+extra memory you can add to a server. 64 bit Windows 7 can support up to
+<a class="reference external" href="http://msdn.microsoft.com/en-us/library/aa366778%28VS.85%29.aspx">128 GB of
+RAM</a>.
+GIS applications are used to dealing with large spatial datasets ?” both
+raster and vector, and will therefore be able to make full use of
+additional memory. This is not the case for all programs for example
+<a class="reference external" href="http://blogs.msdn.com/b/ricom/archive/2009/06/10/visual-studio-why-is-there-no-64-bit-version.aspx">Visual
+Studio</a>
+which is unlikely to be multiuser or used to handle large datasets.</p>
+<p>A 64-bit server allows files larger than 4GB to be loaded directly into
+memory. This is very advantageous to video editing, bit also to GISs
+that use aerial imagery which can be served more quickly if loaded into
+memory rather than loading in sections.</p>
+<p>Databases make use of additional memory to cache data for faster
+responses to user requests, and to handle more concurrent connections ?”
+there is a nice summary post on the <a class="reference external" href="http://blogs.msdn.com/b/sqlprogrammability/archive/2007/04/30/will-64-bit-increase-the-performance-of-my-sql-server-application.aspx">benefits of 64-bit for SQL Server
+here</a>.
+Spatial databases, with their additional larger and complex data
+structures, are even better placed to take advantage of 64-bit
+computing.</p>
+</section>
+<section id="future-proofing">
+<h2>Future Proofing<a class="headerlink" href="#future-proofing" title="Permalink to this headline">¶</a></h2>
+<p>Even though it is not the easiest thing to configure a GIS server,
+nearly all future software will have a 64 bit release, and in a few
+years 32 bit versions may start to be phased out. Future-proofing a
+system currently in development may help your GIS to last a few more
+years in a production environment.</p>
+<p>Another benefit is that you can start designing your infrastructure to
+scale ?” all on the same physical machine. You can create a virtual web
+server, a virtual database server, and a virtual map server and divide
+up large amounts of memory, facilitated by a 64-bit architecture,
+between them. If the site needs to allow for more users, you can simply
+take the virtual server and move it to another physical machine ?” and
+(in theory) there is very little to configure once the virtual machine
+has been moved.</p>
+</section>
+<section id="cost">
+<h2>Cost<a class="headerlink" href="#cost" title="Permalink to this headline">¶</a></h2>
+<p>As noted above the reduced number of physical machines should mean lower
+maintenance costs. In addition if you can get more throughput from your
+database then this may require fewer licences (such as for SQL Server
+2008 which often comes with a per-processor licence). Of course with a
+64-bit server you could have up to 64 processors, although this could
+well melt the server’s case..</p>
+</section>
+<section id="what-to-update">
+<h2>What to Update?<a class="headerlink" href="#what-to-update" title="Permalink to this headline">¶</a></h2>
+<p>I’m currently involved in a couple of projects, one using Windows Server
+2008 and another Windows Server 2003. Both are 64-bit operating systems
+on 64-bit hardware. As 32-bit and 64-bit applications don’t play very
+well together it seems it will be an “all or nothing” migration,
+involving the following components:</p>
+<ul>
+<li><div><p>MapServer</p>
+</div></li>
+<li><div><p><a class="reference external" href="http://www.gdal.org/">GDAL</a></p>
+</div></li>
+<li><div><p>Python (for TileCache and Mapscript)</p>
+</div></li>
+<li><div><p>Shapely</p>
+</div></li>
+</ul>
+<p>I’ll try and put steps together for each of these for my future sanity,
+and also in the help that there will be a few more developers straddling
+the Open Source and Windows divide. It would be nice at the end to post
+some benchmarks, but running both set ups on the same server could prove
+problematictraumatic. If anyone has noticed performance increases when
+using 64-bit GIS applications please leave comments!</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+gis-servers-and-the-64-bit-question@geographika.co.uk?Subject=gis-servers-and-the-64-bit-question" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

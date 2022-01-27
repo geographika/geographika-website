@@ -1,0 +1,172 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1679:
+
+.. image:: http://www.gravatar.com/avatar/5a1e4161992a0d84f6898e55822f8b37?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1679>` **Alexandre**
+**
+
+Very useful post. Thanks for the info.
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#1@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1704:
+
+.. image:: http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1704>` **Donald Kerr**
+**
+
+Excellent article. Solved my problem. Thanks.
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#2@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1731:
+
+.. image:: http://www.gravatar.com/avatar/729f2a961d3d76aa58fe3868fae2aea4?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1731>` **dgambin**
+**
+
+Was here several times....each visit solved my problems..thanks very
+much
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#3@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1732:
+
+.. image:: http://www.gravatar.com/avatar/e95a536969d115234ec044ea8b40fa16?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-1732>` **MatissV**
+**
+
+Does anyone have a url with an example of this solution working in
+practice?
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#4@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1907:
+
+.. image:: http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-1907>` **Donald Kerr**
+**
+
+Just noticed that Mapserver will not show "OtherSRS" in a
+GetCapabilities request unless "EPSG" in the following is UPPERCASE:
+
+"wfs\_srs" "EPSG:29902"
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#5@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1908:
+
+.. image:: http://www.gravatar.com/avatar/16328dbb7d8fd8aa9bde25c4f6f82cf1?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-1908>` **Donald Kerr**
+**
+
+For Openlayers, you also need to define, as a minimum, the map
+projection in order for the reprojected Mapserver layer to work:
+
+| map = new OpenLayers.Map("MapOSM", {
+|  projection: "EPSG:900913"
+|  });
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#6@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1930:
+
+.. image:: http://www.gravatar.com/avatar/d474540485aca70530a5a7ef778175fd?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`7. <comment-1930>` **Luís**
+**
+
+Thank you very much for this post. I'd never guess that trick with the
+extra srsName bit on the URL.
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapserver-openlayers-and-the-wfs-maze#7@geographika.co.uk?Subject=mapserver-openlayers-and-the-wfs-maze" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+mapserver-sql-server-2008-tips@geographika.co.uk?Subject=mapserver-sql-server-2008-tips" target="_top">Add Comment</a>

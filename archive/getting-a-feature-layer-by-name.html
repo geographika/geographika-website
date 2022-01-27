@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Getting a Feature Layer by Name &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GIS and Licensing for Developers" href="gis-and-licensing-for-developers.html" />
+    <link rel="prev" title="Geomedia WebMap v5.2" href="geomedia-webmap-v52.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Getting a Feature Layer by Name</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="geomedia-webmap-v52.html" title="Previous Chapter: Geomedia WebMap v5.2"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Geomedia WebMap v5.2</span>
+    </a>
+  </li>
+  <li>
+    <a href="gis-and-licensing-for-developers.html" title="Next Chapter: GIS and Licensing for Developers"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">GIS and Licen... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="getting-a-feature-layer-by-name">
+<h1>Getting a Feature Layer by Name<a class="headerlink" href="#getting-a-feature-layer-by-name" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2009-06-03 10:43</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>arcobjects, esri, programming</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>getting-a-feature-layer-by-name</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p>An often required function is to get a specific layer from a current map
+document. The code below is for VB.NET and requires a map document and
+uses the alias name of the feature class. The first function returns all
+<a class="reference external" href="http://edndoc.esri.com/arcobjects/9.2/ComponentHelp/esriCarto/IGeoFeatureLayer.htm">IGeoFeature</a>
+layers in a map - these are layers based on vector geographic data. The
+second loops through these layers and compares the layer names.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Public</span> <span class="n">Function</span> <span class="n">GetFeatureLayers</span><span class="p">(</span><span class="n">ByRef</span> <span class="n">pMap</span> <span class="n">As</span> <span class="n">IMap</span><span class="p">)</span> <span class="n">As</span> <span class="n">IEnumLayer</span>
+
+<span class="n">Dim</span> <span class="n">pUID</span> <span class="n">As</span> <span class="n">New</span> <span class="n">UIDClass</span>
+<span class="n">pUID</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="s2">&quot;{E156D7E5-22AF-11D3-9F99-00C04F6BC78E}&quot;</span> <span class="s1">&#39;IGeoFeatureLayer GUID</span>
+
+<span class="n">If</span> <span class="n">pMap</span><span class="o">.</span><span class="n">LayerCount</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">Then</span>
+<span class="n">GetFeatureLayers</span> <span class="o">=</span> <span class="n">pMap</span><span class="o">.</span><span class="n">Layers</span><span class="p">(</span><span class="n">pUID</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">Else</span>
+<span class="n">Return</span> <span class="n">Nothing</span>
+<span class="n">End</span> <span class="n">If</span>
+
+<span class="n">End</span> <span class="n">Function</span>
+
+<span class="n">Public</span> <span class="n">Function</span> <span class="n">GetFeatureLayerByAliasName</span><span class="p">(</span><span class="n">ByRef</span> <span class="n">pMap</span> <span class="n">As</span> <span class="n">IMap</span><span class="p">,</span> <span class="n">_</span>
+<span class="n">ByVal</span> <span class="n">strLayerModelName</span> <span class="n">As</span> <span class="n">String</span><span class="p">)</span> <span class="n">As</span> <span class="n">IFeatureLayer</span>
+
+<span class="n">Dim</span> <span class="n">pLayerEnum</span> <span class="n">As</span> <span class="n">IEnumLayer</span>
+<span class="n">Dim</span> <span class="n">pFLayer</span> <span class="n">As</span> <span class="n">IFeatureLayer</span>
+
+<span class="n">pLayerEnum</span> <span class="o">=</span> <span class="n">GetFeatureLayers</span><span class="p">(</span><span class="n">pMap</span><span class="p">)</span>
+<span class="n">If</span> <span class="n">pLayerEnum</span> <span class="n">Is</span> <span class="n">Nothing</span> <span class="n">Then</span>
+<span class="n">Return</span> <span class="n">Nothing</span>
+<span class="n">End</span> <span class="n">If</span>
+
+<span class="n">pFLayer</span> <span class="o">=</span> <span class="n">DirectCast</span><span class="p">(</span><span class="n">pLayerEnum</span><span class="o">.</span><span class="n">Next</span><span class="p">,</span> <span class="n">IFeatureLayer</span><span class="p">)</span>
+
+<span class="n">Do</span> <span class="n">Until</span> <span class="n">pFLayer</span> <span class="n">Is</span> <span class="n">Nothing</span>
+<span class="n">If</span> <span class="n">pFLayer</span><span class="o">.</span><span class="n">Valid</span> <span class="n">Then</span>
+<span class="n">If</span> <span class="n">strLayerModelName</span> <span class="o">=</span> <span class="n">pFLayer</span><span class="o">.</span><span class="n">FeatureClass</span><span class="o">.</span><span class="n">AliasName</span> <span class="n">Then</span>
+<span class="n">Return</span> <span class="n">pFLayer</span>
+<span class="n">End</span> <span class="n">If</span>
+<span class="n">End</span> <span class="n">If</span>
+<span class="n">pFLayer</span> <span class="o">=</span> <span class="n">DirectCast</span><span class="p">(</span><span class="n">pLayerEnum</span><span class="o">.</span><span class="n">Next</span><span class="p">,</span> <span class="n">IFeatureLayer</span><span class="p">)</span>
+<span class="n">Loop</span>
+
+<span class="s1">&#39;the layer was not found</span>
+<span class="n">Return</span> <span class="n">Nothing</span>
+
+<span class="n">End</span> <span class="n">Function</span>
+</pre></div>
+</div>
+<p>Rather than using the layer name visible in the table of contents which
+is easly changed by a user, I use the .AliasName of the feature class.
+This is automatically set to the name of the layer when added to a map.
+A user is much less likely to change this. There is however another name
+that is 100% certain not to change, it does however require an
+additional step when adding the layer shown below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Dim pModelInfo As IModelInfo
+pModelInfo = CType(pFLayer.FeatureClass, IModelInfo)
+pModelInfo.ModelName = “AnyValueYouLike”
+</pre></div>
+</div>
+<p>The code to find this layer is similar to the FindFeatureLayer, but
+relies on the
+<a class="reference external" href="http://edndoc.esri.com/arcobjects/9.1/ComponentHelp/esriGeoDatabase/IModelInfo.htm">IModelInfo</a>
+interface. As stated in the documentation - <em>“Object classes and fields
+in a geodatabase can have between one and three names..The third name is
+the model name which is a tool for developers of custom objects to use
+to guarantee the names of objects independent of the true name or alias
+name.”</em></p>
+<p>This property could be used in conjunction with a GUID to ensure you
+return the layer you are looking for.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Public</span> <span class="n">Function</span> <span class="n">GetFeatureLayerByModelName</span><span class="p">(</span><span class="n">ByRef</span> <span class="n">pMap</span> <span class="n">As</span> <span class="n">IMap</span><span class="p">,</span> <span class="n">_</span>
+<span class="n">ByVal</span> <span class="n">strLayerModelName</span> <span class="n">As</span> <span class="n">String</span><span class="p">)</span> <span class="n">As</span> <span class="n">IFeatureLayer</span>
+
+<span class="n">Dim</span> <span class="n">pLayerEnum</span> <span class="n">As</span> <span class="n">IEnumLayer</span>
+<span class="n">Dim</span> <span class="n">pFLayer</span> <span class="n">As</span> <span class="n">IFeatureLayer</span>
+<span class="n">Dim</span> <span class="n">pModelInfo</span> <span class="n">As</span> <span class="n">IModelInfo</span>
+
+<span class="n">pLayerEnum</span> <span class="o">=</span> <span class="n">GetFeatureLayers</span><span class="p">(</span><span class="n">pMap</span><span class="p">)</span>
+<span class="n">If</span> <span class="n">pLayerEnum</span> <span class="n">Is</span> <span class="n">Nothing</span> <span class="n">Then</span>
+<span class="n">Return</span> <span class="n">Nothing</span>
+<span class="n">End</span> <span class="n">If</span>
+
+<span class="n">pFLayer</span> <span class="o">=</span> <span class="n">DirectCast</span><span class="p">(</span><span class="n">pLayerEnum</span><span class="o">.</span><span class="n">Next</span><span class="p">,</span> <span class="n">IFeatureLayer</span><span class="p">)</span>
+
+<span class="n">Do</span> <span class="n">Until</span> <span class="n">pFLayer</span> <span class="n">Is</span> <span class="n">Nothing</span>
+<span class="n">If</span> <span class="n">pFLayer</span><span class="o">.</span><span class="n">Valid</span> <span class="n">Then</span>
+<span class="n">pModelInfo</span> <span class="o">=</span> <span class="n">DirectCast</span><span class="p">(</span><span class="n">pFLayer</span><span class="o">.</span><span class="n">FeatureClass</span><span class="p">,</span> <span class="n">IModelInfo</span><span class="p">)</span>
+<span class="n">If</span> <span class="n">strLayerModelName</span> <span class="o">=</span> <span class="n">pModelInfo</span><span class="o">.</span><span class="n">ModelName</span> <span class="n">Then</span>
+<span class="n">Return</span> <span class="n">pFLayer</span>
+<span class="n">End</span> <span class="n">If</span>
+<span class="n">End</span> <span class="n">If</span>
+<span class="n">pFLayer</span> <span class="o">=</span> <span class="n">DirectCast</span><span class="p">(</span><span class="n">pLayerEnum</span><span class="o">.</span><span class="n">Next</span><span class="p">,</span> <span class="n">IFeatureLayer</span><span class="p">)</span>
+<span class="n">Loop</span>
+
+<span class="s1">&#39;the layer was not found</span>
+<span class="n">Return</span> <span class="n">Nothing</span>
+<span class="n">End</span> <span class="n">Function</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+getting-a-feature-layer-by-name@geographika.co.uk?Subject=getting-a-feature-layer-by-name" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

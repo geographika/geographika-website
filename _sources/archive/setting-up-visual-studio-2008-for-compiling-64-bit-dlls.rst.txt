@@ -1,0 +1,45 @@
+Setting up Visual Studio 2008 for Compiling 64-bit DLLs
+#######################################################
+:date: 2010-04-16 10:17
+:author: admin
+:category: bugs, programming
+:tags: 64bit, bugs, c++, compiling, service pack, visual studio
+:slug: setting-up-visual-studio-2008-for-compiling-64-bit-dlls
+:status: published
+
+This step should be simple. Run the Visual Studio 2008 SetUp program and
+check the “X64 Compilers and Tools” option under Visual C++
+
+|image5|
+
+However firstly don’t run the set up program from the DVD or from an ISO
+on your hard-disk or you'll end up with the following error:
+
+*'A problem has been encountered while loading the setup components.
+Canceling setup'*
+
+You need to run the Visual Studio set up through Add/Remove Programs.
+However once I’d selected the components I got the error below - *“A
+selected drive is no longer valid. Please review your installation path
+settings before continuing with setup.”* Of course ***there is no***
+***option*** to review or even see your drive settings…
+
+|image9|
+
+Thanks to `this
+thread <http://social.msdn.microsoft.com/Forums/en-US/vssetup/thread/2f3d0378-3175-49ae-acb7-012594a1bf3c>`__,
+the solution was to uninstall Visual Studio SP1 through Add/Remove
+programs (check the “Show Updates” box to see service packs and hot
+fixes for various programs).
+
+|image14|
+
+Finally I got the 64-bit compilers installed, and could begin trying to
+compile `PyISAPIe <http://sourceforge.net/apps/trac/pyisapie>`__ for a
+64-bit processor which is a whole different set of problems.
+
+.. |image5| image:: images/2010/04/image51.png
+.. |image9| image:: images/2010/04/image9.png
+.. |image14| image:: images/2010/04/image14.png
+
+.. include:: comments/setting-up-visual-studio-2008-for-compiling-64-bit-dlls.rst

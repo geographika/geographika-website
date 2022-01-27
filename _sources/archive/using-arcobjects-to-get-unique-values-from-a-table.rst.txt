@@ -1,0 +1,107 @@
+Using ArcObjects to get Unique Values from a Table
+##################################################
+:date: 2007-02-25 16:35
+:author: geographika
+:category: arcobjects
+:slug: using-arcobjects-to-get-unique-values-from-a-table
+:status: published
+
+A common requirement in many user dialogs is to display a list of unique
+values from a table, in order to delete or select records. While it is
+often easier to use Microsoft's data objects, I try to use ArcObjects as
+the relevant libraries will always be installed on a user's machine. The
+function will normally part of a larger project and I don't like mixing
+the two methods to retrieve values from tables. I usually reuse a custom
+class for dealing with different types of geodatabases so that if a
+client changes from Access to SQL Server code changes will be minimal.
+Keeping up with changes to ESRI's data access objects and Microsoft's in
+the same project could get nasty..
+
+There is a VBA / VB6 sample on how to get unique values at the `EDN
+Site <http://edndoc.esri.com/arcobjects/8.3/ComponentHelp/esriCore/DataStatistics_Example.htm>`__ -
+but no .NET equivalent, hence my code sample below. There are no major
+changes except now a standard System.Collections enumerator is used
+rather than the ESRI IEnumVariantSimple.
+
+****
+
+    Public Sub ListUniqueRecords()
+
+ 
+
+        Dim pMyTable As ITable
+
+        Dim pCurs As ICursor = Nothing
+
+        Dim intFieldIdx As Integer
+
+        Dim pDataStatistics As IDataStatistics
+
+        Dim pEnumVar As IEnumerator
+
+        Dim pWorkspaceFactory As IWorkspaceFactory
+
+        Dim pWorkspace As IWorkspace
+
+        Dim pFeatWorkSpace As IFeatureWorkspace
+
+        Dim strMyField As String = "VAL"
+
+ 
+
+        Try
+
+            pWorkspaceFactory = New AccessWorkspaceFactory
+
+            pWorkspace =
+pWorkspaceFactory.OpenFromFile("C:\\MyPath\\MyGDB.mdb", 0)
+
+            pFeatWorkSpace = CType(pWorkspace, IFeatureWorkspace)
+
+            pMyTable = pFeatWorkSpace.OpenTable("MyTableName")
+
+            intFieldIdx = pMyTable.FindField(strMyField)
+
+ 
+
+            pCurs = pMyTable.Search(Nothing, True)
+
+            pDataStatistics = New DataStatistics
+
+            pDataStatistics.Field = strMyField
+
+            pDataStatistics.Cursor = pCurs
+
+ 
+
+            pEnumVar = CType(pDataStatistics.UniqueValues, IEnumerator)
+
+ 
+
+            Do Until pEnumVar.MoveNext = False
+
+                Debug.Print(pEnumVar.Current.ToString)
+
+            Loop
+
+ 
+
+        Catch ex As Exception
+
+            Trace.WriteLine(ex.ToString)
+
+        Finally
+
+            'clean up
+
+            pCurs = Nothing
+
+            pWorkspace = Nothing
+
+        End Try
+
+ 
+
+    End Sub
+
+.. include:: comments/using-arcobjects-to-get-unique-values-from-a-table.rst

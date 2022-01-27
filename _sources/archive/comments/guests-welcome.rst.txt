@@ -1,0 +1,35 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1879:
+
+.. image:: http://www.gravatar.com/avatar/788dbc7340b1ac60ee9c58359a5105b2?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1879>` **Kurt**
+**
+
+Very interesting article! Couldyou please post your script too?
+
+
+.. raw:: html
+
+    <a href="mailto:web+global-mapper-and-shapefiles#1@geographika.co.uk?Subject=global-mapper-and-shapefiles" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+guests-welcome@geographika.co.uk?Subject=guests-welcome" target="_top">Add Comment</a>

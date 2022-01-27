@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>64 bit cURL with OpenSSL on Windows &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="64-bit Mapscript for Python on Windows" href="64-bit-mapscript-for-python-on-windows.html" />
+    <link rel="prev" title="6 Tips for Developers Moving into GIS" href="6-tips-for-developers-moving-into-gis.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">64 bit cURL with OpenSSL on Windows</a><ul>
+<li><a class="reference internal" href="#curl-compilation-steps-part-one">cURL Compilation Steps ?” Part One</a></li>
+<li><a class="reference internal" href="#openssl-compilation-steps">OpenSSL Compilation Steps</a></li>
+<li><a class="reference internal" href="#curl-compilation-steps-part-two">cURL Compilation Steps ?” Part Two</a></li>
+<li><a class="reference internal" href="#errors">Errors?</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="6-tips-for-developers-moving-into-gis.html" title="Previous Chapter: 6 Tips for Developers Moving into GIS"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; 6 Tips for De...</span>
+    </a>
+  </li>
+  <li>
+    <a href="64-bit-mapscript-for-python-on-windows.html" title="Next Chapter: 64-bit Mapscript for Python on Windows"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">64-bit Mapscr... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="bit-curl-with-openssl-on-windows">
+<h1>64 bit cURL with OpenSSL on Windows<a class="headerlink" href="#bit-curl-with-openssl-on-windows" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-07-09 12:26</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>mapserver</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>64bit, cURL, libcurl, ssl</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>64-bit-curl-with-openssl-on-windows</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="http://mapserver.org/">|image|MapServer</a> makes use of libcurl.dll
+to connect to web resources. The reason I’ve had to learn this is
+because libcurl.dll is vital when using MapServer as a WMS client, or “a cascading WMS server” using MapServer to connect to another WMS server
+and then “forward” them as if they were any other map layer.</p>
+<p>libcurl.dll is the library version of the command line tool cURL ?” a
+tool written in C (hence the name) that:</p>
+<div style="text-align: justify;">
+
+ is a command line tool for transferring data with URL syntax,
+ supporting FTP, FTPS, HTTP, HTTPS…curl supports SSL certificates,
+ HTTP POST, HTTP PUT, FTP uploading…
+
+ ..libcurl is most probably the most portable, most powerful and most
+ often used C-based multi-platform file transfer library on this
+ planet - be it open source or commercial. - http://curl.haxx.se/</div><div style="text-align: justify;"></div><p><a class="reference external" href="http://szekerest.blogspot.com">Tamas Szekeres</a> maintains <a class="reference external" href="http://vbkto.dyndns.org/sdk/">a site
+that dynamically builds Mapserver</a> from
+source on a nightly basis using different versions of MapServer, and
+<a class="reference external" href="http://www.gdal.org/">GDAL</a>, for both 32 and 64 bit Windows.
+Unfortunately for me I wanted to connect to a WMS using MapServer that
+used the HTTPS (Hypertext Transfer Protocol Secure) protocol. When I
+tried connecting to the WMS service with MapServer the log file reported
+the following error:</p>
+<p>msHTTPExecuteRequests(): HTTP request error. HTTP: request failed with
+curl error code 1 (Protocol https not supported or disabled in libcurl)
+for <a class="reference external" href="https://webservices">https://webservices</a>…</p>
+<p>The libcurl.dll included in the MapServer build <a class="reference external" href="http://curl.haxx.se/docs/faq.html#curl_1_SSL_is_disabled_https">doesn’t support
+SSL</a>
+(Secure Sockets Layer). That sinking feeling of knowing I was going to
+have to get my hands dirty and start messing about compiling things I
+didn’t understand was soon upon me..</p>
+<p>There are many different compiled versions of cURL and libcURL you can
+download from the <a class="reference external" href="http://curl.haxx.se/download.html">download page</a>
+but unfortunately at the time of writing there were no Windows 64bit
+versions - however it is worth double-checking this. It is also a good
+idea to check that the MapServer builds haven’t been updated to include
+SSL before going through the lengthy steps below. There are <a class="reference external" href="http://www.gknw.net/mirror/curl/win64/autobuilds/">precompiled
+versions of the cURL.exe
+tool</a> out there in
+the Internet for 64 bit Windows, but MapServer requires the DLL library
+as shown below:<img alt="image" src="../_images/image15.png" /></p>
+<p>So currently if you require 64 bit <em>and</em> SSL it looks like you have to
+compile your own version, hence the following steps.</p>
+<section id="curl-compilation-steps-part-one">
+<h2>cURL Compilation Steps ?” Part One<a class="headerlink" href="#curl-compilation-steps-part-one" title="Permalink to this headline">¶</a></h2>
+<p>These steps are based on information gleaned from this <a class="reference external" href="http://curl.haxx.se/mail/lib-2009-01/0209.html#replies">cURL mailing
+list post</a>
+and this <a class="reference external" href="http://stackoverflow.com/questions/197444/building-libcurl-with-ssl-support-on-windows">StackOverflow
+question</a>
+and answer. The second link is particularly good, but a few extra
+details can save many hours of time. If you are familiar with compiling
+C libraries then its probably best to skip to to StackOverflow now. If,
+like me, you’re not too sharp on C then follow the steps below. There is
+also the<a class="reference external" href="http://curl.haxx.se/docs/install.html">official compilation steps
+guide</a> which provides more
+detail.</p>
+<p><strong>1.</strong> Download the latest source archives from the <a class="reference external" href="http://curl.haxx.se/download.html">cURL download
+page</a>. At the time of writing
+links to these were at the top of the page, and in this example the file
+was named
+<a class="reference external" href="http://curl.haxx.se/download/curl-7.21.0.zip">curl-7.21.0.zip</a>.
+Fortunately it seems that the libcurl.dll version number does not need
+to match the version installed with the MapServer build.</p>
+<p><strong>2.</strong> Unzip this file somewhere on your machine. Avoid spaces to avoid
+future problems. In this example I unzipped the files to
+<strong>D:\Projects\cURL\curl-7.21.0</strong></p>
+<p><strong>3.</strong> In the root of the folder you unzipped should be a
+<strong>vc6curl.dsw</strong> file (a Visual C++ workspace file). I’m assuming you
+have Visual Studio installed ?” I’m using VS2008. If you double click
+this file it should open with Visual Studio ?” allow it to convert to the
+new project format.</p>
+<p><strong>4.</strong> Once the project opens go to <strong>Build &gt;&gt; Configuration Manager</strong>.
+Set the parameters to DLL Release, x64.</p>
+<p><img alt="image" src="../_images/image15.png" /></p>
+<p>If x64 is not present in the drop-down list you may have to create a new
+“Solution Platform”, and copy the settings from the Win32
+configuration:<img alt="image" src="../_images/image15.png" /></p>
+<p><strong>5.</strong> Now we have to make sure that the DLL is built with SSL support.
+To do this we add a couple of “<em>Preprocessor</em>” parameters. To do
+this right-click on the libcurl project in the Solution Explorer window:</p>
+<p><img alt="image" src="../_images/image15.png" /></p>
+<p>Then in <strong>Configuration Properties &gt;&gt; C/C++ &gt;&gt; Preprocessor</strong> add
+USE_SSLEAY and USE_OPENSSL as shown below. The NDEBUG parameter
+indicates “No Debugging.” Note there is also a WIN32 option - I compiled
+a x64 DLL successfully using both WIN32 and WIN64. I had a brief look at
+the source, but it is probably best to set to WIN64.</p>
+<p><img alt="image" src="../_images/image15.png" /></p>
+</section>
+<section id="openssl-compilation-steps">
+<h2>OpenSSL Compilation Steps<a class="headerlink" href="#openssl-compilation-steps" title="Permalink to this headline">¶</a></h2>
+<p><strong>6.</strong> Now you’re probably thinking that you can now compile. If you are
+optimistic then you probably will. But unless I’ve completely
+misunderstood how all this ties together, you are still many steps away
+from getting that libcurl.dll file..</p>
+<p>If you require SSL, you also need to compile the OpenSSL library. This
+compilation can all be done from the Windows command line. The source
+code can be <a class="reference external" href="http://www.openssl.org/source/">downloaded from this
+link</a>. I used the latest version
+available -
+<a class="reference external" href="http://www.openssl.org/source/openssl-1.0.0a.tar.gz">openssl-1.0.0a.tar.gz</a>.
+Download this and unzip (use <a class="reference external" href="http://www.7-zip.org/">7-Zip</a> to handle
+those pesky tar-balls), again unzip to a folder without spaces in the
+path to be on the safe side.</p>
+<p><strong>7.</strong> Once unzipped there is a INSTALL.W64 file in the root which
+provides details on compiling OpenSSL for Windows x64. These steps are
+fairly well-detailed, but a few screenshots don’t hurt. There are a few
+warnings in this file not to try and download 4GB files, but as it says
+it is very unlikely these issues would occur in the real world.</p>
+<p>The first step to compilation is to install Perl ?” a language I’ve never
+used, but it seems the OpenSSL compilation steps have been automated
+with Perl scripts. The document recommends using <a class="reference external" href="http://www.activestate.com/activeperl/downloads">ActiveState
+Perl</a>, but I read
+that using <a class="reference external" href="http://strawberryperl.com/">Strawberry Perl</a> on Windows
+<a class="reference external" href="http://stackoverflow.com/questions/71513/which-version-of-perl-should-i-use-on-windows">would be a better
+choice</a>.
+After downloading and installing Strawberry Perl, I logged off and on
+again to make sure the Windows environment variable were updated and
+continued the compilation.</p>
+<p><strong>8.</strong> I opened a Windows command window and made the OpenSSL folder the
+active directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">D</span><span class="p">:</span>\<span class="n">Projects</span>\<span class="n">cURL</span>\<span class="n">openssl</span><span class="o">-</span><span class="mf">1.0.0</span><span class="n">a</span>
+</pre></div>
+</div>
+<p><strong>9.</strong> Next I set up the Windows Visual Studio environment by running
+the following command. This batch file assumes that you are developing
+on a 32 bit machine to deploy on a 64 bit machine. There are a number of
+<a class="reference external" href="http://msdn.microsoft.com/en-us/library/x4d2c09s%28VS.80%29.aspx">similar batch
+files</a>
+in the parent folder if your set up is different.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;C:\Program Files\Microsoft Visual Studio 9.0\VC</span><span class="se">\b</span><span class="s2">in</span><span class="se">\x86</span><span class="s2">_amd64</span><span class="se">\v</span><span class="s2">cvarsx86_amd64.bat&quot;</span>
+</pre></div>
+</div>
+<p><strong>10.</strong> Next I ran the Perl script from the Windows command prompt
+using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">perl</span> <span class="n">Configure</span> <span class="n">VC</span><span class="o">-</span><span class="n">WIN64A</span>
+</pre></div>
+</div>
+<p><strong>11.</strong> Then a couple more commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ms</span>\<span class="n">do_win64a</span>
+<span class="n">nmake</span> <span class="o">-</span><span class="n">f</span> <span class="n">ms</span>\<span class="n">ntdll</span><span class="o">.</span><span class="n">mak</span>
+</pre></div>
+</div>
+<p><strong>12.</strong> In the INSTALL.W64 there are final two steps to check everything
+was built correctly. As I compiled a x64 DLL on a x32 machine I couldn’t
+run these, but the lack of show-stopping errors filled me with hope..so
+back to the libcURL compilation..</p>
+</section>
+<section id="curl-compilation-steps-part-two">
+<h2>cURL Compilation Steps ?” Part Two<a class="headerlink" href="#curl-compilation-steps-part-two" title="Permalink to this headline">¶</a></h2>
+<p><strong>13.</strong> A rebuild of libcurl.dll at this stage will lead to <em>“fatal
+error C1083: Cannot open include file: ‘openssl/rsa.h’: No such file or
+directory”.</em> The Visual Studio project needs to reference the OpenSSL
+files we just built. First of all add an “Include Directory” to the
+libcurl project pointing to the openssl\inc32\ folder as shown below.
+This is where all the .h header files are kept.</p>
+<p><img alt="image" src="../_images/image15.png" /></p>
+<p><strong>14.</strong> Trying to recompile now (I’m an eternal optimist) leads to
+<em>“error LNK2019: unresolved external symbol DES_set_key referenced in
+function setup_des_key”</em> errors. The project now can’t find symbols
+stored in the OpenSSL .lib files. I ran a Windows search on the OpenSSL
+folder to find these .lib files:</p>
+<p><img alt="image" src="../_images/image15.png" /></p>
+<p>Next I <a class="reference external" href="http://www.nirsoft.net/utils/sysexp.html">found a handy tool</a>
+that could export this search list to text, so I could copy and paste
+references. The list of .lib files is below. I added these to the
+“<em>Additional Dependencies</em>” list in the project’s <em>“Configuration
+Properties &gt;&gt; Linker &gt;&gt; Input”</em> option.</p>
+<div class="line-block">
+<div class="line">4758cca.lib <img alt="image" src="../_images/image15.png" /></div>
+<div class="line-block">
+<div class="line">aep.lib</div>
+<div class="line">atalla.lib</div>
+<div class="line">capi.lib</div>
+<div class="line">chil.lib</div>
+<div class="line">cswift.lib</div>
+<div class="line">gmp.lib</div>
+<div class="line">libeay32.lib</div>
+<div class="line">nuron.lib</div>
+<div class="line">padlock.lib</div>
+<div class="line">ssleay32.lib</div>
+<div class="line">sureware.lib</div>
+<div class="line">ubsec.lib</div>
+</div>
+</div>
+<p>I also needed to make Visual Studio aware of the location of these files
+by going to Tools &gt;&gt; Options &gt;&gt; Projects and Solutions &gt;&gt; VC++
+Directories, and pointing to openssl-1.0.0a\out32dll, making sure “x64”
+and “Library Files” were selected in the drop-down lists as shown below:</p>
+<p><a class="reference external" href="images/2010/07/Image3.png"><img alt="image9" src="archive/images/2010/07/Image3.png" /></a></p>
+<p><strong>15.</strong> Finally I could run <strong>Build &gt;&gt; Build libcurl</strong> from Visual
+Studio. A brand new libcurl.dll file appeared in the \lib\DLL-Release
+folder. Done ?” for now. There are a number of other steps and DLLs to
+include to get MapServer working, but that is for another post.</p>
+<p><img alt="image" src="../_images/image15.png" /></p>
+</section>
+<section id="errors">
+<h2>Errors?<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<p>There are a number of errors I encountered during these steps that may
+lead you to this page:</p>
+<ul class="simple">
+<li><p><em>‘cl’ is not recognized as an internal or external command, operable
+program or batch file.</em></p></li>
+</ul>
+<p>Make sure the Visual Studio environment has been set up correctly using
+<em>“C:\Program Files\Microsoft Visual Studio
+9.0\VC\bin\x86_amd64\vcvarsx86_amd64.bat”</em> or similar.</p>
+<ul class="simple">
+<li><p><em>error A2088:END directive required at end of file NMAKE : fatal
+error U1077:</em></p></li>
+</ul>
+<p>I got this error when compiling OpenSSL (when running ml64.exe), as
+previous failed compilation attempts had left files in the
+“openssl-1.0.0a\tmp32dll” folder. Deleting the contents of this folder
+got rid of this error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-184" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="comments/64-bit-curl-with-openssl-on-windows.html#comment-184"><span class="std std-ref">1.</span></a> <strong>GIS-Lab Blog&amp;raquo; Архив блога &amp;raquo; Новости вокруг 49</strong>
+**</p>
+<p>[…] Советы разработчику, начинающему работать с ГИС. […]</p>
+<a href="mailto:web+6-tips-for-developers-moving-into-gis#1@geographika.co.uk?Subject=6-tips-for-developers-moving-into-gis" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+64-bit-curl-with-openssl-on-windows@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+stack-overflow-osgeo@geographika.co.uk?Subject=stack-overflow-osgeo" target="_top">Add Comment</a>

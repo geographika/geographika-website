@@ -1,0 +1,70 @@
+Assigning Points to Polygons in SQL Server
+##########################################
+:date: 2010-12-23 14:48
+:author: admin
+:category: sql server 2008
+:tags: recipe, spatial, sql
+:slug: assigning-points-to-polygons-in-sql-server
+:status: published
+
+|image|
+
+A common requirement in GIS is to be able to find the number of points
+in a polygon to answer a question such as “how many towns are in this
+county.”
+
+With the spatial operations in SQL Server this can be calculated
+dynamically, however for large spatial datasets it can often take
+several minutes to run the query. If a user is running the query through
+a web interface they will either give up, or the connection will time
+out.
+
+It can be useful to assign all features to a parent polygon in the
+database so these calculations are almost instant. To do this run the
+following SQL:
+
+.. raw:: html
+
+   <p style="text-align: justify;">
+   <script src="https://gist.github.com/747294.js?file=assign_points_to_polygons.sql"></script>
+
+.. raw:: html
+
+   </p>
+
+It would be nicer to have this step automated at the database level, by
+having spatial query results available in a dynamic calculated column.
+However at present this is not possible. You will get an error such as
+“\ *Computed column 'Centroid' in table 'MyTable’ cannot be persisted
+because the column type, 'geometry', is a non-byte-ordered CLR type*.”
+An alternative is to create an `Indexed
+View <http://msdn.microsoft.com/en-us/library/dd171921.aspx>`__, or to
+use a trigger to populate this field automatically.
+
+**Update** - storing geometry in persisted columns `will be available in
+SQL Server 2008 Denali
+CTP1 <http://blogs.msdn.com/b/edkatibah/archive/2011/01/25/spatial-support-for-persisted-computed-columns-in-denali-ctp1.aspx>`__.
+
+Displaying Points and Polygons
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The image of points and polygons for this post was generated with the
+following SQL. It takes advantage of the fact that any geometry type
+(points, lines, and polygons) can be stored in a single geometry field,
+and therefore be displayed at the same time.
+
+.. raw:: html
+
+   <p>
+   <script src="https://gist.github.com/747318.js?file=show_points_and_polys.sql"></script>
+   </p>
+
+This post also allowed me to create my first
+`Gist <https://gist.github.com/>`__ in GitHub. SQL code was
+“\ *prettified*\ ” using Simple-Talks online `SQL
+Prettifier <http://extras.sqlservercentral.com/prettifier/prettifier.aspx>`__.
+
+.. |image| image:: images/2010/12/image_thumb4.png
+   :target: images/2010/12/image4.png
+
+.. include:: comments/assigning-points-to-polygons-in-sql-server.rst

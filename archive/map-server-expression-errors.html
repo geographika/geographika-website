@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Map Server Expression Errors &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Mapfish JavaScript Toolbox" href="mapfish-javascript-toolbox.html" />
+    <link rel="prev" title="Map Pins…" href="map-pin.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Map Server Expression Errors</a><ul>
+<li><a class="reference internal" href="#image0errors">Errors…</a></li>
+<li><a class="reference internal" href="#map-server-logging">Map Server Logging</a></li>
+<li><a class="reference internal" href="#problem-solved">Problem Solved</a></li>
+<li><a class="reference internal" href="#update">Update</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="map-pin.html" title="Previous Chapter: Map Pins…"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Map Pins…</span>
+    </a>
+  </li>
+  <li>
+    <a href="mapfish-javascript-toolbox.html" title="Next Chapter: Mapfish JavaScript Toolbox"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Mapfish JavaS... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="map-server-expression-errors">
+<h1>Map Server Expression Errors<a class="headerlink" href="#map-server-expression-errors" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-07 20:18</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>bugs, mapserver</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>map-server-expression-errors</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<section id="image0errors">
+<h2><img alt="image0" src="../_images/Db_null.png" />Errors…<a class="headerlink" href="#image0errors" title="Permalink to this headline">¶</a></h2>
+<p>After turning on logging to diagnose an issue with MapServer I found a
+more worrying error, that was causing the log file to fill up at a rate
+of about 2MB a minute! I was reusing a legend for five or six datasets,
+and it was causing the following debug notes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">07</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">21</span> <span class="mi">2010</span><span class="p">]</span><span class="mf">.629000</span> <span class="n">msyyparse</span><span class="p">():</span>
+<span class="n">Expression</span> <span class="n">parser</span> <span class="n">error</span><span class="o">.</span> <span class="n">syntax</span> <span class="n">error</span>
+
+<span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">07</span> <span class="mi">15</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">21</span> <span class="mi">2010</span><span class="p">]</span><span class="mf">.629000</span> <span class="n">msEvalExpression</span><span class="p">:</span>
+<span class="n">Expression</span> <span class="n">parser</span> <span class="n">error</span><span class="o">.</span>
+<span class="n">Failed</span> <span class="n">to</span> <span class="n">parse</span> <span class="n">expression</span><span class="p">:</span>  <span class="p">(</span> <span class="o">&gt;=</span> <span class="mf">2.251</span><span class="p">)</span> <span class="n">AND</span> <span class="p">(</span> <span class="o">&lt;=</span> <span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="map-server-logging">
+<h2>Map Server Logging<a class="headerlink" href="#map-server-logging" title="Permalink to this headline">¶</a></h2>
+<p>To turn on logging in MapServer enter the following lines near the top
+of the .MAP file. The
+<a class="reference external" href="http://mapserver.org/mapfile/map.html?highlight=debug">DEBUG</a>value
+ranges from 0 (only actual errors are logged), to 5 which logs
+everything (diagnostics, errors, and debug notes). The second line
+requires the path to a logfile (any path and filename can be used).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DEBUG</span> <span class="mi">5</span>
+<span class="n">CONFIG</span> <span class="s2">&quot;MS_ERRORFILE&quot;</span> <span class="s2">&quot;C:/ms4w/apps/myapp/tmp/ms.log&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-solved">
+<h2>Problem Solved<a class="headerlink" href="#problem-solved" title="Permalink to this headline">¶</a></h2>
+<p>I am using the SQL Server plug-in so initially I thought it could be
+related to this. I also tried changing the field name used in the
+expressions in case MEAN was a reserved word. Several sites also
+suggested the field may need to be in UPPERCASE, but I think this
+relates only to shapefiles.</p>
+<p>MapServer was still generating full images, so data was being read and
+symbolised. I eventually found the <a class="reference external" href="http://n2.nabble.com/problem-with-expression-null-values-in-table-td1999490.html">following
+post</a>
+which pointed to the problem..nulls. I should have spotted this sooner
+as the debug output was clear in retrospect. The expression parser was
+replacing my field name with empty values. So the expression
+<strong>EXPRESSION ( ([MEAN] &gt;= 2.251) AND ([MEAN] &lt;= 2.5) )</strong> became <strong>( &gt;=
+2.251) AND ( &lt;= 2.5)</strong> wherever the [MEAN] field contained a NULL. All
+these features turned out to be
+<a class="reference external" href="http://www.cise.ufl.edu/~mssz/GIS/sliver.gif">slivers</a> and could be
+deleted from the database, allowing my debug files to be readable again.
+If the features were required I would either have had to create a view
+of the table in SQL Server and point my LAYER to read from this, or
+replace the NULL values with a 0 if this was appropriate.</p>
+<p>The <a class="reference external" href="http://n2.nabble.com/problem-with-expression-null-values-in-table-td1999490.html">post mentioned
+above</a>
+suggests that in the case of shapefiles NULLS are automatically replaced
+with 0 for numeric fields, and by ‘’ for strings. I think I’d prefer
+errors than automated assumptions about the data, but maybe a more
+obvious message in the log files would be useful.</p>
+<p>As for the image - apparently the The Greek lowercase <a class="reference external" href="http://en.wikipedia.org/wiki/Omega">omega
+(ω)</a> character is used to
+represent Null in <a class="reference external" href="http://en.wikipedia.org/wiki/Database_theory">database
+theory</a>. You live and
+learn..</p>
+</section>
+<section id="update">
+<h2>Update<a class="headerlink" href="#update" title="Permalink to this headline">¶</a></h2>
+<p>Rather than delete null features from the database, you can ignore them
+completely when displaying your layer using the
+<a class="reference external" href="http://mapserver.org/mapfile/layer.html#layer">FILTER</a>keyword -
+<em>“this parameter allows for data specific attribute filtering that is
+done at the same time spatial filtering is done, but before any CLASS
+expressions are evaluated.”</em></p>
+<p>For a SQL Server 2008 dataset to exclude nulls use a statement such as:</p>
+<p>FILTER “[FieldName] IS NOT NULL”</p>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<a style="font-size: large; font-weight: bold;" href="mailto:web+map-server-expression-errors@geographika.co.uk?Subject=map-server-expression-errors" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

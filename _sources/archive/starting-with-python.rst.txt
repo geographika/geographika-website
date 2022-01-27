@@ -1,0 +1,34 @@
+Starting With Python
+####################
+:date: 2007-07-09 14:03
+:author: geographika
+:category: python
+:slug: starting-with-python
+:status: published
+
+I have been writing a few geoprocessing scripts with Python recently,
+and have now even started to write scripts with more than one function..
+
+I know I should sit down and read all the basics of a language first
+before using it, but where is the fun in that? I had written my main
+script, which called a couple of functions declared in the same .py
+file. I kept running into the following error:
+
+*"NameError: name 'getMyFileTimes' is not defined"*
+
+After looking a few times at how to declare functions, I realised
+eventually that they have to be declared **before** calling them. E.g.
+
+| def hello (what):
+|       text = "Hello, " + what + "!"
+|       print text
+|   
+|  hello ("World")
+
+I guess I am still getting used to writing in a scripting language in
+what amounts to little more than notepad, and it makes sense that if it
+is not compiled and read line by line then the function would not be
+"seen." Still I miss my autosensing, and Visual Studio debugging tools a
+lot...
+
+.. include:: comments/starting-with-python.rst

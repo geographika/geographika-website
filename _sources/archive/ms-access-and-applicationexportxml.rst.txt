@@ -1,0 +1,16 @@
+MS Access and Application.ExportXML
+###################################
+:date: 2007-06-23 19:07
+:author: geographika
+:category: bugs
+:slug: ms-access-and-applicationexportxml
+:status: published
+
+Just spent a few hours bieng frustated by the error message "reserved
+error 2950" when trying to export a query from MS Access 2002.
+
+Turns out the problem was with one of the field names being "Size", once
+renamed everything ran without problems. I guess this could apply to all
+reserved words.
+
+.. include:: comments/ms-access-and-applicationexportxml.rst

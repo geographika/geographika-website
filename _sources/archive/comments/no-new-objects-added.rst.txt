@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+no-new-objects-added@geographika.co.uk?Subject=no-new-objects-added" target="_top">Add Comment</a>

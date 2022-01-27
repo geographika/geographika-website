@@ -1,0 +1,147 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-5:
+
+.. image:: http://www.gravatar.com/avatar/6796d65709891adf2f6306a70440e1f8?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-5>` **matt**
+**
+
+Thanks for the info--helped solve an install probelm I was having.
+
+
+.. raw:: html
+
+    <a href="mailto:web+windows-installer-woes#1@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-6:
+
+.. image:: http://www.gravatar.com/avatar/ec3395718f217f871ecb6fd25abfe735?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-6>` **2000MPH**
+**
+
+Cheers very much for the detailed information about this issue The Log
+Viewer was useful as it lead me to the exact issue.
+
+MPH.
+
+
+.. raw:: html
+
+    <a href="mailto:web+windows-installer-woes#2@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-7:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-7>` **Visual Studio 2005 Windows Installer Issues &laquo; Welcome to Matt&#8217;s Blog, Please Keep to the Posted Speed Limit**
+**
+
+[...]
+http://geographika.wordpress.com/2007/02/20/windows-installer-woes/
+[...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+windows-installer-woes#3@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-4:
+
+.. image:: http://www.gravatar.com/avatar/ca64e9f841faa538f18e94dd66341046?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-4>` **Hutch**
+**
+
+Thanks for the help, good info here!
+
+
+.. raw:: html
+
+    <a href="mailto:web+windows-installer-woes#4@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-3:
+
+.. image:: http://www.gravatar.com/avatar/bde16eec0d4956ff763041ea04d2af1f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-3>` **iraklis**
+**
+
+Thanks a lot for this! It's been really helpful.
+
+
+.. raw:: html
+
+    <a href="mailto:web+windows-installer-woes#5@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-8:
+
+.. image:: http://www.gravatar.com/avatar/4f6ca7ddf6f324901bd98d888e0b97b2?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-8>` **VBAHole22**
+**
+
+Is there a way to trap for this issue in the installer and handle it a
+little more gracefully like with a message saying "you need this version
+of ArcGIS!"
+
+
+.. raw:: html
+
+    <a href="mailto:web+windows-installer-woes#6@geographika.co.uk?Subject=windows-installer-woes" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+wms-get-capabilities@geographika.co.uk?Subject=wms-get-capabilities" target="_top">Add Comment</a>

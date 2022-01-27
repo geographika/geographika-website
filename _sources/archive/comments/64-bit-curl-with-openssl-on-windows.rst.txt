@@ -1,0 +1,35 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-184:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-184>` **GIS-Lab Blog&raquo; Архив блога &raquo; Новости вокруг 49**
+**
+
+[...] Советы разработчику, начинающему работать с ГИС. [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+6-tips-for-developers-moving-into-gis#1@geographika.co.uk?Subject=6-tips-for-developers-moving-into-gis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+64-bit-curl-with-openssl-on-windows@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Add Comment</a>

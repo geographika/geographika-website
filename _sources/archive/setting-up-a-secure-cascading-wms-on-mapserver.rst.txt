@@ -1,0 +1,390 @@
+Setting up a Secure Cascading WMS on MapServer
+##############################################
+:date: 2010-07-20 15:46
+:author: admin
+:category: mapserver, security, wms
+:tags: 64bit, cURL, ssl
+:slug: setting-up-a-secure-cascading-wms-on-mapserver
+:status: published
+
+|image| There a number of benefits to using a cascading
+`WMS <http://en.wikipedia.org/wiki/Web_Map_Service>`__ service �" a WMS
+service that is read and then forwarded on through an intermediary WMS
+server:
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   you can cache the service (for example with
+   `TileCache <http://tilecache.org/>`__) to greatly improve performance
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   your application need only worry about a single point of connection,
+   using WMS layers aggregated from many different sources
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   you can add additional metadata missing from the source
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   services can be reprojected (using `GDAL <http://www.gdal.org/>`__)
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   you can merge WMS layers together and server them out as a new map
+   layer
+
+   .. raw:: html
+
+      </div>
+
+There are also some negatives:
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   you have additional server configuration to set up and maintain
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   if you are not adding or changing the WMS service you should probably
+   connect to the WMS service directly in the client applications,
+   otherwise there will be a performance hit
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   caching may contravene the licensing agreement of the original WMS
+   source
+
+   .. raw:: html
+
+      </div>
+
+The rest of this post details the steps in setting up a cascading WMS
+using `MapServer <http://mapserver.org/>`__. You need MapServer 5.4.1 or
+higher to implement a secure cascaded WMS service. This example uses a
+64-bit version of MapServer 5.6 taken from `Tamas
+Szekeres <http://szekerest.blogspot.com/>`__\ ’s `autobuilds
+site <http://vbkto.dyndns.org/sdk/>`__ installed in a C:\\ms4w64 folder.
+It also assumes MapServer has been configured with SSL `as detailed in
+another
+post <http://geographika.co.uk/64-bit-curl-with-openssl-on-windows>`__.
+In this example I use IIS and Windows Server 2003.
+
+.. raw:: html
+
+   <div style="text-align: justify;">
+
+.. raw:: html
+
+   </div>
+
+MapFile Configuration
+^^^^^^^^^^^^^^^^^^^^^
+
+Configuring a MapFile for a cascading WMS service is well-documented on
+the `MapServer WMS Client
+page <http://mapserver.org/ogc/wms_client.htm>`__. An example is shown
+below. Note that this service is not reprojected, and the username and
+password can be passed through the metadata parameters.
+
+::
+
+    LAYER
+      NAME "MyLayer"
+      TYPE RASTER
+      STATUS OFF
+      CONNECTION “https://webservices…”
+      CONNECTIONTYPE WMS
+      #DEBUG 5 #to debug the original layer
+      METADATA
+        "wms_srs"             "EPSG:2157"
+        "wms_name"            "0"
+        "wms_server_version"  "1.1.1"
+        "wms_format"          "image/png"
+        "wms_auth_username" "username"
+        "wms_auth_password" "password"
+        "wms_bgcolor" "0xFFFFFF"
+      END
+    END
+
+It is vital you set up debugging for the MapFile to see why a connection
+may be failing. You can set this by adding the following lines to the
+MapFile:
+
+::
+
+    DEBUG 5 #debugging level between 1 and 5, 5 is the most detailed
+    CONFIG "MS_ERRORFILE" "C:/ms4w64/tmp/ms.log"
+    #path to log file - ensure IIS can write to this file
+
+This can be removed once everything is working correctly.
+
+Configuring SSL and MapServer (Part 1)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A secure WMS service is one that uses an **https**:// address, and may
+require a username and password. Setting up MapServer to connect using
+SSL is by far the trickiest part of the configuration. First of all I
+had to `compile my own
+libcurl.dll <http://geographika.co.uk/64-bit-curl-with-openssl-on-windows>`__
+to include `OpenSSL <http://www.openssl.org/>`__. Otherwise I got the
+following error in the log file:
+
+*msHTTPExecuteRequests(): HTTP request error. HTTP: request failed with
+curl error code 1 (Protocol https not supported or disabled in libcurl)*
+
+Once I had the new libcurl.dll I replaced the existing file in the
+C:\\ms4w64\\bin folder (always make a back-up of the original files
+first!) with my freshly compiled version. I used `Process
+Monitor <http://technet.microsoft.com/en-us/sysinternals/bb896645.aspx>`__
+to  see if I was missing any other DLLs �" I was. The libcurl.dll
+required some additional OpenSSL DLLs to connect to https addresses.
+These DLLs were:
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   libeay32.dll
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   ssleay32.dll
+
+   .. raw:: html
+
+      </div>
+
+These too I copied into my C:\\mapserver\\bin folder from the
+openssl-1.0.0a\\out32dll folder created `when compiling
+libcurl.dll <http://geographika.co.uk/64-bit-curl-with-openssl-on-windows>`__.
+Next I got the following error:
+
+*HTTP: request failed with curl error code 60 (SSL certificate problem,
+verify that the CA cert is OK. Details:
+ error:14090086:SSL routines:SSL3\_GET\_SERVER\_CERTIFICATE:certificate
+verify failed) for https://…*
+
+These errors relate to `missing
+certificates <http://osgeo-org.1803224.n2.nabble.com/WMS-Layer-with-secure-http-url-td2807534.html#a2814037>`__.
+For more details on security certificates `see this
+page <http://curl.haxx.se/docs/sslcerts.html>`__.
+
+Getting a Security Certificate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+I needed to get a valid certificate from the web service and point
+MapServer to this file. I was able to get a certificate by typing in the
+service;s https:// url in FireFox, and then selecting Tools > Page Info
+> Security > View Certificate > Details > Export. You can also
+right-click on the padlock icon at the bottom of the page to access the
+same option.
+
+When exporting I selected the “X 509 Certificate with chain (PEM)”
+option. I tried an export without the “chain” but this didn’t allow me
+to connect.
+
+|image|
+
+I’d recommend trying to connect to the site independently of MapServer,
+so any issues can be narrowed to certificate problems rather than the
+MapServer configuration. I ran these tests on my development machine �" a
+32bit Windows XP laptop, following these steps:
+
+1. Install a standalone version of cURL from the `cURL download
+page <http://curl.haxx.se/download.html>`__ (I used
+libcurl-7.19.3-win32-ssl-msvc.zip).
+
+2. Save your security certificate with the filename
+**curl-ca-bundle.crt** in the same folder as you unzipped the curl.exe
+file. Placing it in the same folder, with this name, will mean the
+certificate can be read by cURL. |image|
+
+In a DOS window navigate to the folder with the curl.exe file and run
+the following command to see if the certificate works with the site. Add
+in some valid WMS parameters.
+
+::
+
+    curl https://webserveraddress.com/wms?VERSION=1.1.1&REQUEST=...
+
+If you need to pass in a username and password to the service use:
+
+::
+
+    curl https://username:password@webserveraddress.com/wms?VERSION=1.1.1&REQUEST=...
+
+If you get the following error:
+
+*(60) SSL certificate problem, verify that the CA cert is OK.
+Details:error:14090086:SSL
+routines:SSL3\_GET\_SERVER\_CERTIFICATE:certificate verify failed*
+
+It means your certificate is invalid. You can try the command with a
+**/k** switch to ignore the security and check that there isn’t a
+connection problem rather than a security problem:
+
+::
+
+    curl https://username:password@webserveraddress.com/wms?VERSION=1.1.1&REQUEST=... /k
+
+If all went well with the certificate you should get a DOS window filled
+with random characters:
+
+|image|
+
+This is good! It is an image file viewed as text and means you have
+successfully returned an image from the secure WMS server.
+
+Configuring SSL and MapServer (Part 2)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now all that remains is to set up the certificate on the MapServer.
+There are some `instructions
+here <http://213.207.42.55/README_INSTALL.html#g-certificates-for-https-with-wms-wfs-servers>`__
+and `more here. <http://trac.osgeo.org/mapserver/ticket/3070>`__ I got a
+little confused thinking I could point to the certificate file using a
+CONFIG command in the MapFile to set the environment variable. This is
+not the case.
+
+It must be set  using a Windows environment variable (although you can
+set it in Apache if you’re not using IIS). It took a while for me to
+figure this out, but due to the beauty of OpenSource if you get too
+stuck you can search the sourcecode itself to see how parameters are
+used. The `relevant sourcecode can be found
+here <http://trac.osgeo.org/mapserver/browser/branches/branch-5-6/mapserver/maphttp.c>`__.
+
+I created a new Windows environment variable CURL\_CA\_BUNDLE to point
+to the .crt file as shown below:
+
+|image|
+
+And this time in the log �" success!
+
+| [Wed Jul 07 16:04:55 2010].384000 msDrawMap(): kicking into non-square
+pixel preserving mode.
+|  [Wed Jul 07 16:04:55 2010].838000 HTTP: Starting to prepare HTTP
+requests.
+|  [Wed Jul 07 16:04:55 2010].838000 Using
+CURL\_CA\_BUNDLE=C:\\ms4w64\\bin\\curl-ca-bundle.crt
+
+Poor Image Quality?
+^^^^^^^^^^^^^^^^^^^
+
+Sometimes the WMS images lack the quality of the originals when run
+through a cascaded service. `This
+post <http://comments.gmane.org/gmane.comp.gis.mapserver.user/41900>`__
+attributes it to either reprojection or incompatible output formats. In
+my case it was the latter. As the forum post writer says �" if you aren’t
+reprojecting or adding information then using a proxy rather than a
+cascading WMS would be far more efficient.
+
+.. raw:: html
+
+   <div style="text-align: justify;">
+
++--------------------------------------+--------------------------------------+
+| |image|                              | |image|                              |
++--------------------------------------+--------------------------------------+
+| My original MapFile                  | I changed the OUTPUTFORMAT to the    |
+| `OUTPUTFORMAT <http://mapserver.org/ | following settings and the images    |
+| mapfile/outputformat.html#outputform | were back to good resolution.        |
+| at>`__                               |                                      |
+| had worked perfectly for all my      | .. raw:: html                        |
+| local WMS services, but with the     |                                      |
+| cascaded service the aerial          |    <p>                               |
+| photography was blotchy.             |                                      |
+|                                      | OUTPUTFORMAT                         |
+| .. raw:: html                        |  NAME "png"                          |
+|                                      |  DRIVER "GDAL/PNG"                   |
+|    <p>                               |  MIMETYPE "image/png"                |
+|                                      |  EXTENSION "png"                     |
+| OUTPUTFORMAT                         |  END                                 |
+|  NAME 'AGGA'                         |                                      |
+|  DRIVER AGG/PNG                      |                                      |
+|  IMAGEMODE RGBA                      |                                      |
+|  END                                 |                                      |
++--------------------------------------+--------------------------------------+
+
+.. raw:: html
+
+   </div>
+
+.. |image| image:: images/2010/07/image16.png
+.. |image| image:: images/2010/07/image17.png
+.. |image| image:: images/2010/07/image18.png
+.. |image| image:: images/2010/07/image19.png
+.. |image| image:: images/2010/07/image20.png
+.. |image| image:: images/2010/07/image21.png
+.. |image| image:: images/2010/07/image22.png
+.. |image| image:: images/2010/07/image21.png
+.. |image| image:: images/2010/07/image22.png
+
+.. include:: comments/setting-up-a-secure-cascading-wms-on-mapserver.rst

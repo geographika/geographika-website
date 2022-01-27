@@ -1,0 +1,80 @@
+7 Reasons for ESRI not to Drop VBA
+##################################
+:date: 2009-09-27 12:44
+:author: admin
+:category: esri, opinion, programming
+:tags: esri, programming, vba
+:slug: 7-reasons-for-esri-not-to-drop-vba
+:status: published
+
+I recently learned from `James Fee's
+blog <http://www.spatiallyadjusted.com/2009/09/14/depreciation-plans-for-arcgis-9-3-1-with-a-little-whats-coming-in-9-4/#comments>`__
+that ArcGIS 9.4 will be the last version that supports VBA. I can see
+why this is being dropped - Microsoft no longer promotes or updates VBA.
+Microsoft now promote "Visual Studio Tools for Office" as its
+replacement for VBA in MS Office products, however VBA is still in
+Office 2007, and looks to be kept in `for at least the next
+version <http://www.theregister.co.uk/2008/01/21/vba_office_victory/>`__.
+Is ESRI acting too prematurely? I can think of 7 good reasons why VBA
+should be kept.
+
+|vba|
+
+| 1. VBA is great for prototyping. There is no need to open up Visual
+Studio, create a custom tool, implement all its interfaces and
+constructors etc. before you can even get round to writing the code for
+the OnClick event of a button.
+| 
+|  2. The code is saved in the MXD. Prototypes can be easily zipped up
+and sent to a client for testing without the need to run set up
+packages, use the add/remove programs tool, and change config files.
+This allows projects to be developed using an `agile
+approach <http://en.wikipedia.org/wiki/Agile_software_development>`__.
+
+3. It is the easiest entry point for GIS professionals into programming.
+People with no programming background can use an application they are
+already familiar with, cut and paste a few samples from the help file
+and they are away.It is also an entry point into the weird, wonderful,
+and worringly huge world of ArcObjects.
+
+4. It is all well and good to use Python for geoprocessing, but many
+tasks require ArcMap's user interface, and the ability to visualise the
+data - and maybe even interact with it..!
+
+5. There is a wealth of samples, tools, and scripts available on the web
+that will now be useless, or require conversion. No more copying,
+pasting, and running to get a task done quickly. VBA for many people is
+part of the daily use of ArcMap - basic subs can be bashed out in a few
+minutes to complete a one-off task and then forgotten about.
+
+6. VBA skills can be transferred to other applications such as Excel,
+Word, and Access. For many GIS users these are the only other programs
+they use for daily tasks, so being able to automate them, or modify a
+recorded VBA macro can greatly increase productivity.
+
+7. It is another nail in the coffin of the VB.Net versus C# argument -
+if no-one has used VBA then there is no reason to recommend coding in
+VB.Net due to familiar syntax..however that is just a personal view in
+an ongoing struggle to avoid having to write all future projects in C#
+to fit with "company standards."
+
+In my opinion the ideal solution would be to continue to allow code to
+be written and saved in the MXD, but replace VBA/VB6 with VB.Net. Why
+not even go further and allow macros to be recorded in ArcMap?
+
+Still at least we'll all now be safe from those VBA viruses going around
+in MXD files..
+
+**Update**
+
+One item I missed in the original post is that VBA is used for field
+calculations in ArcMap. I'm sure most GIS users have a few complex
+operations saved somewhere, all of which look to become redundant. It
+will be interesting to see whether Python will take its place.
+
+|vba\_calc|
+
+.. |vba| image:: images/2009/09/vba.png
+.. |vba\_calc| image:: images/2009/09/vba_calc.png
+
+.. include:: comments/7-reasons-for-esri-not-to-drop-vba.rst

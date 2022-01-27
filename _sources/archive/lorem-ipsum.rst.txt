@@ -1,0 +1,32 @@
+Lorem Ipsum
+###########
+:date: 2007-08-17 15:28
+:author: geographika
+:category: programming
+:slug: lorem-ipsum
+:status: published
+
+` <http://geographika.files.wordpress.com/2007/08/lorem.gif>`__\ ` <http://geographika.files.wordpress.com/2007/08/mutley1.jpg>`__\ I recently
+added some Lorem Ipsum text to fill in some space on a prototype ASP.NET
+website I made recently, which lead to a few questions from the client
+(a person not a machine) such as "what language is all this text in?!" A
+handy generator and a history of Lorem Ipsum can be found
+`here <http://www.lipsum.com/>`__.
+
+However far more amusingly is the generator at
+http://www.malevole.com/mv/misc/text/. There are some real classics in
+there...
+
+|Mutley|
+
+| *"Mutley, you snickering, floppy eared hound. When courage is needed,
+you're never around. Those medals you wear on your moth-eaten chest
+should be there for bungling at which you are best. So, stop that
+pigeon, stop that pigeon, stop that pigeon, stop that pigeon, stop that
+pigeon, stop that pigeon, stop that pigeon. Howwww! Nab him, jab him,
+tab him, grab him, stop that pigeon now."*
+|  ` <http://geographika.files.wordpress.com/2007/08/mutley.jpg>`__
+
+.. |Mutley| image:: images/2007/08/mutley2.jpg
+
+.. include:: comments/lorem-ipsum.rst

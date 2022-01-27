@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Copying Spatial Data between SQL Server Databases &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Could not use ‘’; file already in use.”" href="could-not-use-file-already-in-use.html" />
+    <link rel="prev" title="Convert C# to VB.Net" href="convert-c-to-vbnet.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Copying Spatial Data between SQL Server Databases</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="convert-c-to-vbnet.html" title="Previous Chapter: Convert C# to VB.Net"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Convert C# to VB.Net</span>
+    </a>
+  </li>
+  <li>
+    <a href="could-not-use-file-already-in-use.html" title="Next Chapter: Could not use ‘’; file already in use.”"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Could not use... &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="copying-spatial-data-between-sql-server-databases">
+<h1>Copying Spatial Data between SQL Server Databases<a class="headerlink" href="#copying-spatial-data-between-sql-server-databases" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-01-04 15:01</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>geodatabases, sql server 2008</p>
+</dd>
+<dt class="field-even">slug</dt>
+<dd class="field-even"><p>copying-spatial-data-between-sql-server-databases</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>published</p>
+</dd>
+</dl>
+<p><strong>Aim</strong> - to copy a table containing geometry fields between two
+database servers.<a class="reference external" href="images/2010/01/filetransfer.jpg"><img alt="filetransfer" src="archive/images/2010/01/filetransfer-300x174.jpg" /></a> The task was made slightly trickier as
+the two servers are on two different domains.</p>
+<p>I wanted to use SQL rather than FME, or a SQL Server wizard, as it would
+be easier to script the process for the several tables I had to copy.</p>
+<p>The first task was to set up <a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms188279.aspx">linked
+servers</a>. I
+used the following SQL (when logged in to my destination server, and
+using SQL Server Management Studio) to add the source server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EXEC</span> <span class="n">sp_addLinkedServer</span> <span class="s1">&#39;MY_SOURCE_SERVER_NAME&#39;</span>
+</pre></div>
+</div>
+<p>I then needed to allow log-in access to the source server. The SQL below
+assumes there is a <em>sa</em> user with a password of <em>sa</em> on the source
+server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sp_addlinkedsrvlogin</span> <span class="nd">@rmtsrvname</span> <span class="o">=</span> <span class="s1">&#39;MY_SOURCE_SERVER_NAME&#39;</span>
+ <span class="p">,</span>  <span class="nd">@useself</span> <span class="o">=</span>  <span class="s1">&#39;FALSE&#39;</span>
+ <span class="p">,</span>  <span class="nd">@locallogin</span> <span class="o">=</span>  <span class="n">null</span>
+ <span class="p">,</span>  <span class="nd">@rmtuser</span> <span class="o">=</span>  <span class="s1">&#39;sa&#39;</span>
+ <span class="p">,</span>  <span class="nd">@rmtpassword</span> <span class="o">=</span>  <span class="s1">&#39;sa&#39;</span>
+</pre></div>
+</div>
+<p>I thought I was then ready to run a “SELECT INTO” query to copy records
+from the source table into a new table in the destination database.
+However I was met by the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Msg</span> <span class="mi">7325</span><span class="p">,</span> <span class="n">Level</span> <span class="mi">16</span><span class="p">,</span> <span class="n">State</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Line</span> <span class="mi">1</span>
+<span class="n">Objects</span> <span class="n">exposing</span> <span class="n">columns</span> <span class="k">with</span> <span class="n">CLR</span> <span class="n">types</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">allowed</span> <span class="ow">in</span> <span class="n">distributed</span> <span class="n">queries</span><span class="o">.</span>
+<span class="n">Please</span> <span class="n">use</span> <span class="n">a</span> <span class="k">pass</span><span class="o">-</span><span class="n">through</span> <span class="n">query</span> <span class="n">to</span> <span class="n">access</span> <span class="n">remote</span> <span class="nb">object</span> <span class="s1">&#39;&quot;MY_SOURCE_SERVER_NAME&quot;.&quot;schema_name&quot;.&quot;TableName&quot;&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>It appeared that the geometry columns containing the SQL Server spatial
+types were causing the problem.  After reading up on pass-through
+queries
+<a class="reference external" href="http://technet.microsoft.com/en-us/library/ms188427.aspx">OPENQUERY</a>
+seemed to be the solution.  I tried the following SQL:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">INTO</span> <span class="n">newschema</span><span class="o">.</span><span class="n">MyNewTableName</span>
+<span class="n">FROM</span> <span class="n">OPENQUERY</span><span class="p">([</span><span class="n">MY_SOURCE_SERVER_NAME</span><span class="p">],</span>
+<span class="s1">&#39;SELECT * from [source_database_name].[schema_name].[TableName]&#39;</span><span class="p">);</span>
+
+<span class="p">:</span><span class="o">-</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-276" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-276"><span class="std std-ref">1.</span></a> <strong>=== Deep Link Engine === | ClickBankKing</strong>
+**</p>
+<p>[…] geographika » Compiling a 64 bit Version of PyISAPIe […]</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#1@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-291" src="http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-291"><span class="std std-ref">2.</span></a> <strong>Phillip</strong>
+**</p>
+<p>Hi there,</p>
+<p>While I’ll be posting some details on the PyISAPIe list later regarding
+changes in the new version to make this process easier, I just thought
+I’d mention a few things that could help you in the future-</p>
+<ul class="simple">
+<li><p>PYI_PY_VERSION can be defined in the project settings, under</p></li>
+</ul>
+<p>C++/Preprocessor. This is the easiest way to compile for different
+versions because no source changes are required.</p>
+<ul class="simple">
+<li><p>You can add additional include and library directories at the project</p></li>
+</ul>
+<p>settings level rather than the Visual Studio settings level, which can
+help in some cases.</p>
+<ul class="simple">
+<li><p>If SubWCRev wasn’t working from Visual Studio but was from the command</p></li>
+</ul>
+<p>line, all I can suggest is to log out and back into your Windows account
+to be sure that your PATH has been updated everywhere (it works in
+Windows 7 right after installing TortoiseSVN).</p>
+<p>Thank you for this guide, I’m positive that it will be a great help to
+those compiling the project themselves.</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#2@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-296" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-296"><span class="std std-ref">3.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line"><a class="reference external" href="#comment-291">&#64;Phillip</a></div>
+<div class="line-block">
+<div class="line">Thanks for the tips. I’ve updated the post to include these, and went</div>
+</div>
+</div>
+<p>through the steps with the latest sourcecode.
+|  I should have realised the PATH had not been updated having wrote
+about it last week…!
+|  All is working well, and the new project set up makes it easy to
+compile for 32 bit or 64 bit, with many different Python versions.</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#3@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/52a7495eeb9152acb2a39c9f0e83cfd9?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-308" src="http://www.gravatar.com/avatar/52a7495eeb9152acb2a39c9f0e83cfd9?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-308"><span class="std std-ref">4.</span></a> <strong>Jonathan Mayer</strong>
+**</p>
+<p>Fantastic work ( you’re on my favourites list!!)</p>
+<p>You don’t happen to have a copy of the dll do you,</p>
+<p>Cheers Jonathan ;-)</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#4@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-309" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-309"><span class="std std-ref">5.</span></a> <strong>geographika</strong>
+**</p>
+<div class="line-block">
+<div class="line">Thanks Jonathan.</div>
+<div class="line-block">
+<div class="line">You can get a copy of the 64 bit DLL for Python 2.5 at</div>
+<div class="line"><a class="reference external" href="http://geographika.co.uk/downloads/PyISAPIe64_Python25.zip">http://geographika.co.uk/downloads/PyISAPIe64_Python25.zip</a>.</div>
+</div>
+</div>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#5@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/aee6b898db6192564421a2269f2afca1?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-465" src="http://www.gravatar.com/avatar/aee6b898db6192564421a2269f2afca1?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-465"><span class="std std-ref">6.</span></a> <strong>chris</strong>
+**</p>
+<div class="line-block">
+<div class="line">Great work and an excellent tutorial!</div>
+<div class="line-block">
+<div class="line">I’m struggling, getting mod_python/mod_wsgi to work under Apache</div>
+</div>
+</div>
+<p>2.2 compiled for 64-bit Windows for a while… After reading this, I
+definitely will give IIS7+PyISAPIe a try.
+|  Thanks!</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#6@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-466" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-466"><span class="std std-ref">7.</span></a> <strong>geographika</strong>
+**</p>
+<p>It has also been announced recently that development on mod_python is
+to be abandoned
+<a class="reference external" href="http://blog.dscpl.com.au/2010/06/modpython-project-is-now-officially.html">http://blog.dscpl.com.au/2010/06/modpython-project-is-now-officially.html</a>
+so bail out now!</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#7@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-669" src="http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-669"><span class="std std-ref">8.</span></a> <strong>James Crowley</strong>
+**</p>
+<p>This is an awesome article, thank you!!</p>
+<p>I’ve successfully compiled this project to 64bit against Python 2.7.
+However, when I set up the ISAPI filter in IIS I keep getting a</p>
+<p>The specified module could not be found. (0x8007007e)</p>
+<p>error. As far as I can tell, IIS has full access to that file (I’ve gone
+as far as giving the Users group and IUSR and Network Service full
+read/write access). Is there anything else likely to be going on here?
+Not sure if there might be issues loading the python bindings or
+something? Any ideas would be much appreciated!</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#8@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-670" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-670"><span class="std std-ref">9.</span></a> <strong>geographika</strong>
+**</p>
+<p>Hi James,</p>
+<div class="line-block">
+<div class="line">Take a look at <a class="reference external" href="http://geographika.co.uk/setting-up-python-on-iis7">http://geographika.co.uk/setting-up-python-on-iis7</a></div>
+</div>
+<p>which goes through the set up steps in IIS7. Previous versions should be
+similar.
+|  If you just installed Python on the server then try a reboot to make
+sure the Python environment variables have been set.</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#9@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-671" src="http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-671"><span class="std std-ref">10.</span></a> <strong>James Crowley</strong>
+**</p>
+<p>Seth, I’ve followed all those steps as far as I can see (I’m using IIS
+7), and the server has been rebooted. Is there any way I can check that
+the PyISAPIe library works without hooking in IIS? Thanks so much for
+this :)</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#10@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-672" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-672"><span class="std std-ref">11.</span></a> <strong>geographika</strong>
+**</p>
+<p>As far as I know there is no wat to check outside of IIS. Does the
+hello.py script produce the “module” error/</p>
+<p>What I have found useful when getting errors is to use <a class="reference external" href="http://technet.microsoft.com/en-ie/sysinternals/bb896645(en-us).aspx">Process
+Monitor</a>
+to see what DLLs Windows is looking for, and any errors if it can’t find
+them or if it does not have the correct security settings.</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#11@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-673" src="http://www.gravatar.com/avatar/4680c3e4cd9ba3197f16833edf0fa7e0?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-673"><span class="std std-ref">12.</span></a> <strong>James Crowley</strong>
+**</p>
+<p>Thanks! Yeah, its the hello.py script producing the module error. Will
+try process monitor and see if that reveals anything.</p>
+<p>BTW, as a sense check, downloaded your x64 bit version and the 2.5.4 amd
+build you linked - this “works”, although complains about a ctypes
+module not being present in python. I checked and it seems to be there
+in 2.7 builds but not the 2.5.4 for some reason?</p>
+<p>have joined the pyisapie email list now so will try and stop bugging you
+now! :)</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#12@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-777" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-777"><span class="std std-ref">13.</span></a> <strong>MapFish Print Module for IIS at geographika</strong>
+**</p>
+<p>[…] Install and configure PyISAPIe. You can follow the instructions
+described on this post or in the README file included with PyISAPIe . If
+you want to run a 64 bit version, have a look at this post. […]</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#13@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/1e7eaf045548b6914c5784c18cc89f09?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-871" src="http://www.gravatar.com/avatar/1e7eaf045548b6914c5784c18cc89f09?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-871"><span class="std std-ref">14.</span></a> <strong>Quaspam</strong>
+**</p>
+<div class="line-block">
+<div class="line">Hi thanks for the great article, i have a very stupid question if i</div>
+</div>
+<p>may say, i followed about every step you mentioned and i am stuck when
+the build gets to the linking stage, it gave the following error:
+|  <strong>Error LNK1104: cannot open file ‘python27.lib’</strong>
+|  here is my build command line:</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a>/OUT:”x64ReleasePyISAPIe.dll” /INCREMENTAL:NO /NOLOGO /LIBPATH:”C:pyisapiePythonx64Python27libs” /LIBPATH:”C:pyisapiePythonx64Python26libs” /LIBPATH:”C:pyisapiePythonx64Python25libs” /DLL “kernel32.lib” “user32.lib” “gdi32.lib” “winspool.lib” “comdlg32.lib” “advapi32.lib” “shell32.lib” “ole32.lib” “oleaut32.lib” “uuid.lib” “odbc32.lib” “odbccp32.lib” /NODEFAULTLIB:”libc libcmt msvcrt” /DEF:”PyISAPIe.def” /MANIFEST /ManifestFile:”x64ReleasePyISAPIe.dll.intermediate.manifest” /ALLOWISOLATION /MANIFESTUAC:”level=’asInvoker’ uiAccess=’false’” /PDB:”C:pyisapiex64ReleasePyISAPIe.pdb” /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /PGD:”C:pyisapiex64ReleasePyISAPIe.pgd” /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:”x64ReleasePyISAPIe.lib” /MACHINE:X64 /ERRORREPORT:QUEUE ``</p>
+<p>I am using VS2010 and i checked if python27.lib is accessible and
+everything seems fine. Can you please help me</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#14@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-872" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-872"><span class="std std-ref">15.</span></a> <strong>geographika</strong>
+**</p>
+<p>Hi - it has been a while since I did this. I’ve not tried with 2.7, but
+you probably have to add:</p>
+<p><a href="#id3"><span class="problematic" id="id4">``</span></a>#elif PYI_PY_VERSION &gt;= PY_27   #define PYI_PY_VERSION_MAJOR PY_27   #include    #include    #include ``</p>
+<p>My build outout for Python 2.6 (in VS2010) is:</p>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a>/OUT:”x64ReleasePyISAPIe.dll” /INCREMENTAL:NO /NOLOGO /LIBPATH:”D:ProjectsPyISAPIePyISAPIePythonx64Python26libs” /LIBPATH:”D:ProjectsPyISAPIePyISAPIePythonx64Python25libs” /DLL “kernel32.lib” “user32.lib” “gdi32.lib” “winspool.lib” “comdlg32.lib” “advapi32.lib” “shell32.lib” “ole32.lib” “oleaut32.lib” “uuid.lib” “odbc32.lib” “odbccp32.lib” /NODEFAULTLIB:”libc libcmt msvcrt” /DEF:”PyISAPIe.def” /MANIFEST /ManifestFile:”x64ReleasePyISAPIe.dll.intermediate.manifest” /ALLOWISOLATION /MANIFESTUAC:”level=’asInvoker’ uiAccess=’false’” /PDB:”D:ProjectsPyISAPIePyISAPIex64ReleasePyISAPIe.pdb” /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /PGD:”D:ProjectsPyISAPIePyISAPIex64ReleasePyISAPIe.pgd” /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:”x64ReleasePyISAPIe.lib” /MACHINE:X64 /ERRORREPORT:QUEUE ``</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#15@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1714" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1714"><span class="std std-ref">16.</span></a> <strong>wolf++ &amp;raquo; Running Django on Windows: Python 2.7.2 x64, PyISAPIe and IIS 7.5</strong>
+**</p>
+<p>[…] not a compiled version of this available for Python 2.7 (x64 in my
+case).  geographika has a great post on doing this.  The following
+instructions are based on his guide, updated with newer versions.  […]</p>
+<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#16@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+copying-spatial-data-between-sql-server-databases@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Add Comment</a></section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

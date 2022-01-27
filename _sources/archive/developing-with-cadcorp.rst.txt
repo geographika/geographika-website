@@ -1,0 +1,118 @@
+Developing with CadCorp
+#######################
+:date: 2009-09-27 02:55
+:author: admin
+:category: programming
+:tags: cadcorp
+:slug: developing-with-cadcorp
+:status: published
+
+I've recently completed my first custom tool for `CadCorp's Map
+Modeller <http://www.cadcorp.com/products_geographical_information_systems/map_modeller.htm>`__.
+CadCorp is most used in the UK, and it is apparently also big in Japan.
+The main benefit is that it reads many different spatial data formats
+directly, it can connect to SQL Server and Oracle without middleware
+(i.e. an SDE type application), and it is a leader in the open standards
+espoused by the `Open Geospatial Consortium <http://>`__.
+
+|cadcorp|
+
+In terms of development the main issue is that there appear to be very
+few people developing tools around CadCorp's products apart from CadCorp
+themselves. This means that the only code samples are in the help system
+installed with the tool, and a PDF file. Straying outside these samples
+I found involves a lot of trial and error. There is a forum on the
+CadCorp site - annoyingly registration is required to read the posts,
+and there are very few programming related posts. The CadCorp staff do
+however get back to you on any questions you pose.
+
+Visual Studio and .NET languages can be used to create custom DLLs that
+integrate with the application. Prior to version 7 (the latest CadCorp
+release) custom code was run in a separate memory process, and Windows
+messaging used to pass messages between the custom tool and the CadCorp
+application. Fortunately this has changed so the DLL can run in the same
+memory space. The code below shows how to add two new menu items using
+VB.Net.
+
+::
+
+    Public Sub AddMenus()
+      Dim mainMenu As New SisMenuItem("Custom Tool")
+      Dim menuB As New SisMenuItem("B", New SisClickHandler(AddressOf b))
+      mainMenu.MenuItems.Add(menuB)
+      Dim menuB As New SisMenuItem("A", New SisClickHandler(AddressOf a))
+      mainMenu.MenuItems.Add(menuA)
+    End Sub
+
+Strangely the two menu items would be listed on a new menu item
+*alphabetically*. Apparently this is by design, and hidden ASCII
+characters can be used to order the menus..
+
+Each custom menu item has an associated sub procedure that is called
+when clicked. The example above expects two subs a and b. Each would
+look similar to:
+
+::
+
+    Private Sub a(ByVal sender As Object, ByVal args As SisClickArgs)
+      Dim mm As MapManager = args.MapManager
+    End Sub
+
+The reference to the CadCorp application is passed in as an argument by
+default. One of my main gripes with development with CadCorp is that the
+programming model appears to be a based partly on objects, and partly on
+passing arcane strings into a huge "application" object. As these are
+strings they are not picked up be intellisense in Visual Studio and have
+to be found in the manual. I'm not sure why this is the case, as a
+simple wrapper could be created to avoid this. Maybe it is in
+development..
+
+To illustrate my point here is a function to loop through all the layers
+(aka overlays), and find a layer with a particular name:
+
+::
+
+    Public Function FindOverlayByName(ByVal mm As MapManager, ByVal sLayerName As String) As Integer
+     Dim lNumOverlays As Integer = mm.GetInt(SIS_OT_WINDOW, 0, "_nOverlay&")
+     Dim iOverlayPos As Integer = -1
+     'loop through all overlays checking if the name matches
+     For lCount = 0 To lNumOverlays - 1
+       Dim sName As String = mm.GetStr(SIS_OT_OVERLAY, lCount, "_name$")
+       If sName = sLayerName Then
+         iOverlayPos = lCount
+         Return iOverlayPos
+       End If
+     Next lCount
+     Return iOverlayPos
+    End Function
+
+The line to notice is mm.GetStr(SIS\_OT\_OVERLAY, lCount, "\_name$").
+There are many cases of passing and setting properties using the GetStr
+/ SetStr approach, each one with a different third parameter.
+
+Collections of objects have to be stored in lists, and can only be
+referred to by a string name. This makes code inflexible and hard to
+maintain. For example the code below finds the extent of all features in
+an overlay:
+
+::
+
+    mm.CreateListFromOverlay(iLayerPos, "AllItems")
+    If mm.GetListSize("AllItems") > 0 Then
+     myExtent = mm.GetListExtent("AllItems")
+     mm.SplitExtent(x1, y1, z1, x2, y2, z2, myExtent)
+    End If
+
+The "AllItems" string is used to keep track of all the features in an
+overlay. Any string can be used (I chose "AllItems" for readability, and
+this could be saved in a variable, but it still seems starnge to the
+object-orientated world of .Net.
+
+The tool is now installed and being used by ~15 users, and has a backend
+Oracle geodatabase, and seems to be going well. Next I'll be trying out
+CadCorp's web server
+`GeognoSIS <http://www.cadcorp.com/products_geographical_information_systems/geognosis.htm>`__.
+
+.. |cadcorp| image:: images/2009/09/cadcorp1.jpg
+
+.. include:: comments/developing-with-cadcorp.rst

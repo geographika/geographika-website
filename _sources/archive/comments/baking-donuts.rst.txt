@@ -1,0 +1,104 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1742:
+
+.. image:: http://www.gravatar.com/avatar/9f7c830cd22601f5edbe9026de8ff866?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1742>` **drnextgis**
+**
+
+Thanks for post! But I didn't find OWSLib import in your source code.
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-wms-testing-with-python#1@geographika.co.uk?Subject=automated-wms-testing-with-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1743:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1743>` **geographika**
+**
+
+Thanks for spotting that! It was imported already into my Python session
+when I was testing. I have updated the code to include from owslib.wms
+import WebMapService at the top of the script.
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-wms-testing-with-python#2@geographika.co.uk?Subject=automated-wms-testing-with-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1765:
+
+.. image:: http://www.gravatar.com/avatar/4c718d61c4f76af4c20a25db3f20c257?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1765>` **Paolo Cavallini**
+**
+
+Thanks for this. Any hope of having a WFS tester integrated as well?
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-wms-testing-with-python#3@geographika.co.uk?Subject=automated-wms-testing-with-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-41201:
+
+.. image:: http://www.gravatar.com/avatar/173357c2214e55cd10e25977f2c64554?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-41201>` **Just Anton van den Broecke**
+**
+
+| Maybe we can integrate this in GeoHealthCheck (also based and by
+author OWSLib):
+`http://geopython.github.io/GeoHealthCheck/ <http://geopython.github.io/GeoHealthCheck>`__?
+|  Though in some cases WMS-images (think e.g. of Cadastral parcels) may
+be blanc at bbox-level because of SLD scaling rules.
+
+
+.. raw:: html
+
+    <a href="mailto:web+automated-wms-testing-with-python#4@geographika.co.uk?Subject=automated-wms-testing-with-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+baking-donuts@geographika.co.uk?Subject=baking-donuts" target="_top">Add Comment</a>

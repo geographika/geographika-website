@@ -1,0 +1,42 @@
+Creating Previews of PDF Maps
+#############################
+:date: 2011-01-18 19:27
+:author: admin
+:category: documentation, general, python
+:tags: maps, pdfs, previews, python
+:slug: creating-previews-of-pdf-maps
+:status: published
+
+|image|\ The `MapFish print module <http://geographika.co.uk/?p=727>`__
+used by both MapFish and GeoExt generates PDF maps that can be saved to
+clients machines. Over time you can acquire hundreds of different PDFs,
+but unfortunately Windows XP does not generate thumbnail previews to
+help find them again later.
+
+The script below solves this problem by generating a PNG image of all
+the PDFs in a folder. The image to the left shows the results of the
+script when run on a series of `UN Mission
+Maps <http://www.un.org/Depts/Cartographic/english/htmain.htm>`__.
+
+This relies on two programs to be installed.
+`ImageMagick <http://www.imagemagick.org/script/binary-releases.php#windows>`__
+â€" a free image conversion software package, and
+`GhostScript <http://sourceforge.net/projects/ghostscript/files/GPL%20Ghostscript/>`__
+another free program that can be used to access, read, and create PDF
+files. You may have to reboot your machine after installing these
+programs for the script to run successfully.
+
+The script uses a
+`convert <http://www.imagemagick.org/script/convert.php>`__ utility
+program which comes with ImageMagick.
+
+.. raw:: html
+
+   <p>
+   <script src="https://gist.github.com/784880.js"> </script>
+   </p>
+
+.. |image| image:: images/2011/01/image_thumb.png
+   :target: images/2011/01/image.png
+
+.. include:: comments/creating-previews-of-pdf-maps.rst

@@ -1,0 +1,38 @@
+Project Build Error
+###################
+:date: 2007-02-25 17:20
+:author: geographika
+:category: bugs
+:slug: project-build-error
+:status: published
+
+Error messages always seem to make far more sense when you know the
+solution.
+
+*System.IO.FileNotFoundException was unhandled
+   Message="Could not load file or assembly 'GISSettings,
+Version=1.0.0.17923, Culture=neutral, PublicKeyToken=null' or one of its
+dependencies. The system cannot find the file specified."*
+
+This error occurred when building a deployment project in Visual Studio
+2005. The GISSettings was a custom made DLL that was referenced by
+another custom DLL, and it was definitely still there on my machine...
+
+The cause of this was that the second project was looking for a specific
+version of the GISSettings DLL which no longer existed. I had automated
+the version numbers for all my DLLs by using the 1.0.0.\* syntax for the
+Assembly Version in the Assembly information of each project. The
+solution was as follows:
+
+| - Show all the files for the project in Visual Studio
+|  - Expand the References
+|  - Check that the Copy Local Property for the relevant DLL is set to
+true
+
+I had referenced several other custom DLLs which had this property set
+to true, so why this one had behaved differently I have no idea..VS 2005
+does seem to have a few idiosyncrasies, such as when half my projects in
+a solution disappear, so I guess I'll have to wait for a few more
+service packs before I start blaming myself for these issues =)
+
+.. include:: comments/project-build-error.rst

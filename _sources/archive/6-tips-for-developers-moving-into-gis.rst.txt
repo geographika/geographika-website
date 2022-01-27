@@ -1,0 +1,142 @@
+6 Tips for Developers Moving into GIS
+#####################################
+:date: 2010-03-16 14:49
+:author: admin
+:category: general, opinion, programming
+:tags: developers, neogeographers, programming, tips
+:slug: 6-tips-for-developers-moving-into-gis
+:status: published
+:attachments: wp-content\uploads\2010\03\image.png, wp-content\uploads\2010\03\image_thumb.png, wp-content\uploads\2010\03\image1.png, wp-content\uploads\2010\03\image_thumb1.png
+
+With the rise of the
+`neogeographers <http://veryspatial.com/2009/05/a-veryspatial-podcast-episode-202/>`__,
+along with the increased awareness and use of GIS thanks to the web,
+more and more positions are open for developers looking to move away
+from writing business accounting logic, and into the exciting "new"
+world of spatial data. I've noticed a few gotchas that have happened to
+developers with no GIS background while working on projects, so this
+list may at least raise awareness of some of the hurdles.
+
+|image|
+~~~~~~~
+
+1. Get to Know your GIS Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Most desktop development in GIS involves building extensions to an
+existing application using an existing programming library. In order to
+avoid reinventing the wheel you need to be able to use your GIS desktop
+package.
+
+Before developing any automated tasks, manually go through the process
+to get a feel for any issues that may arise, and learn some of the
+terminology used by the program for the various functions. If the
+application has an option for hatched polygon fills, this option is also
+likely to be buried somewhere in the API. If you can't find what you are
+looking for then run what you are trying to accomplish past a GIS user.
+
+2. Learn some Basic Terminology
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A good GIS glossary can be found on the\ `ESRI site <http://>`__, and it
+is also available in a `A to Z of
+GIS <http://www.amazon.com/gp/product/1589481402?ie=UTF8&tag=geographika-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=1589481402>`__\ |image1|
+book. Of course nothing is simple as different software companies use
+different terms for the same thing so a *Layer* in ArcMap, is the
+equivalent of an *Overlay* in Google Maps.
+
+If you want to find all the point addresses within 100m of a road you
+don't need to spend weeks writing your own algorithms (I've seen this
+happen..), armed with a good GIS vocabulary you will be aware of the
+term *buffering* and can find how to do this programmatically in your
+software. Your new employer will prefer a basic question related to GIS
+or geography than 2 weeks developing a function that could be achieved
+with a single line of code.
+
+If developing for the web there are a plethora of technical terms you
+will have to learn such as WMS, WFS, GeoJSON, GeoXML (most web standards
+also seem to take a Geo- prefix), KML, tile caches etc.
+
+3. Get to Know your Datasets
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|image| Half the battle with GIS development is getting data into a
+consistent format so you can run analyses on it. Get ready to start
+dealing with Excel spreadsheets, strange proprietary GIS formats, and
+file dumps that may or may not resemble databases. Remember that many of
+these datasets will be coming from GIS technicians rather than database
+developers. `Safe's FME <http://www.safe.com/>`__ can convert pretty
+much anything to anything else, and the translations can be saved and
+automated saving plenty of time.
+
+Spatial data is not *too* complicated. Most features can be represented
+as points, lines, or polygons. Obviously things can get more complicated
+such as multipart polygons,
+`doughnuts <http://www.aubreyrhea.net/gis/index.php/2009/08/creating-a-doughnut-polygon/>`__,
+geometric networks etc. but these features are not overly common.
+However learn about
+`projections <http://en.wikipedia.org/wiki/Map_projection>`__ and how to
+reproject data. If your data is invisible with no errors then
+projections are often the issue.
+
+There is also a semi-mythical object called
+`metadata <http://en.mimi.hu/gis/metadata.html>`__. If this doesn't
+exist expect to spend plenty of time trying to track down what various
+fields mean, if look-up tables are available, and what projection the
+data is in.
+
+4. Learn the differences between `Raster <http://>`__ and `Vector <http://>`__.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want to display cells across a whole country then you will need
+to user raster, vector data will take an age to draw. Don't make the
+mistake or drawing lots of nicely coloured geometric squares.
+
+5. Find New Programming Forums
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You may need to look further afield than
+`StackOverflow <http://stackoverflow.com/>`__ for answers to technical
+problems (except maybe Google Maps on Android).  Where to look depends
+on what you work with. Each major GIS vendor's site is likely to have a
+forum which serves as the focal point for all developers using their
+software, for example ESRI has widely used `user
+forums <http://support.esri.com/index.cfm?fa=forums.gateway>`__. For
+open source mailing lists seem to be the support technology of choice –
+here `Nabble <http://www.nabble.com/>`__ is your friend.
+
+6. Bring your experience
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many people working in GIS come from a geography background, and are
+self-taught programmers. If you are working with a team then try to
+introduce concepts that are now commonplace in other areas of software
+development - source control, unit tests, object programming etc.
+
+You may also see GIS users spending hours doing things by hand that can
+clearly be automated. If you know some Python then you will be able to
+save hundreds of man hours with geoprocessing scripts for both
+proprietary and open source applications. For unknown reasons Python has
+become the scripting language of choice in GIS. Its good for web GIS
+too.
+
+Along with software development practices any previous experience with
+databases will be huge plus. If you know what the following are you will
+soon become a very productive member of staff - primary key,
+normalisation, relationships may be new concepts to your new
+organisation.
+`Geodatabases <http://en.wikipedia.org/wiki/Geodatabase>`__ introduce a
+few new concepts, such as spatial indexes, projections, and geometry
+types, but if you have a good grounding in standard databases you will
+pick things up easily.
+
+Feel free to add anything I've missed in the comments below, and good
+luck!
+
+.. |image| image:: images/2010/03/image_thumb.png
+   :target: images/2010/03/image.png
+.. |image1| image:: http://www.assoc-amazon.com/e/ir?t=geographika-20&l=as2&o=1&a=1589481402
+.. |image| image:: images/2010/03/image_thumb1.png
+   :target: images/2010/03/image1.png
+
+.. include:: comments/6-tips-for-developers-moving-into-gis.rst

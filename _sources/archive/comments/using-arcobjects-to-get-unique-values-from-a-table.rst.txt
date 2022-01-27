@@ -1,0 +1,59 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1628:
+
+.. image:: http://www.gravatar.com/avatar/e5d52dc18baa80b3ed7a1aff1573c468?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1628>` **ykon**
+**
+
+| it looks like a very handy solution. Thanks for the tip! I tried to
+replicate it but got an error about 'clr' not being a recognised module.
+Did I forgot something?
+|  Cheers.
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-arcobjects-and-net-in-python#1@geographika.co.uk?Subject=using-arcobjects-and-net-in-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1693:
+
+.. image:: http://www.gravatar.com/avatar/24cb0238798e876e2466d32941d668a3?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1693>` **Ishara**
+**
+
+Brilliant - thanks.
+
+
+.. raw:: html
+
+    <a href="mailto:web+using-arcobjects-and-net-in-python#2@geographika.co.uk?Subject=using-arcobjects-and-net-in-python" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+using-arcobjects-to-get-unique-values-from-a-table@geographika.co.uk?Subject=using-arcobjects-to-get-unique-values-from-a-table" target="_top">Add Comment</a>

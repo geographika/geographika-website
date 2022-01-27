@@ -1,0 +1,36 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-984:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-984>` **Creating Previews of PDF Maps at geographika**
+**
+
+[...] MapFish print module used by both MapFish and GeoExt generates PDF
+maps that can be saved to clients machines. Over time [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+mapfish-print-module-for-iis#1@geographika.co.uk?Subject=mapfish-print-module-for-iis" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+mapinfo-and-sql-server-2008@geographika.co.uk?Subject=mapinfo-and-sql-server-2008" target="_top">Add Comment</a>

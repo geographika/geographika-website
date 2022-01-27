@@ -1,0 +1,14 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+free-commercial-gis@geographika.co.uk?Subject=free-commercial-gis" target="_top">Add Comment</a>

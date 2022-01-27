@@ -1,0 +1,40 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-2064:
+
+.. image:: http://www.gravatar.com/avatar/6ba37c32155249f40516ebbbacc0ee49?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-2064>` **Steve**
+**
+
+thanks ... cant help but wonder why this capability (report dbase
+schema) isnt supported in even the most basic fashion
+
+Cheers
+
+S
+
+
+.. raw:: html
+
+    <a href="mailto:web+visio-data-modelling-and-vba#1@geographika.co.uk?Subject=visio-data-modelling-and-vba" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+visualising-geojson-in-15-minutes@geographika.co.uk?Subject=visualising-geojson-in-15-minutes" target="_top">Add Comment</a>

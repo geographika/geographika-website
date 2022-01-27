@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>OGR Comes to SQL Server 2008 Spatial &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OpenAerialMap" href="openaerialmap.html" />
+    <link rel="prev" title="No New Objects Added…" href="no-new-objects-added.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">OGR Comes to SQL Server 2008 Spatial</a><ul>
+<li><a class="reference internal" href="#where-can-i-get-the-driver">Where can I get the Driver?</a></li>
+<li><a class="reference internal" href="#quick-set-up-of-ogr-mssqlspatial-on-windows">Quick Set Up of OGR &amp; MSSQLSpatial (on Windows)</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="no-new-objects-added.html" title="Previous Chapter: No New Objects Added…"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; No New Objects Added…</span>
+    </a>
+  </li>
+  <li>
+    <a href="openaerialmap.html" title="Next Chapter: OpenAerialMap"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">OpenAerialMap &raquo;</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="ogr-comes-to-sql-server-2008-spatial">
+<h1>OGR Comes to SQL Server 2008 Spatial<a class="headerlink" href="#ogr-comes-to-sql-server-2008-spatial" title="Permalink to this headline">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2010-09-25 14:36</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>admin</p>
+</dd>
+<dt class="field-odd">category</dt>
+<dd class="field-odd"><p>geodatabases, sql server 2008</p>
+</dd>
+<dt class="field-even">tags</dt>
+<dd class="field-even"><p>gdal, sqlserver</p>
+</dd>
+<dt class="field-odd">slug</dt>
+<dd class="field-odd"><p>ogr-comes-to-sql-server-2008-spatial</p>
+</dd>
+<dt class="field-even">status</dt>
+<dd class="field-even"><p>published</p>
+</dd>
+</dl>
+<p><a class="reference external" href="images/2010/09/image.png"><img alt="image" src="../_images/image_thumb15.png" /></a> OGR, created by <a class="reference external" href="http://home.gdal.org/warmerda/">Frank
+Warmerdam</a>, is an open source library
+and set of command line utilities for reading and writing geospatial
+vector data using many different
+formats ` &lt;<a class="reference external" href="http://home.gdal.org/warmerda/">http://home.gdal.org/warmerda/</a>&gt;`__. It is the vector
+equivalent of <a class="reference external" href="http://www.gdal.org">GDAL</a> which has similar
+functionality for rasters.</p>
+<p>The name of the library is a vestige from when OGR used to stand for
+OpenGIS Simple Features Reference Implementation. However as OGR is not
+fully compliant with the <a class="reference external" href="http://www.opengeospatial.org/standards/sfa">OpenGIS Simple Feature
+specification</a> the name
+was changed to OGR Simple Features Library (from the <a class="reference external" href="http://trac.osgeo.org/gdal/wiki/FAQGeneral">GDAL
+FAQ</a>).</p>
+<p>The latest additions to the OGR formats are the SQL Server 2008
+<a class="reference external" href="http://www.microsoft.com/sqlserver/2008/en/us/spatial-data.aspx">geometry and
+geography</a>.
+This enables spatial data in SQL Server 2008 to be reprojected, and
+converted to other formats (shapefiles, MapInfo, KML, GML, GeoJSON and
+any of the <a class="reference external" href="http://www.gdal.org/ogr/ogr_formats.html">many other formats already supported by
+OGR</a>) using freely
+available open source tools. Details on the associated OGR tools can be
+seen <a class="reference external" href="http://www.gdal.org/ogr_utilities.html">here</a>.</p>
+<p><strong>The full MSSQLSpatial OGR driver notes and details are</strong> <a class="reference external" href="http://www.gdal.org/ogr/drv_mssqlspatial.html">**available
+online**</a><strong>.</strong></p>
+<section id="where-can-i-get-the-driver">
+<h2>Where can I get the Driver?<a class="headerlink" href="#where-can-i-get-the-driver" title="Permalink to this headline">¶</a></h2>
+<p>The source code for the new MSSQLSpatial driver can be seen here in the
+online GDAL subversion <a class="reference external" href="http://trac.osgeo.org/gdal/browser/trunk/gdal/ogr/ogrsf_frmts/mssqlspatial">code
+repository</a>.
+As can be seen by the check-in dates much of the work has been completed
+in the last two weeks.</p>
+<p>The two developers who deserve the credit are Tamas Szekeres and Even
+Rouault, both members of the GDAL Project Management Committee.  Tamas
+has blogged about the new OGR driver
+<a class="reference external" href="http://szekerest.blogspot.com/2010/09/ogr-ms-sql-2008-spatial-driver.html">here</a>.
+Tamas’s work is becoming invaluable to many of my projects ?” and he was
+also responsible for the <a class="reference external" href="http://mapserver.org/development/rfc/ms-rfc-38.html">MapServer SQL Server 2008
+driver</a>.</p>
+<p>The MSSQLSpatial driver is not currently available  in the latest
+version of FWTools (2.4.7 at the time of writing). FWTools (Frank
+Warmerdam tools) is an easy to install package containing both GDAL and
+OGR, but keep an eye on the <a class="reference external" href="http://fwtools.maptools.org/">http://fwtools.maptools.org/</a> site for new
+releases.</p>
+<p>The driver was not a part of the GDAL 1.7 release, so if you can’t wait
+until the next binary (precompiled)
+<a class="reference external" href="http://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">release</a>,
+you have to compile it yourself. However Tamas maintains a page which
+automatically compiles the latest MapServer source code into binaries at
+<a class="reference external" href="http://vbkto.dyndns.org/sdk/">http://vbkto.dyndns.org/sdk/</a>. MapServer includes the latest development
+GDAL and OGR binaries (gdal18dev.dll) which in turn include the new
+<a class="reference external" href="http://vbkto.dyndns.org/sdk/PackageInfo.aspx?file=release-1310-gdal-mapserver.zip">MSSQLSpatial
+driver</a>.
+So this is currently the easiest place to get a compiled version for
+testing with SQL Server.</p>
+</section>
+<section id="quick-set-up-of-ogr-mssqlspatial-on-windows">
+<h2>Quick Set Up of OGR &amp; MSSQLSpatial (on Windows)<a class="headerlink" href="#quick-set-up-of-ogr-mssqlspatial-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>Even though at the time of writing the latest development builds for
+MapServer failed the GDAL/OGR DLLs and .exes seem fine and can be found
+in the bin/gdal subfolder of the MapServer packages. To quickly get up
+and running with OGR you can follow these steps:</p>
+<p>1. Download a suitable package from <a class="reference external" href="http://vbkto.dyndns.org/sdk/">http://vbkto.dyndns.org/sdk/</a>. You
+will need a development release, or a release with GDAL 1.8 or higher.
+Click on the information links to see which OGR types are supported in a
+package.</p>
+<p>2. Unzip the package to your machine. It is best to put the package in a
+folder which does not contain spaces.</p>
+<p>3. Run the following commands in a Windows Command Line window. I left
+the package in my D:\My Documents\Downloads\ folder in this example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="p">:</span>
+<span class="n">cd</span> <span class="s2">&quot;D:\My Documents\Downloads</span><span class="se">\r</span><span class="s2">elease-1500-gdal-mapserver</span><span class="se">\&quot;</span>
+<span class="n">SDKShell</span><span class="o">.</span><span class="n">bat</span> <span class="n">setenv</span> <span class="n">hideoci</span>
+</pre></div>
+</div>
+<p>The SDKShell.bat file sets all the GDAL environment variables for your
+command window session. The hideoci parameter is used to move the Oracle
+driver plugin out of GDAL ?” otherwise if you try and run commands you
+get the following error (unless the Oracle client is installed on your
+machine):</p>
+<blockquote>
+<div><p><em>This application has Failed to start because OCI.dll was not Found.
+Re-installing the application may fix this problem</em></p>
+</div></blockquote>
+<p>The hideoci parameter did not work for me due to the spaces in my folder
+path, so I manually did what the .bat file was meant to do ?” move the
+ogr_OCI.dll, and gdal_GEOR.dll files out of bin\gdal\plugins\ and
+into a new bin\gdal\plugins-optional folder.</p>
+<p>Once this was done I was able to run the following command to check the
+OGR formats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ogrinfo.exe ?&quot;-formats
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">orphan</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<hr><section id="comments">
+<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h3>
+<img alt="http://www.gravatar.com/avatar/e7f0a3d06ed5fe66ff729b0b56d2e850?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1958" src="http://www.gravatar.com/avatar/e7f0a3d06ed5fe66ff729b0b56d2e850?s=55&amp;d=identicon&amp;r=g" />
+<p><a class="reference internal" href="#comment-1958"><span class="std std-ref">1.</span></a> <strong>Tere</strong>
+**</p>
+<p>Bien una amigo que este1 en un curso de IDE por Francia, y que tiene un
+proyecto madnoto sobre Map Builder me comenta que sus instructores le
+han mencionado que MapBuilder continuare1 y que no ande creyendo al
+primer post que lea.Que suerte tengo para que me pillen ased de
+cualuqier forma, gracias por la aclaracif3n he hecho algunas
+correcciones al punto de vista original</p>
+<a href="mailto:web+ms-access-and-applicationexportxml#1@geographika.co.uk?Subject=ms-access-and-applicationexportxml" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+ogr-comes-to-sql-server-2008-spatial@geographika.co.uk?Subject=ogr-comes-to-sql-server-2008-spatial" target="_top">Add Comment</a></section>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

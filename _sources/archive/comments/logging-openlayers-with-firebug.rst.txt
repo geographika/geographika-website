@@ -1,0 +1,122 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-1039:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-1039>` **SQL Server 2008 Spatial and Oracle Spatial comparison and cheat sheet &laquo; Mapoholic**
+**
+
+[...] SQL Server does not support any true Linear referencing functions.
+SQL Server Spatial Tools however, provides some rudimentary linear
+referencing functions such as LocateAlongGeog and LocateAlongGeom which
+will return the point at a given instance along a linear object.
+UPDATED: Geographica provides an updated version of SQLSpatialTools
+which includes a new function to display a linear event as well (a
+“LocateLineAlongGeom” function but called CreateLinearReferenceFeature.
+More details can be found at this address:
+http://geographika.co.uk/linear-referencing-in-sql-server-2008 [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+linear-referencing-in-sql-server-2008#1@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1901:
+
+.. image:: http://www.gravatar.com/avatar/06fb2d00d04e6494b9d77d261c70e135?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-1901>` **Marco Giana**
+**
+
+Hi ya,
+
+how do I down load the code. I went to
+https://bitbucket.org/geographika/sql-server-spatial-tools but I cannot
+figure out how to down load the code as there is nothing in the download
+link.
+
+Your assistance would be much appreciated.
+
+Cheers
+
+Marco
+
+
+.. raw:: html
+
+    <a href="mailto:web+linear-referencing-in-sql-server-2008#2@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1902:
+
+.. image:: http://www.gravatar.com/avatar/06fb2d00d04e6494b9d77d261c70e135?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1902>` **Marco Giana**
+**
+
+Not to worry I figured it out. :)
+
+
+.. raw:: html
+
+    <a href="mailto:web+linear-referencing-in-sql-server-2008#3@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1923:
+
+.. image:: http://www.gravatar.com/avatar/b6a7128fcc31d0f84d3e400d6cdd5fc0?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-1923>` **Cristian Andres Galindo**
+**
+
+Hello,
+
+does this function use the M parameter in the line object? or use the
+geographic length of the line?
+
+thanks
+
+
+.. raw:: html
+
+    <a href="mailto:web+linear-referencing-in-sql-server-2008#4@geographika.co.uk?Subject=linear-referencing-in-sql-server-2008" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+logging-openlayers-with-firebug@geographika.co.uk?Subject=logging-openlayers-with-firebug" target="_top">Add Comment</a>

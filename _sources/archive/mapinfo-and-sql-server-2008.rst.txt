@@ -1,0 +1,78 @@
+MapInfo and SQL Server 2008
+###########################
+:date: 2010-03-24 11:09
+:author: admin
+:category: bugs, geodatabases, mapinfo, sql server 2008
+:tags: geodatabase, gis, mapinfo, sqlserver
+:slug: mapinfo-and-sql-server-2008
+:status: published
+
+|image0|\ For a new project I am working for the first time with
+`MapInfo <http://www.pbinsight.com/products/location-intelligence/applications/mapping-analytical/mapinfo-professional/>`__
+10 *"the world's premier desktop mapping application."*
+
+In an effort to move away from MapInfo's .tab files (the shapefile
+equivalent) I was keen to test out the direct connection to geometry
+stored in SQL Server 2008. Until version 9.5 data could only be stored
+and accessed in a relational database using
+`SpatialWare <http://www.pbinsight.com/products/location-intelligence/developer-tools/enterprise-software/spatialware/>`__.
+Again to use ESRI terminology this is the ArcSDE equivalent. Fortunately
+MapInfo was quick off the mark in removing this barrier.
+
+Access to SQL Server 2008 spatial data is provided by integrating FME
+functionality directly into the product, and having a "Universal Data"
+option on the File menu. There is also a tool named `Easy
+Loader <http://www.pbinsight.com/support/product-downloads/item/easyloader-v10.0>`__
+that allows loading .tab files into SQL Server as geometry.
+
+Unfortunately on trying to use the Universal Data menu after installing
+a fresh copy of MapInfo 10 I was met with the error *"This application
+has failed to start because qfmeext.dll was not found. Re-installing the
+application may fix this problem."*
+
+|image1|
+
+Hardly a good *premier* start..Anyway it appears upgrading to the 10.0.1
+maintenance release fixes this issue. No mention of the issue itself in
+the `release
+notes <http://reference.mapinfo.com/software/mapinfo_pro/english/10.0.1/MapInfoProfessionalReleaseNotes_1001.pdf>`__
+(**Update**: It is in the `release
+notes <http://reference.mapinfo.com/software/mapinfo_pro/english/10.0.1/MapInfoProfessionalReleaseNotes_1001.pdf>`__,
+see comments below, and only occurs when ArcGIS is also installed).
+There were also a couple of additional fixes for SQL Server (fhe
+following text direct from the maintenance release notes).
+
+Improving Performance when Connecting to a SQL Server Database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To improve performance when accessing large SQL Server tables, add a
+Multiple Active Result Sets (MARS) connection setting to the connection
+string in the live access .TAB file. The connection attribute to update
+is \\DATALINK\\ConnectionString, for example:
+
+::
+
+    "\DATALINK\ConnectionString" = "DSN=local-native10;UID=username;
+    Trusted_Connection=Yes;APP=MapInfo Professional®;
+    WSID=hostname;DATABASE=test;MARS_Connection=Yes;"
+
+You may also add the MARS connection setting to the connection string of
+MapBasic Server\_Connect( ) command. Note that a MARS connection:
+
+-  does not work for SpatialWare tables.
+-  only applies to SQL Native Client or SQL Server Native Client 10.
+   Other connection types so not benefit from this setting.
+
+Also Fixed..
+~~~~~~~~~~~~
+
+| T25293 Opening a SQL Server table containing a column with type NCHAR
+causes an error message, “Unsupported data type for column...”
+|  Resolution: Issue is resolved.
+
+.. |image0| image:: images/2010/03/mapinfo_pro.gif
+   :target: images/2010/03/mapinfo_pro.gif
+.. |image1| image:: images/2010/03/map_info_crash.png
+   :target: images/2010/03/map_info_crash.png
+
+.. include:: comments/mapinfo-and-sql-server-2008.rst

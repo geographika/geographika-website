@@ -1,0 +1,277 @@
+MapFish Print Module for IIS
+############################
+:date: 2010-11-10 16:42
+:author: amercader
+:category: mapfish, web development
+:tags: printing java pylons github amercader
+:slug: mapfish-print-module-for-iis
+:status: published
+
+|image| *This is a guest post by* **`Adrià
+Mercader <http://amercader.net/>`__**.
+
+Even in the current digital era, being able to print maps from
+geospatial applications is still a very commonly requested feature.
+Traditionally, there have been two main approaches to the map printing
+on browser applications: handling it either on the client or on the
+server. In the first case, a new page is opened with the suitable size
+for a common paper format (e.g. A4 portrait) and is printed with the
+browser's print function. This is probably the easiest way to go if you
+have a very basic map and you don't need a complex layout, and big guys
+like Google Maps do it this way. The second option is based on sending
+all necessary information to a remote printing service, which will
+produce an output file (generally a PDF) ready to be printed. This
+allows for more complex layouts, different page sizes, etc. but with the
+drawback of being more difficult to build and maintain.
+
+Fortunately though, the `MapFish <http://mapfish.org>`__ mapping
+framework includes a powerful `printing
+module <http://mapfish.org/doc/print/>`__ that allows you to define
+complex layouts and provides a protocol that can be integrated
+seamlessly with `GeoExt <http://www.geoext.org/>`__ based applications.
+The layouts can include legends, attribute tables, external images and
+custom variables sent from the client, and are configured via files with
+the YAML format. The MapFish site has a `complete
+reference <http://mapfish.org/doc/print/configuration.html>`__ of the
+configuration file syntax.
+
+If you want to use the MapFish printing service out of the box, you need
+to install it in a Java servlet container like Tomcat or use it as part
+of the complete MapFish Python framework (See the `Installation
+page <http://mapfish.org/doc/print/installation.html>`__ for full
+details). But if you have an existing infrastructure, these two options
+can seem like overkill. In our particular case, the printing service was
+needed for an existing application served under IIS with
+`PyISAPIe <http://sourceforge.net/apps/trac/pyisapie>`__, so we had a
+look on how to isolate the printing functionality from the rest of the
+framework.
+
+It turned out to be relatively easy: the actual work of generating the
+PDF file with the provided spec is done by a `JAR
+file <http://en.wikipedia.org/wiki/JAR_%28file_format%29>`__ (a
+standalone Java application packaged into a single zip-like file).
+Besides, there is a controller which handles the requests, calls the JAR
+with the appropriate parameters and returns the response. This
+`controller
+file <http://trac.mapfish.org/trac/mapfish/browser/framework/server/trunk/mapfish/controllers/printer.py>`__
+is the key, and our work basically consisted of adapting the Paster and
+Pylons specific code to PyISAPIe code. The same philosophy can be
+adapted to any language or server: you will need a controller that gets
+the requests, speaks with the JAR file and returns the output.
+
+The code is Open Source and you can have a look at it on the GitHub
+repository:
+
+https://github.com/amercader/MapFish-Print-IIS
+
+The following are the steps you have to follow to get it up and running.
+There aren't any particularly complicated steps, but you have to be sure
+to not miss anything.
+
+Requirements
+~~~~~~~~~~~~
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   Python 2.5+
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   IIS 7.0 (Not tested under IIS 6.0)
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   PyISAPIe 1.1.0+
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   Java Runtime Environment 1.5+
+
+   .. raw:: html
+
+      </div>
+
+-  
+
+   .. raw:: html
+
+      <div>
+
+   MapFish print module JAR file
+
+   .. raw:: html
+
+      </div>
+
+Installation
+~~~~~~~~~~~~
+
+#. Your server will need the `Java Runtime
+   Environment <http://www.java.com/en/download/index.jsp>`__ (which can
+   be a Windows x64 version). You may need to restart the machine to
+   update the environment variables (JAVA\_HOME). If you plan to compile
+   the MapFish print module yourself, you will also need JDK 1.5+.
+#. You will obviously need the MapFish print module JAR file. Compile it
+   following these
+   instructions:\ http://mapfish.org/doc/print/installation.html#compilation\ If
+   you don't want or can't compile it, you can use a pre-compiled one,
+   `available
+   here <https://github.com/downloads/amercader/MapFish-Print-IIS/print-standalone-1.2.jar>`__,
+   but note that this may not be the most recent version of the print
+   module. Copy the JAR file in the directory of your choice.
+#. Copy a YAML configuration file for the print service in the directory
+   of your choice and edit it as needed. You can find samples in the
+   'samples' directory of the MapFish print module source downloaded in
+   the previous point.
+#. Install and configure PyISAPIe. You can follow the instructions
+   described on `this
+   post <http://geographika.co.uk/setting-up-python-on-iis7>`__ or in
+   the README file included with PyISAPIe . If you want to run a 64 bit
+   version, have a look at `this
+   post <http://geographika.co.uk/compiling-a-64-bit-version-of-pyisapie>`__.
+#. Download the `latest
+   version <https://github.com/amercader/MapFish-Print-IIS/zipball/master>`__
+   of the package. Copy the files contained (Http and WWW modules and
+   the printer.ini file) where the PyISAPIe DLL can find them. The
+   easier choice is in the same folder as the DLL. You may want to move
+   Http and WWW, e.g to site-packages, but the printer.ini file must be
+   located in the DLL directory.
+#. Edit printer.ini to define the configuration options:
+
+   -  
+
+      .. raw:: html
+
+         <div>
+
+      Path to the MapFish print module JAR file, compiled in the first
+      point.
+
+      .. raw:: html
+
+         </div>
+
+   -  
+
+      .. raw:: html
+
+         <div>
+
+      Path to the YAML configuration file for the print service.
+
+      .. raw:: html
+
+         </div>
+
+   -  
+
+      .. raw:: html
+
+         <div>
+
+      The temporary directory that will use the service to store the
+      generated files. Please note that the user running the application
+      on IIS must have full access to this directory (i.e. write and
+      delete files). If commented out in the printer.ini file, the
+      application will try to use the default OS temporary directory
+      (the one returned by ``gettempdir()``)
+
+      .. raw:: html
+
+         </div>
+
+#. Create a virtual directory in IIS, and add the PyISAPIe DLL as a
+   *Wildcard Script Map*.\ |image|
+#. Restart ISS and visit the following
+   URL:http://\ *your\_server*/*virtual\_dir*/info.jsonYou should
+   receive a JSON response with the capabilities of the printing
+   service.
+
+|image|
+
+Troubleshooting
+~~~~~~~~~~~~~~~
+
+-  | **JAR file testing**
+   |  To test if that the JAR file works correctly, you can execute the
+   following command from the command line (replace the paths with your
+   own). You can find config.yaml and spec.json in the 'samples' folder
+   of the MapFish print module source:
+
+   .. raw:: html
+
+      </p>
+
+   ``java -jar C:/Python26/MapFish/print-standalone-1.2-SNAPSHOT.jar org.mapfish.print.ShellMapPrinter --config="C:/Python26/MapFish/config.yaml" --spec="C:/Python26/MapFish/spec.json" --output="C:/Python26/MapFish/tmp/test.pdf"``
+
+-  **The service returns corrupted PDF files when printing the
+   OpenStreetMap layer**
+    This is caused by a
+   `bug <http://trac.mapfish.org/trac/mapfish/ticket/605>`__ in the
+   MapFish source code. The availabe `pre-compiled JAR
+   file <https://github.com/downloads/amercader/MapFish-Print-IIS/print-standalone-1.2.jar>`__
+   fixes this problem (Again, note that this may not be the most recent
+   version).
+-  **IIS returns a 404 error when sending a print request**
+    If you are using the GET method to request the PDF file (i.e. using
+   the print.pdf end point), you may find that the server returns a 404
+   error if the query string is too long. That means that the query
+   string (the parameters sent after the service URL) is longer than the
+   IIS security limit. You could try to `adjust this
+   limit <http://www.iis.net/ConfigReference/system.webServer/security/requestFiltering/requestLimits>`__,
+   but better yet, you can simply use POST requests from your client
+   application, which is the recommended setting. This way you won't
+   have any problems regarding the length of the parameters sent.
+-  **The application returns an exception when including a local image**
+    If you try to include a local image in your YAML configuration file,
+   (e.g. ``url: 'file://${configDir}/north.png'`` or
+   ``url: '${configDir}/north.png'``), the service will return an
+   exception. This is caused by a
+   `bug <http://trac.mapfish.org/trac/mapfish/ticket/606>`__, and until
+   it's fixed, a workaround is to use a file accessible via Http
+   (``url: 'http://.../north.png'``).
+
+Feedback
+~~~~~~~~
+
+I would love to hear about your experience using it, and if you think of
+an enhancement or find a bug do not hesitate to contact me (*amercadero
+at gmail.com* - http://amercader.net) or even better, fork the code on
+GitHub and contribute your changes.
+
+.. |image| image:: images/2010/11/image_thumb2.png
+   :target: images/2010/11/image2.png
+.. |image| image:: images/2010/11/image_thumb.png
+   :target: images/2010/11/image.png
+.. |image| image:: images/2010/11/image_thumb3.png
+   :target: images/2010/11/image3.png
+
+.. include:: comments/mapfish-print-module-for-iis.rst

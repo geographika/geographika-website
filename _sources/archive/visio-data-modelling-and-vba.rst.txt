@@ -1,0 +1,49 @@
+Visio Data Modelling and VBA
+############################
+:date: 2009-09-25 02:52
+:author: admin
+:category: geodatabases, programming
+:tags: IVMEEntity VisioModelingEngine  shape visio entity vba uml
+:slug: visio-data-modelling-and-vba
+:status: published
+
+I use Visio for a number of tasks. For creating geodatabase models in
+ArcGIS, for system architecture diagrams, and for data flow models. It
+may not be the easiest program to use, but the alternatives are often
+too simplistic, or worse.
+
+| I wanted to generate a nice diagram of a SQL Server database I had
+created, and automatically create hyperlinks that would pop up an Ajax
+box with sample records directly from the database. In order to do this
+each hyperlink had to have a variable based on the table/entity name.
+However it soon became apparent that there is no easy way to access the
+entity name in VBA from its associated shape object. The solution to
+this is the **VisioModelingEngine** library which provides access to the
+UML, but does *not* provide access to the shapes.
+| 
+
+There appears to be very little documentation on using the classes in
+this library. I found a couple of examples at
+http://www.eggheadcafe.com/forumarchives/visiodeveloperVisualBasica/Jul2005/post23423796.asp
+and
+http://www.eggheadcafe.com/software/aspnet/32121825/forward-engineer-visio-er.aspx
+
+My eventual workaround involves temporarily changing the first attribute
+in an entity to the entity name, searching through the shape's text for
+this name, recording the ID and then changing it back. The idea was
+based on `this
+post <http://www.eggheadcafe.com/conversation.aspx?messageid=32580685&threadid=32580682>`__
+which hinted that was what they did, but then frustratingly didn't post
+their solution.
+
+Anyway the main use of the code is to associate a Visio entity
+(IVMEEntity) with its shape.
+
+`The full VBA code can be seen by clicking this
+link <http://geographika.co.uk/wp-content/uploads/visio_modelling.htm>`__.
+
+A good source of VBA scripts for Visio can be found at
+http://visualsignals.typepad.co.uk/vislog/ this provided me with the
+code for looping through shapes on a page.
+
+.. include:: comments/visio-data-modelling-and-vba.rst

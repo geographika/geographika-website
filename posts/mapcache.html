@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Dependencies &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Dependencies</a></li>
+<li><a class="reference internal" href="#apr">APR</a><ul>
+<li><a class="reference internal" href="#apr-util">APR Util</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#building-mapcache">Building MapCache</a></li>
+<li><a class="reference internal" href="#nmake-cmake-msbuild">nmake, cmake, msbuild</a></li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="dependencies">
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+</section>
+<section id="apr">
+<h1>APR<a class="headerlink" href="#apr" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://bz.apache.org/bugzilla/describecomponents.cgi?product=APR">https://bz.apache.org/bugzilla/describecomponents.cgi?product=APR</a></p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/36897691/compile-apache-apr-on-windows">http://stackoverflow.com/questions/36897691/compile-apache-apr-on-windows</a></p>
+<p>Instructions: <a class="reference external" href="https://apr.apache.org/compiling_win32.html">https://apr.apache.org/compiling_win32.html</a></p>
+<blockquote>
+<div><p>The primary documentation for this build mechanism is in the README.cmake files in the APR and APR-util projects. Refer to those files for detailed instructions.
+The primary limitations of the cmake-based build are shown below. Other considerations are described in README.cmake.
+No cmake build for the APR-iconv subproject is available, and the APR-util cmake build cannot consume an existing APR-iconv build.
+The cmake build for the APR-util subproject does not support most of the optional DBM and DBD libraries supported by the included Visual Studio project files.</p>
+</div></blockquote>
+<p><a class="reference external" href="https://raw.githubusercontent.com/apache/apr/trunk/README.cmake">https://raw.githubusercontent.com/apache/apr/trunk/README.cmake</a></p>
+<p>Requires Expat!</p>
+<p>cd C:MapServerBuild</p>
+<p><a class="reference external" href="https://github.com/zerotao/expat/tree/cmake_support">https://github.com/zerotao/expat/tree/cmake_support</a></p>
+<p>For Error       5       error C2065: ‘test_char_table’ : undeclared identifier</p>
+<p><a class="reference external" href="https://www.apachelounge.com/viewtopic.php?p=5124">https://www.apachelounge.com/viewtopic.php?p=5124</a></p>
+<p><a class="reference external" href="https://github.com/apache/apr">https://github.com/apache/apr</a></p>
+<p>cd C:MapServerBuild
+md apr-1.5.2
+git clone -b ‘1.5.2’ –single-branch https://github.com/apache/apr apr-1.5.2</p>
+<p>md apr-1.5.2-build
+cd apr-1.5.2-build</p>
+<p>SET VS_FULL=”Visual Studio 12 2013 Win64”
+SET PATH=C:cmake-3.5.2-win32-x86bin;%PATH%
+%comspec% /k “”C:Program Files (x86)Microsoft Visual Studio 12.0VCvcvarsall.bat”” amd64</p>
+<p>cmake -G %VS_FULL%  ../apr-1.5.2 -Wno-dev -DAPR_HAVE_IPV6=OFF
+cmake –build . –config Release</p>
+<section id="apr-util">
+<h2>APR Util<a class="headerlink" href="#apr-util" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/apache/apr-util/tree/1.6.x">https://github.com/apache/apr-util/tree/1.6.x</a></p>
+</section>
+</section>
+<section id="building-mapcache">
+<h1>Building MapCache<a class="headerlink" href="#building-mapcache" title="Permalink to this headline">¶</a></h1>
+<p>%comspec% /k “”C:Program Files (x86)Microsoft Visual Studio 12.0VCvcvarsall.bat”” amd64
+cd C:MapServerBuildmapcache-build</p>
+<p>set SDK_PREFIX=C:MapServerBuild
+set SDK_INC=C:MapServerBuildrelease-1800-x64include
+set SDK_LIB=C:MapServerBuildrelease-1800-x64lib
+set SDK_BIN=C:MapServerBuildrelease-1800-x64bin
+set REGEX_DIR=%SDK_PREFIX%regex-0.12</p>
+<p>SET APACHE=C:MapServerBuildhttpd-2.4.25-x64-vc14-r1Apache24</p>
+<p>SET VS_FULL=”Visual Studio 12 2013 Win64”</p>
+<p>SET PATH=C:cmake-3.5.2-win32-x86bin;%PATH%</p>
+<p>cmake ../mapcache -G %VS_FULL% -DCURL_INCLUDE_DIR=%SDK_INC% -DCMAKE_PREFIX_PATH=%SDK_PREFIX% -DCURL_LIBRARY=%SDK_LIB%libcurl_imp.lib -DFCGI_INCLUDE_DIR=%SDK_INC% -DFCGI_LIBRARY=%SDK_LIB%libfcgi.lib -DGEOS_INCLUDE_DIR=%SDK_INC% -DGEOS_LIBRARY=%SDK_LIB%geos_c.lib -DJPEG_INCLUDE_DIR=%SDK_INC% -DJPEG_LIBRARY=%SDK_LIB%libjpeg.lib -DPNG_PNG_INCLUDE_DIR=%SDK_INC% -DPNG_LIBRARY=%SDK_LIB%libpng.lib -DPNG_LIBRARIES=%SDK_LIB%libpng.lib -DZLIB_INCLUDE_DIR=%SDK_INC% -DZLIB_LIBRARY=%SDK_LIB%zlib.lib -DGDAL_INCLUDE_DIR=%SDK_INC% -DGDAL_LIBRARY=%SDK_LIB%gdal_i.lib -DWITH_SQLITE=0 -DWITH_PIXMAN=0 -DAPR_INCLUDE_DIR=%APACHE%include -DAPR_LIBRARY=%APACHE%liblibapr-1.lib -DAPU_INCLUDE_DIR=%APACHE%include -DAPU_LIBRARY=%APACHE%liblibaprutil-1.lib -DWITH_APACHE=1 -DAPACHE_INCLUDE_DIR=%APACHE%include -DREGEX_DIR=%REGEX_DIR%
+cmake –build . –target install –config Release</p>
+<p>No SQLite
+Pixman</p>
+<p>C:MapServerBuildhttpd-2.4.25-x64-vc14-r1Apache24lib</p>
+<p>–</p>
+<p>RUN THIS</p>
+<p>“C:Program Files (x86)Microsoft Visual Studio 12.0VCvcvarsall.bat” amd64</p>
+<p>SET PATH=C:cmake-3.5.2-win32-x86bin;%PATH%</p>
+<p>FIRST</p>
+<p>cd C:MapServerBuildmyapr
+cmake C:MapServerBuildapr-1.5.2 -G “Visual Studio 12 2013 Win64” -DCMAKE_INSTALL_PREFIX=C:MapServerBuildapr-1.5.2</p>
+<p>cmake –build . –target install –config Release</p>
+<p>THEN:</p>
+<p>cd C:CodeAPRmyutilbuild
+cmake C:CodeAPRapr-util-1.5.4 -G “Visual Studio 12 2013 Win64” -DCMAKE_INSTALL_PREFIX=C:CodeAPRapr-1.5.2</p>
+<p>C:cmake-3.5.2-win32-x86bincmake –build . –target install –config Release</p>
+<p>cmake –build runs msbuild…</p>
+<p>#</p>
+<p>Needed to add in <a class="reference external" href="https://github.com/apache/httpd/blob/trunk/include/ap_config.h">https://github.com/apache/httpd/blob/trunk/include/ap_config.h</a>
+<a class="reference external" href="https://raw.githubusercontent.com/apache/httpd/trunk/include/ap_config.h">https://raw.githubusercontent.com/apache/httpd/trunk/include/ap_config.h</a></p>
+<p>–</p>
+<p><a class="reference external" href="https://emptyhammock.com/services/">https://emptyhammock.com/services/</a></p>
+<p>I will be throwing a bit more time at the cmake effort in the short term,
+starting with comparing the installed artifacts with those of existing
+Windows builds and adding missing pieces to the todo lists. I might not do
+much else proactively until my own use of the builds catches up and starts
+to exceed what is implemented.</p>
+<p>Re: will anyone build httpd/apr with cmake on Windows? [ In reply to ]
+<a class="reference external" href="https://lists.gt.net/apache/dev/429102">https://lists.gt.net/apache/dev/429102</a>
+<a class="reference external" href="https://www.apachehaus.com/cgi-bin/download.plx">https://www.apachehaus.com/cgi-bin/download.plx</a></p>
+<p>Apache 2.4.25   httpd-2.4.25-x86-vc14-r1.zip    8,697.8 KB      Download Locations
+with OpenSSL 1.0.2k, nghttp 1.19.0, Zlib 1.2.8, PCRE 8.40, APR 1.5.2, APR-Util 1.5.4, expat 2.2.0</p>
+<p>Built using C sources from the ASF and OpenSSL on Visual Studio 2015 (VC14).
+Note: VC14 binaries do not run on Windows XP or Server 2003
+See readme_first.html file for details.</p>
+<p><a class="reference external" href="https://www.apachelounge.com/download/">https://www.apachelounge.com/download/</a></p>
+<p>Apache Lounge has provided up-to-date Windows binaries and popular third-party modules for more than 10 years. We have hundreds of thousands of satisfied users: small and big companies as well as personal users. Always build with up to date dependencies and latest compilers, and tested thorough. The binaries are referenced by the ASF, Microsoft, PHP etc. and more and more software is packaged with our binaries and modules.</p>
+<p>The binaries below, are build with the sources from ASF at httpd.apache.org, contains the latest patches and latest dependencies like zlib, openssl etc. which makes the downloads here mostly more actual then downloads from other places.</p>
+<p>Build with the latest Windows? Visual Studio C++ 2015 aka VC14. VC14 has improvements, fixes and optimizations over VC11 in areas like Performance, MemoryManagement, Code generation and Stability. For example code quality tuning and improvements done across different code generation areas for “speed”. And makes more use of modern processors and supported Windows editions (win 7 and up) internal features.</p>
+</section>
+<section id="nmake-cmake-msbuild">
+<h1>nmake, cmake, msbuild<a class="headerlink" href="#nmake-cmake-msbuild" title="Permalink to this headline">¶</a></h1>
+<p>devenv mysolutionfile.sln /build Debug /project INSTALL
+This is preferable to using msbuild or vcbuild because certain versions of Visual Studio seem to have trouble with the inter-project dependencies that cmake likes to generate.</p>
+<p>And devenv is preferable to nmake because it gives you more control over debug configurations, etc.
+<a class="reference external" href="http://stackoverflow.com/questions/4219479/using-cmake-with-windows-7-visual-studio-2010-and-the-command-line">http://stackoverflow.com/questions/4219479/using-cmake-with-windows-7-visual-studio-2010-and-the-command-line</a></p>
+<p>Do MSBuild project files serve the same purpose as NMAKE makefiles in a build process? (practically equivalent)
+<a class="reference external" href="https://softwareengineering.stackexchange.com/questions/306850/do-msbuild-project-files-serve-the-same-purpose-as-nmake-makefiles-in-a-build-pr">https://softwareengineering.stackexchange.com/questions/306850/do-msbuild-project-files-serve-the-same-purpose-as-nmake-makefiles-in-a-build-pr</a></p>
+<p>Both fulfill the same purpose of controlling and automating complex build processes. However, MSBuild is more modern, has more capabilites, and it integrates much (!) better into the build process of the Visual Studio IDE (both use actually the same “input file format” like csproj and sln files). Those project files can actually be edited and maintained (at least,to 98%) by a well structured “project properties” dialog. That is not possible easily with nmake files, because NMake was never designed for this purpose.</p>
+<p>IMHO NMake is shipped with Visual Studio because of backwards compatibility, because of better cross platform compatibility, and because it is sometimes better suited for tasks where you have to integrate tools into your build process which are completely outside the VS IDE. The latter can be accomplished with MSBuild, too, but NMake is IMHO often a better fit if you have to create your build configuration manually - because that is what make was designed for.</p>
+<p><a class="reference external" href="https://softwareengineering.stackexchange.com/questions/216175/why-should-i-use-msbuild-instead-of-visual-studio-solution-files?rq=1">https://softwareengineering.stackexchange.com/questions/216175/why-should-i-use-msbuild-instead-of-visual-studio-solution-files?rq=1</a></p>
+<p>First point of fact is that the solution file pretty much magically becomes a MSBuild file when MSBuild executes it – which is what happens when you build the solution in visual studio. In addition, all those project files are just msbuild files managed by visual studio. In fact, the project files handle most of the real dirty work here no matter if you are building from solutions or building from a custom msbuild script.</p>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2019.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,215 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-514:
+
+.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-514>` **Setting up a Secure Cascading WMS on MapServer at geographika**
+**
+
+[...] site installed in a C:ms4w64 folder. It also assumes MapServer has
+been configured with SSL as detailed in another post. In this example I
+use IIS and Windows Server [...]
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#1@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-574:
+
+.. image:: http://www.gravatar.com/avatar/a6fe46b153b38f38c4aeb24ce372e041?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-574>` **Mei**
+**
+
+| hi there!
+|  could you please post your compiled 64 bit curl with ssl on this
+site..?
+|  really need to download it, thanks..
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#2@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-582:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-582>` **geographika**
+**
+
+Hi - I've put the x64 DLL at
+http://bitbucket.org/geographika/mapserver-scripts/src/tip/cURL/
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#3@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-849:
+
+.. image:: http://www.gravatar.com/avatar/4b755cf7a74e38d05963c959a1ac804c?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-849>` **Tobias**
+**
+
+| Hi,
+|  I tried your dll! It works but only for web pages with no special
+encoding. If you have a page with curl\_easy\_setopt(cUrl,
+CURLOPT\_ENCODING, "gzip"); it only returns junk! Is zlib included /
+linked? Could you please upload a dll with zlib included?
+
+Thanks
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#4@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-850:
+
+.. image:: http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-850>` **geographika**
+**
+
+Hi Tobias,
+
+It appears there is now a compiled version of cURL with (and without)
+SSL available on the download page at http://curl.haxx.se/download.html
+
+Maybe give this a try to see if it includes zlib. Let us know the
+outcome!
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#5@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-851:
+
+.. image:: http://www.gravatar.com/avatar/4b755cf7a74e38d05963c959a1ac804c?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`6. <comment-851>` **Tobias**
+**
+
+Hi geographika,
+
+at haxx there are only binary files for windows x64 (curl.exe) but I
+need a dll for my app. I can complile a x64 lib to include in my project
+and to satisfy the compiler but the dll compiled with this lib has no
+sll and no zlib. So when accessing SSL or compressed pages, I only get
+encypred data. For the 32bit version I only have to replace the
+libcurl.dll and so I intend to do with the 64bit version, too.
+
+Thanks
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#6@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-854:
+
+.. image:: http://www.gravatar.com/avatar/4b755cf7a74e38d05963c959a1ac804c?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`7. <comment-854>` **Tobias**
+**
+
+Hi,
+
+I made a compile with all components including zlib and libssh2. Now
+everything works fine! Your tutorial helped to get the compile running!
+
+Greetings!
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#7@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1905:
+
+.. image:: http://www.gravatar.com/avatar/4ecc4ba60d49afcb8b7da90d23b9eb15?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`8. <comment-1905>` **thierry**
+**
+
+| Hi,
+|  Could you put these x64 builds (dll, lib) somewhere I can download ?
+
+
+.. raw:: html
+
+    <a href="mailto:web+64-bit-curl-with-openssl-on-windows#8@geographika.co.uk?Subject=64-bit-curl-with-openssl-on-windows" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+64-bit-mapscript-for-python-on-windows@geographika.co.uk?Subject=64-bit-mapscript-for-python-on-windows" target="_top">Add Comment</a>

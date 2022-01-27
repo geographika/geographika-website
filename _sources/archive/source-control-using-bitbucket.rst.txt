@@ -1,0 +1,102 @@
+Source Control using BitBucket
+##############################
+:date: 2010-06-09 13:15
+:author: admin
+:category: general, opinion, programming
+:tags: bitbucket, mercurial, sourcecontrol
+:slug: source-control-using-bitbucket
+:status: published
+
+Putting code under source control is on most `checklists for modern
+software
+development <http://www.codinghorror.com/blog/2006/07/what-is-modern-software-development.html>`__.
+Even small side projects, scripts, and code snippets can benefit from
+being under source control. For example:
+
+-  |image0|\ When you improve the code others can see the changes and
+   get the benefits
+-  If someone else improves the code those improvements can be passed
+   back to you via an automated process
+
+`BitBucket <http://bitbucket.org/>`__ is a hosting service for the
+code-source control system
+`Mercurial <http://en.wikipedia.org/wiki/Mercurial>`__. Mecurial is part
+of a new-wave of `distributed source control
+systems <http://betterexplained.com/articles/intro-to-distributed-version-control-illustrated/>`__
+that have the following advantages and disadvantages over regular
+non-distributed source control:
+
++--------------------------------------+--------------------------------------+
+| **Advantages**                       | **Disadvantages**                    |
++--------------------------------------+--------------------------------------+
+| .. raw:: html                        | .. raw:: html                        |
+|                                      |                                      |
+|    <li>                              |    <li>                              |
+|                                      |                                      |
+| Everyone has a local sandbox         | You still need a backup.             |
+|                                      |                                      |
+| .. raw:: html                        | .. raw:: html                        |
+|                                      |                                      |
+|    </li>                             |    </li>                             |
+|    <li>                              |    <li>                              |
+|                                      |                                      |
+| It works offline                     | There’s not really a “latest         |
+|                                      | version”                             |
+| .. raw:: html                        |                                      |
+|                                      | .. raw:: html                        |
+|    </li>                             |                                      |
+|    <li>                              |    </li>                             |
+|                                      |    <li>                              |
+| It’s fast                            |                                      |
+|                                      | There aren’t really revision         |
+| .. raw:: html                        | numbers.                             |
+|                                      |                                      |
+|    </li>                             | .. raw:: html                        |
+|    <li>                              |                                      |
+|                                      |    </li>                             |
+| It handles changes well              |                                      |
+|                                      |                                      |
+| .. raw:: html                        |                                      |
+|                                      |                                      |
+|    </li>                             |                                      |
+|    <li>                              |                                      |
+|                                      |                                      |
+| Branching and merging is easy        |                                      |
+|                                      |                                      |
+| .. raw:: html                        |                                      |
+|                                      |                                      |
+|    </li>                             |                                      |
+|    <li>                              |                                      |
+|                                      |                                      |
+| Less management                      |                                      |
+|                                      |                                      |
+| .. raw:: html                        |                                      |
+|                                      |                                      |
+|    </li>                             |                                      |                                                                             
++--------------------------------------+--------------------------------------+
+
+`GitHub <http://github.com/>`__ a similar service but based on the
+distributed source control system
+`Git <http://en.wikipedia.org/wiki/Git_%28software%29>`__ developed by
+Linus Torvald the creator or Linux. Whilst the debate rages on which of
+`Mecurial and
+Git <http://stackoverflow.com/questions/1598759/git-and-mercurial-compare-and-contrast>`__
+is better, I chose Mercurial because `Git is MacGyver and Mercurial is
+James
+Bond <http://importantshock.wordpress.com/2008/08/07/git-vs-mercurial/>`__.
+Also Git isn’t the nicest word in `this part of the
+world <http://en.wikipedia.org/wiki/Git_%28British_slang%29>`__.
+
+There are already some GIS related projects in BitBucket such as
+`Descartes <http://bitbucket.org/sgillies/descartes/overview>`__, some
+`TileCache
+Patches <http://bitbucket.org/tibor_arpas/tcpatches/overview>`__, and
+some `OpenLayers HTML 5
+code <http://bitbucket.org/tsauerwein/openlayers-html5-code/overview>`__
+that may be of interest. It's `also free <http://bitbucket.org/plans>`__
+if you use public code repositories (you can have 1 private one) and use
+less than 1GB of space �" which is *a lot* of source code.
+
+.. |image0| image:: http://bitbucket-assets.s3.amazonaws.com/img/logo_myriad.png
+
+.. include:: comments/source-control-using-bitbucket.rst

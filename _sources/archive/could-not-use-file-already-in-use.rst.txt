@@ -1,0 +1,22 @@
+Could not use ''; file already in use."
+#######################################
+:date: 2008-01-19 22:10
+:author: geographika
+:category: bugs
+:tags: 2147467259, ldb, OleDbException
+:slug: could-not-use-file-already-in-use
+:status: published
+
+| System.Data.OleDb.OleDbException occurred
+|    ErrorCode=-2147467259
+|    Message="Could not use ''; file already in use."
+|    Source="Microsoft JET Database Engine"
+
+Access, lock files, and Visual Source Safe - an accident waiting to
+happen! I got the above error, after my code had been fine for weeks.
+Googling turned up permissions on the folder with the Access database,
+and closing secondary applications. The solution in the end turned out
+to be that the .ldb file had come under source control. Removing it from
+this, and deleting the fle resolved the issue.
+
+.. include:: comments/could-not-use-file-already-in-use.rst

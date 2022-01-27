@@ -1,0 +1,125 @@
+:orphan:
+
+.. raw:: html
+
+    <hr>
+
+Comments
+========
+
+
+
+.. _comment-522:
+
+.. image:: http://www.gravatar.com/avatar/a2d36bff7011844d43ff02b099b30c7f?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`1. <comment-522>` **GBrian**
+**
+
+Hi,
+
+In my case I need to pass data from local server to the linked one. If I
+use OpenQuery I need to convert every field to a string and concatenate
+them an execute de INSERT statement for each row.
+
+Any other idea? Thanks.
+
+
+.. raw:: html
+
+    <a href="mailto:web+copying-spatial-data-between-sql-server-databases#1@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-674:
+
+.. image:: http://www.gravatar.com/avatar/531e4f6319861732b2ecebd007667e77?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`2. <comment-674>` **Allan**
+**
+
+worked for me...thanks
+
+
+.. raw:: html
+
+    <a href="mailto:web+copying-spatial-data-between-sql-server-databases#2@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1728:
+
+.. image:: http://www.gravatar.com/avatar/0fb56e68e4b010b3541bee6c25ad07c2?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`3. <comment-1728>` **kenswdev**
+**
+
+Thanks for this! Exactly what I needed and worked perfectly.
+
+
+.. raw:: html
+
+    <a href="mailto:web+copying-spatial-data-between-sql-server-databases#3@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-1992:
+
+.. image:: http://www.gravatar.com/avatar/9dfc39d667196f07663943fa362d8cb5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`4. <comment-1992>` **Dave**
+**
+
+Nice! Thanks.
+
+
+.. raw:: html
+
+    <a href="mailto:web+copying-spatial-data-between-sql-server-databases#4@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. _comment-56631:
+
+.. image:: http://www.gravatar.com/avatar/bb93073c9137610d398aba72bfef0ad5?s=55&d=identicon&r=g
+    :align: left
+
+:ref:`5. <comment-56631>` **Corrin**
+**
+
+Worked perfectly, thanks!
+
+
+.. raw:: html
+
+    <a href="mailto:web+copying-spatial-data-between-sql-server-databases#5@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Reply</a>
+
+.. raw:: html
+
+    <hr>
+
+
+
+.. raw:: html
+
+    <a style="font-size: large; font-weight: bold;" href="mailto:web+could-not-use-file-already-in-use@geographika.co.uk?Subject=could-not-use-file-already-in-use" target="_top">Add Comment</a>

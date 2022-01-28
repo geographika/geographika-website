@@ -15,7 +15,7 @@ workspace, as long as parameters could be used.
 
 The system documentation is normally both detailed and clear, and FME
 also has very good `support and community web
-sites <http://www.safe.com/fmeusercentral/index.php>`__.  However in
+sites <http://www.safe.com/fmeusercentral/index.php>`__. However in
 this case it took a lot of documentation reading and trial and error to
 work out how to change the ouput filename of a model. This may be
 obvious to experienced users of FME, but it had me stumped for a while.

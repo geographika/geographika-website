@@ -177,7 +177,7 @@ your data, but it is used to tell client applications what projection
 the data is in. In <a class="reference external" href="http://mapserver.org/">MapServer</a> I found the
 SRID has to be set correctly for
 <a class="reference external" href="http://en.wikipedia.org/wiki/Web_Map_Service">WMS</a> layers to appear
-in OpenLayers.  Conversely in CadCorp’s
+in OpenLayers. Conversely in CadCorp’s
 <a class="reference external" href="http://www.cadcorp.com/products_geographical_information_systems/geognosis.htm">GeognoSIS</a>I
 had to set these values to 0 for data to display correctly. Change the
 code according to the projection of your data.</p>
@@ -255,8 +255,8 @@ stored procedure similar to the following:</p>
  <span class="n">declare</span> <span class="nd">@g</span> <span class="k">as</span> <span class="n">geometry</span><span class="p">;</span>
  <span class="n">declare</span> <span class="nd">@wkt</span> <span class="k">as</span> <span class="n">nvarchar</span><span class="p">(</span><span class="nb">max</span><span class="p">);</span>
  <span class="nb">set</span> <span class="nd">@wkt</span> <span class="o">=</span> <span class="s1">&#39;POLYGON ((&#39;</span> <span class="o">+</span> <span class="nd">@minx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@miny</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span>
- <span class="nd">@minx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@maxy</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span>  <span class="nd">@maxx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@maxy</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nd">@maxx</span> <span class="o">+</span>
- <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@miny</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nd">@minx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@miny</span> <span class="o">+</span>  <span class="s1">&#39;))&#39;</span><span class="p">;</span>
+ <span class="nd">@minx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@maxy</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nd">@maxx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@maxy</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nd">@maxx</span> <span class="o">+</span>
+ <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@miny</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span> <span class="o">+</span> <span class="nd">@minx</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nd">@miny</span> <span class="o">+</span> <span class="s1">&#39;))&#39;</span><span class="p">;</span>
  <span class="nb">set</span> <span class="nd">@g</span> <span class="o">=</span> <span class="n">geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="nd">@wkt</span><span class="p">,</span> <span class="mi">3785</span><span class="p">);</span>
  <span class="o">--</span><span class="nb">print</span> <span class="nd">@wkt</span>
  <span class="n">SELECT</span> <span class="o">*</span>

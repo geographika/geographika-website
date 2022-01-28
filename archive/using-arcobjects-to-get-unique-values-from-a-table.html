@@ -159,39 +159,39 @@ but no .NET equivalent, hence my code sample below. There are no major
 changes except now a standard System.Collections enumerator is used
 rather than the ESRI IEnumVariantSimple.</p>
 <hr class="docutils" />
-<p>    Public Sub ListUniqueRecords()</p>
-<p>        Dim pMyTable As ITable</p>
-<p>        Dim pCurs As ICursor = Nothing</p>
-<p>        Dim intFieldIdx As Integer</p>
-<p>        Dim pDataStatistics As IDataStatistics</p>
-<p>        Dim pEnumVar As IEnumerator</p>
-<p>        Dim pWorkspaceFactory As IWorkspaceFactory</p>
-<p>        Dim pWorkspace As IWorkspace</p>
-<p>        Dim pFeatWorkSpace As IFeatureWorkspace</p>
-<p>        Dim strMyField As String = “VAL”</p>
-<p>        Try</p>
-<p>            pWorkspaceFactory = New AccessWorkspaceFactory</p>
-<p>            pWorkspace =
+<p>   Public Sub ListUniqueRecords()</p>
+<p>      Dim pMyTable As ITable</p>
+<p>      Dim pCurs As ICursor = Nothing</p>
+<p>      Dim intFieldIdx As Integer</p>
+<p>      Dim pDataStatistics As IDataStatistics</p>
+<p>      Dim pEnumVar As IEnumerator</p>
+<p>      Dim pWorkspaceFactory As IWorkspaceFactory</p>
+<p>      Dim pWorkspace As IWorkspace</p>
+<p>      Dim pFeatWorkSpace As IFeatureWorkspace</p>
+<p>      Dim strMyField As String = “VAL”</p>
+<p>      Try</p>
+<p>         pWorkspaceFactory = New AccessWorkspaceFactory</p>
+<p>         pWorkspace =
 pWorkspaceFactory.OpenFromFile(“C:\MyPath\MyGDB.mdb”, 0)</p>
-<p>            pFeatWorkSpace = CType(pWorkspace, IFeatureWorkspace)</p>
-<p>            pMyTable = pFeatWorkSpace.OpenTable(“MyTableName”)</p>
-<p>            intFieldIdx = pMyTable.FindField(strMyField)</p>
-<p>            pCurs = pMyTable.Search(Nothing, True)</p>
-<p>            pDataStatistics = New DataStatistics</p>
-<p>            pDataStatistics.Field = strMyField</p>
-<p>            pDataStatistics.Cursor = pCurs</p>
-<p>            pEnumVar = CType(pDataStatistics.UniqueValues, IEnumerator)</p>
-<p>            Do Until pEnumVar.MoveNext = False</p>
-<p>                Debug.Print(pEnumVar.Current.ToString)</p>
-<p>            Loop</p>
-<p>        Catch ex As Exception</p>
-<p>            Trace.WriteLine(ex.ToString)</p>
-<p>        Finally</p>
-<p>            ‘clean up</p>
-<p>            pCurs = Nothing</p>
-<p>            pWorkspace = Nothing</p>
-<p>        End Try</p>
-<p>    End Sub</p>
+<p>         pFeatWorkSpace = CType(pWorkspace, IFeatureWorkspace)</p>
+<p>         pMyTable = pFeatWorkSpace.OpenTable(“MyTableName”)</p>
+<p>         intFieldIdx = pMyTable.FindField(strMyField)</p>
+<p>         pCurs = pMyTable.Search(Nothing, True)</p>
+<p>         pDataStatistics = New DataStatistics</p>
+<p>         pDataStatistics.Field = strMyField</p>
+<p>         pDataStatistics.Cursor = pCurs</p>
+<p>         pEnumVar = CType(pDataStatistics.UniqueValues, IEnumerator)</p>
+<p>         Do Until pEnumVar.MoveNext = False</p>
+<p>            Debug.Print(pEnumVar.Current.ToString)</p>
+<p>         Loop</p>
+<p>      Catch ex As Exception</p>
+<p>         Trace.WriteLine(ex.ToString)</p>
+<p>      Finally</p>
+<p>         ‘clean up</p>
+<p>         pCurs = Nothing</p>
+<p>         pWorkspace = Nothing</p>
+<p>      End Try</p>
+<p>   End Sub</p>
 <dl class="field-list simple">
 <dt class="field-odd">orphan</dt>
 <dd class="field-odd"><p></p></dd>

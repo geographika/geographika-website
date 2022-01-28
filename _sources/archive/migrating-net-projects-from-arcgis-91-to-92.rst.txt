@@ -56,45 +56,45 @@ with the text ESRI then the "Specific Version" property is set to false.
 
     2 
 
-    3        
+    3       
 'http://msdn2.microsoft.com/en-us/library/vslangproj80.reference3.specificversion(VS.80).aspx
 
     4 
 
-    5         DimprojectItem AsProjectItem
+    5       DimprojectItem AsProjectItem
 
-    6         DimmyCodeProject AsVSLangProj.VSProject
+    6       DimmyCodeProject AsVSLangProj.VSProject
 
-    7         Dimproj As Project
+    7       Dimproj As Project
 
-    8         Dim ref As Reference3
+    8       Dim ref As Reference3
 
     9 
 
-   10         For Eachproj InDTE.Solution.Projects
+   10       For Eachproj InDTE.Solution.Projects
 
-   11             If  TypeOf proj.Object IsVSLangProj.VSProject  Then
+   11          If TypeOf proj.Object IsVSLangProj.VSProject Then
 'loop through projects
 
-   12                 myCodeProject = CType(proj.Object, VSProject)
+   12             myCodeProject = CType(proj.Object, VSProject)
 
-   13                 For Each ref InmyCodeProject.References
+   13             For Each ref InmyCodeProject.References
 
-   14                     If ref.Name Like "ESRI.\*" Then
+   14                If ref.Name Like "ESRI.\*" Then
 
-   15                         ref.SpecificVersion = False
+   15                   ref.SpecificVersion = False
 
-   16                     End If
+   16                End If
 
-   17                 Next
+   17             Next
 
-   18             End If
+   18          End If
 
-   19         Next
+   19       Next
 
    20 
 
-   21     End Sub
+   21    End Sub
 
 This greatly reduced the number of errors, and was so satisfying I
 continued playing around with macros and the macro recorder available in
@@ -117,118 +117,118 @@ replacement as I sometimes received dialogs while replacing that cause
 the macro to crash. In this example I replaced all Import declarations
 with the new ESRI.ArcGIS.ADF reference.
 
-   35     SubUpdateReferences()
+   35    SubUpdateReferences()
 
    36 
 
-   37         ChangeSpecificVersions()
+   37       ChangeSpecificVersions()
 
-   38         ReplaceNameSpaces("ESRI.ArcGIS.Utility",
+   38       ReplaceNameSpaces("ESRI.ArcGIS.Utility",
 "ESRI.ArcGIS.ADF")
 
-   39         ReplaceReference("ESRI.ArcGIS.Utility", "C:\\Program
+   39       ReplaceReference("ESRI.ArcGIS.Utility", "C:\\Program
 Files\\ArcGIS\\DotNet\\ESRI.ArcGIS.ADF.dll")
 
    40 
 
-   41     End Sub
+   41    End Sub
 
-   42     SubReplaceReference(ByValstrOrigRefName As String,
+   42    SubReplaceReference(ByValstrOrigRefName As String,
 ByValstrNewRefPath As String)
 
    43 
 
    44 
 
-   45         DimprojectItem AsProjectItem
+   45       DimprojectItem AsProjectItem
 
-   46         DimmyCodeProject AsVSLangProj.VSProject
+   46       DimmyCodeProject AsVSLangProj.VSProject
 
-   47         Dimproj As Project
+   47       Dimproj As Project
 
-   48         Dim ref As Reference3
+   48       Dim ref As Reference3
 
    49 
 
-   50         For Eachproj InDTE.Solution.Projects
+   50       For Eachproj InDTE.Solution.Projects
 
-   51             If TypeOfproj.Object IsVSLangProj.VSProject Then 'loop
+   51          If TypeOfproj.Object IsVSLangProj.VSProject Then 'loop
 through projects
 
-   52                 myCodeProject = CType(proj.Object, VSProject)
+   52             myCodeProject = CType(proj.Object, VSProject)
 
-   53                 For Each ref InmyCodeProject.References
+   53             For Each ref InmyCodeProject.References
 
-   54                     Ifref.Name = strOrigRefName Then
+   54                Ifref.Name = strOrigRefName Then
 
-   55                         ref.Remove()
+   55                   ref.Remove()
 
-   56                        
+   56                   
 myCodeProject.References.Add(strNewRefPath)
 
-   57                     End If
+   57                End If
 
-   58                 Next
+   58             Next
 
-   59             End If
+   59          End If
 
-   60         Next
+   60       Next
 
    61 
 
-   62     End Sub
+   62    End Sub
 
    63 
 
-   64     SubReplaceNameSpaces(ByValstrOldNameSpace As String,
+   64    SubReplaceNameSpaces(ByValstrOldNameSpace As String,
 ByValstrNewNameSpace As String)
 
    65 
 
-   66         DTE.ExecuteCommand("Edit.Find")
+   66       DTE.ExecuteCommand("Edit.Find")
 
-   67         DTE.ExecuteCommand("Edit.SwitchtoReplaceInFiles")
+   67       DTE.ExecuteCommand("Edit.SwitchtoReplaceInFiles")
 
-   68         DTE.Find.Target = vsFindTarget.vsFindTargetFiles
+   68       DTE.Find.Target = vsFindTarget.vsFindTargetFiles
 
-   69         DTE.Find.FindWhat = strOldNameSpace
+   69       DTE.Find.FindWhat = strOldNameSpace
 
-   70         DTE.Find.ReplaceWith = strNewNameSpace
+   70       DTE.Find.ReplaceWith = strNewNameSpace
 
-   71         DTE.Find.MatchCase = False
+   71       DTE.Find.MatchCase = False
 
-   72         DTE.Find.MatchWholeWord = True
+   72       DTE.Find.MatchWholeWord = True
 
-   73         DTE.Find.MatchInHiddenText = False
+   73       DTE.Find.MatchInHiddenText = False
 
-   74         DTE.Find.PatternSyntax =
+   74       DTE.Find.PatternSyntax =
 vsFindPatternSyntax.vsFindPatternSyntaxLiteral
 
-   75         DTE.Find.SearchPath = "Entire Solution"
+   75       DTE.Find.SearchPath = "Entire Solution"
 
-   76         DTE.Find.SearchSubfolders = True
+   76       DTE.Find.SearchSubfolders = True
 
-   77         DTE.Find.KeepModifiedDocumentsOpen = False
+   77       DTE.Find.KeepModifiedDocumentsOpen = False
 
-   78         DTE.Find.FilesOfType = "\*.vb"
+   78       DTE.Find.FilesOfType = "\*.vb"
 
-   79         DTE.Find.ResultsLocation =
+   79       DTE.Find.ResultsLocation =
 vsFindResultsLocation.vsFindResults1
 
-   80         DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
+   80       DTE.Find.Action = vsFindAction.vsFindActionReplaceAll
 
-   81         'If (DTE.Find.Execute() =
+   81       'If (DTE.Find.Execute() =
 vsFindResult.vsFindResultNotFound) Then
 
-   82         'Throw New System.Exception("vsFindResultNotFound")
+   82       'Throw New System.Exception("vsFindResultNotFound")
 
-   83         'End If
+   83       'End If
 
-   84        
+   84       
 'DTE.Windows.Item("{CF2DDC32-8CAD-11D2-9302-005345000000}").Close()
 
    85 
 
-   86     End Sub
+   86    End Sub
 
 .. include:: comments/migrating-net-projects-from-arcgis-91-to-92.rst

@@ -77,8 +77,7 @@ All good "fun" but I was still met with the same dialog box to download
 the content. FireBug still reported the response data as *"The resource
 from this URL is not text."*
 
- This
-`post <http://lists.osgeo.org/pipermail/mapserver-users/2007-April/023264.html>`__
+This `post <http://lists.osgeo.org/pipermail/mapserver-users/2007-April/023264.html>`__
 hints that the content type defined in the WMS specs was a mistake, and
 that for the new WMS specifications the content type will be set to
 text/html by default. It also suggested that adding a
@@ -98,10 +97,10 @@ the browser! Whilst not very satisfactory, it was nicer than having to
 manually open up fake .exe files. If anyone can shed any light on why
 this is happening please let me know.
 
-.. |image0| image:: ../wp-content/uploads/2010/01/getcapabilites-300x148.png
-   :target: ../wp-content/uploads/2010/01/getcapabilites.png
-.. |image1| image:: ../wp-content/uploads/2010/01/getcapabilites_response-300x145.png
-   :target: ../wp-content/uploads/2010/01/getcapabilites_response.png
+.. |image0| image:: ../archive/images/2010/01/getcapabilites-300x148.png
+   :target: ../archive/images/2010/01/getcapabilites.png
+.. |image1| image:: ../archive/images/2010/01/getcapabilites_response-300x145.png
+   :target: ../archive/images/2010/01/getcapabilites_response.png
 .. |image2| image:: images/2010/01/mod_headers-300x57.png
    :target: images/2010/01/mod_headers.png
 

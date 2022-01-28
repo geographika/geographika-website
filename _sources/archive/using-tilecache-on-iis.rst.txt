@@ -64,7 +64,7 @@ A few caveats related to this script:
 -  parsing of the query string sent to the server is done using the
    Python CGI module. There are newer modules to handle query strings,
    but these may not be compatible with TileCache which is works with
-   Python 2.5  and 2.6 (I've not tried with newer versions)
+   Python 2.5� and 2.6 (I've not tried with newer versions)
 
 **Step 3**
 
@@ -101,9 +101,9 @@ It should be commented out, leaving only the last line as follows:
 | [python]
 |  # Windows doesn't always do the 'working directory' check correctly.
 |  #if sys.platform == 'win32':
-|  #    workingdir = os.path.abspath(os.path.join(os.getcwd(),
+|  #  � workingdir = os.path.abspath(os.path.join(os.getcwd(),
 os.path.dirname(sys.argv[0])))
-|  #    cfgfiles = (os.path.join(workingdir, "tilecache.cfg"),
+|  #  � cfgfiles = (os.path.join(workingdir, "tilecache.cfg"),
 os.path.join(workingdir,"..","tilecache.cfg"))
 |  #else:
 |  cfgfiles = ("/etc/tilecache.cfg", os.path.join("..",

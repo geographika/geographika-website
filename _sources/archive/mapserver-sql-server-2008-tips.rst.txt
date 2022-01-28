@@ -106,7 +106,7 @@ Use Spatial Indexes
 Using a spatial index when querying all layers would have no effect, so
 to see what difference it made on speed I needed to limit the results to
 a selected area. I decided to select all Townlands which intersected the
-county of Carlow. This  returns 1708 records. The following command was
+county of Carlow. This returns 1708 records. The following command was
 used to simulate this in shp2img:
 
 ::

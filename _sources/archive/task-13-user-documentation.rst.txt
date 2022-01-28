@@ -16,7 +16,7 @@ from both sides.
 I've come to the conclusion that a detailed and long word document,
 while it may tick the box on the client's checklist, is an exercise in
 futility. No-one ever reads it, you're lucky if you can even find it a
-year later, and its out of date the moment its written (or  if its a
+year later, and its out of date the moment its written (or if its a
 rehash of the technical specification its never actually *in-date*).
 
 My key requirements for user documentation are:
@@ -38,7 +38,7 @@ Wikis
 
 Despite a name that makes me cringe every time I say it, an online wiki
 has all the benefits of using web pages for user help systems, but with
-an additional  number of advantages:
+an additional number of advantages:
 
 -  non-developers can learn how to use wiki markup much more easily than
    writing HTML pages
@@ -109,7 +109,7 @@ I could then make requests such as
 `wikiHandler.ashx?Page=ZoomIn <http://>`__ to return snippets of HTML
 that would be loaded dynamically into my help system. Knowing that wiki
 text may actually be read helps to get that "documentation" task finally
-checked off and a project signed off.  A client is also happy to know
+checked off and a project signed off. A client is also happy to know
 that they can update and add to the help notes without requiring
 developers.
 

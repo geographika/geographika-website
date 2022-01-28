@@ -172,11 +172,11 @@ requests - application/vnd.ogc.wms_xml.</p>
 application/vnd.ogc.wms_xml, following the steps outlined
 <a class="reference external" href="http://support.mozilla.com/en-US/kb/Options+window+-+Applications+panel?style_mode=inproduct">here</a>.
 After a restart of FireFox nothing had changed.</p>
-<p><a class="reference external" href="../wp-content/uploads/2010/01/getcapabilites.png"><img alt="image0" src="wp-content/uploads/2010/01/getcapabilites-300x148.png" /></a></p>
+<p><a class="reference external" href="../archive/images/2010/01/getcapabilites.png"><img alt="image0" src="archive/images/2010/01/getcapabilites-300x148.png" /></a></p>
 <p>I used <a class="reference external" href="http://getfirebug.com/">FireBug</a> to check that the request
 was returning the correct MIME type. As shown in the image below the
 server was correctly returning the correct Content-Type.</p>
-<p><a class="reference external" href="../wp-content/uploads/2010/01/getcapabilites_response.png"><img alt="image1" src="wp-content/uploads/2010/01/getcapabilites_response-300x145.png" /></a></p>
+<p><a class="reference external" href="../archive/images/2010/01/getcapabilites_response.png"><img alt="image1" src="archive/images/2010/01/getcapabilites_response-300x145.png" /></a></p>
 <p>I then checked the request parameters sent from my browser to the
 server. These included:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Accept</span>    <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xhtml</span><span class="o">+</span><span class="n">xml</span><span class="p">,</span><span class="n">application</span><span class="o">/</span><span class="n">xml</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="o">*/*</span><span class="p">;</span><span class="n">q</span><span class="o">=</span><span class="mf">0.8</span>
@@ -203,10 +203,7 @@ just for good measure..).</p>
 <p>All good “fun” but I was still met with the same dialog box to download
 the content. FireBug still reported the response data as <em>“The resource
 from this URL is not text.”</em></p>
-<blockquote>
-<div><p>This</p>
-</div></blockquote>
-<p><a class="reference external" href="http://lists.osgeo.org/pipermail/mapserver-users/2007-April/023264.html">post</a>
+<p>This <a class="reference external" href="http://lists.osgeo.org/pipermail/mapserver-users/2007-April/023264.html">post</a>
 hints that the content type defined in the WMS specs was a mistake, and
 that for the new WMS specifications the content type will be set to
 text/html by default. It also suggested that adding a

@@ -144,12 +144,12 @@ decide in which projection you want your features returned.
 ::
 
     protocol: new OpenLayers.Protocol.WFS({
-                  featureType: “Test”,
-                  featurePrefix: "ms",
-                  srsName: "EPSG:900913",
-                  version: "1.1.0",
-                  url: url
-               })
+                 featureType: “Test”,
+                 featurePrefix: "ms",
+                 srsName: "EPSG:900913",
+                 version: "1.1.0",
+                 url: url
+              })
 
 If you set the srsName in the WFS protocol your WFS requests will
 include now include the srsName (it can also pick this up from the map,
@@ -188,19 +188,19 @@ look something like this:
 ::
 
     protocol: new OpenLayers.Protocol.WFS({
-                  featureType: “Test”,
-                  featurePrefix: "ms",
-                  srsName: "EPSG:900913",
-                  version: "1.1.0",
-                  url: url + "&srsName=EPSG:900913",
-               })
+                 featureType: “Test”,
+                 featurePrefix: "ms",
+                 srsName: "EPSG:900913",
+                 version: "1.1.0",
+                 url: url + "&srsName=EPSG:900913",
+              })
 
 If you enter a SRS which is not listed for your WFS layer you’ll get the
 following message:
 
 ::
 
-    msWFSGetFeature(): WFS server error. Invalid GetFeature Request:Invalid SRS.  
+    msWFSGetFeature(): WFS server error. Invalid GetFeature Request:Invalid SRS. 
     Please check the capabilities and reformulate your request.
 
 If all has gone well you'll have a MAP file containing WFS layers that

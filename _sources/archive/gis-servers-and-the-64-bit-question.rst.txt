@@ -8,7 +8,7 @@ GIS Servers and the 64-bit Question
 :status: published
 
 |image|\ The following is the first in a series of posts related to
-configuring a 64-bit Windows server as a GIS server  using
+configuring a 64-bit Windows server as a GIS server using
 `MapServer <http://mapserver.org/>`__ and Python.
 
 *Why move to 64-bit?*

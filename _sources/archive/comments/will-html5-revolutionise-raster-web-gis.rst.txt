@@ -42,7 +42,7 @@ It works great IMO
 :ref:`2. <comment-859>` **Creating a Geodesic Circle in OpenLayers at geographika**
 **
 
-[...] with an on the ground radius of 6km.  A huge margin of error over
+[...] with an on the ground radius of 6km. A huge margin of error over
 a very short distance (see a previous post on the same [...]
 
 

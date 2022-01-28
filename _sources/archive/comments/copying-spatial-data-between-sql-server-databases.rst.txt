@@ -7,29 +7,6 @@
 Comments
 ========
 
-
-
-.. _comment-276:
-
-.. image:: http://www.gravatar.com/avatar/?s=55&d=identicon&r=g
-    :align: left
-
-:ref:`1. <comment-276>` **=== Deep Link Engine === | ClickBankKing**
-**
-
-[...] geographika » Compiling a 64 bit Version of PyISAPIe [...]
-
-
-.. raw:: html
-
-    <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#1@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a>
-
-.. raw:: html
-
-    <hr>
-
-
-
 .. _comment-291:
 
 .. image:: http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&d=identicon&r=g
@@ -45,17 +22,17 @@ changes in the new version to make this process easier, I just thought
 I'd mention a few things that could help you in the future-
 
 - PYI\_PY\_VERSION can be defined in the project settings, under
-C++/Preprocessor. This is the easiest way to compile for different
-versions because no source changes are required.
+  C++/Preprocessor. This is the easiest way to compile for different
+  versions because no source changes are required.
 
 - You can add additional include and library directories at the project
-settings level rather than the Visual Studio settings level, which can
-help in some cases.
+  settings level rather than the Visual Studio settings level, which can
+  help in some cases.
 
 - If SubWCRev wasn't working from Visual Studio but was from the command
-line, all I can suggest is to log out and back into your Windows account
-to be sure that your PATH has been updated everywhere (it works in
-Windows 7 right after installing TortoiseSVN).
+  line, all I can suggest is to log out and back into your Windows account
+  to be sure that your PATH has been updated everywhere (it works in
+  Windows 7 right after installing TortoiseSVN).
 
 Thank you for this guide, I'm positive that it will be a great help to
 those compiling the project themselves.
@@ -81,11 +58,11 @@ those compiling the project themselves.
 
 | `@Phillip <#comment-291>`__
 |  Thanks for the tips. I've updated the post to include these, and went
-through the steps with the latest sourcecode.
+|  through the steps with the latest sourcecode.
 |  I should have realised the PATH had not been updated having wrote
-about it last week...!
+|  about it last week...!
 |  All is working well, and the new project set up makes it easy to
-compile for 32 bit or 64 bit, with many different Python versions.
+|  compile for 32 bit or 64 bit, with many different Python versions.
 
 
 .. raw:: html
@@ -425,8 +402,8 @@ My build outout for Python 2.6 (in VS2010) is:
 **
 
 [...] not a compiled version of this available for Python 2.7 (x64 in my
-case).  geographika has a great post on doing this.  The following
-instructions are based on his guide, updated with newer versions.  [...]
+case). geographika has a great post on doing this. The following
+instructions are based on his guide, updated with newer versions. [...]
 
 
 .. raw:: html

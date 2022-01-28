@@ -40,7 +40,7 @@ Anyway the main use of the code is to associate a Visio entity
 (IVMEEntity) with its shape.
 
 `The full VBA code can be seen by clicking this
-link <http://geographika.co.uk/wp-content/uploads/visio_modelling.htm>`__.
+link <http://geographika.co.uk/archive/images/visio_modelling.htm>`__.
 
 A good source of VBA scripts for Visio can be found at
 http://visualsignals.typepad.co.uk/vislog/ this provided me with the

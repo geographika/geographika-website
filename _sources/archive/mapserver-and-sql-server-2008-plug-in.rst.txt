@@ -15,7 +15,7 @@ capabilities."* It works fine for displaying data as WMS layers in
 however I ran into all sorts of problems when trying to use the
 GetFeatureInfo WMS query.
 
-With MapServer 5.2.1  (installed using MapServer for Windows - `MS4W
+With MapServer 5.2.1 (installed using MapServer for Windows - `MS4W
 v2.3.1 <http://maptools.org/ms4w/index.phtml?page=downloads.html>`__) no
 error message was returned, however neither was any data . I initially
 thought this was due to the `following

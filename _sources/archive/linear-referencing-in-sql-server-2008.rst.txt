@@ -20,7 +20,7 @@ and
 help pages.
 
 In terms of storing linear referenced point features, you only need
-three fields â€" an ID of the original line feature, an ID of theÂ  feature
+three fields â€" an ID of the original line feature, an ID of theÂ feature
 to reference along the line, and a M value â€" the measurement along the
 original feature. Line features require two measurement fields, a
 starting distance, and an end distance.
@@ -37,7 +37,7 @@ of relating two records in a database.
 
 `SQL Spatial Tools <http://sqlspatialtools.codeplex.com/>`__ is an open
 source collection of functions to manipulate spatial data within SQL
-Server 2008. It contains aÂ  LocateAlongGeom function that â€œ\ *takes a
+Server 2008. It contains aÂ LocateAlongGeom function that â€œ\ *takes a
 geometry linestring and finds the point a given distance along it.â€* So
 that takes care of displaying linear referenced points. What it lacks at
 the moment (and can be found in other spatial databases such as

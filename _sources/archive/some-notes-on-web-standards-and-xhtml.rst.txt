@@ -69,8 +69,8 @@ the following site http://validator.w3.org/ - this checks the
 actual XHTML output seen by the browser.
 
 When using JavaScript in a web page, the script shold be enclosed in a
-CDATA (character data)  section. This stops the browser interpreting <
-or > as XML tags.  The CDATA section start and end should be enclosed in
+CDATA (character data) section. This stops the browser interpreting <
+or > as XML tags. The CDATA section start and end should be enclosed in
 JavaScript comment tags to avoid errors:
 
 /\* <![CDATA[ \*/

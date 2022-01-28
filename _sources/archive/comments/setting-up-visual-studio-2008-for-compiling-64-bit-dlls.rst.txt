@@ -374,7 +374,7 @@ TileCache scripts themselves due to Python errors.
 :ref:`13. <comment-471>` **geographika &raquo; Using TileCache on IIS**
 **
 
-[...] previously written about using PyISAPie to run Python under IIS –
+[...] previously written about using PyISAPie to run Python under IIS -
 this allows Python scripts to run faster than using CGI. Rather than
 starting up the Python [...]
 
@@ -480,7 +480,7 @@ missing which causes this issue. Thanks in advance.
 :ref:`17. <comment-1698>` **Detzler**
 **
 
-HTTP Error 404.17 – Not Found
+HTTP Error 404.17 - Not Found
 
 
 .. raw:: html
@@ -501,7 +501,7 @@ HTTP Error 404.17 – Not Found
 :ref:`18. <comment-1715>` **wolf++ &raquo; Running Django on Windows: Python 2.7.2 x64, PyISAPIe and IIS 7.5**
 **
 
-[...] Setting up Python on IIS7 –
+[...] Setting up Python on IIS7 -
 http://geographika.co.uk/setting-up-python-on-iis7 [...]
 
 

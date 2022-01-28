@@ -86,7 +86,7 @@ For excellent examples of these types of pixel manipulations go to
 `Beej’s Bit
 Bucket <http://beej.us/blog/2010/02/html5s-canvas-part-ii-pixel-manipulation/>`__
 and check out his `blue
-goat <http://beej.us/blog/wp-content/uploads/2010/03/canvasbluegoat.html>`__,
+goat <http://beej.us/blog/archive/images/2010/03/canvasbluegoat.html>`__,
 `scratcher demo <http://beej.us/x/scratcher/>`__, and his challenge to
 create `Sobel edge
 detection <http://en.wikipedia.org/wiki/Sobel_operator>`__ using canvas.

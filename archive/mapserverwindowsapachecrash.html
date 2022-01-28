@@ -157,7 +157,7 @@ had set up TileCache, and some Python scripts to <a class="reference external" h
 Apache</a>. I
 had managed to crash the set up numerous times in development, but I
 hadn’t come across any errors not of my own making.</p>
-<p>The installation went well  on the production server which was also a 64
+<p>The installation went well on the production server which was also a 64
 bit machine, but was using Windows Server 2008. The site had an
 unpublicised release as it is still in beta, and from this was getting
 about 60 - 70 visitors a day.</p>
@@ -192,7 +192,7 @@ errors reported from MapServer itself.</p>
 <h2>The Apache Error Log</h2>
 <p>On the other hand the Apache log (C:\ms4w\Apache\logs\error.log) had
 several warnings such as the following:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">28</span> <span class="mi">15</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">warn</span><span class="p">]</span> <span class="p">(</span><span class="n">OS</span> <span class="mi">64</span><span class="p">)</span><span class="n">The</span> <span class="n">specified</span> <span class="n">network</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">available</span><span class="o">.</span>  <span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">28</span> <span class="mi">15</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">warn</span><span class="p">]</span> <span class="p">(</span><span class="n">OS</span> <span class="mi">64</span><span class="p">)</span><span class="n">The</span> <span class="n">specified</span> <span class="n">network</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">available</span><span class="o">.</span> <span class="p">:</span>
 <span class="n">winnt_accept</span><span class="p">:</span> <span class="n">Asynchronous</span> <span class="n">AcceptEx</span> <span class="n">failed</span><span class="o">.</span>
 </pre></div>
 </div>
@@ -214,7 +214,7 @@ show I am not alone in this opinion.</p>
 <a class="reference external" href="http://httpd.apache.org/docs/2.2/mod/mpm_winnt.html">Win32DisableAcceptEx</a>
 directive to try and stop these errors and hopefully resolve the Apache
 crashes. Apache runs in 32 bit mode, so hopefully the 64 bit server
-wouldn’t mind..In C:\ms4w\Apache\conf\httpd.conf  add the following
+wouldn’t mind..In C:\ms4w\Apache\conf\httpd.conf add the following
 line, and restart the Apache service:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Win32DisableAcceptEx</span>
 </pre></div>

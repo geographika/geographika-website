@@ -45,14 +45,14 @@ As can be seen by the check-in dates much of the work has been completed
 in the last two weeks.
 
 The two developers who deserve the credit are Tamas Szekeres and Even
-Rouault, both members of the GDAL Project Management Committee.  Tamas
+Rouault, both members of the GDAL Project Management Committee. Tamas
 has blogged about the new OGR driver
 `here <http://szekerest.blogspot.com/2010/09/ogr-ms-sql-2008-spatial-driver.html>`__.
 Tamas’s work is becoming invaluable to many of my projects �" and he was
 also responsible for the `MapServer SQL Server 2008
 driver <http://mapserver.org/development/rfc/ms-rfc-38.html>`__.
 
-The MSSQLSpatial driver is not currently available  in the latest
+The MSSQLSpatial driver is not currently available in the latest
 version of FWTools (2.4.7 at the time of writing). FWTools (Frank
 Warmerdam tools) is an easy to install package containing both GDAL and
 OGR, but keep an eye on the http://fwtools.maptools.org/ site for new

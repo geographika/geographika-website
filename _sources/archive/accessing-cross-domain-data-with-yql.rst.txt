@@ -71,10 +71,10 @@ on to the standard WMSCapabilitiesReader:
 ::
 
     GeoExt.data.YahooWMSCapabilitiesReader = Ext.extend(GeoExt.data.WMSCapabilitiesReader, {   
-        readRecords: function(data){    
-            data = data.results.toString();    
-            return GeoExt.data.YahooWMSCapabilitiesReader.superclass.readRecords.call(this, data);    
-        }    
+       readRecords: function(data){    
+           data = data.results.toString();    
+           return GeoExt.data.YahooWMSCapabilitiesReader.superclass.readRecords.call(this, data);    
+       }    
     });
 
 Yahoo have many “clones” of services offered by the other web giants,

@@ -25,83 +25,83 @@ rather than the ESRI IEnumVariantSimple.
 
 ****
 
-    Public Sub ListUniqueRecords()
+   Public Sub ListUniqueRecords()
 
  
 
-        Dim pMyTable As ITable
+      Dim pMyTable As ITable
 
-        Dim pCurs As ICursor = Nothing
+      Dim pCurs As ICursor = Nothing
 
-        Dim intFieldIdx As Integer
+      Dim intFieldIdx As Integer
 
-        Dim pDataStatistics As IDataStatistics
+      Dim pDataStatistics As IDataStatistics
 
-        Dim pEnumVar As IEnumerator
+      Dim pEnumVar As IEnumerator
 
-        Dim pWorkspaceFactory As IWorkspaceFactory
+      Dim pWorkspaceFactory As IWorkspaceFactory
 
-        Dim pWorkspace As IWorkspace
+      Dim pWorkspace As IWorkspace
 
-        Dim pFeatWorkSpace As IFeatureWorkspace
+      Dim pFeatWorkSpace As IFeatureWorkspace
 
-        Dim strMyField As String = "VAL"
+      Dim strMyField As String = "VAL"
 
  
 
-        Try
+      Try
 
-            pWorkspaceFactory = New AccessWorkspaceFactory
+         pWorkspaceFactory = New AccessWorkspaceFactory
 
-            pWorkspace =
+         pWorkspace =
 pWorkspaceFactory.OpenFromFile("C:\\MyPath\\MyGDB.mdb", 0)
 
-            pFeatWorkSpace = CType(pWorkspace, IFeatureWorkspace)
+         pFeatWorkSpace = CType(pWorkspace, IFeatureWorkspace)
 
-            pMyTable = pFeatWorkSpace.OpenTable("MyTableName")
+         pMyTable = pFeatWorkSpace.OpenTable("MyTableName")
 
-            intFieldIdx = pMyTable.FindField(strMyField)
-
- 
-
-            pCurs = pMyTable.Search(Nothing, True)
-
-            pDataStatistics = New DataStatistics
-
-            pDataStatistics.Field = strMyField
-
-            pDataStatistics.Cursor = pCurs
+         intFieldIdx = pMyTable.FindField(strMyField)
 
  
 
-            pEnumVar = CType(pDataStatistics.UniqueValues, IEnumerator)
+         pCurs = pMyTable.Search(Nothing, True)
+
+         pDataStatistics = New DataStatistics
+
+         pDataStatistics.Field = strMyField
+
+         pDataStatistics.Cursor = pCurs
 
  
 
-            Do Until pEnumVar.MoveNext = False
-
-                Debug.Print(pEnumVar.Current.ToString)
-
-            Loop
+         pEnumVar = CType(pDataStatistics.UniqueValues, IEnumerator)
 
  
 
-        Catch ex As Exception
+         Do Until pEnumVar.MoveNext = False
 
-            Trace.WriteLine(ex.ToString)
+            Debug.Print(pEnumVar.Current.ToString)
 
-        Finally
-
-            'clean up
-
-            pCurs = Nothing
-
-            pWorkspace = Nothing
-
-        End Try
+         Loop
 
  
 
-    End Sub
+      Catch ex As Exception
+
+         Trace.WriteLine(ex.ToString)
+
+      Finally
+
+         'clean up
+
+         pCurs = Nothing
+
+         pWorkspace = Nothing
+
+      End Try
+
+ 
+
+   End Sub
 
 .. include:: comments/using-arcobjects-to-get-unique-values-from-a-table.rst

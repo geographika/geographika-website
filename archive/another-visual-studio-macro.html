@@ -158,27 +158,27 @@ another .exe.</p>
 <p>    6</p>
 <p>    7 Public Module ArcGISMacros</p>
 <p>    8</p>
-<p>    9     Sub SetStartProgram()</p>
+<p>    9    Sub SetStartProgram()</p>
 <p>   10</p>
-<p>   11         Dim proj As Project</p>
-<p>   12         Dim config As Configuration</p>
-<p>   13         Dim configProps As Properties</p>
-<p>   14         Dim prop As [Property]</p>
+<p>   11       Dim proj As Project</p>
+<p>   12       Dim config As Configuration</p>
+<p>   13       Dim configProps As Properties</p>
+<p>   14       Dim prop As [Property]</p>
 <p>   15</p>
-<p>   16         For Each proj In DTE.Solution.Projects</p>
-<p>   17             If TypeOf proj.Object Is VSLangProj.VSProject Then
+<p>   16       For Each proj In DTE.Solution.Projects</p>
+<p>   17          If TypeOf proj.Object Is VSLangProj.VSProject Then
 ‘loop through projects</p>
-<p>   18                 config =
+<p>   18             config =
 proj.ConfigurationManager.ActiveConfiguration</p>
-<p>   19                 configProps = config.Properties</p>
-<p>   20                 prop = configProps.Item(“StartProgram”)</p>
-<p>   21                 If prop.Value.ToString() Like “*ArcMap*” Then</p>
-<p>   22                     prop.Value = “C:\Program
+<p>   19             configProps = config.Properties</p>
+<p>   20             prop = configProps.Item(“StartProgram”)</p>
+<p>   21             If prop.Value.ToString() Like “*ArcMap*” Then</p>
+<p>   22                prop.Value = “C:\Program
 Files\ArcGIS\Bin\ArcMap.exe”</p>
-<p>   23                 End If</p>
-<p>   24             End If</p>
-<p>   25         Next</p>
-<p>   26     End Sub</p>
+<p>   23             End If</p>
+<p>   24          End If</p>
+<p>   25       Next</p>
+<p>   26    End Sub</p>
 <p>   27 End Module</p>
 <dl class="field-list simple">
 <dt class="field-odd">orphan</dt>

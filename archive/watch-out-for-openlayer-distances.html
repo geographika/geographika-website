@@ -167,7 +167,7 @@ created a system - I’ve been 6 months working with OpenLayers and
 somehow managed to miss this one. <a class="reference external" href="mailto:Isaac&#37;&#52;&#48;MSDN">Isaac<span>&#64;</span>MSDN</a> describes Geodesic as
 follows:<a class="reference external" href="images/2010/04/image27.png"><img alt="image" src="../_images/image_thumb27.png" /></a></p>
 <p><em>“Geodesic is a fancy (and concise) way of saying a locally
-path-minimizing curve.  This, in turn, is just a fancy (and
+path-minimizing curve. This, in turn, is just a fancy (and
 mathematical) way of saying that a taught string on a surface between
 two points will fall into such a path.”</em></p>
 <p><a class="reference external" href="images/2010/04/image27.png"><img alt="image" src="../_images/image_thumb27.png" /></a> In fairness the <a class="reference external" href="http://openlayers.org/dev/examples/measure.html">OpenLayers Measurement
@@ -198,10 +198,10 @@ the earth), you will need to pass ``geodesic:true`` in the
 set to true:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">var</span> <span class="n">polyOptions</span> <span class="o">=</span> <span class="p">{</span><span class="n">geodesic</span><span class="p">:</span><span class="n">true</span><span class="p">};</span>
 <span class="n">var</span> <span class="n">polyline</span> <span class="o">=</span> <span class="n">new</span> <span class="n">GPolyline</span><span class="p">([</span>
-  <span class="n">new</span> <span class="n">GLatLng</span><span class="p">(</span><span class="mf">40.65642</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.7883</span><span class="p">),</span>
-  <span class="n">new</span> <span class="n">GLatLng</span><span class="p">(</span><span class="mf">61.1699849</span><span class="p">,</span> <span class="o">-</span><span class="mf">149.944496</span><span class="p">)</span>
-  <span class="p">],</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">polyOptions</span><span class="p">);</span>
-  <span class="nb">map</span><span class="o">.</span><span class="n">addOverlay</span><span class="p">(</span><span class="n">polyline</span><span class="p">);</span>
+ <span class="n">new</span> <span class="n">GLatLng</span><span class="p">(</span><span class="mf">40.65642</span><span class="p">,</span> <span class="o">-</span><span class="mf">73.7883</span><span class="p">),</span>
+ <span class="n">new</span> <span class="n">GLatLng</span><span class="p">(</span><span class="mf">61.1699849</span><span class="p">,</span> <span class="o">-</span><span class="mf">149.944496</span><span class="p">)</span>
+ <span class="p">],</span> <span class="s2">&quot;#ff0000&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">polyOptions</span><span class="p">);</span>
+ <span class="nb">map</span><span class="o">.</span><span class="n">addOverlay</span><span class="p">(</span><span class="n">polyline</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>I’m not sure if Bing Maps has geodesic properties. <a class="reference external" href="http://www.beginningspatial.com/plotting_geography_linestrings_google_maps_and_virtual_earth">This

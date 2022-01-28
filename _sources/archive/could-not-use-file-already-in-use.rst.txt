@@ -8,9 +8,9 @@ Could not use ''; file already in use."
 :status: published
 
 | System.Data.OleDb.OleDbException occurred
-|    ErrorCode=-2147467259
-|    Message="Could not use ''; file already in use."
-|    Source="Microsoft JET Database Engine"
+|   ErrorCode=-2147467259
+|   Message="Could not use ''; file already in use."
+|   Source="Microsoft JET Database Engine"
 
 Access, lock files, and Visual Source Safe - an accident waiting to
 happen! I got the above error, after my code had been fine for weeks.

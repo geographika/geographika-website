@@ -146,7 +146,7 @@
 <dd class="field-even"><p>published</p>
 </dd>
 </dl>
-<div class="document" style="text-align: justify;"><p><a href="#id1"><span class="problematic" id="id2">|http://geographika.co.uk/wp-content/uploads/globalmapper/blue\_marble\_europe\_small.jpg|</span></a>I
+<div class="document" style="text-align: justify;"><p><a href="#id1"><span class="problematic" id="id2">|http://geographika.co.uk/archive/images/globalmapper/blue\_marble\_europe\_small.jpg|</span></a>I
 recently had a small project that required vector features in several
 thousand <a class="reference external" href="http://www.bluemarblegeo.com/global-mapper/">Global Mapper</a>
 project files to be extracted into shapefiles.</p>
@@ -170,7 +170,7 @@ off in Python before they would merge.</p>
 and spaces led to corrupt shapefiles/DBFs. I was able to get around this
 by editing the field names in the GM project files prior to an export,
 using the following syntax:</p>
-<div class="highlight-literal-block notranslate"><div class="highlight"><pre><span></span>EDIT_VECTOR ATTR_TO_RENAME=&quot;FIELD. NAME.=FIELD_NAME&quot;
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>EDIT_VECTOR ATTR_TO_RENAME=<span class="s2">&quot;FIELD. NAME.=FIELD_NAME&quot;</span>
 </pre></div>
 </div>
 <p>The <a class="reference external" href="http://www.esri.com/library/whitepapers/pdfs/shapefile.pdf">ESRI Shapefile

@@ -140,7 +140,7 @@ application.
 
 |image|
 
-Once the application is created, click the Configuration button.  On the
+Once the application is created, click the Configuration button. On the
 Mappings tab select Add. This step ensures all web requests to your
 application are sent to the proxy DLL. As the DLL is written for ASP.NET
 it needs to be run by the aspnet\_isapi.dll. Different versions of this
@@ -178,14 +178,14 @@ server should be used with no backslashes).
 
     <?xml version="1.0" encoding="UTF-8"?>
     <configuration>
-        <appSettings>
-            <add key="proxyUrl" value="http://mapserver.org" />
-        </appSettings>
-       <system.webServer>
-            <handlers>
-                <add name="ReverseProxy" verb="*" path="*.*" type="ReverseProxy.ReverseProxy, ReverseProxy" />
-            </handlers>
-        </system.webServer>
+       <appSettings>
+           <add key="proxyUrl" value="http://mapserver.org" />
+       </appSettings>
+      <system.webServer>
+           <handlers>
+               <add name="ReverseProxy" verb="*" path="*.*" type="ReverseProxy.ReverseProxy, ReverseProxy" />
+           </handlers>
+       </system.webServer>
     </configuration>
 
 There has also been an issue in IIS7 of the proxy returning security

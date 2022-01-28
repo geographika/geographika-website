@@ -28,7 +28,7 @@ More reviews and an alternative download site can be found
 
 |Unlocker|
 
-.. |Locked!| image:: wp-content/uploads/2007/08/locked.png
+.. |Locked!| image:: images/2007/08/locked.png
 .. |Unlocker| image:: images/2007/08/locked_2.png
 
 .. include:: comments/an-end-to-database-locks.rst

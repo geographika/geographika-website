@@ -44,7 +44,7 @@ article <http://www.theregister.co.uk/2010/03/29/osborne_it/>`__ was:
 
 Amongst the projects likely to face cuts is the `National Programme for
 IT <http://en.wikipedia.org/wiki/NHS_National_Programme_for_IT>`__ a
-National Health Service IT project with  a budget of around £12bn, that
+National Health Service IT project with a budget of around £12bn, that
 was set to be *“the world's biggest civil information technology
 programme."* Whether or not patients are likely to benefit is very much
 `up for
@@ -93,7 +93,7 @@ copyright <http://data.gov.uk/ideas/post-office-and-os-relax-copyright-and-licen
 on postcodes (the zip code equivalent). Although it may have helped that
 this has been available for download on `The Pirate
 Bay <http://thepiratebay.org/torrent/5090599/UK_government_database_of_all_1_841_177_post_codes>`__
-since last September.  [**Clarification** - the Ordnance Surey have
+since last September. [**Clarification** - the Ordnance Surey have
 released the geographic locations of postcodes, but the Post Office have
 *not* released the database `linking actual postal addresses to
 postcodes <http://news.bbc.co.uk/2/hi/technology/8402327.stm>`__].

@@ -30,44 +30,44 @@ another .exe.
 
     8 
 
-    9     Sub SetStartProgram()
+    9    Sub SetStartProgram()
 
    10 
 
-   11         Dim proj As Project
+   11       Dim proj As Project
 
-   12         Dim config As Configuration
+   12       Dim config As Configuration
 
-   13         Dim configProps As Properties
+   13       Dim configProps As Properties
 
-   14         Dim prop As [Property]
+   14       Dim prop As [Property]
 
    15 
 
-   16         For Each proj In DTE.Solution.Projects
+   16       For Each proj In DTE.Solution.Projects
 
-   17             If TypeOf proj.Object Is VSLangProj.VSProject Then
+   17          If TypeOf proj.Object Is VSLangProj.VSProject Then
 'loop through projects
 
-   18                 config =
+   18             config =
 proj.ConfigurationManager.ActiveConfiguration
 
-   19                 configProps = config.Properties
+   19             configProps = config.Properties
 
-   20                 prop = configProps.Item("StartProgram")
+   20             prop = configProps.Item("StartProgram")
 
-   21                 If prop.Value.ToString() Like "\*ArcMap\*" Then
+   21             If prop.Value.ToString() Like "\*ArcMap\*" Then
 
-   22                     prop.Value = "C:\\Program
+   22                prop.Value = "C:\\Program
 Files\\ArcGIS\\Bin\\ArcMap.exe"
 
-   23                 End If
+   23             End If
 
-   24             End If
+   24          End If
 
-   25         Next
+   25       Next
 
-   26     End Sub
+   26    End Sub
 
    27 End Module
 

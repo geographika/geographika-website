@@ -31,6 +31,6 @@ More samples can be found in the ArcGIS Desktop Help under the
 
 |commandline|
 
-.. |commandline| image:: wp-content/uploads/2007/03/commandline.png
+.. |commandline| image:: archive/images/2007/03/commandline.png
 
 .. include:: comments/some-arctoolbox-commands.rst

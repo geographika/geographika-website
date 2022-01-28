@@ -159,10 +159,10 @@ using SQL Server Management Studio) to add the source server:</p>
 assumes there is a <em>sa</em> user with a password of <em>sa</em> on the source
 server:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sp_addlinkedsrvlogin</span> <span class="nd">@rmtsrvname</span> <span class="o">=</span> <span class="s1">&#39;MY_SOURCE_SERVER_NAME&#39;</span>
- <span class="p">,</span>  <span class="nd">@useself</span> <span class="o">=</span>  <span class="s1">&#39;FALSE&#39;</span>
- <span class="p">,</span>  <span class="nd">@locallogin</span> <span class="o">=</span>  <span class="n">null</span>
- <span class="p">,</span>  <span class="nd">@rmtuser</span> <span class="o">=</span>  <span class="s1">&#39;sa&#39;</span>
- <span class="p">,</span>  <span class="nd">@rmtpassword</span> <span class="o">=</span>  <span class="s1">&#39;sa&#39;</span>
+ <span class="p">,</span> <span class="nd">@useself</span> <span class="o">=</span> <span class="s1">&#39;FALSE&#39;</span>
+ <span class="p">,</span> <span class="nd">@locallogin</span> <span class="o">=</span> <span class="n">null</span>
+ <span class="p">,</span> <span class="nd">@rmtuser</span> <span class="o">=</span> <span class="s1">&#39;sa&#39;</span>
+ <span class="p">,</span> <span class="nd">@rmtpassword</span> <span class="o">=</span> <span class="s1">&#39;sa&#39;</span>
 </pre></div>
 </div>
 <p>I thought I was then ready to run a “SELECT INTO” query to copy records
@@ -174,10 +174,9 @@ However I was met by the following error:</p>
 </pre></div>
 </div>
 <p>It appeared that the geometry columns containing the SQL Server spatial
-types were causing the problem.  After reading up on pass-through
-queries
+types were causing the problem. After reading up on pass-through queries
 <a class="reference external" href="http://technet.microsoft.com/en-us/library/ms188427.aspx">OPENQUERY</a>
-seemed to be the solution.  I tried the following SQL:</p>
+seemed to be the solution. I tried the following SQL:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SELECT</span> <span class="o">*</span> <span class="n">INTO</span> <span class="n">newschema</span><span class="o">.</span><span class="n">MyNewTableName</span>
 <span class="n">FROM</span> <span class="n">OPENQUERY</span><span class="p">([</span><span class="n">MY_SOURCE_SERVER_NAME</span><span class="p">],</span>
 <span class="s1">&#39;SELECT * from [source_database_name].[schema_name].[TableName]&#39;</span><span class="p">);</span>
@@ -191,11 +190,7 @@ seemed to be the solution.  I tried the following SQL:</p>
 </dl>
 <hr><section id="comments">
 <h2>Comments</h2>
-<img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-276" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
-<p><a class="reference internal" href="#comment-276"><span class="std std-ref">1.</span></a> <strong>=== Deep Link Engine === | ClickBankKing</strong>
-**</p>
-<p>[…] geographika » Compiling a 64 bit Version of PyISAPIe […]</p>
-<a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#1@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-291" src="http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&amp;d=identicon&amp;r=g" />
+<img alt="http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-291" src="http://www.gravatar.com/avatar/2cd61240eb6c9a03794659f97cbf8811?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-291"><span class="std std-ref">2.</span></a> <strong>Phillip</strong>
 **</p>
 <p>Hi there,</p>
@@ -203,21 +198,17 @@ seemed to be the solution.  I tried the following SQL:</p>
 changes in the new version to make this process easier, I just thought
 I’d mention a few things that could help you in the future-</p>
 <ul class="simple">
-<li><p>PYI_PY_VERSION can be defined in the project settings, under</p></li>
-</ul>
-<p>C++/Preprocessor. This is the easiest way to compile for different
-versions because no source changes are required.</p>
-<ul class="simple">
-<li><p>You can add additional include and library directories at the project</p></li>
-</ul>
-<p>settings level rather than the Visual Studio settings level, which can
-help in some cases.</p>
-<ul class="simple">
-<li><p>If SubWCRev wasn’t working from Visual Studio but was from the command</p></li>
-</ul>
-<p>line, all I can suggest is to log out and back into your Windows account
+<li><p>PYI_PY_VERSION can be defined in the project settings, under
+C++/Preprocessor. This is the easiest way to compile for different
+versions because no source changes are required.</p></li>
+<li><p>You can add additional include and library directories at the project
+settings level rather than the Visual Studio settings level, which can
+help in some cases.</p></li>
+<li><p>If SubWCRev wasn’t working from Visual Studio but was from the command
+line, all I can suggest is to log out and back into your Windows account
 to be sure that your PATH has been updated everywhere (it works in
-Windows 7 right after installing TortoiseSVN).</p>
+Windows 7 right after installing TortoiseSVN).</p></li>
+</ul>
 <p>Thank you for this guide, I’m positive that it will be a great help to
 those compiling the project themselves.</p>
 <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#2@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-296" src="http://www.gravatar.com/avatar/ec399a4765f732e1a2acd5ca7edd0fd5?s=55&amp;d=identicon&amp;r=g" />
@@ -227,13 +218,13 @@ those compiling the project themselves.</p>
 <div class="line"><a class="reference external" href="#comment-291">&#64;Phillip</a></div>
 <div class="line-block">
 <div class="line">Thanks for the tips. I’ve updated the post to include these, and went</div>
+<div class="line">through the steps with the latest sourcecode.</div>
+<div class="line">I should have realised the PATH had not been updated having wrote</div>
+<div class="line">about it last week…!</div>
+<div class="line">All is working well, and the new project set up makes it easy to</div>
+<div class="line">compile for 32 bit or 64 bit, with many different Python versions.</div>
 </div>
 </div>
-<p>through the steps with the latest sourcecode.
-|  I should have realised the PATH had not been updated having wrote
-about it last week…!
-|  All is working well, and the new project set up makes it easy to
-compile for 32 bit or 64 bit, with many different Python versions.</p>
 <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#3@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><img alt="http://www.gravatar.com/avatar/52a7495eeb9152acb2a39c9f0e83cfd9?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-308" src="http://www.gravatar.com/avatar/52a7495eeb9152acb2a39c9f0e83cfd9?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-308"><span class="std std-ref">4.</span></a> <strong>Jonathan Mayer</strong>
 **</p>
@@ -350,8 +341,8 @@ you probably have to add:</p>
 <p><a class="reference internal" href="#comment-1714"><span class="std std-ref">16.</span></a> <strong>wolf++ &amp;raquo; Running Django on Windows: Python 2.7.2 x64, PyISAPIe and IIS 7.5</strong>
 **</p>
 <p>[…] not a compiled version of this available for Python 2.7 (x64 in my
-case).  geographika has a great post on doing this.  The following
-instructions are based on his guide, updated with newer versions.  […]</p>
+case). geographika has a great post on doing this. The following
+instructions are based on his guide, updated with newer versions. […]</p>
 <a href="mailto:web+compiling-a-64-bit-version-of-pyisapie#16@geographika.co.uk?Subject=compiling-a-64-bit-version-of-pyisapie" target="_top">Reply</a><hr><a style="font-size: large; font-weight: bold;" href="mailto:web+copying-spatial-data-between-sql-server-databases@geographika.co.uk?Subject=copying-spatial-data-between-sql-server-databases" target="_top">Add Comment</a></section>
 </section>
 

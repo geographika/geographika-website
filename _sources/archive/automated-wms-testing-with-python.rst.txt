@@ -11,9 +11,7 @@ Automated WMS Testing with Python
 
    <div id="automated-wms-testing-with-python" class="document">
 
-`
-
-|image0| <http://geographika.co.uk/wp-content/uploads/wms_testing/snake.jpg>`__\ This
+|image0| <http://geographika.co.uk/archive/images/wms_testing/snake.jpg>`__\ This
 post and associated script details how to automate testing WMS (Web
 Mapping Service) layers. When you've set up several MapServer or
 GeoServer instances with 100s of layers, its nice to be able to make

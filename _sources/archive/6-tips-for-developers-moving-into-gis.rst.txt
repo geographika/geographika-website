@@ -60,7 +60,7 @@ also seem to take a Geo- prefix), KML, tile caches etc.
 3. Get to Know your Datasets
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image| Half the battle with GIS development is getting data into a
+|image2| Half the battle with GIS development is getting data into a
 consistent format so you can run analyses on it. Get ready to start
 dealing with Excel spreadsheets, strange proprietary GIS formats, and
 file dumps that may or may not resemble databases. Remember that many of
@@ -97,12 +97,12 @@ mistake or drawing lots of nicely coloured geometric squares.
 
 You may need to look further afield than
 `StackOverflow <http://stackoverflow.com/>`__ for answers to technical
-problems (except maybe Google Maps on Android).  Where to look depends
+problems (except maybe Google Maps on Android). Where to look depends
 on what you work with. Each major GIS vendor's site is likely to have a
 forum which serves as the focal point for all developers using their
 software, for example ESRI has widely used `user
 forums <http://support.esri.com/index.cfm?fa=forums.gateway>`__. For
-open source mailing lists seem to be the support technology of choice –
+open source mailing lists seem to be the support technology of choice -
 here `Nabble <http://www.nabble.com/>`__ is your friend.
 
 6. Bring your experience
@@ -136,7 +136,7 @@ luck!
 .. |image| image:: images/2010/03/image_thumb.png
    :target: images/2010/03/image.png
 .. |image1| image:: http://www.assoc-amazon.com/e/ir?t=geographika-20&l=as2&o=1&a=1589481402
-.. |image| image:: images/2010/03/image_thumb1.png
+.. |image2| image:: images/2010/03/image_thumb1.png
    :target: images/2010/03/image1.png
 
 .. include:: comments/6-tips-for-developers-moving-into-gis.rst

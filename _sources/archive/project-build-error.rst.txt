@@ -10,7 +10,7 @@ Error messages always seem to make far more sense when you know the
 solution.
 
 *System.IO.FileNotFoundException was unhandled
-   Message="Could not load file or assembly 'GISSettings,
+  Message="Could not load file or assembly 'GISSettings,
 Version=1.0.0.17923, Culture=neutral, PublicKeyToken=null' or one of its
 dependencies. The system cannot find the file specified."*
 

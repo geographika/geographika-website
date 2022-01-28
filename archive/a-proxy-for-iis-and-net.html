@@ -227,7 +227,7 @@ Tools), navigate to the wfsservice folder, right-click, and select
 properties. You need to click the Create button to turn this into a web
 application.</p>
 <p><a class="reference external" href="images/2010/12/image3.png"><img alt="image" src="../_images/image_thumb3.png" /></a></p>
-<p>Once the application is created, click the Configuration button.  On the
+<p>Once the application is created, click the Configuration button. On the
 Mappings tab select Add. This step ensures all web requests to your
 application are sent to the proxy DLL. As the DLL is written for ASP.NET
 it needs to be run by the aspnet_isapi.dll. Different versions of this
@@ -257,14 +257,14 @@ should be similar to below (remember only the root name of the remote
 server should be used with no backslashes).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;configuration&gt;
-    &lt;appSettings&gt;
-        &lt;add key=&quot;proxyUrl&quot; value=&quot;http://mapserver.org&quot; /&gt;
-    &lt;/appSettings&gt;
-   &lt;system.webServer&gt;
-        &lt;handlers&gt;
-            &lt;add name=&quot;ReverseProxy&quot; verb=&quot;*&quot; path=&quot;*.*&quot; type=&quot;ReverseProxy.ReverseProxy, ReverseProxy&quot; /&gt;
-        &lt;/handlers&gt;
-    &lt;/system.webServer&gt;
+   &lt;appSettings&gt;
+       &lt;add key=&quot;proxyUrl&quot; value=&quot;http://mapserver.org&quot; /&gt;
+   &lt;/appSettings&gt;
+  &lt;system.webServer&gt;
+       &lt;handlers&gt;
+           &lt;add name=&quot;ReverseProxy&quot; verb=&quot;*&quot; path=&quot;*.*&quot; type=&quot;ReverseProxy.ReverseProxy, ReverseProxy&quot; /&gt;
+       &lt;/handlers&gt;
+   &lt;/system.webServer&gt;
 &lt;/configuration&gt;
 </pre></div>
 </div>

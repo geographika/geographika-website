@@ -76,8 +76,8 @@ The `pricing
 structure <http://www.microsoft.com/windowsazure/pricing/#sql>`__ is as
 follows:
 
--  Web Edition:  Up to 1 GB relational database = $9.99 / month
--  Business Edition:  Up to 10 GB relational database = $99.99 / month
+-  Web Edition: Up to 1 GB relational database = $9.99 / month
+-  Business Edition: Up to 10 GB relational database = $99.99 / month
 -  Data transfers = $0.10 in / $0.15 out / GB - ($0.30 in / $0.45 out /
    GB in Asia)\*
 
@@ -100,7 +100,7 @@ The amount amount of bytes sent over the network in SQL Server for each
 query can be viewed using `Client
 Statistics <http://blog.sqlauthority.com/2009/10/01/sql-server-sql-server-management-studio-and-client-statistics/>`__.
 Selecting 100 records from one of my tables resulted in 14 KB of data
-transfer.  Selecting 100 records and their associated polygons resulted
+transfer. Selecting 100 records and their associated polygons resulted
 ***in over 10 times more traffic*** at 151 KB (here’s an `online
 calculator <http://easycalculation.com/bandwidth-calculator.php>`__ for
 bit/kilobyte conversions).
@@ -155,6 +155,4 @@ change your licence rather than your entire mindset.
 .. |image| image:: images/2010/03/image3.png
 .. |image| image:: images/2010/03/image4.png
 
-.. include:: archive/comments/does-sql-azure-have-allure.rst
-
 .. include:: comments/does-sql-azure-have-allure.rst

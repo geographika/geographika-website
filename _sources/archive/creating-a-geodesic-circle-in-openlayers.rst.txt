@@ -11,7 +11,7 @@ Creating a Geodesic Circle in OpenLayers
 
 I recently asked a question on `GIS Stack
 Exchange <http://gis.stackexchange.com/questions/3264/using-geodesic-measurements-for-cirle-radii>`__
-on how to create a  buffer around a point that took into account the
+on how to create a buffer around a point that took into account the
 curvature of the earth. OpenLayers has support for `geodesic
 measurements <http://en.wikipedia.org/wiki/Geodesic>`__, but not
 creating geodesic polygons. Drawing a standard polygon on a Mercator
@@ -23,7 +23,7 @@ scale errors for Mercator are very high indeed (infinite, in fact, at
 the poles) increasing as you head north/south from the true scale
 latitude.”* In fact drawing a circle (in Ireland - 53 degrees North)
 with a 10km geometric radius produced a circle with an on the ground
-radius of 6km.  A huge margin of error over a very short distance (see a
+radius of 6km. A huge margin of error over a very short distance (see a
 `previous
 post <http://geographika.co.uk/watch-out-for-openlayer-distances>`__ on
 the same subject).

@@ -23,7 +23,7 @@ building on a 32-bit Windows machine (still using XP..), so I’m using
 `release-1600-dev <http://www.gisinternals.com/sdk/PackageList.aspx?file=release-1600-dev.zip>`__
 
 These build kits, provided by one of MapServer’s developers `Tamas
-Szekeres <http://szekerest.blogspot.com/>`__,  contain everything you
+Szekeres <http://szekerest.blogspot.com/>`__, contain everything you
 need to compile both MapServer and `GDAL <http://www.gdal.org/>`__.
 Checking out all the files from the `MapServer SVN
 repository <http://trac.osgeo.org/mapserver/browser>`__ is not enough,

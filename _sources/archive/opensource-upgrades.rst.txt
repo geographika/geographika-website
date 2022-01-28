@@ -55,7 +55,7 @@ On the server side of things, it seems
 `GeoServer <http://geoserver.org/display/GEOS/Welcome>`__ has recently
 had more traction than the older MapServer. However there will soon be
 (sometime in July if I understand correctly) a `version
-6 <http://trac.osgeo.org/mapserver/wiki/60ReleasePlan>`__.  This has a
+6 <http://trac.osgeo.org/mapserver/wiki/60ReleasePlan>`__. This has a
 number of new items I’ve recently required for a new project, and they
 are now tantalisingly within reach. These include:
 

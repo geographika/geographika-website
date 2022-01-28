@@ -268,12 +268,12 @@ protocol. Make sure the WFS version is set to <strong>1.1.0</strong>. Why? If yo
 WFS 1.0.0 the srsName is not supported, so you can’t use OpenLayers to
 decide in which projection you want your features returned.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>protocol: new OpenLayers.Protocol.WFS({
-              featureType: “Test”,
-              featurePrefix: &quot;ms&quot;,
-              srsName: &quot;EPSG:900913&quot;,
-              version: &quot;1.1.0&quot;,
-              url: url
-           })
+             featureType: “Test”,
+             featurePrefix: &quot;ms&quot;,
+             srsName: &quot;EPSG:900913&quot;,
+             version: &quot;1.1.0&quot;,
+             url: url
+          })
 </pre></div>
 </div>
 <p>If you set the srsName in the WFS protocol your WFS requests will
@@ -300,12 +300,12 @@ server. E.g.</p>
 MapServer to reproject the features. The WFS protocol should therefore
 look something like this:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>protocol: new OpenLayers.Protocol.WFS({
-              featureType: “Test”,
-              featurePrefix: &quot;ms&quot;,
-              srsName: &quot;EPSG:900913&quot;,
-              version: &quot;1.1.0&quot;,
-              url: url + &quot;&amp;srsName=EPSG:900913&quot;,
-           })
+             featureType: “Test”,
+             featurePrefix: &quot;ms&quot;,
+             srsName: &quot;EPSG:900913&quot;,
+             version: &quot;1.1.0&quot;,
+             url: url + &quot;&amp;srsName=EPSG:900913&quot;,
+          })
 </pre></div>
 </div>
 <p>If you enter a SRS which is not listed for your WFS layer you’ll get the

@@ -72,7 +72,7 @@ same as any hosting solution anywhere else.
 Server, SQL Server to Windows Azure, SQL Azure” comment was intended to
 point out that developers cannot bring server software to deploy into
 Windows Azure and SQL Azure; as you can tell from the first point above
-– Windows Azure and SQL Azure aren’t hosted servers. Thus, from a
+- Windows Azure and SQL Azure aren’t hosted servers. Thus, from a
 development model perspective, Windows Azure and SQL Azure actually do
 support current applications and databases created locally and then
 uploaded into Azure. In fact, for SQL Server, all your views, stored

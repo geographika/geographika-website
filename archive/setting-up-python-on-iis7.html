@@ -167,8 +167,8 @@ forum</a>), even better performance can
 be achieved using ISAPI. This answer from
 <a class="reference external" href="http://serverfault.com/questions/9121/how-to-explain-django-python-installation-to-python-newbie-running-a-shared-iis-s">ServerFault</a>
 has a good summary on why ISAPI should be preferred over than CGI. Not
-only  performance  should be considered - maintenance should also be
-taken into account. If a web master or hosting service  is familiar with
+only performance should be considered - maintenance should also be
+taken into account. If a web master or hosting service is familiar with
 IIS then they are also likely to be familiar with ISAPI.</p>
 <p>From the <a class="reference external" href="http://sourceforge.net/apps/trac/pyisapie">PyISAPIe</a> site:</p>
 <p><em>The reason ISAPI applications have the capability of being better than
@@ -201,7 +201,7 @@ application of IIS and ISAPI is Microsoft’s web server.</p>
 </div></blockquote>
 <p>My uninformed interpretation - ISAPI allows DLLs written in a variety of
 languages to be loaded into IIS to handle web requests. ASP.NET would
-therefore be an ISAPI extension,  set to handle requests which end in
+therefore be an ISAPI extension, set to handle requests which end in
 .aspx</p>
 </section>
 <section id="the-python-isapi-extension">
@@ -256,7 +256,7 @@ I did the following:</p>
 <li><p>set the “Executable” to “C:\Python25\PyISAPIe\PyISAPIe.dll</p></li>
 <li><p>give the handler a relevant name such as “PyISAPIe”</p></li>
 <li><p>in the Request Restrictions section, I set my handler to run only
-when a request contains a .py file that exists on  the server. I set
+when a request contains a .py file that exists on the server. I set
 it handle all verbs (GET and POST), and gave it Script access.</p></li>
 <li><p>select the “View Ordered List” in the Actions panel to see in what
 order handlers will be applied to a request. Make sure your .py

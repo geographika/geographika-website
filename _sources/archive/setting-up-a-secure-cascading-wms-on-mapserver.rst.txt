@@ -147,21 +147,21 @@ password can be passed through the metadata parameters.
 ::
 
     LAYER
-      NAME "MyLayer"
-      TYPE RASTER
-      STATUS OFF
-      CONNECTION “https://webservices…”
-      CONNECTIONTYPE WMS
-      #DEBUG 5 #to debug the original layer
-      METADATA
-        "wms_srs"             "EPSG:2157"
-        "wms_name"            "0"
-        "wms_server_version"  "1.1.1"
-        "wms_format"          "image/png"
-        "wms_auth_username" "username"
-        "wms_auth_password" "password"
-        "wms_bgcolor" "0xFFFFFF"
-      END
+    � NAME "MyLayer"
+    � TYPE RASTER
+    � STATUS OFF
+    � CONNECTION “https://webservices…”
+    � CONNECTIONTYPE WMS
+    � #DEBUG 5 #to debug the original layer
+    � METADATA
+      � "wms_srs"           � "EPSG:2157"
+      � "wms_name"          � "0"
+      � "wms_server_version"� "1.1.1"
+      � "wms_format"        � "image/png"
+      � "wms_auth_username" "username"
+      � "wms_auth_password" "password"
+      � "wms_bgcolor" "0xFFFFFF"
+    � END
     END
 
 It is vital you set up debugging for the MapFile to see why a connection
@@ -194,7 +194,7 @@ Once I had the new libcurl.dll I replaced the existing file in the
 C:\\ms4w64\\bin folder (always make a back-up of the original files
 first!) with my freshly compiled version. I used `Process
 Monitor <http://technet.microsoft.com/en-us/sysinternals/bb896645.aspx>`__
-to  see if I was missing any other DLLs �" I was. The libcurl.dll
+to� see if I was missing any other DLLs �" I was. The libcurl.dll
 required some additional OpenSSL DLLs to connect to https addresses.
 These DLLs were:
 
@@ -314,7 +314,7 @@ little confused thinking I could point to the certificate file using a
 CONFIG command in the MapFile to set the environment variable. This is
 not the case.
 
-It must be set  using a Windows environment variable (although you can
+It must be set� using a Windows environment variable (although you can
 set it in Apache if you’re not using IIS). It took a while for me to
 figure this out, but due to the beauty of OpenSource if you get too
 stuck you can search the sourcecode itself to see how parameters are

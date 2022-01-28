@@ -62,7 +62,7 @@ to be very secure. The
 `OGC <http://www.opengeospatial.org/>`__\ announced via a `press
 release <http://www.opengeospatial.org/pressroom/pressreleases/1073>`__
 last August, that they would begin an "Authentication Interoperability
-Experiment" on the  2nd of October, 2009. This experiment *"will test
+Experiment" on the 2nd of October, 2009. This experiment *"will test
 standard ways of transferring authentication information between OGC
 clients and OGC services using existing mechanisms such as `HTTP
 Authentication <http://en.wikipedia.org/wiki/HTTP_Authentication>`__,
@@ -96,7 +96,7 @@ Securing MapServer in Apache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 |image1|\ In the meantime I was still looking for a way to limit access
-to my WMS services.  I'm using MapServer for Windows
+to my WMS services. I'm using MapServer for Windows
 (`ms4w <http://www.maptools.org/ms4w/>`__) which installs MapServer and
 Apache on a Windows machine. Apache (and IIS) can be used to limit
 access to certain files based on an IP address which is exactly what I

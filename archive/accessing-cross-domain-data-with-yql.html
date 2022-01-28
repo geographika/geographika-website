@@ -202,10 +202,10 @@ demo. The code makes use of the ScriptTagProxy, and a slightly modified
 reader that takes the results part of the JSON (the XML) and passes it
 on to the standard WMSCapabilitiesReader:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GeoExt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">YahooWMSCapabilitiesReader</span> <span class="o">=</span> <span class="n">Ext</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">GeoExt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">WMSCapabilitiesReader</span><span class="p">,</span> <span class="p">{</span>
-    <span class="n">readRecords</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">data</span><span class="p">){</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
-        <span class="k">return</span> <span class="n">GeoExt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">YahooWMSCapabilitiesReader</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">readRecords</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
-    <span class="p">}</span>
+   <span class="n">readRecords</span><span class="p">:</span> <span class="n">function</span><span class="p">(</span><span class="n">data</span><span class="p">){</span>
+       <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
+       <span class="k">return</span> <span class="n">GeoExt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">YahooWMSCapabilitiesReader</span><span class="o">.</span><span class="n">superclass</span><span class="o">.</span><span class="n">readRecords</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">data</span><span class="p">);</span>
+   <span class="p">}</span>
 <span class="p">});</span>
 </pre></div>
 </div>

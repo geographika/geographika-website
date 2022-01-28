@@ -52,9 +52,9 @@ functions), use a construct similar to:
     //an alternative to just list properties
     var prop;
     for (prop in layer) {
-        if (typeof layer[prop] !== 'function') {
-            console.log('%s : %s', prop, layer[prop]); //log values to Firebug
-        }
+       if (typeof layer[prop] !== 'function') {
+           console.log('%s : %s', prop, layer[prop]); //log values to Firebug
+       }
     }
 
 This example below prints details about the `map

@@ -11,7 +11,7 @@ Global Mapper and Shapefiles
 
    <div class="document" style="text-align: justify;">
 
-|http://geographika.co.uk/wp-content/uploads/globalmapper/blue\_marble\_europe\_small.jpg|\ I
+|http://geographika.co.uk/archive/images/globalmapper/blue\_marble\_europe\_small.jpg|\ I
 recently had a small project that required vector features in several
 thousand `Global Mapper <http://www.bluemarblegeo.com/global-mapper/>`__
 project files to be extracted into shapefiles.
@@ -44,7 +44,7 @@ and spaces led to corrupt shapefiles/DBFs. I was able to get around this
 by editing the field names in the GM project files prior to an export,
 using the following syntax:
 
-.. code:: literal-block
+.. code:: bat
 
      EDIT_VECTOR ATTR_TO_RENAME="FIELD. NAME.=FIELD_NAME"
 
@@ -102,6 +102,6 @@ files) ESRI File Geodatabase format:
 
    </div>
 
-.. |http://geographika.co.uk/wp-content/uploads/globalmapper/blue\_marble\_europe\_small.jpg| image:: images/globalmapper/blue_marble_europe_small.jpg
+.. |http://geographika.co.uk/archive/images/globalmapper/blue\_marble\_europe\_small.jpg| image:: images/globalmapper/blue_marble_europe_small.jpg
 
 .. include:: comments/global-mapper-and-shapefiles.rst

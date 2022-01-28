@@ -19,7 +19,7 @@ Specifically:
 Unable to load one or more of the requested types. Retrieve the
 LoaderExceptions property for more information. "*
 
-Well I never  did work out how to retrieve the LoaderExceptions
+Well I never did work out how to retrieve the LoaderExceptions
 property, but after seemingly recreating and installing in an infinite
 loop I ascertained the following:
 

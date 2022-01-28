@@ -193,7 +193,7 @@ again, but in any case it can be set by changing the script</p></li>
 <li><p>parsing of the query string sent to the server is done using the
 Python CGI module. There are newer modules to handle query strings,
 but these may not be compatible with TileCache which is works with
-Python 2.5  and 2.6 (I’ve not tried with newer versions)</p></li>
+Python 2.5? and 2.6 (I’ve not tried with newer versions)</p></li>
 </ul>
 <p><strong>Step 3</strong></p>
 <p>Some minor alterations need to be made to the TileCache scripts
@@ -233,11 +233,11 @@ os.path.join(workingdir,”..”,”tilecache.cfg”))
 <div class="line-block">
 <div class="line"># Windows doesn’t always do the ‘working directory’ check correctly.</div>
 <div class="line">#if sys.platform == ‘win32’:</div>
-<div class="line">#    workingdir = os.path.abspath(os.path.join(os.getcwd(),</div>
+<div class="line">#  ? workingdir = os.path.abspath(os.path.join(os.getcwd(),</div>
 </div>
 </div>
 <p>os.path.dirname(sys.argv[0])))
-|  #    cfgfiles = (os.path.join(workingdir, “tilecache.cfg”),
+|  #  ? cfgfiles = (os.path.join(workingdir, “tilecache.cfg”),
 os.path.join(workingdir,”..”,”tilecache.cfg”))
 |  #else:
 |  cfgfiles = (“/etc/tilecache.cfg”, os.path.join(“..”,

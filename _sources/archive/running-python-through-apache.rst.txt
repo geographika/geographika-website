@@ -114,7 +114,7 @@ A reinstall of the Windows Set Up package should fix this.
 
 .. |image0| image:: images/2010/01/mp_long-300x76.gif
    :target: images/2010/01/mp_long.gif
-.. |image1| image:: ../wp-content/uploads/2010/01/python_mod.png
-   :target: ../wp-content/uploads/2010/01/python_mod.png
+.. |image1| image:: ../archive/images/2010/01/python_mod.png
+   :target: ../archive/images/2010/01/python_mod.png
 
 .. include:: comments/running-python-through-apache.rst

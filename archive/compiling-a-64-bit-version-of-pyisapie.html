@@ -203,8 +203,8 @@ Microsoft calls x64, and AMD called x86-64 before calling it AMD64. They
 will not work on Intel Itanium Processors (formerly IA-64).</em></p>
 <p>If you are using the Itanium Python version on a x64 machine you’ll
 likely end up with the following error during compilation:</p>
-<p><a href="#id1"><span class="problematic" id="id2">*</span></a>Error    10    fatal error LNK1112: module machine type ‘IA64’
-conflicts with target machine type ‘x64’    python25.lib
+<p><a href="#id1"><span class="problematic" id="id2">*</span></a>Error  ? 10  ? fatal error LNK1112: module machine type ‘IA64’
+conflicts with target machine type ‘x64’  ? python25.lib
 *</p>
 <p>The Python files are downloaded in a MSI (Microsoft Installer) file, and
 as I’m developing on a 32-bit laptop (to install on a 64-bit server
@@ -250,11 +250,11 @@ first time you are compiling a 64-bit DLL you’ll need to create a “New
 Solution Platform” as shown below:</p>
 <p><img alt="image" src="../_images/image19.png" /></p>
 <p>If you try to compile now you may get the following error:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="mi">2</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">C1189</span><span class="p">:</span> <span class="c1">#error :  Please define PYI_PY_VERSION at the project level.</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="mi">2</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">C1189</span><span class="p">:</span> <span class="c1">#error :? Please define PYI_PY_VERSION at the project level.</span>
 </pre></div>
 </div>
 <p>We need to tell the compiler the appropriate Python version to use. This
-can be set by going to Project &gt;&gt; Properties &gt;&gt;  Configuration
+can be set by going to Project &gt;&gt; Properties &gt;&gt;? Configuration
 Properties &gt;&gt; C/C++ &gt;&gt; Preprocessor. If these options seem to be missing
 then make sure the project itself is selected in the Solution Explorer
 when clicking on Properties.</p>

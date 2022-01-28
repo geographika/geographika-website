@@ -14,7 +14,7 @@ Apache <http://geographika.co.uk/running-python-through-apache>`__. I
 had managed to crash the set up numerous times in development, but I
 hadn't come across any errors not of my own making.
 
-The installation went well  on the production server which was also a 64
+The installation went well on the production server which was also a 64
 bit machine, but was using Windows Server 2008. The site had an
 unpublicised release as it is still in beta, and from this was getting
 about 60 - 70 visitors a day.
@@ -58,7 +58,7 @@ several warnings such as the following:
 
 ::
 
-    [Thu Jan 28 15:37:15 2010] [warn] (OS 64)The specified network name is no longer available.  :
+    [Thu Jan 28 15:37:15 2010] [warn] (OS 64)The specified network name is no longer available. :
     winnt_accept: Asynchronous AcceptEx failed.
 
 The Apache documentation suggests that a possible cause of these errors
@@ -81,7 +81,7 @@ I tried using the
 `Win32DisableAcceptEx <http://httpd.apache.org/docs/2.2/mod/mpm_winnt.html>`__
 directive to try and stop these errors and hopefully resolve the Apache
 crashes. Apache runs in 32 bit mode, so hopefully the 64 bit server
-wouldn't mind..In C:\\ms4w\\Apache\\conf\\httpd.conf  add the following
+wouldn't mind..In C:\\ms4w\\Apache\\conf\\httpd.conf add the following
 line, and restart the Apache service:
 
 ::

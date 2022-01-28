@@ -30,7 +30,7 @@ that defines a multi-dimensional array object and associated fast math
 functions that operate on it.”*
 
 Check that you download the version that matches your Python
-installation.  In my case I needed
+installation. In my case I needed
 numpy-1.4.1-win32-superpack-python2.5.exe.
 
 |image|

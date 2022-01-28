@@ -34,7 +34,7 @@ toolbar below.
 available plugins appears.
 
 |image|\ 3. As you can see there are a couple of SubVersion related
-plugins available.  Fortunately StackOverflow had a question titled `SVN
+plugins available. Fortunately StackOverflow had a question titled `SVN
 plugins for Eclipse - Subclipse vs.
 Subversive <http://stackoverflow.com/questions/61320/svn-plugins-for-eclipse-subclipse-vs-subversive>`__,
 which leant towards using Subclipse over Subversive. Life’s too short to
@@ -92,7 +92,7 @@ allows you to select a version (based on its tag). Version 2.10 is
 listed after 2.1 due to sorting by characters rather than numbers.
 
 |image|
-` <http://geographika.co.uk/wp-content/uploads/2011/06/image11.png>`__
+` <http://geographika.co.uk/archive/images/2011/06/image11.png>`__
 
 |image|
 

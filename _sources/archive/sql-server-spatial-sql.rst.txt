@@ -38,7 +38,7 @@ your data, but it is used to tell client applications what projection
 the data is in. In `MapServer <http://mapserver.org/>`__ I found the
 SRID has to be set correctly for
 `WMS <http://en.wikipedia.org/wiki/Web_Map_Service>`__ layers to appear
-in OpenLayers.  Conversely in CadCorp's
+in OpenLayers. Conversely in CadCorp's
 `GeognoSIS <http://www.cadcorp.com/products_geographical_information_systems/geognosis.htm>`__\ I
 had to set these values to 0 for data to display correctly. Change the
 code according to the projection of your data.
@@ -130,8 +130,8 @@ stored procedure similar to the following:
      declare @g as geometry;
      declare @wkt as nvarchar(max);
      set @wkt = 'POLYGON ((' + @minx + ' ' + @miny + ',' +
-     @minx + ' ' + @maxy + ',' +  @maxx + ' ' + @maxy + ',' + @maxx +
-     ' ' + @miny + ',' + @minx + ' ' + @miny +  '))';
+     @minx + ' ' + @maxy + ',' + @maxx + ' ' + @maxy + ',' + @maxx +
+     ' ' + @miny + ',' + @minx + ' ' + @miny + '))';
      set @g = geometry::STGeomFromText(@wkt, 3785);
      --print @wkt
      SELECT *
@@ -155,8 +155,8 @@ SQL Server 2008. The best resources I've found are:
 
 Feel free to post more links below.
 
-.. |sql\_server\_2008| image:: ../wp-content/uploads/2009/12/sql_server_2008-300x188.png
-   :target: ../wp-content/uploads/2009/12/sql_server_2008.png
+.. |sql\_server\_2008| image:: ../archive/images/2009/12/sql_server_2008-300x188.png
+   :target: ../archive/images/2009/12/sql_server_2008.png
 .. |image1| image:: http://www.assoc-amazon.com/e/ir?t=geographika-20&l=as2&o=1&a=1430218290
 
 .. include:: comments/sql-server-spatial-sql.rst

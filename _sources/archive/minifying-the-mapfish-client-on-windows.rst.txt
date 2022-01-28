@@ -15,7 +15,7 @@ plug-in was telling me that I had included too may JavaScript files, and
 that they should be combined into a single-file, and
 `minified <http://en.wikipedia.org/wiki/Minification_%28programming%29>`__.
 The default setup of Mapfish has a single script include
-(mfbase\\mapfish\\MapFish.js), but this script  automatically loads
+(mfbase\\mapfish\\MapFish.js), but this script automatically loads
 around 40 further scripts.
 
 I tried a couple of unsuccessful attempts at copying and pasting various
@@ -64,7 +64,7 @@ Windows command line prompt:
 Step 2 - Create a Virtual Python Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This step creates an isolated Python environment for JSTools.  Using
+This step creates an isolated Python environment for JSTools. Using
 this "virtual" environment avoids using wrong script versions and
 references. The Mapfish instructions for Linux were as follows:
 

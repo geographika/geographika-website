@@ -65,8 +65,8 @@ will not work on Intel Itanium Processors (formerly IA-64).*
 If you are using the Itanium Python version on a x64 machine you’ll
 likely end up with the following error during compilation:
 
-*Error    10    fatal error LNK1112: module machine type 'IA64'
-conflicts with target machine type 'x64'    python25.lib
+*Error  � 10  � fatal error LNK1112: module machine type 'IA64'
+conflicts with target machine type 'x64'  � python25.lib
 *
 
 The Python files are downloaded in a MSI (Microsoft Installer) file, and
@@ -127,10 +127,10 @@ If you try to compile now you may get the following error:
 
 ::
 
-    Error 2 fatal error C1189: #error :  Please define PYI_PY_VERSION at the project level.
+    Error 2 fatal error C1189: #error :� Please define PYI_PY_VERSION at the project level.
 
 We need to tell the compiler the appropriate Python version to use. This
-can be set by going to Project >> Properties >>  Configuration
+can be set by going to Project >> Properties >>� Configuration
 Properties >> C/C++ >> Preprocessor. If these options seem to be missing
 then make sure the project itself is selected in the Solution Explorer
 when clicking on Properties.

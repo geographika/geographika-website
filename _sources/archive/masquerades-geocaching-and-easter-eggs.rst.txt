@@ -26,7 +26,7 @@ maps and real-world locations.
 Geocaching
 ~~~~~~~~~~
 
-Geocaching could be seen as a successor to Williams’s book.  As someone
+Geocaching could be seen as a successor to Williams’s book. As someone
 working in technology and geography it should seemingly be an ideal
 pastime. However the fact geocaching is a `trademarked
 word <http://tess2.uspto.gov/bin/showfield?f=doc&state=4010:sfj3s6.2.1>`__

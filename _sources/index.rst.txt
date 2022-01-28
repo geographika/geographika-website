@@ -53,6 +53,7 @@ Site Contents
     :titlesonly:
 
     archive/index
+    posts/nuget.rst
 
 .. rst-class:: mytitle
 Who am I?

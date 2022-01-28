@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Creating NuGet Packages &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/font-awesome.min.css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/simplex/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <script src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script src="../_static/js/jquery-fix.js"></script>
+    <script src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="WMS GetCapabilities" href="../archive/wms-get-capabilities.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head><body>
+
+<div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="../index.html">
+                Geographika</a>
+            <!--<span class="navbar-text navbar-version pull-left"><b>1</b></span>-->
+        </div>
+        <div class="collapse navbar-collapse nav-collapse">
+            <ul class="nav navbar-nav">
+                
+                
+                <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html#comments">Comments</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Creating NuGet Packages</a></li>
+</ul>
+</ul>
+</li>
+                <!--
+                    Commented out SG
+                    
+                    <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Creating NuGet Packages</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#id1">Bison</a></li>
+<li><a class="reference internal" href="#building-a-bison-nuget-package">Building a Bison NuGet Package</a></li>
+<li><a class="reference internal" href="#signing-packages">Signing Packages</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+                    
+                -->
+                
+                
+                
+                
+  <li>
+    <a href="../archive/wms-get-capabilities.html" title="Previous Chapter: WMS GetCapabilities"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; WMS GetCapabilities</span>
+    </a>
+  </li>
+                
+                
+                
+                
+                
+                <li class="hidden-sm"></li>
+                
+            </ul>
+            
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+            
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <!-- SG switched sidebar location -->
+    <div class="col-md-12 content">
+      
+  <section id="creating-nuget-packages">
+<h1>Creating NuGet Packages</h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2022-01-28 18:00</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>geographika</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>draft</p>
+</dd>
+</dl>
+<p>Please email any comments or corrections to <a class="reference external" href="mailto:blog&#37;&#52;&#48;geographika&#46;net">blog<span>&#64;</span>geographika<span>&#46;</span>net</a></p>
+<section id="background">
+<h2>Background</h2>
+<p>As part of building and testing the SWIG generated MapScript bindings, I’ve been updating the
+<a class="reference external" href="https://github.com/swig/swig/blob/master/Doc/Manual/Windows.html">Building swig.exe using CMake</a> docs.
+See <a class="reference external" href="https://github.com/swig/swig/pull/2169">Updated and tested Windows CMake build docs</a> for recent updates.</p>
+<p>Gathering dependencies on Windows always has its problems. <a class="reference external" href="https://www.nuget.org/">NuGet</a> - the package manager for .NET helps with this, especially
+when trying to automate builds, and reproduce them in CI processes. Packages can be installed from the command-line, rather than trying to manually download files.</p>
+<p>However often dependencies are not kept updated - the SWIG dependencies are as follows:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nuget.org/packages/CMake-win64/">CMake</a> - the latest version is 3.15.5 which is fine</p></li>
+<li><p><a class="reference external" href="https://www.nuget.org/packages/bison-win32/">Bison</a> - only Bison 2 is available in this package</p></li>
+<li><p><a class="reference external" href="https://www.nuget.org/packages/pcre/">PCRE</a> - latest version is 8.33.0.1</p></li>
+</ul>
+<p>SWIG itself is also available on NuGet: <a class="reference external" href="https://www.nuget.org/packages/swigwintools/">https://www.nuget.org/packages/swigwintools/</a></p>
+<p>SWIG requires Bison3 to build without warnings - see <a class="reference external" href="https://github.com/swig/swig/issues/2001">Build warnings on Windows when using Bison &lt;3</a></p>
+</section>
+<section id="id1">
+<h2>Bison</h2>
+<p>From the <a class="reference external" href="https://www.gnu.org/software/bison/">Bison homepage</a>:</p>
+<blockquote>
+<div><p>Bison is a general-purpose parser generator that converts an annotated context-free grammar
+into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser tables.</p>
+</div></blockquote>
+<p>Bison is currently being maintained by Akim Demaille and Paul Eggert.
+A fork maintained by Akim Demaille is available at <a class="reference external" href="https://github.com/akimd/bison">https://github.com/akimd/bison</a></p>
+<p>A very useful project for Windows is <a class="reference external" href="https://github.com/lexxmark/winflexbison">Win flex-bison</a>:</p>
+<blockquote>
+<div><p>Win flex-bison is a windows port the Flex (the fast lexical analyser) and Bison (GNU parser generator).</p>
+</div></blockquote>
+<p>This has ready-made exes for Bison at <a class="reference external" href="https://sourceforge.net/projects/winflexbison/files/">https://sourceforge.net/projects/winflexbison/files/</a>
+It also can be downloaded from Chocolatey at <a class="reference external" href="https://community.chocolatey.org/packages/winflexbison3">https://community.chocolatey.org/packages/winflexbison3</a></p>
+<p>Initially the SWIG build steps used a combination of both NuGet and Chocolatey, but this was over-complicated, and the aim is to get
+all dependencies using one package manager.</p>
+<p>From <a class="reference external" href="https://stackoverflow.com/questions/24662550/difference-between-chocolatey-and-nuget">StackOverflow</a>:</p>
+<blockquote>
+<div><p>NuGet is designed to allow you to easily add code libraries to your project. Things like JSON.NET, Entity Framework, etc.</p>
+<p>Chocolatey is actually built on top of the NuGet package system, but it is designed to fill a different need.
+Chocolatey wraps up applications and other executables and makes
+it easy to install them on your computer. For example, tools like Git, Notepad++, etc. can be easily installed with a command like cinst git.</p>
+</div></blockquote>
+<p>Bison likely falls into the latter category, but as above the aim is to use a single tool for all dependencies.</p>
+</section>
+<section id="building-a-bison-nuget-package">
+<h2>Building a Bison NuGet Package</h2>
+<p>I followed the steps based on <a class="reference external" href="https://digitalhouseblog.wordpress.com/2019/08/22/how-to-make-a-nuget-package-for-c/">this blog post</a></p>
+<p>Steps below:</p>
+<ul>
+<li><p>Install Nuget from <a class="reference external" href="https://www.nuget.org/downloads">https://www.nuget.org/downloads</a> (v6.0.0 was used, and installed to C:Tools)</p></li>
+<li><p>Clone the Bison GitHub project:</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> /D D:\GitHub\bison-nuget\source-projects
+git.exe clone --progress -v <span class="s2">&quot;https://github.com/akimd/bison&quot;</span> bison
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Copy the doc files:</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>AUTHORS
+COPYING
+README
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Get the exe file and rename to <code class="docutils literal notranslate"><span class="pre">bison.exe</span></code></p>
+<blockquote>
+<div><p>win_flex_bison3-latestwin_bison.exe</p>
+</div></blockquote>
+</li>
+<li><p>Create a nuspec file. See docs at <a class="reference external" href="https://docs.microsoft.com/en-us/nuget/reference/nuspec">https://docs.microsoft.com/en-us/nuget/reference/nuspec</a></p></li>
+<li><p>Create the package:</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">cd</span> /D D:\GitHub\bison-nuget\nuget
+C<span class="p">:</span><span class="nl">\Tools\nuget</span><span class="c1"> pack bison.nuspec -OutputDirectory _builds</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Check the contents of the generated <code class="docutils literal notranslate"><span class="pre">Bison.3.7.4.nupkg</span></code> by opening with 7-Zip.</p></li>
+<li><p>Test installing the package locally:</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>nuget sources add -name local -source D:\GitHub\bison-nuget\nuget\_builds
+nuget sources
+C<span class="p">:</span><span class="nl">\Tools\nuget</span><span class="c1"> install Bison -Version 3.7.4 -OutputDirectory C:\Tools\bison</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Login to <a class="reference external" href="https://www.nuget.org/">https://www.nuget.org/</a> (create a new MicroSoft account if necessary), and generate an API key.</p>
+<blockquote>
+<div><div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>C<span class="p">:</span><span class="nl">\Tools\nuget</span><span class="c1"> push _builds\*.nupkg -Source https://www.nuget.org/ -Apikey MY_API_KEY</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p>Additional notes:</p>
+<ul class="simple">
+<li><p>You can see the contents by clicking “Open in NuGet Package Explorer” <a class="reference external" href="https://nuget.info/packages/pcre/8.33.0.1">https://nuget.info/packages/pcre/8.33.0.1</a></p></li>
+<li><p>Make sure the package is tagged as a “Native package” - <a class="reference external" href="https://www.nuget.org/packages?q=tag%3Anative">https://www.nuget.org/packages?q=tag%3Anative</a></p></li>
+<li><p>The package contents was added as a repository to <a class="reference external" href="https://github.com/geographika/nuget-bison">https://github.com/geographika/nuget-bison</a></p></li>
+<li><p>Package is available on NuGet at <a class="reference external" href="https://www.nuget.org/packages/Bison/">https://www.nuget.org/packages/Bison/</a></p></li>
+</ul>
+</section>
+<section id="signing-packages">
+<h2>Signing Packages</h2>
+<p>TODO: See <a class="reference external" href="https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference">https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference</a></p>
+</section>
+</section>
+
+
+    </div>  
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

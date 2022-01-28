@@ -59,6 +59,7 @@
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/nuget.html">Creating NuGet Packages</a></li>
 </ul>
 </ul>
 </li>
@@ -130,7 +131,7 @@
     <div class="col-md-12 content">
       
   <section id="setting-up-a-secure-cascading-wms-on-mapserver">
-<h1>Setting up a Secure Cascading WMS on MapServer<a class="headerlink" href="#setting-up-a-secure-cascading-wms-on-mapserver" title="Permalink to this headline">🔗</a></h1>
+<h1>Setting up a Secure Cascading WMS on MapServer</h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
 <dd class="field-odd"><p>2010-07-20 15:46</p>
@@ -193,7 +194,7 @@ another
 post</a>.
 In this example I use IIS and Windows Server 2003.</p>
 <div style="text-align: justify;"></div><section id="mapfile-configuration">
-<h2>MapFile Configuration<a class="headerlink" href="#mapfile-configuration" title="Permalink to this headline">🔗</a></h2>
+<h2>MapFile Configuration</h2>
 <p>Configuring a MapFile for a cascading WMS service is well-documented on
 the <a class="reference external" href="http://mapserver.org/ogc/wms_client.htm">MapServer WMS Client
 page</a>. An example is shown
@@ -229,7 +230,7 @@ MapFile:</p>
 <p>This can be removed once everything is working correctly.</p>
 </section>
 <section id="configuring-ssl-and-mapserver-part-1">
-<h2>Configuring SSL and MapServer (Part 1)<a class="headerlink" href="#configuring-ssl-and-mapserver-part-1" title="Permalink to this headline">🔗</a></h2>
+<h2>Configuring SSL and MapServer (Part 1)</h2>
 <p>A secure WMS service is one that uses an <strong>https</strong>:// address, and may
 require a username and password. Setting up MapServer to connect using
 SSL is by far the trickiest part of the configuration. First of all I
@@ -268,7 +269,7 @@ For more details on security certificates <a class="reference external" href="ht
 page</a>.</p>
 </section>
 <section id="getting-a-security-certificate">
-<h2>Getting a Security Certificate<a class="headerlink" href="#getting-a-security-certificate" title="Permalink to this headline">🔗</a></h2>
+<h2>Getting a Security Certificate</h2>
 <p>I needed to get a valid certificate from the web service and point
 MapServer to this file. I was able to get a certificate by typing in the
 service;s <a class="reference external" href="https://">https://</a> url in FireFox, and then selecting Tools &gt; Page Info
@@ -317,7 +318,7 @@ with random characters:</p>
 successfully returned an image from the secure WMS server.</p>
 </section>
 <section id="configuring-ssl-and-mapserver-part-2">
-<h2>Configuring SSL and MapServer (Part 2)<a class="headerlink" href="#configuring-ssl-and-mapserver-part-2" title="Permalink to this headline">🔗</a></h2>
+<h2>Configuring SSL and MapServer (Part 2)</h2>
 <p>Now all that remains is to set up the certificate on the MapServer.
 There are some <a class="reference external" href="http://213.207.42.55/README_INSTALL.html#g-certificates-for-https-with-wms-wfs-servers">instructions
 here</a>
@@ -345,7 +346,7 @@ requests.
 CURL_CA_BUNDLE=C:\ms4w64\bin\curl-ca-bundle.crt</p>
 </section>
 <section id="poor-image-quality">
-<h2>Poor Image Quality?<a class="headerlink" href="#poor-image-quality" title="Permalink to this headline">🔗</a></h2>
+<h2>Poor Image Quality?</h2>
 <p>Sometimes the WMS images lack the quality of the originals when run
 through a cascaded service. <a class="reference external" href="http://comments.gmane.org/gmane.comp.gis.mapserver.user/41900">This
 post</a>
@@ -396,7 +397,7 @@ END</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">🔗</a></h3>
+<h3>Comments</h3>
 <a style="font-size: large; font-weight: bold;" href="mailto:web+setting-up-a-secure-cascading-wms-on-mapserver@geographika.co.uk?Subject=setting-up-a-secure-cascading-wms-on-mapserver" target="_top">Add Comment</a></section>
 </section>
 </section>

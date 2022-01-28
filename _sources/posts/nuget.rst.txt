@@ -1,0 +1,125 @@
+Creating NuGet Packages
+=======================
+
+:date: 2022-01-28 18:00
+:author: geographika
+:status: draft
+
+Please email any comments or corrections to blog@geographika.net
+
+Background
+----------
+
+As part of building and testing the SWIG generated MapScript bindings, I've been updating the 
+`Building swig.exe using CMake <https://github.com/swig/swig/blob/master/Doc/Manual/Windows.html>`_ docs. 
+See `Updated and tested Windows CMake build docs <https://github.com/swig/swig/pull/2169>`_ for recent updates.
+
+Gathering dependencies on Windows always has its problems. `NuGet <https://www.nuget.org/>`_ - the package manager for .NET helps with this, especially
+when trying to automate builds, and reproduce them in CI processes. Packages can be installed from the command-line, rather than trying to manually download files. 
+
+However often dependencies are not kept updated - the SWIG dependencies are as follows:
+
++ `CMake <https://www.nuget.org/packages/CMake-win64/>`_ - the latest version is 3.15.5 which is fine
++ `Bison <https://www.nuget.org/packages/bison-win32/>`_ - only Bison 2 is available in this package
++ `PCRE <https://www.nuget.org/packages/pcre/>`_ - latest version is 8.33.0.1
+
+SWIG itself is also available on NuGet: https://www.nuget.org/packages/swigwintools/
+
+SWIG requires Bison3 to build without warnings - see `Build warnings on Windows when using Bison <3 <https://github.com/swig/swig/issues/2001>`_
+
+Bison
+-----
+
+From the `Bison homepage <https://www.gnu.org/software/bison/>`_:
+
+    Bison is a general-purpose parser generator that converts an annotated context-free grammar 
+    into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser tables.
+
+Bison is currently being maintained by Akim Demaille and Paul Eggert.
+A fork maintained by Akim Demaille is available at https://github.com/akimd/bison
+
+A very useful project for Windows is `Win flex-bison <https://github.com/lexxmark/winflexbison>`_:
+
+    Win flex-bison is a windows port the Flex (the fast lexical analyser) and Bison (GNU parser generator). 
+
+This has ready-made exes for Bison at https://sourceforge.net/projects/winflexbison/files/
+It also can be downloaded from Chocolatey at https://community.chocolatey.org/packages/winflexbison3
+
+Initially the SWIG build steps used a combination of both NuGet and Chocolatey, but this was over-complicated, and the aim is to get
+all dependencies using one package manager. 
+
+From `StackOverflow <https://stackoverflow.com/questions/24662550/difference-between-chocolatey-and-nuget>`_:
+
+    NuGet is designed to allow you to easily add code libraries to your project. Things like JSON.NET, Entity Framework, etc.
+
+    Chocolatey is actually built on top of the NuGet package system, but it is designed to fill a different need. 
+    Chocolatey wraps up applications and other executables and makes 
+    it easy to install them on your computer. For example, tools like Git, Notepad++, etc. can be easily installed with a command like cinst git.
+
+Bison likely falls into the latter category, but as above the aim is to use a single tool for all dependencies.
+
+
+Building a Bison NuGet Package
+------------------------------
+
+I followed the steps based on `this blog post <https://digitalhouseblog.wordpress.com/2019/08/22/how-to-make-a-nuget-package-for-c/>`_
+
+Steps below:
+
++ Install Nuget from https://www.nuget.org/downloads (v6.0.0 was used, and installed to C:\Tools)
+
++ Clone the Bison GitHub project:
+
+    .. code-block:: bat
+
+        cd /D D:\GitHub\bison-nuget\source-projects
+        git.exe clone --progress -v "https://github.com/akimd/bison" bison
+
++ Copy the doc files:
+
+    .. code-block:: bat
+
+        AUTHORS
+        COPYING
+        README
+
++ Get the exe file and rename to ``bison.exe``
+
+    win_flex_bison3-latest\win_bison.exe
+
++ Create a nuspec file. See docs at https://docs.microsoft.com/en-us/nuget/reference/nuspec
+
++ Create the package:
+
+    .. code-block:: bat
+
+        cd /D D:\GitHub\bison-nuget\nuget
+        C:\Tools\nuget pack bison.nuspec -OutputDirectory _builds
+
++ Check the contents of the generated ``Bison.3.7.4.nupkg`` by opening with 7-Zip. 
+
++ Test installing the package locally:
+
+    .. code-block:: bat
+
+        nuget sources add -name local -source D:\GitHub\bison-nuget\nuget\_builds
+        nuget sources
+        C:\Tools\nuget install Bison -Version 3.7.4 -OutputDirectory C:\Tools\bison
+
++ Login to https://www.nuget.org/ (create a new MicroSoft account if necessary), and generate an API key. 
+
+    .. code-block:: bat
+
+        C:\Tools\nuget push _builds\*.nupkg -Source https://www.nuget.org/ -Apikey MY_API_KEY
+
+Additional notes:
+
++ You can see the contents by clicking "Open in NuGet Package Explorer" https://nuget.info/packages/pcre/8.33.0.1
++ Make sure the package is tagged as a "Native package" - https://www.nuget.org/packages?q=tag%3Anative
++ The package contents was added as a repository to https://github.com/geographika/nuget-bison
++ Package is available on NuGet at https://www.nuget.org/packages/Bison/
+
+Signing Packages
+----------------
+
+TODO: See https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference

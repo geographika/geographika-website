@@ -59,6 +59,7 @@
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/nuget.html">Creating NuGet Packages</a></li>
 </ul>
 </ul>
 </li>
@@ -130,7 +131,7 @@
     <div class="col-md-12 content">
       
   <section id="setting-up-python-on-iis7">
-<h1>Setting Up Python on IIS7<a class="headerlink" href="#setting-up-python-on-iis7" title="Permalink to this headline">🔗</a></h1>
+<h1>Setting Up Python on IIS7</h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
 <dd class="field-odd"><p>2010-02-04 08:30</p>
@@ -159,7 +160,7 @@ with IIS7. The principle aim was to run
 <a class="reference external" href="http://tilecache.org/">TileCache</a> through IIS rather than requiring
 Apache.</p>
 <section id="why-not-cgi">
-<h2>Why Not CGI?<a class="headerlink" href="#why-not-cgi" title="Permalink to this headline">🔗</a></h2>
+<h2>Why Not CGI?</h2>
 <p>While IIS 7 has Fast-CGI installed (see this <a class="reference external" href="http://forums.iis.net/1103.aspx">IIS
 forum</a>), even better performance can
 be achieved using ISAPI. This answer from
@@ -181,7 +182,7 @@ interpreter can be initialized</em> <em>once and used many times, creating a
 very noticeable performance gain.</em></p>
 </section>
 <section id="some-definitions">
-<h2>Some Definitions…<a class="headerlink" href="#some-definitions" title="Permalink to this headline">🔗</a></h2>
+<h2>Some Definitions…</h2>
 <blockquote>
 <div><p><a class="reference external" href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface">WSGI</a>-The
 Web Server Gateway Interface defines a simple and universal
@@ -203,7 +204,7 @@ therefore be an ISAPI extension,  set to handle requests which end in
 .aspx</p>
 </section>
 <section id="the-python-isapi-extension">
-<h2>The Python ISAPI Extension<a class="headerlink" href="#the-python-isapi-extension" title="Permalink to this headline">🔗</a></h2>
+<h2>The Python ISAPI Extension</h2>
 <p>I initially tried <a class="reference external" href="http://code.google.com/p/isapi-wsgi/">isapi-wsgi</a>,
 but I didn’t have much luck setting it up (I gave up fairly quickly
 though). It also depended on <em>“Mark Hammond’s Python win32 isapi
@@ -227,7 +228,7 @@ article I found <a class="reference external" href="http://support.microsoft.com
 5</a>..</p>
 </section>
 <section id="installation-on-iis-7">
-<h2>Installation on IIS 7<a class="headerlink" href="#installation-on-iis-7" title="Permalink to this headline">🔗</a></h2>
+<h2>Installation on IIS 7</h2>
 <p>1. First make sure IIS is actually installed (Server Manager &gt;&gt; Roles &gt;&gt;
 Add Web Server IIS). Ensure the ISAPI Extensions and ISAPI filters are
 both checked.</p>
@@ -277,7 +278,7 @@ false, leading to hours of being confronted by the near useless message:</p>
 </div>
 </section>
 <section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">🔗</a></h2>
+<h2>Testing</h2>
 <p>The <a class="reference external" href="http://pyisapie.sourceforge.net/blog/?page_id=14">Getting Started
 Guide</a> should be
 followed, but I have a few gotchas, learnt the hard way. First save a
@@ -350,7 +351,7 @@ many thanks to the developer of PyISAPIe - Phillip Sitbon.</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">🔗</a></h3>
+<h3>Comments</h3>
 <img alt="http://www.gravatar.com/avatar/4e176d2ec6ac254d53a881b29fefe41b?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1931" src="http://www.gravatar.com/avatar/4e176d2ec6ac254d53a881b29fefe41b?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-1931"><span class="std std-ref">1.</span></a> <strong>jusan</strong>
 **</p>

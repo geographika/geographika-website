@@ -59,6 +59,7 @@
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#comments">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../posts/nuget.html">Creating NuGet Packages</a></li>
 </ul>
 </ul>
 </li>
@@ -132,7 +133,7 @@
     <div class="col-md-12 content">
       
   <section id="minifying-the-mapfish-client-on-windows">
-<h1>Minifying the Mapfish Client on Windows<a class="headerlink" href="#minifying-the-mapfish-client-on-windows" title="Permalink to this headline">🔗</a></h1>
+<h1>Minifying the Mapfish Client on Windows</h1>
 <dl class="field-list simple">
 <dt class="field-odd">date</dt>
 <dd class="field-odd"><p>2010-01-28 08:00</p>
@@ -154,7 +155,7 @@
 </dd>
 </dl>
 <section id="this-page-has-72-external-javascript-scripts-try-combining-them-into-one">
-<h2>This page has 72 external Javascript scripts. Try combining them into one.<a class="headerlink" href="#this-page-has-72-external-javascript-scripts-try-combining-them-into-one" title="Permalink to this headline">🔗</a></h2>
+<h2>This page has 72 external Javascript scripts. Try combining them into one.</h2>
 <p><a class="reference external" href="images/2010/01/minify.jpg"><img alt="image0" src="archive/images/2010/01/minify-153x300.jpg" /></a>My <a class="reference external" href="http://developer.yahoo.com/yslow/">YSlow</a> Firefox
 plug-in was telling me that I had included too may JavaScript files, and
 that they should be combined into a single-file, and
@@ -187,7 +188,7 @@ and I’m using Windows. I eventually managed to “translate” these into
 Windows commands, and have documented the steps below.</p>
 </section>
 <section id="step-1-install-python-for-windows">
-<h2>Step 1 - Install Python for Windows<a class="headerlink" href="#step-1-install-python-for-windows" title="Permalink to this headline">🔗</a></h2>
+<h2>Step 1 - Install Python for Windows</h2>
 <p>First of all if Python is not installed on your system, then get the MSI
 installer from the <a class="reference external" href="http://www.python.org/download/">Python site</a>. I
 used <a class="reference external" href="http://www.python.org/download/releases/2.5.4/">version 2.5.4</a>,
@@ -201,10 +202,10 @@ Windows command line prompt:</p>
 </div>
 </section>
 <section id="image1">
-<h2><a class="reference external" href="images/2010/01/py_file.png"><img alt="image1" src="archive/images/2010/01/py_file-300x110.png" /></a><a class="headerlink" href="#image1" title="Permalink to this headline">🔗</a></h2>
+<h2><a class="reference external" href="images/2010/01/py_file.png"><img alt="image1" src="archive/images/2010/01/py_file-300x110.png" /></a></h2>
 </section>
 <section id="step-2-create-a-virtual-python-environment">
-<h2>Step 2 - Create a Virtual Python Environment<a class="headerlink" href="#step-2-create-a-virtual-python-environment" title="Permalink to this headline">🔗</a></h2>
+<h2>Step 2 - Create a Virtual Python Environment</h2>
 <p>This step creates an isolated Python environment for JSTools.  Using
 this “virtual” environment avoids using wrong script versions and
 references. The Mapfish instructions for Linux were as follows:</p>
@@ -236,7 +237,7 @@ D:\Tools\Mapfish\VirtualPythonEnv\Scripts\activate.bat</p></li>
 </ul>
 </section>
 <section id="step-3-install-the-jstools">
-<h2>Step 3 - Install the JSTools<a class="headerlink" href="#step-3-install-the-jstools" title="Permalink to this headline">🔗</a></h2>
+<h2>Step 3 - Install the JSTools</h2>
 <p>Again from the Windows command line, change your current directory to
 the newly created Scripts folder in your virtual environment setup.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">D</span><span class="p">:</span>\<span class="n">Tools</span>\<span class="n">Mapfish</span>\<span class="n">VirtualPythonEnv</span>\<span class="n">Scripts</span>\
@@ -254,7 +255,7 @@ fine with the JSTools available from the Mapfish (CamptoCamp) link used
 above.</p>
 </section>
 <section id="step-4-go-forth-and-minify">
-<h2>Step 4 - Go Forth and Minify<a class="headerlink" href="#step-4-go-forth-and-minify" title="Permalink to this headline">🔗</a></h2>
+<h2>Step 4 - Go Forth and Minify</h2>
 <p>The final step is to create the minified JavaScript itself. The Mapfish
 client download contains a configuration file to tell JSBuild which
 files to include in the single file script. It was at this stage I
@@ -289,7 +290,7 @@ points to the configuration file listing the JavaScript files.</p>
 own application JavaScript files.</p>
 </section>
 <section id="step-5-test-in-web-application">
-<h2>Step 5 - Test in Web Application<a class="headerlink" href="#step-5-test-in-web-application" title="Permalink to this headline">🔗</a></h2>
+<h2>Step 5 - Test in Web Application</h2>
 <p>The previous reference to Mapfish could now be pointed to the newly
 created MapFish.js file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">script</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text/javascript&quot;</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;js/MapFish.js&quot;</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
@@ -307,7 +308,7 @@ know!</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">🔗</a></h3>
+<h3>Comments</h3>
 <img alt="http://www.gravatar.com/avatar/f1e586869686b669436504615471f9f3?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1407" src="http://www.gravatar.com/avatar/f1e586869686b669436504615471f9f3?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-1407"><span class="std std-ref">1.</span></a> <strong>Richie Chwieroth</strong>
 **</p>

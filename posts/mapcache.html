@@ -57,6 +57,7 @@
       aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archive/index.html#comments">Comments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nuget.html">Creating NuGet Packages</a></li>
 </ul>
 </ul>
 </li>
@@ -116,10 +117,10 @@
     <div class="col-md-12 content">
       
   <section id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">🔗</a></h1>
+<h1>Dependencies</h1>
 </section>
 <section id="apr">
-<h1>APR<a class="headerlink" href="#apr" title="Permalink to this headline">🔗</a></h1>
+<h1>APR</h1>
 <p><a class="reference external" href="https://bz.apache.org/bugzilla/describecomponents.cgi?product=APR">https://bz.apache.org/bugzilla/describecomponents.cgi?product=APR</a></p>
 <p><a class="reference external" href="http://stackoverflow.com/questions/36897691/compile-apache-apr-on-windows">http://stackoverflow.com/questions/36897691/compile-apache-apr-on-windows</a></p>
 <p>Instructions: <a class="reference external" href="https://apr.apache.org/compiling_win32.html">https://apr.apache.org/compiling_win32.html</a></p>
@@ -147,12 +148,12 @@ SET PATH=C:cmake-3.5.2-win32-x86bin;%PATH%
 <p>cmake -G %VS_FULL%  ../apr-1.5.2 -Wno-dev -DAPR_HAVE_IPV6=OFF
 cmake –build . –config Release</p>
 <section id="apr-util">
-<h2>APR Util<a class="headerlink" href="#apr-util" title="Permalink to this headline">🔗</a></h2>
+<h2>APR Util</h2>
 <p><a class="reference external" href="https://github.com/apache/apr-util/tree/1.6.x">https://github.com/apache/apr-util/tree/1.6.x</a></p>
 </section>
 </section>
 <section id="building-mapcache">
-<h1>Building MapCache<a class="headerlink" href="#building-mapcache" title="Permalink to this headline">🔗</a></h1>
+<h1>Building MapCache</h1>
 <p>%comspec% /k “”C:Program Files (x86)Microsoft Visual Studio 12.0VCvcvarsall.bat”” amd64
 cd C:MapServerBuildmapcache-build</p>
 <p>set SDK_PREFIX=C:MapServerBuild
@@ -205,7 +206,7 @@ See readme_first.html file for details.</p>
 <p>Build with the latest Windows? Visual Studio C++ 2015 aka VC14. VC14 has improvements, fixes and optimizations over VC11 in areas like Performance, MemoryManagement, Code generation and Stability. For example code quality tuning and improvements done across different code generation areas for “speed”. And makes more use of modern processors and supported Windows editions (win 7 and up) internal features.</p>
 </section>
 <section id="nmake-cmake-msbuild">
-<h1>nmake, cmake, msbuild<a class="headerlink" href="#nmake-cmake-msbuild" title="Permalink to this headline">🔗</a></h1>
+<h1>nmake, cmake, msbuild</h1>
 <p>devenv mysolutionfile.sln /build Debug /project INSTALL
 This is preferable to using msbuild or vcbuild because certain versions of Visual Studio seem to have trouble with the inter-project dependencies that cmake likes to generate.</p>
 <p>And devenv is preferable to nmake because it gives you more control over debug configurations, etc.

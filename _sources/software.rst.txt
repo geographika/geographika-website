@@ -1,0 +1,84 @@
+Sofware Projects
+================
+
+:date: 2022-01-30 18:00
+:author: geographika
+:status: active
+
+  
+Python Packages
+---------------
+
++ `mappyfile <https://github.com/geographika/mappyfile>`_ a pure Python MapFile parser for working with MapServer. 
+
+  + GitHub: https://github.com/geographika/mappyfile
+  + Documentation: https://mappyfile.readthedocs.io/
+  + Online demo: https://mappyfile.geographika.net/
+  
+  .. image:: https://img.shields.io/github/stars/geographika/mappyfile?style=social
+    :target: https://github.com/geographika/mappyfile
+  
+  .. image:: https://badge.fury.io/py/mappyfile.svg
+    :target: https://badge.fury.io/py/mappyfile
+  
+  .. image:: https://pepy.tech/badge/mappyfile
+    :target: https://pepy.tech/project/mappyfile
+  
+  ..
+      .. image:: https://img.shields.io/pypi/dm/mappyfile?color=informational  
+
++ `mappyfile-geojson <https://github.com/geographika/mappyfile-geojson>`_ - a mappyfile plugin to convert GeoJSON to inline features
+
+  .. image:: https://img.shields.io/github/stars/geographika/mappyfile-geojson?style=social
+    :target: https://github.com/geographika/mappyfile-geojson
+      
+  .. image:: https://badge.fury.io/py/mappyfile-geojson.svg
+    :target: https://badge.fury.io/py/mappyfile-geojson
+  
+  .. image:: https://pepy.tech/badge/mappyfile-geojson
+    :target: https://pepy.tech/project/mappyfile-geojson
+
++ `mappyfile-colors <https://github.com/geographika/mappyfile-colors>`_ - a mappyfile plugin to convert between RGB and Hex colours, and to add human readable names 
+
+  .. image:: https://img.shields.io/github/stars/geographika/mappyfile-colors?style=social
+    :target: https://github.com/geographika/mappyfile-colors
+      
+  .. image:: https://badge.fury.io/py/mappyfile-colors.svg
+    :target: https://badge.fury.io/py/mappyfile-colors
+  
+  .. image:: https://pepy.tech/badge/mappyfile-colors
+    :target: https://pepy.tech/project/mappyfile-colors  
+
++ `ogc-legends <https://github.com/geographika/ogc-legends>`_ 
+  -  a small library to work with OGC legends 
+
+  .. image:: https://img.shields.io/github/stars/geographika/ogc-legends?style=social
+    :target: https://github.com/geographika/ogc-legends
+    
+  .. image:: https://badge.fury.io/py/ogc-legends.svg
+    :target: https://badge.fury.io/py/ogc-legends
+
+  .. image:: https://pepy.tech/badge/ogc-legends
+    :target: https://pepy.tech/project/ogc-legends
+
+Python Notebooks
+----------------
+
++ https://github.com/geographika/GeoPythonNotebooks
+
+..
+    + https://mybinder.org/v2/gh/geographika/GeoPythonNotebooks/HEAD
+    
+  
+NuGet Packages
+--------------
+
++ https://github.com/geographika/nuget-bison
+
+  .. image:: https://img.shields.io/nuget/v/bison
+    :target: https://www.nuget.org/packages/Bison/
+
+..
+    https://img.shields.io/nuget/dt/bison
+    
+

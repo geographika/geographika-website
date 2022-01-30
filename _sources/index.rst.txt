@@ -9,6 +9,17 @@
     <div id='map' style='width: 100%; height: 300px;'></div>
 
 .. rst-class:: mytitle
+Site Contents
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    software.rst
+    posts/nuget.rst
+    archive/index   
+
+.. rst-class:: mytitle
 What's New?
 
 Welcome to the new web site! I have decided to move away from blog format to a more documentation-based approach. The plan is to write 
@@ -48,16 +59,6 @@ more detailed technical articles and talk links, and try and keep them up-to-dat
     + A talk on *mappyfile* has been accepted for `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ in Paris in July.
 
 .. note:: The site is currently being redeveloped, so some posts formatting may be temporarily broken. 
-
-.. rst-class:: mytitle
-Site Contents
-
-.. toctree::
-    :maxdepth: 1
-    :titlesonly:
-
-    archive/index
-    posts/nuget.rst
 
 .. rst-class:: mytitle
 Who am I?

@@ -17,13 +17,17 @@ Site Contents
 
     software.rst
     posts/nuget.rst
-    archive/index   
+    archive/index
 
 .. rst-class:: mytitle
 What's New?
 
 Welcome to the new web site! I have decided to move away from blog format to a more documentation-based approach. The plan is to write 
 more detailed technical articles and talk links, and try and keep them up-to-date. 
+
+    *April, 2022*
+    
+    + New post: :doc:`posts/securing_mapserver`
 
     *January, 2022*
     
@@ -57,8 +61,6 @@ more detailed technical articles and talk links, and try and keep them up-to-dat
     + `mappyfile <http://mappyfile.readthedocs.io/en/latest/>`_ 0.2.2 released.
     + I'll be giving a lightning talk at the `OSGeo Ireland - 1st National Symposium 2017 <https://wiki.osgeo.org/wiki/Ireland/Symposium2017>`_ in Limerick on *"Contributing to an OSGeo Project"*.
     + A talk on *mappyfile* has been accepted for `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ in Paris in July.
-
-.. note:: The site is currently being redeveloped, so some posts formatting may be temporarily broken. 
 
 .. rst-class:: mytitle
 Who am I?

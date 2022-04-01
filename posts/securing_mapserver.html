@@ -1,0 +1,471 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Securing MapServer Deployments &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom-bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Geographika</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../software.html">Sofware Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nuget.html">Creating NuGet Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html#comments">Comments</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">  
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="securing-mapserver-deployments">
+<h1><a class="toc-backref" href="#id2">Securing MapServer Deployments</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">date</dt>
+<dd class="field-odd"><p>2022-03-28 19:00</p>
+</dd>
+<dt class="field-even">author</dt>
+<dd class="field-even"><p>geographika</p>
+</dd>
+<dt class="field-odd">status</dt>
+<dd class="field-odd"><p>draft</p>
+</dd>
+</dl>
+<p>Please email any comments or corrections to <a class="reference external" href="mailto:blog&#37;&#52;&#48;geographika&#46;net">blog<span>&#64;</span>geographika<span>&#46;</span>net</a></p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#securing-mapserver-deployments" id="id2">Securing MapServer Deployments</a></p>
+<ul>
+<li><p><a class="reference internal" href="#introduction" id="id3">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#web-server-level-security" id="id4">Web Server-level Security</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mapserver-cgi-permissions" id="id5">MapServer CGI Permissions</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mapserver-level-security" id="id6">MapServer-level Security</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mapserver-codebase" id="id7">MapServer Codebase</a></p></li>
+<li><p><a class="reference internal" href="#limiting-mapfile-access" id="id8">Limiting Mapfile Access</a></p></li>
+<li><p><a class="reference internal" href="#environment-variables" id="id9">Environment Variables</a></p></li>
+<li><p><a class="reference internal" href="#config-file" id="id10">Config File</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mapfile-level-security" id="id11">Mapfile-level Security</a></p>
+<ul>
+<li><p><a class="reference internal" href="#encrypting-connection-strings" id="id12">Encrypting Connection Strings</a></p></li>
+<li><p><a class="reference internal" href="#access-by-ip-addresses" id="id13">Access by IP Addresses</a></p></li>
+<li><p><a class="reference internal" href="#ows-services" id="id14">OWS Services</a></p></li>
+<li><p><a class="reference internal" href="#cgi-modes" id="id15">CGI Modes</a></p></li>
+<li><p><a class="reference internal" href="#restricting-access-to-data-different-users" id="id16">Restricting Access to Data Different Users</a></p></li>
+<li><p><a class="reference internal" href="#denial-of-service-attacks" id="id17">Denial of Service Attacks</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id3">Introduction</a></h2>
+<p>The aim of this page is to summarise the available MapServer security options in a single location, and to act as a rough checklist when reviewing MapServer
+deployments. I’ve tried to link to the official documentation as much as possible, and to make updates to these sections where appropriate.</p>
+<p>Securing a MapServer deployment can be implemented at three levels - the web server-level, the MapServer application-level,
+and at the Mapfile-level. There are plenty of resources on how to securely configure servers, so the focus of this page is on MapServer specific security steps.</p>
+<img alt="../_images/securing_mapserver.png" class="align-center" src="../_images/securing_mapserver.png" />
+<p>My experience with large MapServer deployments has typically been on Windows servers, using data from MicroSoft SQL Server, so there is a focus
+on those aspects in this article.</p>
+</section>
+<section id="web-server-level-security">
+<h2><a class="toc-backref" href="#id4">Web Server-level Security</a></h2>
+<p>General information on securing web servers, such as using firewalls, request filtering, disabling ports etc. is outside the scope of this article.
+As MapServer is a CGI application (it runs as an executable natively outside of the web server), particular attention should be made on
+how best to secure CGI/FastCGI programs on the server.</p>
+<p>For details on Microsoft’s IIS see <a class="reference external" href="https://mapserver.org/installation/iis.html#securing-mapserver-in-iis">Securing MapServer in IIS</a>.
+The <a class="reference external" href="https://mapserver.org/optimization/fastcgi.html">FastCGI docs</a> have some further details on running MapServer using Apache.</p>
+<p>When using CGI, the web server launches the MapServer executable, passes data from the web request, and then returns the output from the
+MapServer executable. When MapServer is run using FastCGI, one or more MapServer executables are kept running in memory to process requests from the web server.</p>
+<section id="mapserver-cgi-permissions">
+<h3><a class="toc-backref" href="#id5">MapServer CGI Permissions</a></h3>
+<p>The user account used to launch MapServer should only have the minimum permissions required to support the web application requirements. A new
+user account should be created to run MapServer so permissions can be created specifically for the application.</p>
+<p>The account used to run MapServer will require read-access to at least the following:</p>
+<ul class="simple">
+<li><p>MapServer binaries, libraries, and their dependencies</p></li>
+<li><p>Mapfiles, and dependent files such as <a class="reference external" href="https://mapserver.org/mapfile/map.html#mapfile-map-fontset">FONTSET</a> and <a class="reference external" href="https://mapserver.org/mapfile/map.html#mapfile-map-symbolset">SYMBOLSET</a></p></li>
+<li><p>MapServer <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-135.html">CONFIG</a> file</p></li>
+<li><p>Data sources, such as those stored in <a class="reference external" href="https://mapserver.org/mapfile/map.html#mapfile-map-shapepath">SHAPEPATH</a></p></li>
+</ul>
+<p>MapServer only serves data, rather than allowing editing, which limits security risk to data leaking out, rather than data being deleted or corrupted.
+However, whilst MapServer does not support data updates, it does requires write-access on the server for the following cases:</p>
+<ul class="simple">
+<li><p>writing to a <a class="reference external" href="https://mapserver.org/mapfile/map.html#mapfile-map-config">LOG</a> file</p></li>
+</ul>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">MAP</span>
+    <span class="k">CONFIG</span> <span class="s">&quot;MS_ERRORFILE&quot;</span> <span class="s">&quot;/var/log/mapserver/ms_error.log&quot;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>creating temporary files. These files are written to one of the following two locations (defaulting to the operating system default temp folders
+if they are not supplied):</p>
+<ul>
+<li><p><a class="reference external" href="https://mapserver.org/mapfile/web.html#mapfile-web-imagepath">WEB IMAGEPATH</a></p></li>
+<li><p><a class="reference external" href="https://mapserver.org/mapfile/web.html#mapfile-web-temppath">WEB TEMPPATH</a> (alternatively this can be set in a <code class="docutils literal notranslate"><span class="pre">MS_TEMPPATH</span></code> environment variable)</p></li>
+</ul>
+</li>
+</ul>
+<p>Temporary files are created by MapServer in cases such as when applying external SLD files to layers, creating zip files for downloads in an <code class="docutils literal notranslate"><span class="pre">OUTPUTFORMAT</span></code>,
+and saving temporary WMS and WFS files from other servers.</p>
+<p>See <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-66.html">MS RFC 66: Better handling of temporary files</a> for more details on temp files.</p>
+</section>
+</section>
+<section id="mapserver-level-security">
+<h2><a class="toc-backref" href="#id6">MapServer-level Security</a></h2>
+<p>Once the web server is secured, further security can be applied at the MapServer application level.</p>
+<section id="mapserver-codebase">
+<h3><a class="toc-backref" href="#id7">MapServer Codebase</a></h3>
+<p>Over the years MapServer has been subject to several external security audits. The codebase is open source which also means it is regularly scanned by
+tools looking for security holes (by both good and bad actors). These reviews sometimes raises CVEs (Common Vulnerabilities and Exposures). The full
+list of MapServer CVEs can be found on <a class="reference external" href="https://www.cvedetails.com/vulnerability-list/vendor_id-9622/product_id-17181/UMN-Mapserver.html">CVE Details</a>.
+Any widely used software CVEs, so having CVEs is not a sign that MapServer is insecure (for example see CVEs for
+<a class="reference external" href="https://www.cvedetails.com/vulnerability-list/vendor_id-2987/product_id-5214/Esri-Arcgis.html">ArcGIS Server</a>).</p>
+<p>As noted on the <a class="reference external" href="https://mapserver.org/development/bugs.html">Reporting Bugs</a> page, security and vulnerability reports should not be submitted as GitHub Issues
+but instead please sent via email to mapserver-security nospam &#64; osgeo.org (remove the blanks and “nospam”).</p>
+</section>
+<section id="limiting-mapfile-access">
+<h3><a class="toc-backref" href="#id8">Limiting Mapfile Access</a></h3>
+<p>From a <a class="reference external" href="https://mapserver.org/announcements/2021-03-30-limit-mapfile-access.html">2021 MapServer Security Advisory</a></p>
+<blockquote>
+<div><p>The MapServer CGI, by default, will happily attempt to process any mapfile it is asked to. While this might be desirable
+in a development environment, it is not acceptable for public-facing installations.</p>
+</div></blockquote>
+<p>See the <a class="reference external" href="https://mapserver.org/optimization/limit_mapfile_access.html">Limit Mapfile Access</a> page for how to limit access. There
+are also further details in <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-56.html">MS RFC 56: Tighten control of access to mapfiles and templates</a></p>
+</section>
+<section id="environment-variables">
+<h3><a class="toc-backref" href="#id9">Environment Variables</a></h3>
+<p>MapServer has a number of <a class="reference external" href="https://mapserver.org/optimization/environment_variables.html">Environment Variables</a> that can be set to limit unwanted use of MapServer.
+Below is a brief summary of the security-related environment variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MS_MAP_PATTERN</span></code> - this can be set to a regular expression, and only paths that match this regular expression will be accepted by MapServer in the “&amp;map=C:/Maps/test.map”
+querystring.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MS_MAP_NO_PATH</span></code> - when this is set to any value e.g. <code class="docutils literal notranslate"><span class="pre">MS_MAP_NO_PATH=1</span></code> or <code class="docutils literal notranslate"><span class="pre">MS_MAP_NO_PATH=TRUE</span></code> then a path to a Mapfile can no longer
+be sent directly to MapServer in a querystring e.g. <code class="docutils literal notranslate"><span class="pre">map=C:/Maps/test.map</span></code>. Mapfiles must be referenced using an environment name e.g. <code class="docutils literal notranslate"><span class="pre">MY_MAPFILE=C:/Maps/test.map</span></code>
+and then referenced using <code class="docutils literal notranslate"><span class="pre">map=MY_MAPFILE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MS_MAP_BAD_PATTERN</span></code> - defaults to <code class="docutils literal notranslate"><span class="pre">[/\\]{2}|[/\\]?\\.+[/\\]|,</span></code> to prevent path traversal, and accessing files outside of the intended public Mapfiles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MS_MAPFILE_PATTERN</span></code> - defaults to <code class="docutils literal notranslate"><span class="pre">'\.map$'</span></code> - only Mapfiles files with the extension of <code class="docutils literal notranslate"><span class="pre">.map</span></code> will be read by MapServer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MS_TEMPPATH</span></code> - this can be set globally to ensure MapServer temporary files are all written to the same location</p></li>
+</ul>
+<p>Several of the above environment variables rely on regular expresssions.</p>
+<blockquote>
+<div><p>Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.</p>
+<p>Jamie Zawinski</p>
+</div></blockquote>
+<p>Regular expressions are hard to write (at least for myself), and hard to test. I’d recommend setting explicit MAP files where possible using the new <code class="docutils literal notranslate"><span class="pre">CONFIG</span></code> file
+discussed below. In addition different builds of MapServer can use different regex libraries, for example Windows and Linux builds, with subtle differences.
+This goes against the idea of Mapfiles being fully portable between systems.</p>
+<p>If your application however does need to use Mapfiles from many different locations, or with dynamic names, I’ve found <a class="reference external" href="https://regex101.com/">https://regex101.com/</a> to be incredibly useful when
+working with regular expressions, in particular its debugging option.</p>
+</section>
+<section id="config-file">
+<h3><a class="toc-backref" href="#id10">Config File</a></h3>
+<p>In MapServer 8.0 a new global <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-135.html">Configuration File</a> was introduced.
+The configuration file makes it easier to manage environment variables in a single place, and can be easily generated for different environments such as development, staging, and production.
+Only a single environment variable <code class="docutils literal notranslate"><span class="pre">MAPSERVER_CONFIG_FILE</span></code> (pointing to the configuration file) needs to be set. Access to the configuration file can be restricted
+to an administrator, whilst allowing editing of Mapfiles for a wider group of users.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure this configuration files is not in a publicly accessible web folder!</p>
+</div>
+<p>Without providing a valid path in <code class="docutils literal notranslate"><span class="pre">MAPSERVER_CONFIG_FILE</span></code>, or without a config file at the default location of <code class="docutils literal notranslate"><span class="pre">${install</span> <span class="pre">dir}/etc/mapserver.conf</span></code> MapServer will refuse
+to run.</p>
+<section id="maps">
+<h4>Maps</h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">MAPS</span></code> section of a config file allows a list of keys and Mapfile locations which can be processed by MapServer. If there is no requirement
+for processing Mapfiles from different locations, or dynamic names then listing all relevant application Mapfiles in this section can greatly reduce the risk
+of loading malicious Mapfiles.</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>MAPS
+    MAP1 <span class="s2">&quot;/opt/mapserver/myapp/map1.map&quot;</span>
+    MAP2 <span class="s2">&quot;/opt/mapserver/myapp/map2.map&quot;</span>
+END
+</pre></div>
+</div>
+<p>Using keys and environment variables avoids <a class="reference external" href="https://mapserver.org/optimization/mapfile.html?#don-t-expose-your-map-path">exposing the path to your Mapfiles</a>
+(which in turn gives away the OS of the server, and possible folder structures).</p>
+</section>
+<section id="plugins">
+<h4>Plugins</h4>
+<p>A key new feature of the config file is that MapServer <a class="reference external" href="https://mapserver.org/mapfile/layer.html#mapfile-layer-plugin">LAYER PLUGINs</a> can now be restricted.
+For example until MapServer 8.0 a MS SQL layer would use the following settings:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">CONNECTIONTYPE</span> <span class="nb">PLUGIN</span>
+<span class="nb">PLUGIN</span> <span class="s">&quot;C:\MapServer</span><span class="se">\b</span><span class="s">in\ms\plugins\mssql2008\msplugin_mssql2008.dll&quot;</span>
+<span class="k">CONNECTION</span> <span class="s">&quot;Server=.\MSSQLSERVER2008;Database=Maps;Integrated Security=true&quot;</span>
+</pre></div>
+</div>
+<p>MapServer will then load this DLL to process the layer. If the DLL is compromised, or the <code class="docutils literal notranslate"><span class="pre">PLUGIN</span></code> location modified to point to a different DLL
+then this opens up a security risk.</p>
+<p>The new configuration file now limits which DLLs can be loaded by MapServer, and the <code class="docutils literal notranslate"><span class="pre">PLUGIN</span></code> accepts a key rather than a file location:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>CONFIG
+  PLUGINS
+    <span class="s2">&quot;mssql&quot;</span> <span class="s2">&quot;C:\MapServer\bin\ms\plugins\mssql2008\msplugin_mssql2008.dll&quot;</span>
+  END
+END
+</pre></div>
+</div>
+<p>Now the layer in the Mapfile can be configured using:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">CONNECTIONTYPE</span> <span class="nb">PLUGIN</span>
+<span class="nb">PLUGIN</span> <span class="s">&quot;mssql&quot;</span> <span class="c"># key from the config file</span>
+<span class="k">CONNECTION</span> <span class="s">&quot;Server=.\MSSQLSERVER2008;Database=Maps;Integrated Security=true&quot;</span>
+</pre></div>
+</div>
+<p>Whilst the DLL could still be compromised, or the CONFIG file modified to point to a different DLL, there is no longer a risk of an
+arbitrary Mapfile being processed by MapServer referencing a DLL that may not even be on the same machine as MapServer.</p>
+</section>
+</section>
+</section>
+<section id="mapfile-level-security">
+<h2><a class="toc-backref" href="#id11">Mapfile-level Security</a></h2>
+<p>The final level for hardening a MapServer deployment is within Mapfiles themselves. Some suggestions are given below. In a production environment
+Mapfiles should ideally be set to read-only to avoid modifications.</p>
+<section id="encrypting-connection-strings">
+<h3><a class="toc-backref" href="#id12">Encrypting Connection Strings</a></h3>
+<p>As Mapfiles are plain text, it is insecure to store details such as passwords in them. MapServer includes a utility
+program <a class="reference external" href="https://mapserver.org/utilities/msencrypt.html">msencrypt</a> to encrypt sensitive data.</p>
+<p><a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-18.html">MS RFC 18: Encryption of passwords in mapfiles</a> notes however that
+this is more obfuscation than secure:</p>
+<blockquote>
+<div><p>Since the user running the web server (and MapServer) needs to have permissions to read the key,
+any web server process or user with permissions to read the key can decrypt the passwords using a trivial program</p>
+</div></blockquote>
+<p>As of MapServer version 8.0 the <code class="docutils literal notranslate"><span class="pre">MS_ENCRYPTION_KEY</span></code> environment variable
+can be stored in the new configuration file. Make sure the key file is not in a location where it can be accessed via a web request!</p>
+<p>An example of an encrypted connection string is shown below:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">MAP</span>
+    <span class="k">CONFIG</span> <span class="s">&quot;MS_ENCRYPTION_KEY&quot;</span> <span class="s">&quot;E:/temp/mykey.txt&quot;</span> <span class="c"># this can now be stored in the configuration file</span>
+    <span class="k">LAYER</span>
+        <span class="k">NAME</span> <span class="s">&quot;provinces&quot;</span>
+        <span class="k">TYPE</span> <span class="nb">POLYGON</span>
+        <span class="k">CONNECTIONTYPE</span> <span class="nb">POSTGIS</span>
+        <span class="c"># unsecure connection string :-(</span>
+        <span class="c">#CONNECTION &quot;host=127.0.0.1 dbname=gmap user=postgres password=mypassword port=5432&quot;</span>
+        <span class="c"># connection string with encrypted password :-)</span>
+        <span class="k">CONNECTION</span> <span class="s">&quot;host=127.0.0.1 dbname=gmap user=postgres password={3656026A23DBAFC04C402EDFAB7CE714} port=5432&quot;</span>
+        <span class="k">DATA</span> <span class="s">&quot;the_geom FROM province using SRID=3978&quot;</span>
+        <span class="k">STATUS</span> <span class="nb">DEFAULT</span>
+        <span class="k">CLASS</span>
+            <span class="k">NAME</span> <span class="s">&quot;Countries&quot;</span>
+            <span class="k">STYLE</span>
+                <span class="k">COLOR</span> <span class="mi">255</span> <span class="mi">0</span> <span class="mi">0</span>
+            <span class="k">END</span>
+        <span class="k">END</span>
+    <span class="k">END</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+<p>Ideally an alternative connection method would be used which does not rely on storing a password, encrypted or not, in a Mapfile. Microsoft SQL Server
+can use Trusted Connections - so called because SQL Server trusts the credentials provided by Windows, rather than SQL Server authentication
+which requires a user name and password to be sent for each request.</p>
+<p><a class="reference external" href="https://docs.microsoft.com/en-us/sql/relational-databases/security/choose-an-authentication-mode?view=sql-server-ver15">Windows Authentication</a>
+is more secure than SQL Server Authentication, and allows for account lockout, password expiration, and password policy enforcement.</p>
+</section>
+<section id="access-by-ip-addresses">
+<h3><a class="toc-backref" href="#id13">Access by IP Addresses</a></h3>
+<p>IP restrictions can be handled at the firewall or server-level, but can also be implemented in Mapfiles. See
+<a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-90.html">MS RFC 90: Enable/Disable Layers in OGC Web Services by IP Lists</a> for details.
+Mapfile restrictions are probably better suited for user groups within a network rather than to restrict publicly available services.</p>
+<p>IP restrictions are implemented by setting a layer’s <a class="reference external" href="https://mapserver.org/mapfile/web.html#mapfile-web-metadata">ows_allowed_ip_list</a> metadata value.
+For example:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">LAYER</span>
+  <span class="k">METADATA</span>
+    <span class="s">&quot;ows_allowed_ip_list&quot;</span> <span class="s">&quot;123.45.67.89 11.22.33.44&quot;</span>
+  <span class="k">END</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+<p>Note this can also be set at the map-level, and specific IP addresses or ranges blocked:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">MAP</span>
+  <span class="k">WEB</span>
+    <span class="k">METADATA</span>
+        <span class="s">&quot;ows_allowed_ip_list&quot;</span> <span class="s">&quot;123.45.67.89 !11.22.33.44&quot;</span>
+        <span class="s">&quot;ows_denied_ip_list&quot;</span> <span class="s">&quot;11.22.33.44&quot;</span> <span class="c"># an alternative to the above</span>
+    <span class="k">END</span>
+  <span class="k">END</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</section>
+<section id="ows-services">
+<h3><a class="toc-backref" href="#id14">OWS Services</a></h3>
+<p>If an application only requires certain OWS services to be used e.g. WMS is required, but not WFS, then these can be restricted. This can be done at
+both the <code class="docutils literal notranslate"><span class="pre">MAP</span></code> and <code class="docutils literal notranslate"><span class="pre">LAYER</span></code> levels using <code class="docutils literal notranslate"><span class="pre">*_enable_request</span></code> metadata keys. See the <a class="reference external" href="https://mapserver.org/ogc/wms_server.html#web-object-metadata">WMS Server docs</a>
+and  <a class="reference external" href="https://mapserver.org/ogc/wfs_server.html#web-object-metadata">WFS Server docs</a>.</p>
+<p>For example:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">MAP</span>
+  <span class="k">WEB</span>
+    <span class="k">METADATA</span>
+      <span class="s">&quot;ows_enable_request&quot;</span> <span class="s">&quot;*&quot;</span> <span class="c"># necessary to allow any ows requests</span>
+    <span class="k">END</span>
+  <span class="k">END</span>
+
+  <span class="k">LAYER</span>
+    <span class="k">NAME</span> <span class="s">&quot;road&quot;</span>
+    <span class="k">DATA</span> <span class="s">&quot;road&quot;</span>
+    <span class="k">TEMPLATE</span> <span class="s">&quot;ttt&quot;</span>
+    <span class="k">METADATA</span>
+      <span class="s">&quot;ows_enable_request&quot;</span> <span class="s">&quot;GetFeatureInfo&quot;</span>
+      <span class="s">&quot;wms_enable_request&quot;</span> <span class="s">&quot;GetCapabilities !GetMap&quot;</span>
+    <span class="k">END</span>
+</pre></div>
+</div>
+<p>If a value is not set for <code class="docutils literal notranslate"><span class="pre">ows_enable_request</span></code> (or <code class="docutils literal notranslate"><span class="pre">wms_enable_request</span></code> or <code class="docutils literal notranslate"><span class="pre">wfs_enable_request</span></code>) no OWS services will be available. If no OWS services are required
+then this will reduce the attack surface. See <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-67.html">MS RFC 67: Enable/Disable Layers in OGC Web Services</a> for further details.</p>
+</section>
+<section id="cgi-modes">
+<h3><a class="toc-backref" href="#id15">CGI Modes</a></h3>
+<p>MapServer is now over 25 years old, and existed well before any OWS services were implemented. Prior to OWS all access to MapServer was by controlled
+using different “modes”, passed to MapServer as a parameter. These are documented on the <a class="reference external" href="https://mapserver.org/cgi/controls.html">MapServer CGI Controls page</a>.</p>
+<p>These are all still available today, however if they are not used then it is prudent to disable them to reduce the attack surface of MapServer.</p>
+<p>To disable the CGI modes the <a class="reference external" href="https://mapserver.org/mapfile/web.html#mapfile-web-metadata">ms_enable_modes</a> metadata option can be set:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">WEB</span>
+  <span class="k">METADATA</span>
+    <span class="c"># disable all modes - this will still allow all WxS services to run without issue</span>
+    <span class="s">&quot;ms_enable_modes&quot;</span> <span class="s">&quot;!*&quot;</span>
+  <span class="k">END</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+<p>Use the asterisk “*” to specify all modes and a preceding exclamation sign “!” to negate the given condition.
+Further details are included in as part of RFC 90, in the <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-90.html#disable-the-stock-cgi-operations">Disable the stock CGI operations</a>
+section.</p>
+</section>
+<section id="restricting-access-to-data-different-users">
+<h3><a class="toc-backref" href="#id16">Restricting Access to Data Different Users</a></h3>
+<p>This is not something built-in to MapServer, but there are a few different approaches on restricting which users can access which layers in a Mapfile:</p>
+<ul class="simple">
+<li><p>Generate a Mapfile for specific user groups, and manage access to layers in this Mapfile at the application or web server layer (either as a once off process
+or by generating Mapfiles on-the-fly)</p></li>
+<li><p>Verify all requests using an intermediary proxy server, and handle authentication outside of MapServer</p></li>
+<li><p>Use security tokens and add <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clauses in layer’s <code class="docutils literal notranslate"><span class="pre">DATA</span></code> settings to ensure data is only returned if the security token exists in the database</p></li>
+</ul>
+</section>
+<section id="denial-of-service-attacks">
+<h3><a class="toc-backref" href="#id17">Denial of Service Attacks</a></h3>
+<p>MapServer can be prone to <a class="reference external" href="https://en.wikipedia.org/wiki/Denial-of-service_attack">DoS attacks</a> - when the server is overwhelmed with requests, or hit with
+requests that trigger processor-intensive responses. Overloading the server can also occur without malicious intent when applications don’t limit the amount
+of data or frequency of requests from users. Many of these attacks should be blocked by server-level security, but it is good practice to limit how much data a user can request.</p>
+<p>A few options are listed below:</p>
+<ul>
+<li><p>Set a <a class="reference external" href="https://mapserver.org/mapfile/map.html#mapfile-map-maxsize">MAXSIZE</a> value. The default value is 4096 (up to 4096 pixels in both width and height), however
+if your application is only going to be generating 256x256 tiles you could restrict this with the following:</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">MAP</span>
+  <span class="k">MAXSIZE</span> <span class="mi">256</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set <a class="reference external" href="https://mapserver.org/mapfile/web.html#mapfile-web-maxscaledenom">MAXSCALEDENOM</a> - this can be used to prevent a user zooming too far out, which may result in
+retrieving lots of features from a database</p></li>
+<li><p><a class="reference external" href="https://www.mapserver.org/fr/ogc/wfs_server.html#web-object-metadata">wfs_maxfeatures</a> - this can be used to limit the number of features returned by the WFS server</p></li>
+</ul>
+<p>Thanks for taking the time to read this article. If you have any further suggestions, best-practices, or notice any errors in the above, please let me know via <a class="reference external" href="mailto:blog&#37;&#52;&#48;geographika&#46;net">blog<span>&#64;</span>geographika<span>&#46;</span>net</a></p>
+</section>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<script data-goatcounter="https://geographika.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022.<br/>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

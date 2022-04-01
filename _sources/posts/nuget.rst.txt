@@ -2,8 +2,9 @@ Creating NuGet Packages
 =======================
 
 :date: 2022-01-28 18:00
+:updated: 2022-03-31 18:00
 :author: geographika
-:status: draft
+:status: published
 
 Please email any comments or corrections to blog@geographika.net
 
@@ -15,12 +16,13 @@ As part of building and testing the SWIG generated MapScript bindings, I've been
 See `Updated and tested Windows CMake build docs <https://github.com/swig/swig/pull/2169>`_ for recent updates.
 
 Gathering dependencies on Windows always has its problems. `NuGet <https://www.nuget.org/>`_ - the package manager for .NET helps with this, especially
-when trying to automate builds, and reproduce them in CI processes. Packages can be installed from the command-line, rather than trying to manually download files. 
+when trying to automate builds and reproduce them in CI processes. Nuget packages can be installed from the command-line, rather than trying to 
+manually download files. 
 
-However often dependencies are not kept updated - the SWIG dependencies are as follows:
+Unfortunately often dependencies are not kept updated - the SWIG dependencies are as follows:
 
-+ `CMake <https://www.nuget.org/packages/CMake-win64/>`_ - the latest version is 3.15.5 which is fine
-+ `Bison <https://www.nuget.org/packages/bison-win32/>`_ - only Bison 2 is available in this package
++ `CMake <https://www.nuget.org/packages/CMake-win64/>`_ - the latest version on Nuget is 3.15.5 which is fine
++ `Bison <https://www.nuget.org/packages/bison-win32/>`_ - only Bison 2 is available in this package, there is no Bison 3
 + `PCRE <https://www.nuget.org/packages/pcre/>`_ - latest version is 8.33.0.1
 
 SWIG itself is also available on NuGet: https://www.nuget.org/packages/swigwintools/
@@ -35,8 +37,7 @@ From the `Bison homepage <https://www.gnu.org/software/bison/>`_:
     Bison is a general-purpose parser generator that converts an annotated context-free grammar 
     into a deterministic LR or generalized LR (GLR) parser employing LALR(1) parser tables.
 
-Bison is currently being maintained by Akim Demaille and Paul Eggert.
-A fork maintained by Akim Demaille is available at https://github.com/akimd/bison
+Bison is currently being maintained by Akim Demaille and Paul Eggert. A fork maintained by Akim Demaille is available at https://github.com/akimd/bison
 
 A very useful project for Windows is `Win flex-bison <https://github.com/lexxmark/winflexbison>`_:
 
@@ -45,7 +46,7 @@ A very useful project for Windows is `Win flex-bison <https://github.com/lexxmar
 This has ready-made exes for Bison at https://sourceforge.net/projects/winflexbison/files/
 It also can be downloaded from Chocolatey at https://community.chocolatey.org/packages/winflexbison3
 
-Initially the SWIG build steps used a combination of both NuGet and Chocolatey, but this was over-complicated, and the aim is to get
+Initially the SWIG build steps used a combination of both NuGet and Chocolatey, but this was over-complicated, and my aim is to get
 all dependencies using one package manager. 
 
 From `StackOverflow <https://stackoverflow.com/questions/24662550/difference-between-chocolatey-and-nuget>`_:
@@ -60,7 +61,7 @@ Bison likely falls into the latter category, but as above the aim is to use a si
 
 
 Building a Bison NuGet Package
-------------------------------
+++++++++++++++++++++++++++++++
 
 I followed the steps based on `this blog post <https://digitalhouseblog.wordpress.com/2019/08/22/how-to-make-a-nuget-package-for-c/>`_
 
@@ -102,7 +103,7 @@ Steps below:
 
     .. code-block:: bat
 
-        nuget sources add -name local -source D:\GitHub\bison-nuget\nuget\_builds
+        nuget sources add -name local-bison -source D:\GitHub\bison-nuget\nuget\_builds
         nuget sources
         C:\Tools\nuget install Bison -Version 3.7.4 -OutputDirectory C:\Tools\bison
 
@@ -118,6 +119,88 @@ Additional notes:
 + Make sure the package is tagged as a "Native package" - https://www.nuget.org/packages?q=tag%3Anative
 + The package contents was added as a repository to https://github.com/geographika/nuget-bison
 + Package is available on NuGet at https://www.nuget.org/packages/Bison/
+
+Building a PCRE2 Package
+++++++++++++++++++++++++
+
+`PCRE 8.33.0.1 <https://www.nuget.org/packages/pcre/>`_ - is available on NuGet, however we want to build SWIG with
+PCRE2. From https://www.pcre.org/:
+
+    There are two major versions of the PCRE library. The current version, PCRE2, released in 2015, is now at version 10.39.
+
+    The older, but still widely deployed PCRE library, originally released in 1997, is at version 8.45. This version of PCRE is now at end of life, and is no longer being actively maintained. 
+    Version 8.45 is expected to be the final release of the older PCRE library, and new projects should use PCRE2 instead.
+
+PCRE2 is available on GitHub at https://github.com/PhilipHazel/pcre2. In the steps below w e will get the latest version at the time of writing (``pcre2-10.39``), and
+compile the project using CMake:
+
++ Get the source and build the project:
+
+  .. code-block:: bat
+  
+      cd C:\Tools
+      SET PATH=C:\Tools\CMake\CMake-win64.3.15.5\bin;%PATH%
+      git clone https://github.com/PhilipHazel/pcre2.git
+      cd pcre2
+      git checkout tags/pcre2-10.39
+      cmake -G "Visual Studio 16 2019" -A x64 -DCMAKE_INSTALL_PREFIX=C:/Tools/pcre2 -S . -B build
+      cmake --build build --config Release --target install
+
++ Now we can take these files and add them to a NuGet package:
+
+  .. code-block:: bat
+  
+      SET OUTPUT_FOLDER=D:\GitHub\nuget-pcre2
+      cd C:\Tools\pcre2
+      copy AUTHORS %OUTPUT_FOLDER%
+      copy LICENCE %OUTPUT_FOLDER%
+      copy README.md %OUTPUT_FOLDER%
+      xcopy C:\Tools\pcre2\build\Release %OUTPUT_FOLDER%\lib /E /I
+      xcopy C:\Tools\pcre2\include %OUTPUT_FOLDER%\include /E /I
+      xcopy C:\Tools\pcre2\doc\html %OUTPUT_FOLDER%\doc /E /I
+
++ Create a nuspec file. See docs at https://docs.microsoft.com/en-us/nuget/reference/nuspec
+
++ Create the package:
+
+    .. code-block:: bat
+
+        cd /D D:\GitHub\nuget-pcre2
+        C:\Tools\nuget pack pcre2.nuspec -OutputDirectory _builds
+
++ Unsure if the following warning applies to C-builds, or .NET builds only?
+
+  .. code-block:: bat
+
+      WARNING: NU5101: The assembly 'lib\pcre2grep.exe' is placed directly under 'lib' folder. It is recommended that assemblies be placed inside a framework-specific folder. 
+      Move it into a framework-specific folder.
+
++ Check the contents of the generated ``PCRE2.10.39.0.nupkg`` by opening with 7-Zip. 
++ Test installing the package locally:
+
+    .. code-block:: bat
+
+        nuget sources add -name local-pcre2 -source D:\GitHub\nuget-pcre2\_builds
+        nuget sources
+        C:\Tools\nuget install PCRE2 -Version 10.39 -OutputDirectory C:\Tools\pcre2
+
++ Push the package to https://www.nuget.org/
+
+    .. code-block:: bat
+
+        cd /D D:\GitHub\nuget-pcre2
+        C:\Tools\nuget push _builds\*.nupkg -Source https://www.nuget.org/ -Apikey MY_API_KEY
+
+Additional notes:
+
++ You can see the contents by clicking "Open in NuGet Package Explorer" https://nuget.info/packages/pcre2/10.39.0
++ The package contents was added as a repository to https://github.com/geographika/nuget-pcre2
++ Package is available on NuGet at https://www.nuget.org/packages/pcre2/
+
+
+..
+    cd /D C:\Tools
+    nuget install  pcre -Version 8.33.0.1 -OutputDirectory C:\Tools\pcre-nuget
 
 Signing Packages
 ----------------

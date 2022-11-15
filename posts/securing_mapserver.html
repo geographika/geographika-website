@@ -1,10 +1,10 @@
 ﻿
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Securing MapServer Deployments &#8212; Geographika</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -14,7 +14,9 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/ol.js"></script>
     <script src="../_static/twitter.js"></script>
     <link rel="search" title="Search" href="../search.html" />
@@ -97,20 +99,20 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="securing-mapserver-deployments">
-<h1><a class="toc-backref" href="#id2">Securing MapServer Deployments</a></h1>
+<h1><a class="toc-backref" href="#id2" role="doc-backlink">Securing MapServer Deployments</a></h1>
 <dl class="field-list simple">
-<dt class="field-odd">date</dt>
+<dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2022-03-28 19:00</p>
 </dd>
-<dt class="field-even">author</dt>
+<dt class="field-even">author<span class="colon">:</span></dt>
 <dd class="field-even"><p>geographika</p>
 </dd>
-<dt class="field-odd">status</dt>
+<dt class="field-odd">status<span class="colon">:</span></dt>
 <dd class="field-odd"><p>draft</p>
 </dd>
 </dl>
 <p>Please email any comments or corrections to <a class="reference external" href="mailto:blog&#37;&#52;&#48;geographika&#46;net">blog<span>&#64;</span>geographika<span>&#46;</span>net</a></p>
-<div class="contents topic" id="table-of-contents">
+<nav class="contents" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#securing-mapserver-deployments" id="id2">Securing MapServer Deployments</a></p>
@@ -142,9 +144,9 @@
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="introduction">
-<h2><a class="toc-backref" href="#id3">Introduction</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Introduction</a></h2>
 <p>The aim of this page is to summarise the available MapServer security options in a single location, and to act as a rough checklist when reviewing MapServer
 deployments. I’ve tried to link to the official documentation as much as possible, and to make updates to these sections where appropriate.</p>
 <p>Securing a MapServer deployment can be implemented at three levels - the web server-level, the MapServer application-level,
@@ -154,7 +156,7 @@ and at the Mapfile-level. There are plenty of resources on how to securely confi
 on those aspects in this article.</p>
 </section>
 <section id="web-server-level-security">
-<h2><a class="toc-backref" href="#id4">Web Server-level Security</a></h2>
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Web Server-level Security</a></h2>
 <p>General information on securing web servers, such as using firewalls, request filtering, disabling ports etc. is outside the scope of this article.
 As MapServer is a CGI application (it runs as an executable natively outside of the web server), particular attention should be made on
 how best to secure CGI/FastCGI programs on the server.</p>
@@ -163,7 +165,7 @@ The <a class="reference external" href="https://mapserver.org/optimization/fastc
 <p>When using CGI, the web server launches the MapServer executable, passes data from the web request, and then returns the output from the
 MapServer executable. When MapServer is run using FastCGI, one or more MapServer executables are kept running in memory to process requests from the web server.</p>
 <section id="mapserver-cgi-permissions">
-<h3><a class="toc-backref" href="#id5">MapServer CGI Permissions</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">MapServer CGI Permissions</a></h3>
 <p>The user account used to launch MapServer should only have the minimum permissions required to support the web application requirements. A new
 user account should be created to run MapServer so permissions can be created specifically for the application.</p>
 <p>The account used to run MapServer will require read-access to at least the following:</p>
@@ -197,10 +199,10 @@ and saving temporary WMS and WFS files from other servers.</p>
 </section>
 </section>
 <section id="mapserver-level-security">
-<h2><a class="toc-backref" href="#id6">MapServer-level Security</a></h2>
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">MapServer-level Security</a></h2>
 <p>Once the web server is secured, further security can be applied at the MapServer application level.</p>
 <section id="mapserver-codebase">
-<h3><a class="toc-backref" href="#id7">MapServer Codebase</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">MapServer Codebase</a></h3>
 <p>Over the years MapServer has been subject to several external security audits. The codebase is open source which also means it is regularly scanned by
 tools looking for security holes (by both good and bad actors). These reviews sometimes raises CVEs (Common Vulnerabilities and Exposures). The full
 list of MapServer CVEs can be found on <a class="reference external" href="https://www.cvedetails.com/vulnerability-list/vendor_id-9622/product_id-17181/UMN-Mapserver.html">CVE Details</a>.
@@ -210,7 +212,7 @@ Any widely used software CVEs, so having CVEs is not a sign that MapServer is in
 but instead please sent via email to mapserver-security nospam &#64; osgeo.org (remove the blanks and “nospam”).</p>
 </section>
 <section id="limiting-mapfile-access">
-<h3><a class="toc-backref" href="#id8">Limiting Mapfile Access</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Limiting Mapfile Access</a></h3>
 <p>From a <a class="reference external" href="https://mapserver.org/announcements/2021-03-30-limit-mapfile-access.html">2021 MapServer Security Advisory</a></p>
 <blockquote>
 <div><p>The MapServer CGI, by default, will happily attempt to process any mapfile it is asked to. While this might be desirable
@@ -220,7 +222,7 @@ in a development environment, it is not acceptable for public-facing installatio
 are also further details in <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-56.html">MS RFC 56: Tighten control of access to mapfiles and templates</a></p>
 </section>
 <section id="environment-variables">
-<h3><a class="toc-backref" href="#id9">Environment Variables</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Environment Variables</a></h3>
 <p>MapServer has a number of <a class="reference external" href="https://mapserver.org/optimization/environment_variables.html">Environment Variables</a> that can be set to limit unwanted use of MapServer.
 Below is a brief summary of the security-related environment variables:</p>
 <ul class="simple">
@@ -245,7 +247,7 @@ This goes against the idea of Mapfiles being fully portable between systems.</p>
 working with regular expressions, in particular its debugging option.</p>
 </section>
 <section id="config-file">
-<h3><a class="toc-backref" href="#id10">Config File</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Config File</a></h3>
 <p>In MapServer 8.0 a new global <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-135.html">Configuration File</a> was introduced.
 The configuration file makes it easier to manage environment variables in a single place, and can be easily generated for different environments such as development, staging, and production.
 Only a single environment variable <code class="docutils literal notranslate"><span class="pre">MAPSERVER_CONFIG_FILE</span></code> (pointing to the configuration file) needs to be set. Access to the configuration file can be restricted
@@ -301,11 +303,11 @@ arbitrary Mapfile being processed by MapServer referencing a DLL that may not ev
 </section>
 </section>
 <section id="mapfile-level-security">
-<h2><a class="toc-backref" href="#id11">Mapfile-level Security</a></h2>
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Mapfile-level Security</a></h2>
 <p>The final level for hardening a MapServer deployment is within Mapfiles themselves. Some suggestions are given below. In a production environment
 Mapfiles should ideally be set to read-only to avoid modifications.</p>
 <section id="encrypting-connection-strings">
-<h3><a class="toc-backref" href="#id12">Encrypting Connection Strings</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Encrypting Connection Strings</a></h3>
 <p>As Mapfiles are plain text, it is insecure to store details such as passwords in them. MapServer includes a utility
 program <a class="reference external" href="https://mapserver.org/utilities/msencrypt.html">msencrypt</a> to encrypt sensitive data.</p>
 <p><a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-18.html">MS RFC 18: Encryption of passwords in mapfiles</a> notes however that
@@ -346,7 +348,7 @@ which requires a user name and password to be sent for each request.</p>
 is more secure than SQL Server Authentication, and allows for account lockout, password expiration, and password policy enforcement.</p>
 </section>
 <section id="access-by-ip-addresses">
-<h3><a class="toc-backref" href="#id13">Access by IP Addresses</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Access by IP Addresses</a></h3>
 <p>IP restrictions can be handled at the firewall or server-level, but can also be implemented in Mapfiles. See
 <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-90.html">MS RFC 90: Enable/Disable Layers in OGC Web Services by IP Lists</a> for details.
 Mapfile restrictions are probably better suited for user groups within a network rather than to restrict publicly available services.</p>
@@ -372,7 +374,7 @@ For example:</p>
 </div>
 </section>
 <section id="ows-services">
-<h3><a class="toc-backref" href="#id14">OWS Services</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">OWS Services</a></h3>
 <p>If an application only requires certain OWS services to be used e.g. WMS is required, but not WFS, then these can be restricted. This can be done at
 both the <code class="docutils literal notranslate"><span class="pre">MAP</span></code> and <code class="docutils literal notranslate"><span class="pre">LAYER</span></code> levels using <code class="docutils literal notranslate"><span class="pre">*_enable_request</span></code> metadata keys. See the <a class="reference external" href="https://mapserver.org/ogc/wms_server.html#web-object-metadata">WMS Server docs</a>
 and  <a class="reference external" href="https://mapserver.org/ogc/wfs_server.html#web-object-metadata">WFS Server docs</a>.</p>
@@ -398,7 +400,7 @@ and  <a class="reference external" href="https://mapserver.org/ogc/wfs_server.ht
 then this will reduce the attack surface. See <a class="reference external" href="https://mapserver.org/development/rfc/ms-rfc-67.html">MS RFC 67: Enable/Disable Layers in OGC Web Services</a> for further details.</p>
 </section>
 <section id="cgi-modes">
-<h3><a class="toc-backref" href="#id15">CGI Modes</a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">CGI Modes</a></h3>
 <p>MapServer is now over 25 years old, and existed well before any OWS services were implemented. Prior to OWS all access to MapServer was by controlled
 using different “modes”, passed to MapServer as a parameter. These are documented on the <a class="reference external" href="https://mapserver.org/cgi/controls.html">MapServer CGI Controls page</a>.</p>
 <p>These are all still available today, however if they are not used then it is prudent to disable them to reduce the attack surface of MapServer.</p>
@@ -416,7 +418,7 @@ Further details are included in as part of RFC 90, in the <a class="reference ex
 section.</p>
 </section>
 <section id="restricting-access-to-data-different-users">
-<h3><a class="toc-backref" href="#id16">Restricting Access to Data Different Users</a></h3>
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Restricting Access to Data Different Users</a></h3>
 <p>This is not something built-in to MapServer, but there are a few different approaches on restricting which users can access which layers in a Mapfile:</p>
 <ul class="simple">
 <li><p>Generate a Mapfile for specific user groups, and manage access to layers in this Mapfile at the application or web server layer (either as a once off process
@@ -426,7 +428,7 @@ or by generating Mapfiles on-the-fly)</p></li>
 </ul>
 </section>
 <section id="denial-of-service-attacks">
-<h3><a class="toc-backref" href="#id17">Denial of Service Attacks</a></h3>
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Denial of Service Attacks</a></h3>
 <p>MapServer can be prone to <a class="reference external" href="https://en.wikipedia.org/wiki/Denial-of-service_attack">DoS attacks</a> - when the server is overwhelmed with requests, or hit with
 requests that trigger processor-intensive responses. Overloading the server can also occur without malicious intent when applications don’t limit the amount
 of data or frequency of requests from users. Many of these attacks should be blocked by server-level security, but it is good practice to limit how much data a user can request.</p>

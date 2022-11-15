@@ -25,6 +25,14 @@ What's New?
 Welcome to the new web site! I have decided to move away from blog format to a more documentation-based approach. The plan is to write 
 more detailed technical articles and talk links, and try and keep them up-to-date. 
 
+    *August, 2022*
+    
+    + Presenting "State of MapServer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_
+      Slides online at https://geographika.github.io/mapserver-state-2022/
+    
+    + Presenting "Introducing Wayfarer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_
+      Slides online at https://compassinformatics.github.io/wayfarer-presentation/
+      
     *April, 2022*
     
     + New post: :doc:`posts/securing_mapserver`
@@ -38,18 +46,19 @@ more detailed technical articles and talk links, and try and keep them up-to-dat
     + Presenting "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_
       Slides online at https://geographika.github.io/mapserver-state-2021/
 	
+..
     *August, 2019*
 
     + Presenting "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_
       Slides online at https://geographika.github.io/mapserver-state-2019/
     + Presenting "State of GeoExt" at `FOSS4G 2019 <https://2019.foss4g.org>`_
       Slides online at https://geographika.github.io/geoext-state-2019/
-
+      
     *April, 2019*
 
     + `Third Irish OSGeo Symposium 2019 <https://wiki.osgeo.org/wiki/Ireland/Symposium2019>`_
       Lightning talk - `Lightning Mapping using OSGeo's MapCache <http://www.cs.nuim.ie/~pmooney/OSGeoIE2019/5.pdf>`_
-..
+      
     *July, 2017*
 
     + `mappyfile <http://mappyfile.readthedocs.io/en/latest/>`_ 0.3.2 released.

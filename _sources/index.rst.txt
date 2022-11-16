@@ -25,6 +25,10 @@ What's New?
 Welcome to the new web site! I have decided to move away from blog format to a more documentation-based approach. The plan is to write 
 more detailed technical articles and talk links, and try and keep them up-to-date. 
 
+I'm currently working on a new project `MapServer Studio <https://mapserverstudio.net/>`_ - an online application to work with Mapfiles
+and dynamically render them with MapServer. Please subscribe by email or follow `@mapserverstudio <https://twitter.com/mapserverstudio>`_
+to keep updated on development. 
+           
     *August, 2022*
     
     + Presenting "State of MapServer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_

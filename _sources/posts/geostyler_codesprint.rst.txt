@@ -1,0 +1,75 @@
+GeoStyler CodeSprint 2023
+=========================
+
+:date: 2023-05-11 18:00
+:author: geographika
+:status: draft
+
+.. image:: images/geostyler.png
+    :align: center
+
+An `OSGeo Community <https://www.osgeo.org/projects/geostyler/>`_ project
+
+    GeoStyler is an Open Source JavaScript library that enables users to style maps with 
+    the help of a Graphical User Interface. The goal of GeoStyler is a universally applicable 
+    GUI that works with any given style format; may it be SLD, QML, OpenLayers, etc.
+
+The demo https://geostyler.github.io/geostyler-demo/
+
+    Furthermore, GeoStyler allows for the translation between multiple styling formats, i.e. SLD, OpenLayers, QGIS, Mapbox.
+
+This is a very important "furthermore"! GeoStyler allows the conversion, and therefore reuse of style between different
+applications.
+
+See the `Supported Formats <https://geostyler.org/parsers/>`_ page for links to all the parsers. 
+
+
+Getting familiar with Discord, Visual Studio Code, TypeScript, ES^, `Jest <>`_ and `Jest Runner <https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner>`_
+(thanks to `@jansule <https://github.com/jansule>`_ for helping me set this up). There's nothing like a codesprint for learning new tools, workflows, and
+languages.
+
+
+GeoCat library is written in Python.
+
+The GeoStyler project is written in TypeScript and transpiled to JavaScript. This makes all the functionality available in the browser.
+
+.. list-table:: Title
+   :widths: 25 25 50
+   :header-rows: 1
+
+   * - Format
+     - To GeoStyler
+     - From GeoStyler
+   * - SLD
+     - `TypeScript <https://github.com/geostyler/geostyler-sld-parser>`_
+     - `TypeScript <https://github.com/geostyler/geostyler-sld-parser>`_
+   * - OpenLayers
+     - `TypeScript <https://github.com/geostyler/geostyler-qgis-parser>`_
+     - `TypeScript <https://github.com/geostyler/geostyler-openlayers-parser>`_
+   * - Mapbox
+     - TypeScript and `Python <https://github.com/GeoCat/bridge-style/blob/master/bridgestyle/mapboxgl/fromgeostyler.py>`_
+     - TypeScript
+   * - QGIS/QML
+     - `TypeScript <https://github.com/geostyler/geostyler-qgis-parser>`_
+     - `TypeScript <https://github.com/geostyler/geostyler-qgis-parser>`_
+   * - Mapfile
+     - `TypeScript <https://github.com/geostyler/geostyler-mapfile-parser>`_
+     - `Python <https://github.com/GeoCat/bridge-style/blob/master/bridgestyle/mapserver/fromgeostyler.py>`_
+   * - ArcGIS Pro
+     - `Python <https://github.com/GeoCat/bridge-style/blob/master/bridgestyle/arcgis/togeostyler.py>`_
+     - 
+
+Future Aims
+-----------
+
+Easier to install. Standalone executable. 
+
+https://github.com/geostyler/geostyler-cli
+
+
+Mailing list post on `Qgis layer style file in mapfile <https://lists.osgeo.org/pipermail/mapserver-users/2023-May/083146.html>`_
+
+ 
+QGIS
+
+Project Properties > Expression Variables

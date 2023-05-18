@@ -1,0 +1,13 @@
+Mapscript Notes
+===============
+
+def msLoadMapFromString(buffer, new_mappath):
+
+msyybasepath = map->mappath; /* for INCLUDEs */
+
+mapscript.fromstring(data, mappath=None):
+
+
+
+
+CONFIG "MS_ERRORFILE"   "stdout"

@@ -3,7 +3,7 @@ Archived Posts
 
 Note
 ----
-.. note:: These are archived posts, and are likely to be out out-of-date. 
+.. note:: These are archived posts, and are likely to be out-of-date. 
 
 
 .. toctree::
@@ -12,5 +12,3 @@ Note
    :glob:
 
    *
-
-.. include:: comments/index.rst

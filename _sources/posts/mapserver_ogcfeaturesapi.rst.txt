@@ -1,0 +1,89 @@
+..
+    PMS requires a token: ?token=46ed94bd-47bb-4bd8-ba6c-83e0dab101e0
+
+http://localhost/mapserver/pms/ogcapi/collections?f=html&token=46ed94bd-47bb-4bd8-ba6c-83e0dab101e0
+
+http://localhost/mapserver/pms/tipperary/?service=wms&request=getcapabilities
+
+https://mapserver.org/development/rfc/ms-rfc-134.html
+
+
+Works with path="*" and a rewrite
+
+But needs a rewrite:
+    <action type="Rewrite" url="mapserv.exe?{QUERY_STRING}&amp;map=D:\TFS\Lgcsb\Main\Python\pms-maps\mapfiles\generated\tipperary.map" appendQueryString="false" logRewrittenUrl="true" />
+
+
+
+All layers must have an extent
+
+{"code":"ConfigError","description":"Error getting collection.Unable to get collection bounding box."}
+
+
+Web metadata:
+
+    "OGA_HTML_TEMPLATE_DIRECTORY" "C:/MapServer/apps/ogcapi/templates/html-bootstrap4/"
+    "OGA_ONLINERESOURCE" "http://localhost/mapserver2/hymo/ogcapi"
+
+https://mapserver.org/mapfile/config.html
+
+IIS
+
+https://mapserver.compass.ie/mapserver/hymo/ogcapi/collections?f=html
+
+Need the following IIS setting:
+
+    <handlers>
+      <add name="MapServerFastCgi"
+           path="/*"
+
+Otherwise "mapserv(): Web application error. Traditional BROWSE mode requires a TEMPLATE in the WEB section, but none was provided."
+
+
+msCGIDispatchAPIRequest(): OCG API error. OGC API requests are not enabled.
+
+
+
+Check that the key used in the URL is listed in the MAPS section of the config file:
+
+  MAPS
+    #TIPPERARY "D:/TFS/Lgcsb/Main/Python/pms-maps/mapfiles/generated/tipperary.map" # mapserv.exe?map=TIPPERARY&
+    TIPPERARY "D:\TFS\Lgcsb\Main\Python\pms-maps\mapfiles\generated\tipperary.map" # mapserv.exe?map=TIPPERARY&
+    ITASCA "D:\GitHub\mapserver-demo\itasca.map"
+    MS4W "D:\GitHub\mapserver\msautotest\wxs\wfs_ogr2.map"
+  END
+
+
+
+If the template files are missing the following error will be returned:
+
+{"code":"ConfigError","description":"InjaError error. [inja.exception.file_error] failed accessing file at 'H:/MapServer/apps/ogcapi/templates/html-bootstrap4/collections.html' (collections.html). (H:/MapServer/apps/ogcapi/templates/html-bootstrap4/)."}
+
+
+Following error if no features are found in the layer:
+{"code":"ConfigError","description":"Template rendering error. [inja.exception.render_error] (at 52:22) variable 'response.features.0.properties' not found (collection-items.html)."}
+Since fixed with https://github.com/MapServer/MapServer/pull/6583
+
+
+You **have** to use Mapfile environment variables to use the OGC Features API
+But could use a URL rewrite to achieve this?
+
+
+ A new namespace - oga (OGC Geospatial API) 
+
+ https://mapserver.org/development/rfc/ms-rfc-134.html#configuration
+
+ or environment variable (OGCAPI_HTML_TEMPLATE_DIRECTORY).
+
+
+
+ If "msLoadMap(): Regular expression error. Filename validation failed."
+ Check that your Map environment variable exists.
+
+
+ Add tokens to the end of the bootstrap templates
+
+
+CLUSTER layers seem to crash the OGC Features API
+Layers can be hidden using:
+

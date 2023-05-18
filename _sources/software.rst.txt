@@ -1,5 +1,5 @@
-Sofware Projects
-================
+Software Projects
+=================
 
 :date: 2022-01-30 18:00
 :author: geographika

@@ -1,0 +1,162 @@
+Updating to MapServer 8.0
+=========================
+
+:date: 2022-03-28 09:00
+:author: geographika
+:status: draft
+
+
+Download a deployment package from 
+
+MSVC 2022, Compiled binaries in a single .zip package
+
+release-1930-x64-gdal-mapserver
+MSVC 2022 compiler
+
+Can download both stable releases and development versions.
+There have been occasions when custom builds of MapServer have been deployed for PMS, with specific fixes or enhancements, but currently all of these changes have been added
+into the main MapServer codebase. 
+
++ Get new release from http://www.gisinternals.com/ e.g. https://www.gisinternals.com/query.html?content=filelist&file=release-1930-x64-gdal-mapserver.zip
++ Place in ``C:\MapServer``. Move any existing folders (from previous MapServer installations) to an Archive folder, except the "apps" folder
++ Copy all the .exes in ``C:\MapServer\bin\ms\apps`` to ``C:\MapServer\bin``
+
+
+Add these files to TFS
+
++ Checkout the folder $/LgcsbPms/Main/Deployment/MapServerBinaries
++ Delete all existing files in $/LgcsbPms/Main/Deployment/MapServerBinaries and check-in
++ Now copy all the files from the zip into $/LgcsbPms/Main/Deployment/MapServerBinaries
++ Add all files to TFS - note make sure there are no "Excluded items" when checking in
+
+Now do the same for PL
+
++ Checkout the folder $/PublicLighting/Main/Deployment/MapServerBinaries
+
+
+On the development server MapServer is updated manually
+
+W19-MapServer
+H:\MapServer
+
+
+Python:
+
+https://pmstipperarydev.compass.ie/pmspy/version
+http://localhost:5151/pmspy/version
+
+Info tool - create a chainage and then click to create a "Strip Map"
+
+Changes
+-------
+
+Proj7
+-----
+
+Configuration File
+------------------
+
+IIS
+
+%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='H:\Mapserver\bin\mapserv.exe'].environmentVariables.[name='MAPSERVER_CONFIG_FILE',value='H:\MapServer\apps\mapserver.conf']" /commit:apphost
+
+
+.. code-block:: mapfile
+
+    CONFIG
+      ENV
+        MS_MAP_PATTERN "."
+        PROJ_LIB "H:/MapServer/bin/proj7/SHARE"
+      END
+    
+      MAPS
+          tipperary "H:/MapServer/apps/pms2/tipperary.map" # mapserv.exe?map=tipperary&
+      END
+  
+      PLUGINS
+        "mssql" "H:/MapServer/bin/ms/plugins/mssql2008/msplugin_mssql2008.dll"
+        "ms/plugins/mssql2008/msplugin_mssql2008.dll" "H:/MapServer/bin/ms/plugins/mssql2008/msplugin_mssql2008.dll" # to support older mapfiles
+      END
+    END
+
+Testing the Deployment
+----------------------
+
+https://pmstipperarydev.compass.ie/mapserver2/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetLegendGraphic&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SLD_VERSION=1.1.0&LAYER=RoadSchedule&STYLE=Basic
+
+{"Detail":"The server encountered an error processing the request. Please see the server logs for more details."}
+
+\\w19-iis\Logs\PmsWebServices.log
+
+2022-03-30 20:42:43,459 [73] ERROR Compass.Pms.Base.Common.Logger.Log4NetLoggerService [LA=(null)] - Unhandled exception from the web service.
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).
+   at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+   at Compass.Pms.WebServices.Services.ServiceBase.<ProcessMapserverRequest>d__37.MoveNext() in H:\Agents\1\_work\82\s\dotNET\Compass.Pms.WebServices\Services\ServiceBase.cs:line 525
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Compass.Pms.WebServices.Services.MapserverService.<MapserverGetRequest>d__0.MoveNext() in H:\Agents\1\_work\82\s\dotNET\Compass.Pms.WebServices\Services\MapserverService.cs:line 33
+
+Check the MapServer logs:
+
+H:\MapServer\apps\pms2\logs\tipperary_mapserver.log
+
+[Wed Mar 30 19:45:08 2022].582000 mapserv(): Web application error. Traditional BROWSE mode requires a TEMPLATE in the WEB section, but none was provided.
+
+This was due to the mapserv.exe not being copied from H:\MapServer\bin\ms\apps to H:\MapServer\bin
+
+   getString(): Symbol definition error. Parsing error near (:):(line 4)
+
+
+
+Python MapScript
+----------------
+
+New env command on Windows
+
+
+set PROJ_LIB=C:\MapServer\bin\proj7\share
+
+
+MapScript Config file
+---------------------
+
+As settings can now be global for the config file we may want to use these values for MapScript scripts:
+
+    config = mapscript.configObj(r'C:\MapServer\apps\mapserver.conf')
+    map = mapscript.mapObj(new_mapfile, config)
+
+
+
+
+Dev Machine
+-----------
+
+``MS_MAP_PATTERN "."``
+
+
+
+
+CONFIG
+  ENV
+    MS_MAP_PATTERN "."
+    #MS_MAP_NO_PATH "1" # any variable can be used here. msCGILoadMap(): Web application error. CGI variable "map" not found in configuration and this server is not configured for full paths.
+    #PROJ_LIB "C:/MapServer/bin/proj7/SHARE"
+    #PROJ_LIB "D:\MapServer\release-1928-x64-dev\release-1928-x64\bin\proj7\SHARE"
+    PROJ_LIB "D:\MapServer\ms4w_5.0.0_beta1\ms4w\share\proj"
+  END
+
+  PLUGINS
+    #"mssql" "D:\MapServer\release-1928-x64-dev\build\Debug\msplugin_mssql2008.dll"
+    "ms/plugins/mssql2008/msplugin_mssql2008.dll" "ms/plugins/mssql2008/msplugin_mssql2008.dll"
+  END
+END
+
+Mapfile Syntax Changes
+----------------------
+
+https://mapserver.org/mapfile/map.html#templatepattern
+
+  #TEMPLATEPATTERN "itasca"
+  Deprecated since version 5.4: See VALIDATION instead
+https://mapserver.org/mapfile/validation.html#

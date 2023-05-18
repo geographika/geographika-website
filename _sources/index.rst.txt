@@ -16,7 +16,7 @@ Site Contents
     :titlesonly:
 
     software.rst
-    posts/nuget.rst
+    posts/index.rst
     archive/index
 
 .. rst-class:: mytitle

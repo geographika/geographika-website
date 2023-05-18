@@ -1,0 +1,10 @@
+Posts
+=====
+
+.. toctree::
+    :maxdepth: 1
+    :titlesonly:
+
+    nuget.rst
+    securing_mapserver.rst
+    ../archive/index

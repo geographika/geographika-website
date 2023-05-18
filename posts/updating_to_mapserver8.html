@@ -1,0 +1,260 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Updating to MapServer 8.0 &#8212; Geographika</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom-bootstrap-sphinx.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/ol.js"></script>
+    <script src="../_static/twitter.js"></script>
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-3.4.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+
+  </head><body>
+
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Geographika</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../software.html">Software Projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Posts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">  
+    <div class="body col-md-12 content" role="main">
+      
+  <section id="updating-to-mapserver-8-0">
+<h1>Updating to MapServer 8.0</h1>
+<dl class="field-list simple">
+<dt class="field-odd">date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2022-03-28 09:00</p>
+</dd>
+<dt class="field-even">author<span class="colon">:</span></dt>
+<dd class="field-even"><p>geographika</p>
+</dd>
+<dt class="field-odd">status<span class="colon">:</span></dt>
+<dd class="field-odd"><p>draft</p>
+</dd>
+</dl>
+<p>Download a deployment package from</p>
+<p>MSVC 2022, Compiled binaries in a single .zip package</p>
+<p>release-1930-x64-gdal-mapserver
+MSVC 2022 compiler</p>
+<p>Can download both stable releases and development versions.
+There have been occasions when custom builds of MapServer have been deployed for PMS, with specific fixes or enhancements, but currently all of these changes have been added
+into the main MapServer codebase.</p>
+<ul class="simple">
+<li><p>Get new release from <a class="reference external" href="http://www.gisinternals.com/">http://www.gisinternals.com/</a> e.g. <a class="reference external" href="https://www.gisinternals.com/query.html?content=filelist&amp;file=release-1930-x64-gdal-mapserver.zip">https://www.gisinternals.com/query.html?content=filelist&amp;file=release-1930-x64-gdal-mapserver.zip</a></p></li>
+<li><p>Place in <code class="docutils literal notranslate"><span class="pre">C:\MapServer</span></code>. Move any existing folders (from previous MapServer installations) to an Archive folder, except the “apps” folder</p></li>
+<li><p>Copy all the .exes in <code class="docutils literal notranslate"><span class="pre">C:\MapServer\bin\ms\apps</span></code> to <code class="docutils literal notranslate"><span class="pre">C:\MapServer\bin</span></code></p></li>
+</ul>
+<p>Add these files to TFS</p>
+<ul class="simple">
+<li><p>Checkout the folder $/LgcsbPms/Main/Deployment/MapServerBinaries</p></li>
+<li><p>Delete all existing files in $/LgcsbPms/Main/Deployment/MapServerBinaries and check-in</p></li>
+<li><p>Now copy all the files from the zip into $/LgcsbPms/Main/Deployment/MapServerBinaries</p></li>
+<li><p>Add all files to TFS - note make sure there are no “Excluded items” when checking in</p></li>
+</ul>
+<p>Now do the same for PL</p>
+<ul class="simple">
+<li><p>Checkout the folder $/PublicLighting/Main/Deployment/MapServerBinaries</p></li>
+</ul>
+<p>On the development server MapServer is updated manually</p>
+<p>W19-MapServer
+H:MapServer</p>
+<p>Python:</p>
+<p><a class="reference external" href="https://pmstipperarydev.compass.ie/pmspy/version">https://pmstipperarydev.compass.ie/pmspy/version</a>
+<a class="reference external" href="http://localhost:5151/pmspy/version">http://localhost:5151/pmspy/version</a></p>
+<p>Info tool - create a chainage and then click to create a “Strip Map”</p>
+<section id="changes">
+<h2>Changes</h2>
+</section>
+<section id="proj7">
+<h2>Proj7</h2>
+</section>
+<section id="configuration-file">
+<h2>Configuration File</h2>
+<p>IIS</p>
+<p>%windir%system32inetsrvappcmd.exe set config -section:system.webServer/fastCgi /+”[fullPath=’H:Mapserverbinmapserv.exe’].environmentVariables.[name=’MAPSERVER_CONFIG_FILE’,value=’H:MapServerappsmapserver.conf’]” /commit:apphost</p>
+<div class="highlight-mapfile notranslate"><div class="highlight"><pre><span></span><span class="k">CONFIG</span>
+  <span class="err">ENV</span>
+    <span class="err">MS_MAP_</span><span class="k">PATTERN</span> <span class="s">&quot;.&quot;</span>
+    <span class="err">PROJ_LIB</span> <span class="s">&quot;H:/MapServer/bin/proj7/SHARE&quot;</span>
+  <span class="k">END</span>
+
+  <span class="err">MAPS</span>
+      <span class="err">tipperary</span> <span class="s">&quot;H:/MapServer/apps/pms2/tipperary.map&quot;</span> <span class="c"># mapserv.exe?map=tipperary&amp;</span>
+  <span class="k">END</span>
+
+  <span class="err">PLUGINS</span>
+    <span class="s">&quot;mssql&quot;</span> <span class="s">&quot;H:/MapServer/bin/ms/plugins/mssql2008/msplugin_mssql2008.dll&quot;</span>
+    <span class="s">&quot;ms/plugins/mssql2008/msplugin_mssql2008.dll&quot;</span> <span class="s">&quot;H:/MapServer/bin/ms/plugins/mssql2008/msplugin_mssql2008.dll&quot;</span> <span class="c"># to support older mapfiles</span>
+  <span class="k">END</span>
+<span class="k">END</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-the-deployment">
+<h2>Testing the Deployment</h2>
+<p><a class="reference external" href="https://pmstipperarydev.compass.ie/mapserver2/?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=TRUE&amp;SLD_VERSION=1.1.0&amp;LAYER=RoadSchedule&amp;STYLE=Basic">https://pmstipperarydev.compass.ie/mapserver2/?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetLegendGraphic&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=TRUE&amp;SLD_VERSION=1.1.0&amp;LAYER=RoadSchedule&amp;STYLE=Basic</a></p>
+<p>{“Detail”:”The server encountered an error processing the request. Please see the server logs for more details.”}</p>
+<p>\w19-iisLogsPmsWebServices.log</p>
+<p>2022-03-30 20:42:43,459 [73] ERROR Compass.Pms.Base.Common.Logger.Log4NetLoggerService [LA=(null)] - Unhandled exception from the web service.
+System.Net.Http.HttpRequestException: Response status code does not indicate success: 500 (Internal Server Error).</p>
+<blockquote>
+<div><p>at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode()
+at Compass.Pms.WebServices.Services.ServiceBase.&lt;ProcessMapserverRequest&gt;d__37.MoveNext() in H:Agents1_work82sdotNETCompass.Pms.WebServicesServicesServiceBase.cs:line 525</p>
+</div></blockquote>
+<dl class="simple">
+<dt>— End of stack trace from previous location where exception was thrown —</dt><dd><p>at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+at Compass.Pms.WebServices.Services.MapserverService.&lt;MapserverGetRequest&gt;d__0.MoveNext() in H:Agents1_work82sdotNETCompass.Pms.WebServicesServicesMapserverService.cs:line 33</p>
+</dd>
+</dl>
+<p>Check the MapServer logs:</p>
+<p>H:MapServerappspms2logstipperary_mapserver.log</p>
+<p>[Wed Mar 30 19:45:08 2022].582000 mapserv(): Web application error. Traditional BROWSE mode requires a TEMPLATE in the WEB section, but none was provided.</p>
+<p>This was due to the mapserv.exe not being copied from H:MapServerbinmsapps to H:MapServerbin</p>
+<blockquote>
+<div><p>getString(): Symbol definition error. Parsing error near (:):(line 4)</p>
+</div></blockquote>
+</section>
+<section id="python-mapscript">
+<h2>Python MapScript</h2>
+<p>New env command on Windows</p>
+<p>set PROJ_LIB=C:MapServerbinproj7share</p>
+</section>
+<section id="mapscript-config-file">
+<h2>MapScript Config file</h2>
+<p>As settings can now be global for the config file we may want to use these values for MapScript scripts:</p>
+<blockquote>
+<div><p>config = mapscript.configObj(r’C:MapServerappsmapserver.conf’)
+map = mapscript.mapObj(new_mapfile, config)</p>
+</div></blockquote>
+</section>
+<section id="dev-machine">
+<h2>Dev Machine</h2>
+<p><code class="docutils literal notranslate"><span class="pre">MS_MAP_PATTERN</span> <span class="pre">&quot;.&quot;</span></code></p>
+<dl>
+<dt>CONFIG</dt><dd><dl class="simple">
+<dt>ENV</dt><dd><p>MS_MAP_PATTERN “.”
+#MS_MAP_NO_PATH “1” # any variable can be used here. msCGILoadMap(): Web application error. CGI variable “map” not found in configuration and this server is not configured for full paths.
+#PROJ_LIB “C:/MapServer/bin/proj7/SHARE”
+#PROJ_LIB “D:MapServerrelease-1928-x64-devrelease-1928-x64binproj7SHARE”
+PROJ_LIB “D:MapServerms4w_5.0.0_beta1ms4wshareproj”</p>
+</dd>
+</dl>
+<p>END</p>
+<dl class="simple">
+<dt>PLUGINS</dt><dd><p>#”mssql” “D:MapServerrelease-1928-x64-devbuildDebugmsplugin_mssql2008.dll”
+“ms/plugins/mssql2008/msplugin_mssql2008.dll” “ms/plugins/mssql2008/msplugin_mssql2008.dll”</p>
+</dd>
+</dl>
+<p>END</p>
+</dd>
+</dl>
+<p>END</p>
+</section>
+<section id="mapfile-syntax-changes">
+<h2>Mapfile Syntax Changes</h2>
+<p><a class="reference external" href="https://mapserver.org/mapfile/map.html#templatepattern">https://mapserver.org/mapfile/map.html#templatepattern</a></p>
+<blockquote>
+<div><p>#TEMPLATEPATTERN “itasca”
+Deprecated since version 5.4: See VALIDATION instead</p>
+</div></blockquote>
+<p><a class="reference external" href="https://mapserver.org/mapfile/validation">https://mapserver.org/mapfile/validation</a>.html#</p>
+</section>
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<script data-goatcounter="https://geographika.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2022.<br/>
+    </p>
+  </div>
+</footer>
+
+  </body>
+</html>

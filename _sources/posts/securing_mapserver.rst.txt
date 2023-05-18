@@ -205,6 +205,11 @@ Mapfile-level Security
 The final level for hardening a MapServer deployment is within Mapfiles themselves. Some suggestions are given below. In a production environment
 Mapfiles should ideally be set to read-only to avoid modifications. 
 
+Validation
+++++++++++
+
+https://mapserver.org/mapfile/validation.html
+
 Encrypting Connection Strings
 +++++++++++++++++++++++++++++
 
@@ -373,3 +378,7 @@ A few options are listed below:
 
 Thanks for taking the time to read this article. If you have any further suggestions, best-practices, or notice any errors in the above, please let me know via blog@geographika.net
 
+..
+    TODO
+    - add section on VALIDATION blocks
+    - leaking passwords with an error..hiding errors in production

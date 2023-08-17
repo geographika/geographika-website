@@ -16,6 +16,7 @@ Site Contents
     :titlesonly:
 
     software.rst
+    presentations.rst
     posts/index.rst
     archive/index
 
@@ -29,49 +30,38 @@ I'm currently working on a new project `MapServer Studio <https://mapserverstudi
 and dynamically render them with MapServer. Please subscribe by email or follow `@mapserverstudio <https://twitter.com/mapserverstudio>`_
 to keep updated on development. 
 
+    *June, 2023*
+
+    + Presenting "MapServer by Example" at `FOSS4G 2023 - Prizren <https://2023.foss4g.org/>`_.
+      Slides online at https://geographika.github.io/foss4g2023-mapserver-by-example/
+
     *November, 2022*
-    
-    + Presenting "Mapfiles, the Gateway to MapServer" at `FOSS4G Belgium & State of the Map Belgium 2022 <https://2022.foss4g.be/en/>`_
+
+    + Presenting "Mapfiles, the Gateway to MapServer" at 
+      `FOSS4G Belgium & State of the Map Belgium 2022 <https://2022.foss4g.be/en/>`_.
       Slides online at https://geographika.github.io/foss4g-be-2022/
       
     *August, 2022*
-    
-    + Presenting "State of MapServer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_
+
+    + Presenting "State of MapServer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_.
       Slides online at https://geographika.github.io/mapserver-state-2022/
-    
-    + Presenting "Introducing Wayfarer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_
+
+    + Presenting "Introducing Wayfarer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_.
       Slides online at https://compassinformatics.github.io/wayfarer-presentation/
       
     *April, 2022*
-    
+
     + New post: :doc:`posts/securing_mapserver`
 
+..
     *January, 2022*
     
     + New post: :doc:`posts/nuget`
 
     *September, 2021*
 
-    + Presenting "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_
+    + Presenting "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_.
       Slides online at https://geographika.github.io/mapserver-state-2021/
-	
-..
-    *August, 2019*
-
-    + Presenting "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_
-      Slides online at https://geographika.github.io/mapserver-state-2019/
-    + Presenting "State of GeoExt" at `FOSS4G 2019 <https://2019.foss4g.org>`_
-      Slides online at https://geographika.github.io/geoext-state-2019/
-      
-    *April, 2019*
-
-    + `Third Irish OSGeo Symposium 2019 <https://wiki.osgeo.org/wiki/Ireland/Symposium2019>`_
-      Lightning talk - `Lightning Mapping using OSGeo's MapCache <http://www.cs.nuim.ie/~pmooney/OSGeoIE2019/5.pdf>`_
-      
-    *July, 2017*
-
-    + `mappyfile <http://mappyfile.readthedocs.io/en/latest/>`_ 0.3.2 released.
-    + Presented mappyfile at `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ - slides available :download:`here</files/foss4ge2017_mappyfile_sgirvin.pdf>`. 
 
     *May, 2017*
 

@@ -21,7 +21,7 @@ Python Packages
   .. image:: https://badge.fury.io/py/mappyfile.svg
     :target: https://badge.fury.io/py/mappyfile
   
-  .. image:: https://pepy.tech/badge/mappyfile
+  .. image:: https://static.pepy.tech/badge/mappyfile
     :target: https://pepy.tech/project/mappyfile
   
   ..
@@ -35,7 +35,7 @@ Python Packages
   .. image:: https://badge.fury.io/py/mappyfile-geojson.svg
     :target: https://badge.fury.io/py/mappyfile-geojson
   
-  .. image:: https://pepy.tech/badge/mappyfile-geojson
+  .. image:: https://static.pepy.tech/badge/mappyfile-geojson
     :target: https://pepy.tech/project/mappyfile-geojson
 
 + `mappyfile-colors <https://github.com/geographika/mappyfile-colors>`_ - a mappyfile plugin to convert between RGB and Hex colours, and to add human readable names 
@@ -45,9 +45,9 @@ Python Packages
       
   .. image:: https://badge.fury.io/py/mappyfile-colors.svg
     :target: https://badge.fury.io/py/mappyfile-colors
-  
-  .. image:: https://pepy.tech/badge/mappyfile-colors
-    :target: https://pepy.tech/project/mappyfile-colors  
+
+  .. image:: https://static.pepy.tech/badge/mappyfile-colors
+    :target: https://pepy.tech/project/mappyfile-colors
 
 + `ogc-legends <https://github.com/geographika/ogc-legends>`_ 
   -  a small library to work with OGC legends 
@@ -58,7 +58,7 @@ Python Packages
   .. image:: https://badge.fury.io/py/ogc-legends.svg
     :target: https://badge.fury.io/py/ogc-legends
 
-  .. image:: https://pepy.tech/badge/ogc-legends
+  .. image:: https://static.pepy.tech/badge/ogc-legends
     :target: https://pepy.tech/project/ogc-legends
 
 Python Notebooks

@@ -1,0 +1,36 @@
+Presentations
+=============
+
+:date: 2023-08-17 18:00
+:author: geographika
+:status: active
+
++ "MapServer by Example" at `FOSS4G 2023 <https://2022.foss4g.org/>`_ -
+  `slides <https://geographika.github.io/foss4g2023-mapserver-by-example/>`__
+
++ "Mapfiles, the Gateway to MapServer" at 
+  `FOSS4G Belgium & State of the Map Belgium 2022 <https://2022.foss4g.be/en/>`_ -
+  `slides <https://geographika.github.io/foss4g-be-2022/>`__
+
++ "State of MapServer" at `FOSS4G 2022 <https://2022.foss4g.org/>`_ -
+  `slides <https://geographika.github.io/mapserver-state-2022/>`__
+
++ "Introducing Wayfarer" at `FOSS4G 2022 <https://2022.foss4g.org/>`_ -
+  `slides <https://compassinformatics.github.io/wayfarer-presentation/>`__
+
++ "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_
+  `slides <https://geographika.github.io/mapserver-state-2022/>`__
+
++ "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org>`_ -
+  `slides <https://geographika.github.io/mapserver-state-2021/>`__
+
++ "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_ -
+  `slides <https://geographika.github.io/mapserver-state-2019/>`__
+
++ "State of GeoExt" at `FOSS4G 2019 <https://2019.foss4g.org>`_ -
+  `slides <https://geographika.github.io/geoext-state-2019/>`__
+
++ `Lightning Mapping using OSGeo's MapCache <http://www.cs.nuim.ie/~pmooney/OSGeoIE2019/5.pdf>`_ at
+  `Third Irish OSGeo Symposium 2019 <https://wiki.osgeo.org/wiki/Ireland/Symposium2019>`_
+
++ "Introducing mappyfile" `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ - slides available :download:`here</files/foss4ge2017_mappyfile_sgirvin.pdf>`

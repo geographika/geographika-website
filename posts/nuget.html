@@ -48,6 +48,9 @@
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../software.html">Software</a></li>
+                <li><a href="../presentations.html">Presentations</a></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a role="button"
@@ -62,6 +65,29 @@
 <li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Posts</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archive/index.html">Archived Posts</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Creating NuGet Packages</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#id1">Bison</a><ul>
+<li><a class="reference internal" href="#building-a-bison-nuget-package">Building a Bison NuGet Package</a></li>
+<li><a class="reference internal" href="#building-a-pcre2-package">Building a PCRE2 Package</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#signing-packages">Signing Packages</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -106,7 +132,7 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="creating-nuget-packages">
-<h1>Creating NuGet Packages</h1>
+<h1>Creating NuGet Packages<a class="headerlink" href="#creating-nuget-packages" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2022-01-28 18:00</p>
@@ -123,7 +149,7 @@
 </dl>
 <p>Please email any comments or corrections to <a class="reference external" href="mailto:blog&#37;&#52;&#48;geographika&#46;net">blog<span>&#64;</span>geographika<span>&#46;</span>net</a></p>
 <section id="background">
-<h2>Background</h2>
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
 <p>As part of building and testing the SWIG generated MapScript bindings, I’ve been updating the
 <a class="reference external" href="https://github.com/swig/swig/blob/master/Doc/Manual/Windows.html">Building swig.exe using CMake</a> docs.
 See <a class="reference external" href="https://github.com/swig/swig/pull/2169">Updated and tested Windows CMake build docs</a> for recent updates.</p>
@@ -140,7 +166,7 @@ manually download files.</p>
 <p>SWIG requires Bison3 to build without warnings - see <a class="reference external" href="https://github.com/swig/swig/issues/2001">Build warnings on Windows when using Bison &lt;3</a></p>
 </section>
 <section id="id1">
-<h2>Bison</h2>
+<h2>Bison<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
 <p>From the <a class="reference external" href="https://www.gnu.org/software/bison/">Bison homepage</a>:</p>
 <blockquote>
 <div><p>Bison is a general-purpose parser generator that converts an annotated context-free grammar
@@ -164,7 +190,7 @@ it easy to install them on your computer. For example, tools like Git, Notepad++
 </div></blockquote>
 <p>Bison likely falls into the latter category, but as above the aim is to use a single tool for all dependencies.</p>
 <section id="building-a-bison-nuget-package">
-<h3>Building a Bison NuGet Package</h3>
+<h3>Building a Bison NuGet Package<a class="headerlink" href="#building-a-bison-nuget-package" title="Link to this heading">¶</a></h3>
 <p>I followed the steps based on <a class="reference external" href="https://digitalhouseblog.wordpress.com/2019/08/22/how-to-make-a-nuget-package-for-c/">this blog post</a></p>
 <p>Steps below:</p>
 <ul>
@@ -227,7 +253,7 @@ C<span class="p">:</span><span class="nl">\Tools\nuget</span><span class="c1"> i
 </ul>
 </section>
 <section id="building-a-pcre2-package">
-<h3>Building a PCRE2 Package</h3>
+<h3>Building a PCRE2 Package<a class="headerlink" href="#building-a-pcre2-package" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://www.nuget.org/packages/pcre/">PCRE 8.33.0.1</a> - is available on NuGet, however we want to build SWIG with
 PCRE2. From <a class="reference external" href="https://www.pcre.org/">https://www.pcre.org/</a>:</p>
 <blockquote>
@@ -304,7 +330,7 @@ C<span class="p">:</span><span class="nl">\Tools\nuget</span><span class="c1"> p
 </section>
 </section>
 <section id="signing-packages">
-<h2>Signing Packages</h2>
+<h2>Signing Packages<a class="headerlink" href="#signing-packages" title="Link to this heading">¶</a></h2>
 <p>TODO: See <a class="reference external" href="https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference">https://docs.microsoft.com/en-us/nuget/reference/signed-packages-reference</a></p>
 </section>
 </section>

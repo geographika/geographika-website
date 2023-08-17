@@ -48,6 +48,9 @@
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../software.html">Software</a></li>
+                <li><a href="../presentations.html">Presentations</a></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a role="button"
@@ -62,6 +65,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../posts/index.html">Posts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Compiling a 64 bit Version of PyISAPIe</a><ul>
+<li><a class="reference internal" href="#get-64-bit-python">1. Get 64-bit Python</a></li>
+<li><a class="reference internal" href="#get-the-pyisapie-source">2. Get the PyISAPIe Source</a></li>
+<li><a class="reference internal" href="#configure-the-visual-studio-project">3. Configure the Visual Studio Project</a></li>
+<li><a class="reference internal" href="#making-the-pre-build-step">4. Making the Pre-build Step</a></li>
+<li><a class="reference internal" href="#compile">5. Compile!</a></li>
+<li><a class="reference internal" href="#image"></a></li>
+<li><a class="reference internal" href="#aftermath">Aftermath</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -106,7 +135,7 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="compiling-a-64-bit-version-of-pyisapie">
-<h1>Compiling a 64 bit Version of PyISAPIe</h1>
+<h1>Compiling a 64 bit Version of PyISAPIe<a class="headerlink" href="#compiling-a-64-bit-version-of-pyisapie" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2010-04-16 11:55</p>
@@ -158,7 +187,7 @@ published there is a <a class="reference external" href="http://groups.google.co
 forums</a>.</p>
 <p>Anyway “How to Compile PyISAPIe for a 64-bit Server in 5 Easy Steps!”…</p>
 <section id="get-64-bit-python">
-<h2>1. Get 64-bit Python</h2>
+<h2>1. Get 64-bit Python<a class="headerlink" href="#get-64-bit-python" title="Link to this heading">¶</a></h2>
 <p>You’ll need a 64 bit version of Python. All my scripts were running and
 developed using Python 2.5.4 so I wanted to compile PyISAPIe to work
 with this.</p>
@@ -191,7 +220,7 @@ Python files ready on my machine.</p>
 <p><img alt="image" src="../_images/image19.png" /></p>
 </section>
 <section id="get-the-pyisapie-source">
-<h2>2. Get the PyISAPIe Source</h2>
+<h2>2. Get the PyISAPIe Source<a class="headerlink" href="#get-the-pyisapie-source" title="Link to this heading">¶</a></h2>
 <p>I originally downloaded a zip of the latest PyISAPIe source code.
 However this is not the way to do things.. The build has an automated
 step which checks something in Subversion (or SVN - an online source
@@ -213,7 +242,7 @@ files via the magic of the Internet.</p>
 <p><img alt="image" src="../_images/image19.png" /></p>
 </section>
 <section id="configure-the-visual-studio-project">
-<h2>3. Configure the Visual Studio Project</h2>
+<h2>3. Configure the Visual Studio Project<a class="headerlink" href="#configure-the-visual-studio-project" title="Link to this heading">¶</a></h2>
 <p>Once the source code has downloaded you should be able to open up the
 PyISAPIe.sln file which references the PyISAPIe.vcproj C++ project file.
 This is set up to compile the 32-bit version by default. You’ll want to
@@ -258,7 +287,7 @@ Python\x64\Python26 and changing the project environment variables.</p>
 <p><img alt="image" src="../_images/image19.png" /></p>
 </section>
 <section id="making-the-pre-build-step">
-<h2>4. Making the Pre-build Step</h2>
+<h2>4. Making the Pre-build Step<a class="headerlink" href="#making-the-pre-build-step" title="Link to this heading">¶</a></h2>
 <p>In the original project file there is a pre-build step that checks
 something in SubVersion (its description is “Subversion Revision Scan”).
 It can be seen at Project &gt;&gt; Properties &gt;&gt; Configuration Properties &gt;&gt;
@@ -301,7 +330,7 @@ debugging information.</p>
 Revision.h file of 5 lines..</p>
 </section>
 <section id="compile">
-<h2>5. Compile!</h2>
+<h2>5. Compile!<a class="headerlink" href="#compile" title="Link to this heading">¶</a></h2>
 <p>Another attempt at compiling and I get:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="mi">14</span> <span class="n">fatal</span> <span class="n">error</span> <span class="n">LNK1104</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="n">file</span> <span class="s1">&#39;python25_d.lib&#39;</span>
 </pre></div>
@@ -315,10 +344,10 @@ download the debug python25_d.lib and python25_d.dll.”</em></p>
 look I have proof..</p>
 </section>
 <section id="image">
-<h2><img alt="image" src="../_images/image19.png" /></h2>
+<h2><img alt="image" src="../_images/image19.png" /><a class="headerlink" href="#image" title="Link to this heading">¶</a></h2>
 </section>
 <section id="aftermath">
-<h2>Aftermath</h2>
+<h2>Aftermath<a class="headerlink" href="#aftermath" title="Link to this heading">¶</a></h2>
 <p>I then set up the PyISAPIe.DLL on IIS7 (using the <a class="reference external" href="http://geographika.co.uk/setting-up-python-on-iis7">same process as I
 detailed here</a>),
 but using my newly compiled 64-bit, and using the DefaultAppPool which
@@ -334,7 +363,7 @@ hope that this is not the final revision of this post.</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments</h3>
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">¶</a></h3>
 <img alt="http://www.gravatar.com/avatar/385b138bae67712d5d09ab526e71a46f?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-1733" src="http://www.gravatar.com/avatar/385b138bae67712d5d09ab526e71a46f?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-1733"><span class="std std-ref">1.</span></a> <strong>Tess</strong>
 **</p>

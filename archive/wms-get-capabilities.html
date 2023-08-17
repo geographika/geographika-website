@@ -47,6 +47,9 @@
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../software.html">Software</a></li>
+                <li><a href="../presentations.html">Presentations</a></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a role="button"
@@ -61,6 +64,27 @@
 <li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../posts/index.html">Posts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">WMS GetCapabilities</a><ul>
+<li><a class="reference internal" href="#messing-with-headers">Messing with Headers</a></li>
+<li><a class="reference internal" href="#a-hackish-solution">A Hackish Solution</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -101,7 +125,7 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="wms-getcapabilities">
-<h1>WMS GetCapabilities</h1>
+<h1>WMS GetCapabilities<a class="headerlink" href="#wms-getcapabilities" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2010-01-16 15:38</p>
@@ -126,7 +150,7 @@
 <a class="reference external" href="http://mapserver.org/">MapServer</a> MAP file, and no I don’t want to
 download mapserv.exe..</p>
 <section id="messing-with-headers">
-<h2>Messing with Headers</h2>
+<h2>Messing with Headers<a class="headerlink" href="#messing-with-headers" title="Link to this heading">¶</a></h2>
 <p>I had the same problem with both Firefox and Internet Explorer 7 each
 time I issues a request such as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>http://geographika.azurewebsites.net/cgi-bin/mapserv.exe?map=/ms4w/apps/my.map&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetCapabilities
@@ -171,7 +195,7 @@ just for good measure..).</p>
 </div>
 </section>
 <section id="a-hackish-solution">
-<h2>A Hackish Solution</h2>
+<h2>A Hackish Solution<a class="headerlink" href="#a-hackish-solution" title="Link to this heading">¶</a></h2>
 <p>All good “fun” but I was still met with the same dialog box to download
 the content. FireBug still reported the response data as <em>“The resource
 from this URL is not text.”</em></p>
@@ -196,7 +220,7 @@ this is happening please let me know.</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments</h3>
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">¶</a></h3>
 <img alt="http://www.gravatar.com/avatar/6796d65709891adf2f6306a70440e1f8?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-5" src="http://www.gravatar.com/avatar/6796d65709891adf2f6306a70440e1f8?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-5"><span class="std std-ref">1.</span></a> <strong>matt</strong>
 **</p>

@@ -21,9 +21,6 @@ Presentations
 + "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_
   `slides <https://geographika.github.io/mapserver-state-2022/>`__
 
-+ "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org>`_ -
-  `slides <https://geographika.github.io/mapserver-state-2021/>`__
-
 + "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_ -
   `slides <https://geographika.github.io/mapserver-state-2019/>`__
 

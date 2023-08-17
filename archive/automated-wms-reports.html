@@ -48,6 +48,9 @@
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../software.html">Software</a></li>
+                <li><a href="../presentations.html">Presentations</a></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a role="button"
@@ -62,6 +65,30 @@
 <li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../posts/index.html">Posts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Automated WMS Reports</a><ul>
+<li><a class="reference internal" href="#the-getcapabilities-request">The GetCapabilities Request</a></li>
+<li><a class="reference internal" href="#adding-metadata-to-the-wms-server">Adding Metadata to the WMS Server</a></li>
+<li><a class="reference internal" href="#using-the-getcapabilities-request">Using the GetCapabilities Request</a></li>
+<li><a class="reference internal" href="#formatting-the-getcapabilities-response">Formatting the GetCapabilities Response</a></li>
+<li><a class="reference internal" href="#future-improvements">Future Improvements</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -106,7 +133,7 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="automated-wms-reports">
-<h1>Automated WMS Reports</h1>
+<h1>Automated WMS Reports<a class="headerlink" href="#automated-wms-reports" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2010-01-26 20:11</p>
@@ -133,7 +160,7 @@ WMS server. The final sample page can be <a class="reference external" href="htt
 here</a>.</p>
 <p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.xml"><img alt="image0" src="../_images/report1.png" /></a></p>
 <section id="the-getcapabilities-request">
-<h2>The GetCapabilities Request</h2>
+<h2>The GetCapabilities Request<a class="headerlink" href="#the-getcapabilities-request" title="Link to this heading">¶</a></h2>
 <p><a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.html"><img alt="image1" src="archive/images/2010/01/report2-300x254.png" /></a></p>
 <p>Web Mapping Services
 (<a class="reference external" href="http://www.opengeospatial.org/standards/wms">WMS</a>) is an open
@@ -161,7 +188,7 @@ format HTML. I’ve worked with XSL a little before so decided to write
 some code myself after not being able to find an existing example.</p>
 </section>
 <section id="adding-metadata-to-the-wms-server">
-<h2>Adding Metadata to the WMS Server</h2>
+<h2>Adding Metadata to the WMS Server<a class="headerlink" href="#adding-metadata-to-the-wms-server" title="Link to this heading">¶</a></h2>
 <p>In order for the GetCapabilities request to return data, it has to be
 entered in the first place. Each WMS server will be configured in
 different ways. In this example I am using
@@ -183,7 +210,7 @@ An example of layer metadata would look as follows:</p>
 </div>
 </section>
 <section id="using-the-getcapabilities-request">
-<h2>Using the GetCapabilities Request</h2>
+<h2>Using the GetCapabilities Request<a class="headerlink" href="#using-the-getcapabilities-request" title="Link to this heading">¶</a></h2>
 <p>To test the MAP file is set up correctly as a WMS Service follow the
 steps
 <a class="reference external" href="http://mapserver.org/ogc/wms_server.html#validate-the-capabilities-metadata">here</a>.
@@ -201,7 +228,7 @@ example</a>
 of a WMS service you can use for comparison with your own.</p>
 </section>
 <section id="formatting-the-getcapabilities-response">
-<h2>Formatting the GetCapabilities Response</h2>
+<h2>Formatting the GetCapabilities Response<a class="headerlink" href="#formatting-the-getcapabilities-response" title="Link to this heading">¶</a></h2>
 <p>The server responds to a valid GetCapabilities by sending back XML. This
 XML can be formatted in the broswer to produce a report using an XSL
 file. My <a class="reference external" href="http://geographika.co.uk/samples/GetCapabilities.html">sample
@@ -234,7 +261,7 @@ the following lines at the top of the XML file:</p>
 from if you start modifying your WMS server code).</p>
 </section>
 <section id="future-improvements">
-<h2>Future Improvements</h2>
+<h2>Future Improvements<a class="headerlink" href="#future-improvements" title="Link to this heading">¶</a></h2>
 <p>The current XSL stylesheet is fairly basic, but does provide a quick way
 to list your layers, and to check that all the required WMS metadata
 items have been filled in. Possible additions to the XSL sheet include:</p>
@@ -254,7 +281,7 @@ rendered that services are running correctly</p></li>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments</h3>
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">¶</a></h3>
 <a style="font-size: large; font-weight: bold;" href="mailto:web+automated-wms-reports@geographika.co.uk?Subject=automated-wms-reports" target="_top">Add Comment</a></section>
 </section>
 </section>

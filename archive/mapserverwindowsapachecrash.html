@@ -48,6 +48,9 @@
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
+                <li><a href="../software.html">Software</a></li>
+                <li><a href="../presentations.html">Presentations</a></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a role="button"
@@ -62,6 +65,28 @@
 <li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../posts/index.html">Posts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">MapServer+Windows 64 bit+Apache=Crash?</a><ul>
+<li><a class="reference internal" href="#the-windows-error-log">The Windows Error Log</a></li>
+<li><a class="reference internal" href="#the-apache-error-log">The Apache Error Log</a></li>
+<li><a class="reference internal" href="#final-outcome">Final Outcome</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -106,7 +131,7 @@
     <div class="body col-md-12 content" role="main">
       
   <section id="mapserver-windows-64-bit-apache-crash">
-<h1>MapServer+Windows 64 bit+Apache=Crash?</h1>
+<h1>MapServer+Windows 64 bit+Apache=Crash?<a class="headerlink" href="#mapserver-windows-64-bit-apache-crash" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">date<span class="colon">:</span></dt>
 <dd class="field-odd"><p>2010-03-11 15:38</p>
@@ -144,7 +169,7 @@ Apache, even though the Apache service was still running. Not even HTML
 pages were returned. Restarting Apache returned the service to normal,
 but this was happening every other day.</p>
 <section id="the-windows-error-log">
-<h2>The Windows Error Log</h2>
+<h2>The Windows Error Log<a class="headerlink" href="#the-windows-error-log" title="Link to this heading">¶</a></h2>
 <p>The Windows Event Log had lots of the following errors:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Faulting</span> <span class="n">application</span> <span class="n">name</span><span class="p">:</span> <span class="n">mapserv</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="mf">0.0.0.0</span><span class="p">,</span> <span class="n">time</span> <span class="n">stamp</span><span class="p">:</span> <span class="mh">0x4935ad86</span>
 <span class="n">Faulting</span> <span class="n">module</span> <span class="n">name</span><span class="p">:</span> <span class="n">MSVCR71</span><span class="o">.</span><span class="n">dll</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="mf">7.10.3052.4</span><span class="p">,</span> <span class="n">time</span> <span class="n">stamp</span><span class="p">:</span> <span class="mh">0x3e561eac</span>
@@ -165,7 +190,7 @@ problem. I tried turning on MapServer debugging, but there were no
 errors reported from MapServer itself.</p>
 </section>
 <section id="the-apache-error-log">
-<h2>The Apache Error Log</h2>
+<h2>The Apache Error Log<a class="headerlink" href="#the-apache-error-log" title="Link to this heading">¶</a></h2>
 <p>On the other hand the Apache log (C:\ms4w\Apache\logs\error.log) had
 several warnings such as the following:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Thu</span> <span class="n">Jan</span> <span class="mi">28</span> <span class="mi">15</span><span class="p">:</span><span class="mi">37</span><span class="p">:</span><span class="mi">15</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">warn</span><span class="p">]</span> <span class="p">(</span><span class="n">OS</span> <span class="mi">64</span><span class="p">)</span><span class="n">The</span> <span class="n">specified</span> <span class="n">network</span> <span class="n">name</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">available</span><span class="o">.</span> <span class="p">:</span>
@@ -197,7 +222,7 @@ line, and restart the Apache service:</p>
 </div>
 </section>
 <section id="final-outcome">
-<h2>Final Outcome</h2>
+<h2>Final Outcome<a class="headerlink" href="#final-outcome" title="Link to this heading">¶</a></h2>
 <p>Unfortunately although the Apache changes stopped the errors it didn’t
 stop the crashing. In the end I had to set up MapServer with IIS and the
 site has been working fine ever since. As a bonus I was also able to use
@@ -217,7 +242,7 @@ the 64 bit versions of MapServer.</p>
 <dd class="field-odd"><p></p></dd>
 </dl>
 <hr><section id="comments">
-<h3>Comments</h3>
+<h3>Comments<a class="headerlink" href="#comments" title="Link to this heading">¶</a></h3>
 <img alt="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" class="align-left" id="comment-79" src="http://www.gravatar.com/avatar/?s=55&amp;d=identicon&amp;r=g" />
 <p><a class="reference internal" href="#comment-79"><span class="std std-ref">1.</span></a> <strong>Tweets that mention geographika » MapServer &amp;amp; SQL Server 2008 Tips – Topsy.com</strong>
 **</p>

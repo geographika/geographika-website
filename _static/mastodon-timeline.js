@@ -23,11 +23,11 @@ window.addEventListener("load", () => {
     timeline_type: "profile",
 
     // Your user ID on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
-    // @mapserverstudio@mastodon.social - https://mastodon-userid-lookup.jcxldn.net/
-    user_id: "110904940077648668",
+    // @geographika@mastodon.social - https://mastodon-userid-lookup.jcxldn.net/
+    user_id: "110781228437524388",
 
     // Your user name on Mastodon instance. Leave empty if you didn't choose 'profile' as type of timeline
-    profile_name: "@mapserverstudio",
+    profile_name: "@geographika",
 
     // The name of the hashtag. Leave empty if you didn't choose 'hashtag' as type of timeline
     hashtag_name: "",

@@ -30,6 +30,11 @@ I'm currently working on a new project `MapServer Studio <https://mapserverstudi
 and dynamically render them with MapServer. Please subscribe by email or follow `@mapserverstudio <https://twitter.com/mapserverstudio>`_
 to keep updated on development. 
 
+    *September, 2023*
+
+    + Released `Open Web Services Inspector <https://ows.mapserverstudio.net/>`_.
+      Online demo at https://ows.mapserverstudio.net/
+
     *June, 2023*
 
     + Presenting "MapServer by Example" at `FOSS4G 2023 - Prizren <https://2023.foss4g.org/>`_.

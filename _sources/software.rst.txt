@@ -5,7 +5,6 @@ Software Projects
 :author: geographika
 :status: active
 
-  
 Python Packages
 ---------------
 
@@ -60,6 +59,16 @@ Python Packages
 
   .. image:: https://static.pepy.tech/badge/ogc-legends
     :target: https://pepy.tech/project/ogc-legends
+
+JavaScript Libraries
+--------------------
+
++ `Open Web Services Inspector <https://github.com/geographika/ows-inspector>`_ a JavaScript web application for testing 
+Open Web Service requests (such as WMS) against geospatial servers.
+
+  + GitHub: https://github.com/geographika/ows-inspector
+  + Online demo:  https://ows.mapserverstudio.net/
+
 
 Python Notebooks
 ----------------

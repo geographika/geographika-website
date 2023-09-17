@@ -5,15 +5,22 @@ Software Projects
 :author: geographika
 :status: active
 
+.. raw:: html
+
+    <picture>
+      <source
+        srcset="https://github-readme-stats.vercel.app/api?username=geographika&theme=vue&show_icons=true&hide_border=true"
+      />
+      <img src="https://github-readme-stats.vercel.app/api?username=geographika&show_icons=true" />
+    </picture>
+
+    
+
 Python Packages
 ---------------
 
 + `mappyfile <https://github.com/geographika/mappyfile>`_ a pure Python MapFile parser for working with MapServer. 
 
-  + GitHub: https://github.com/geographika/mappyfile
-  + Documentation: https://mappyfile.readthedocs.io/
-  + Online demo: https://mappyfile.geographika.net/
-  
   .. image:: https://img.shields.io/github/stars/geographika/mappyfile?style=social
     :target: https://github.com/geographika/mappyfile
   
@@ -22,9 +29,11 @@ Python Packages
   
   .. image:: https://static.pepy.tech/badge/mappyfile
     :target: https://pepy.tech/project/mappyfile
-  
-  ..
-      .. image:: https://img.shields.io/pypi/dm/mappyfile?color=informational  
+
+  + GitHub: https://github.com/geographika/mappyfile
+  + Documentation: https://mappyfile.readthedocs.io/
+  + Online demo: https://mappyfile.geographika.net/
+
 
 + `mappyfile-geojson <https://github.com/geographika/mappyfile-geojson>`_ - a mappyfile plugin to convert GeoJSON to inline features
 
@@ -64,7 +73,10 @@ JavaScript Libraries
 --------------------
 
 + `Open Web Services Inspector <https://github.com/geographika/ows-inspector>`_ a JavaScript web application for testing 
-Open Web Service requests (such as WMS) against geospatial servers.
+  Open Web Service requests (such as WMS) against geospatial servers.
+
+  .. image:: https://img.shields.io/github/stars/geographika/ows-inspector?style=social
+    :target: https://github.com/geographika/ows-inspector
 
   + GitHub: https://github.com/geographika/ows-inspector
   + Online demo:  https://ows.mapserverstudio.net/

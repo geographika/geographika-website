@@ -33,7 +33,7 @@ window.addEventListener("load", () => {
     hashtag_name: "",
 
     // Maximum amount of toots to get. Default: 20
-    toots_limit: "5",
+    toots_limit: "10",
 
     // Hide unlisted toots. Default: don't hide
     hide_unlisted: false,
@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
     hide_reblog: false,
 
     // Hide replies toots. Default: don't hide
-    hide_replies: false,
+    hide_replies: true,
 
     // Hide preview card if toot contains a link, photo or video from a URL. Default: don't hide
     hide_preview_link: false,

@@ -33,7 +33,7 @@ to keep updated on development.
     *September, 2023*
 
     + mappyfile becomes an official `OSGeo Community Project <https://www.osgeo.org/projects/mappyfile/>`_!
-      In celebration version 1.0 has been released. See the `release notes <https://mappyfile.readthedocs.io/en/latest/HISTORY.html#id1>`_
+      In celebration version 1.0 has been released. See the `release notes <https://mappyfile.readthedocs.io/en/latest/HISTORY.html>`_
       for details.
 
     + Released `Open Web Services Inspector <https://ows.mapserverstudio.net/>`_.

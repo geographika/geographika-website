@@ -32,7 +32,7 @@ to keep updated on development.
 
     *June, 2024*
 
-    + Attended the `GeoStyler Codesprint<https://geostyler.org/codesprint-2024/>`_ in Paris, and worked on a
+    + Attended the `GeoStyler Codesprint <https://geostyler.org/codesprint-2024/>`_ in Paris, and worked on a
       `GeoStyler QGIS Plugin <https://github.com/geostyler/geostyler-qgis-plugin>`_.
 
     *September, 2023*

@@ -30,6 +30,11 @@ I'm currently working on a new project `MapServer Studio <https://mapserverstudi
 and dynamically render them with MapServer. Please subscribe by email or follow `@mapserverstudio <https://twitter.com/mapserverstudio>`_
 to keep updated on development. 
 
+    *June, 2024*
+
+    + Attended the `GeoStyler Codesprint<https://geostyler.org/codesprint-2024/>`_ in Paris, and worked on a
+      `GeoStyler QGIS Plugin <https://github.com/geostyler/geostyler-qgis-plugin>`_.
+
     *September, 2023*
 
     + mappyfile becomes an official `OSGeo Community Project <https://www.osgeo.org/projects/mappyfile/>`_!
@@ -44,6 +49,7 @@ to keep updated on development.
     + Presenting "MapServer by Example" at `FOSS4G 2023 - Prizren <https://2023.foss4g.org/>`_.
       Slides online at https://geographika.github.io/foss4g2023-mapserver-by-example/
 
+..
     *November, 2022*
 
     + Presenting "Mapfiles, the Gateway to MapServer" at 
@@ -62,7 +68,6 @@ to keep updated on development.
 
     + New post: :doc:`posts/securing_mapserver`
 
-..
     *January, 2022*
     
     + New post: :doc:`posts/nuget`

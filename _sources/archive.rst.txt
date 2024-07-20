@@ -1,0 +1,38 @@
+.. _archived-news:
+
+Archived News
+=============
+
+*November, 2022*
+
++ Presenting "Mapfiles, the Gateway to MapServer" at 
+    `FOSS4G Belgium & State of the Map Belgium 2022 <https://2022.foss4g.be/en/>`_.
+    Slides online at https://geographika.github.io/foss4g-be-2022/
+      
+*August, 2022*
+
++ Presenting "State of MapServer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_.
+    Slides online at https://geographika.github.io/mapserver-state-2022/
+
++ Presenting "Introducing Wayfarer" at `FOSS4G 2022 - Firenze <https://2022.foss4g.org/>`_.
+    Slides online at https://compassinformatics.github.io/wayfarer-presentation/
+      
+*April, 2022*
+
++ New post: :doc:`posts/securing_mapserver`
+
+*January, 2022*
+    
++ New post: :doc:`posts/nuget`
+
+*September, 2021*
+
++ Presenting "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_.
+    Slides online at https://geographika.github.io/mapserver-state-2021/
+
+*May, 2017*
+
++ All WordPress posts and comments migrated to this new Sphinx-based web site.
++ `mappyfile <http://mappyfile.readthedocs.io/en/latest/>`_ 0.2.2 released.
++ I'll be giving a lightning talk at the `OSGeo Ireland - 1st National Symposium 2017 <https://wiki.osgeo.org/wiki/Ireland/Symposium2017>`_ in Limerick on *"Contributing to an OSGeo Project"*.
++ A talk on *mappyfile* has been accepted for `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ in Paris in July.

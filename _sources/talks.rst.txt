@@ -1,9 +1,21 @@
-Presentations
-=============
+Talks
+=====
 
-:date: 2023-08-17 18:00
+:date: 2024-07-20 18:00
 :author: geographika
 :status: active
+
++ "Creating a New River Network for Ireland" at `FOSS4G Europe 2024 <https://2024.europe.foss4g.org/>`__ -
+  `slides <https://compassinformatics.github.io/ireland-river-networks-foss4geurope-2024/>`__
+
++ "Enhance your MapServer Workflows with mappyfile" at `FOSS4G Europe 2024 <https://2024.europe.foss4g.org/>`__ -
+  `slides <https://geographika.github.io/mappyfile-foss4geurope-2024/>`__
+
++ "State of MapServer" at `FOSS4G Europe 2024 <https://2024.europe.foss4g.org/>`__ -
+  `slides <https://talks.osgeo.org/foss4g-europe-2024/talk/S9JYHZ/>`__
+
++ "Getting Started with MapServer" workshop at `FOSS4G Europe 2024 <https://2024.europe.foss4g.org/>`__ -
+  `documentation <https://geographika.github.io/getting-started-with-mapserver/>`__
 
 + "MapServer by Example" at `FOSS4G 2023 <https://2022.foss4g.org/>`_ -
   `slides <https://geographika.github.io/foss4g2023-mapserver-by-example/>`__

@@ -22,7 +22,7 @@ At `FOSS4G Europe 2025 <https://2025.europe.foss4g.org/>`__:
   and `conference link <https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/F3GHKV/>`__.
 
 + "Doing Geospatial with Python" see `workshop website <https://geopython.github.io/geopython-workshop/>`__
-  and `conference link `<https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/9JK3TC/>`__.
+  and `conference link <https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/9JK3TC/>`__.
 
 2024
 ----

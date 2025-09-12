@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>MapServer and SQL Server 2008 Plug-in &#8212; Geographika</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=9afac83c" />
     <link rel="stylesheet" type="text/css" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css?v=02f538dc" />
     <link rel="stylesheet" type="text/css" href="../_static/mastodon-timeline.min.css?v=eddf9f32" />
     <link rel="stylesheet" type="text/css" href="../_static/custom-bootstrap-sphinx.css?v=459f6afa" />
     <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/ol.js?v=98716c8e"></script>
     <script src="../_static/mastodon-timeline.js?v=47eed501"></script>
@@ -63,7 +63,7 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../software.html">Software Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks and Workshops</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../posts/index.html">Posts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
 </ul>
@@ -107,7 +107,7 @@
 
 <div class="container">
   <div class="row">  
-    <div class="body col-md-12 content" role="main">
+    <div class="body col-md-9 content" role="main">
       
   <section id="mapserver-and-sql-server-2008-plug-in">
 <h1>MapServer and SQL Server 2008 Plug-in<a class="headerlink" href="#mapserver-and-sql-server-2008-plug-in" title="Link to this heading">¶</a></h1>
@@ -147,7 +147,7 @@ which was <a class="reference external" href="http://n2.nabble.com/ms-sql-2008-s
 and upgraded my installation. The WMS queries still failed but at least
 this time I got an error message:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">msMSSQL2008LayerGetShape</span><span class="p">():</span> <span class="n">Query</span> <span class="n">error</span><span class="o">.</span> <span class="n">Error</span> <span class="n">executing</span> <span class="n">MSSQL2008</span> <span class="n">SQL</span> <span class="n">statement</span><span class="p">:</span>
-<span class="n">SELECT</span> <span class="n">convert</span><span class="p">(</span><span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">FID</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">SEI_MyTable</span> <span class="n">WHERE</span>
+<span class="n">SELECT</span> <span class="n">convert</span><span class="p">(</span><span class="n">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">FID</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">SEI_MyTable</span> <span class="n">WHERE</span>
 <span class="n">GEOM</span><span class="o">.</span><span class="n">STIntersects</span><span class="p">(</span><span class="n">Geometry</span><span class="p">::</span><span class="n">STGeomFromText</span><span class="p">(</span><span class="o">&amp;</span><span class="c1">#39;POLYGON((343410.447904052 262585.540545139,</span>
 <span class="mf">343410.447904052</span> <span class="mf">262585.540545139</span><span class="p">,</span><span class="mf">343410.447904052</span> <span class="mf">262585.540545139</span><span class="p">,</span><span class="mf">343410.447904052</span>
 <span class="mf">262585.540545139</span><span class="p">,</span><span class="mf">343410.447904052</span> <span class="mf">262585.540545139</span><span class="p">))</span><span class="o">&amp;</span><span class="c1">#39;,0)) = 1</span>
@@ -253,7 +253,32 @@ editing), and its nice to see MapInfo take an interest in their users.</p>
 
 
     </div>
-      
+     
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">MapServer and SQL Server 2008 Plug-in</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="mapinfo-and-sql-server-2008.html" title="Previous Chapter: MapInfo and SQL Server 2008"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; MapInfo and S...</span>
+    </a>
+  </li>
+  <li>
+    <a href="mapserver-openlayers-and-the-wfs-maze.html" title="Next Chapter: MapServer, OpenLayers and the WFS Maze"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">MapServer, Op... &raquo;</span>
+    </a>
+  </li>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div> 
   </div>
 </div>
 <script data-goatcounter="https://geographika.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

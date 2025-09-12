@@ -1,9 +1,31 @@
-Talks
-=====
+Talks and Workshops
+===================
 
-:date: 2024-07-20 18:00
+:date: 2025-09-12 18:00
 :author: geographika
 :status: active
+
+This page provides links to talks and presentations I've given over the past few years.
+
+2025
+----
+
+At `FOSS4G Europe 2025 <https://2025.europe.foss4g.org/>`__:
+
++ "State of OWSLib" `talk link <https://talks.osgeo.org/foss4g-europe-2025/talk/BLXNJG/>`__ and
+  `slides <https://geographika.github.io/owslib-state-2025/>`__.
+
++ "State of MapServer" `talk link <https://talks.osgeo.org/foss4g-europe-2025/talk/EFUSN8/>`__ and
+  `slides <https://geographika.github.io/mapserver-state-2025/>`__.
+
++ "Getting Started with MapServer Workshop" see `workshop website <https://geographika.github.io/getting-started-with-mapserver/>`__
+  and `conference link <https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/F3GHKV/>`__.
+
++ "Doing Geospatial with Python" see `workshop website <https://geopython.github.io/geopython-workshop/>`__
+  and `conference link `<https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/9JK3TC/>`__.
+
+2024
+----
 
 + "Creating a New River Network for Ireland" at `FOSS4G Europe 2024 <https://2024.europe.foss4g.org/>`__ -
   `slides <https://compassinformatics.github.io/ireland-river-networks-foss4geurope-2024/>`__
@@ -17,8 +39,14 @@ Talks
 + "Getting Started with MapServer" workshop at `FOSS4G Europe 2024 <https://2024.europe.foss4g.org/>`__ -
   `documentation <https://geographika.github.io/getting-started-with-mapserver/>`__
 
+2023
+----
+
 + "MapServer by Example" at `FOSS4G 2023 <https://2022.foss4g.org/>`_ -
   `slides <https://geographika.github.io/foss4g2023-mapserver-by-example/>`__
+
+2022
+----
 
 + "Mapfiles, the Gateway to MapServer" at 
   `FOSS4G Belgium & State of the Map Belgium 2022 <https://2022.foss4g.be/en/>`_ -
@@ -30,8 +58,14 @@ Talks
 + "Introducing Wayfarer" at `FOSS4G 2022 <https://2022.foss4g.org/>`_ -
   `slides <https://compassinformatics.github.io/wayfarer-presentation/>`__
 
+2021
+----
+
 + "State of MapServer" at `FOSS4G 2021 <https://2021.foss4g.org/>`_
   `slides <https://geographika.github.io/mapserver-state-2022/>`__
+
+2019
+----
 
 + "State of MapServer" at `FOSS4G 2019 <https://2019.foss4g.org>`_ -
   `slides <https://geographika.github.io/mapserver-state-2019/>`__
@@ -41,5 +75,8 @@ Talks
 
 + `Lightning Mapping using OSGeo's MapCache <http://www.cs.nuim.ie/~pmooney/OSGeoIE2019/5.pdf>`_ at
   `Third Irish OSGeo Symposium 2019 <https://wiki.osgeo.org/wiki/Ireland/Symposium2019>`_
+
+2017
+----
 
 + "Introducing mappyfile" `FOSS4G Europe <https://europe.foss4g.org/2017/Home>`_ - slides available :download:`here</files/foss4ge2017_mappyfile_sgirvin.pdf>`

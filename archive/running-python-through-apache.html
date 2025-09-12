@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Running Python through Apache &#8212; Geographika</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/bootstrap-sphinx.css?v=9afac83c" />
     <link rel="stylesheet" type="text/css" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css?v=02f538dc" />
     <link rel="stylesheet" type="text/css" href="../_static/mastodon-timeline.min.css?v=eddf9f32" />
     <link rel="stylesheet" type="text/css" href="../_static/custom-bootstrap-sphinx.css?v=459f6afa" />
     <script src="../_static/documentation_options.js?v=f2a433a1"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/ol.js?v=98716c8e"></script>
     <script src="../_static/mastodon-timeline.js?v=47eed501"></script>
@@ -63,7 +63,7 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../software.html">Software Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talks.html">Talks and Workshops</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../posts/index.html">Posts</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Archived Posts</a></li>
 </ul>
@@ -107,7 +107,7 @@
 
 <div class="container">
   <div class="row">  
-    <div class="body col-md-12 content" role="main">
+    <div class="body col-md-9 content" role="main">
       
   <section id="running-python-through-apache">
 <h1>Running Python through Apache<a class="headerlink" href="#running-python-through-apache" title="Link to this heading">¶</a></h1>
@@ -183,9 +183,9 @@ created during the installation of Mod_python.</p>
 <p>2. Add the following code to a mptest.py file in a
 C:\ms4w\Apache\htdocs\test folder (check the spaces/tabs for the
 script are correct using the Python editor IDLE):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">mod_python</span> <span class="kn">import</span> <span class="n">apache</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mod_python</span><span class="w"> </span><span class="kn">import</span> <span class="n">apache</span>
 
-<span class="k">def</span> <span class="nf">handler</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handler</span><span class="p">(</span><span class="n">req</span><span class="p">):</span>
  <span class="n">req</span><span class="o">.</span><span class="n">content_type</span> <span class="o">=</span> <span class="s1">&#39;text/plain&#39;</span>
  <span class="n">req</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
  <span class="k">return</span> <span class="n">apache</span><span class="o">.</span><span class="n">OK</span>
@@ -210,7 +210,7 @@ blog post in itself and I hope to document that soon.</p>
 <p>Finally, if in a fit of frustration with non-running Python scripts you
 uninstall everything mentioning the name Python from your machine, you
 are likely to find the error message below in your Apache log files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="n">make_obcallback</span><span class="p">:</span> <span class="n">could</span> <span class="ow">not</span> <span class="kn">import</span> <span class="nn">mod_python.apache.</span>\<span class="n">n</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="n">make_obcallback</span><span class="p">:</span> <span class="n">could</span> <span class="ow">not</span> <span class="kn">import</span><span class="w"> </span><span class="nn">mod_python.apache.</span>\<span class="n">n</span>
 <span class="ne">ImportError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="n">mod_python</span><span class="o">.</span><span class="n">apache</span>
 <span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="n">make_obcallback</span><span class="p">:</span> <span class="n">Python</span> <span class="n">path</span> <span class="n">being</span> <span class="n">used</span> <span class="s2">&quot;[&#39;...</span>
 <span class="p">[</span><span class="n">Mon</span> <span class="n">Jan</span> <span class="mi">18</span> <span class="mi">12</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">02</span> <span class="mi">2010</span><span class="p">]</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="p">[</span><span class="n">client</span> <span class="mf">172.30.99.54</span><span class="p">]</span> <span class="n">python_handler</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t get/create interpreter.</span>
@@ -251,7 +251,32 @@ weblog :)…</p>
 
 
     </div>
-      
+     
+      <div class="col-md-3">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li><a class="reference internal" href="#">Running Python through Apache</a><ul>
+<li><a class="reference internal" href="#comments">Comments</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="reboot-to-refresh-environment-variables.html" title="Previous Chapter: Reboot to Refresh Environment Variables"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Reboot to Ref...</span>
+    </a>
+  </li>
+  <li>
+    <a href="setting-up-a-secure-cascading-wms-on-mapserver.html" title="Next Chapter: Setting up a Secure Cascading WMS on MapServer"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Setting up a ... &raquo;</span>
+    </a>
+  </li>
+<form action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div> 
   </div>
 </div>
 <script data-goatcounter="https://geographika.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>

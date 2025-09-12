@@ -32,6 +32,29 @@ I'm currently working on a new project `MapServer Studio <https://mapserverstudi
 and dynamically render them with MapServer. Please subscribe by email or follow `@mapserverstudio <https://mastodon.social/@mapserverstudio>`_
 to keep updated on development. 
 
+    *July, 2025*
+
+    + `FOSS4G Europe - Mostar <https://2025.europe.foss4g.org/>`_.
+
+      - Presented the `Getting Started with MapServer Workshop <https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/F3GHKV/>`_.
+        See the `Workshop Documentation <https://geographika.github.io/getting-started-with-mapserver/>`_.
+      - Assisted the OSGeo GeoPython team with `Doing Geospatial with Python <https://geopython.github.io/geopython-workshop/>`_
+        and `Diving into pygeoapi <https://dive.pygeoapi.io/>`_.
+      - Lightning Talk - `State of OWSLib <https://talks.osgeo.org/foss4g-europe-2025/talk/BLXNJG/>`_, slides
+        `here <https://geographika.github.io/owslib-state-2025/>`__.
+      - Lightning Talk - `State of MapServer <https://talks.osgeo.org/foss4g-europe-2025/talk/EFUSN8/>`_, slides
+        `here <https://geographika.github.io/mapserver-state-2025/>`__.
+
+    + Wrote a new GDAL tutorial `Working with a Digital Terrain Model (DTM) <https://gdal.org/en/latest/tutorials/raster_dtm_tut.html>`_.
+
+    *June, 2025*
+
+    + Wrote a new GDAL tutorial `Downloading GeoParquet Data from Overture Maps <https://gdal.org/en/latest/tutorials/vector_geoparquet_tut.html>`_.
+
+    *April, 2025*
+
+    + Joined the GDAL maintainers team to assist with documentation and tutorial writing.
+
     *July, 2024*
 
     + `FOSS4G Europe - Tartu <https://2024.europe.foss4g.org/>`_.
@@ -49,20 +72,6 @@ to keep updated on development.
 
     + Attended the `GeoStyler Codesprint <https://geostyler.org/codesprint-2024/>`_ in Paris, and worked on a
       `GeoStyler QGIS Plugin <https://github.com/geostyler/geostyler-qgis-plugin>`_.
-
-    *September, 2023*
-
-    + mappyfile becomes an official `OSGeo Community Project <https://www.osgeo.org/projects/mappyfile/>`_!
-      In celebration version 1.0 has been released. See the `release notes <https://mappyfile.readthedocs.io/en/latest/HISTORY.html>`_
-      for details.
-
-    + Released `Open Web Services Inspector <https://ows.mapserverstudio.net/>`_.
-      Online demo at https://ows.mapserverstudio.net/
-
-    *June, 2023*
-
-    + Presenting "MapServer by Example" at `FOSS4G 2023 - Prizren <https://2023.foss4g.org/>`_.
-      Slides online at https://geographika.github.io/foss4g2023-mapserver-by-example/
 
     :ref:`Older News...<archived-news>`
 

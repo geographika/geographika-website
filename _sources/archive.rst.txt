@@ -3,6 +3,20 @@
 Archived News
 =============
 
+*September, 2023*
+
++ mappyfile becomes an official `OSGeo Community Project <https://www.osgeo.org/projects/mappyfile/>`_!
+    In celebration version 1.0 has been released. See the `release notes <https://mappyfile.readthedocs.io/en/latest/HISTORY.html>`_
+    for details.
+
++ Released `Open Web Services Inspector <https://ows.mapserverstudio.net/>`_.
+    Online demo at https://ows.mapserverstudio.net/
+
+*June, 2023*
+
++ Presenting "MapServer by Example" at `FOSS4G 2023 - Prizren <https://2023.foss4g.org/>`_.
+    Slides online at https://geographika.github.io/foss4g2023-mapserver-by-example/
+
 *November, 2022*
 
 + Presenting "Mapfiles, the Gateway to MapServer" at 
